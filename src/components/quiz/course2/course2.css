@@ -1,0 +1,72 @@
+@media all and (min-width: 480px) {
+  .quiz {
+    padding: 40px 0;
+  }
+}
+
+.btn:focus {
+  border-color: #ccc;
+  outline: none !important;
+  outline-offset: none !important;
+}
+
+.btn-group-vertical {
+  max-width: 50%;
+}
+
+@keyframes showScore {
+  0% {
+    opacity: 0;
+    font-size: 0;
+    top: 0%;
+  }
+  70% {
+    opacity: 0.8;
+    font-size: 70px;
+    top: 30%;
+  }
+  100% {
+    opacity: 0;
+    font-size: 290px;
+    top: 50%;
+  }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 1;
+  }
+  10% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.w > *,
+.r > * {
+  animation-name: fade;
+  animation-duration: 1s;
+}
+.w::before {
+  content: "WRONG";
+  color: red;
+  position: fixed;
+  z-index: 1500;
+  text-align: center;
+  animation-name: showScore;
+  animation-duration: 0.9s;
+}
+.r::before {
+  content: "RIGHT";
+  color: green;
+  position: fixed;
+  z-index: 1500;
+  text-align: center;
+  animation-name: showScore;
+  animation-duration: 0.9s;
+}

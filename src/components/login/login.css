@@ -1,0 +1,16 @@
+@media all and (min-width: 480px) {
+  .login {
+    padding: 40px 0;
+  }
+}
+
+.noError {
+  display: none;
+}
+
+.login h1 {
+  font-weight: 600;
+}
+.login p {
+  color: #999;
+}

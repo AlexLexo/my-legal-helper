@@ -1,0 +1,74 @@
+@media all and (min-width: 480px) {
+  .quiz {
+    padding: 40px 0;
+  }
+}
+
+h1 {
+  font-size: 4vw !important;
+}
+h3 {
+  font-size: 3.5vw !important;
+}
+h4 {
+  font-size: 3vw !important;
+}
+p {
+  font-size: 2.5vw !important;
+}
+
+.btn {
+  font-size: 3vw !important;
+}
+.btn-group-vertical {
+  max-width: 50%;
+}
+
+.c1-q {
+  margin-left: 20%;
+  margin-right: 20%;
+  text-align: justify;
+  max-width: 60%;
+}
+
+@keyframes showScore {
+  0% {
+    opacity: 0;
+    font-size: 0;
+    top: 40%;
+  }
+  70% {
+    opacity: 0.8;
+    font-size: 70px;
+    top: 70%;
+  }
+  100% {
+    opacity: 0;
+    font-size: 290px;
+    top: 80%;
+  }
+}
+.w::before {
+  content: "WRONG";
+  color: red;
+  position: fixed;
+  z-index: 1500;
+  left: 0;
+  right: 0;
+  top: 40%;
+  text-align: center;
+  animation-name: showScore;
+  animation-duration: 0.9s;
+}
+.r::before {
+  content: "RIGHT";
+  color: green;
+  position: fixed;
+  z-index: 1500;
+  left: 0;
+  right: 0;
+  top: 40%;
+  text-align: center;
+  animation-name: showScore;
+  animation-duration: 0.9s;
+}
