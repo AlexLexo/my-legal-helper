@@ -7,9 +7,7 @@ import Home from './../home/home';
 import FAQs from './../faqs/faqs';
 import Login from './../login/login';
 import Quiz from './../quiz/quiz';
-import Course1 from './../quiz/course1/course1';
-import Course2 from './../quiz/course2/course2';
-import Results from './../quiz/results/results';
+import Section1 from './../quiz/section-1/section-1';
 import NotFound from './../not-found/not-found';
 
 import PrivateRoute from './private-route';
@@ -21,12 +19,9 @@ class Routes extends Component {
   componentDidMount() {
     this.removeListener = fire.auth().onAuthStateChanged(user => {
       if (user) {
-        console.log('user is true');
-        this.props.SessionStore.setUser(user);
-        this.props.SessionStore.handleSignedIn(true);
+        this.props.SessionStore.handleSignedIn(true, user);
       } else {
-        console.log('user is false');
-        this.props.SessionStore.handleSignedIn(false);
+        this.props.SessionStore.handleSignedIn(false, null);
       }
     });
   }
@@ -45,30 +40,8 @@ class Routes extends Component {
               <Route exact path="/" component={Home} />
               <Route exact path="/faqs" component={FAQs} />
               <Route exact path="/login" component={Login} />
-              <PrivateRoute
-                authed={this.props.SessionStore.signedIn}
-                exact
-                path="/quiz"
-                component={Quiz}
-              />
-              <PrivateRoute
-                authed={this.props.SessionStore.signedIn}
-                exact
-                path="/c1"
-                component={Course1}
-              />
-              <PrivateRoute
-                authed={this.props.SessionStore.signedIn}
-                exact
-                path="/c2"
-                component={Course2}
-              />
-              <PrivateRoute
-                authed={this.props.SessionStore.signedIn}
-                exact
-                path="/results"
-                component={Results}
-              />
+              <PrivateRoute authed={this.props.SessionStore.signedIn} exact path="/quiz" component={Quiz} />
+              <PrivateRoute authed={this.props.SessionStore.signedIn} exact path="/section1" component={Section1} />
               <Route component={NotFound} />
             </Switch>
           </div>

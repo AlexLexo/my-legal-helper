@@ -8,7 +8,7 @@ import Modal from 'react-bootstrap/lib/Modal';
 
 import './modal.css';
 
-@inject('UIStore', 'SessionStore', 'C1Store', 'C2Store')
+@inject('UIStore', 'SessionStore')
 @observer
 class ModalComp extends Component {
   constructor(props, context) {
@@ -29,13 +29,11 @@ class ModalComp extends Component {
   handleShow() {
     this.setState({ show: true });
   }
-  store = this.props.C2Store.currentQ.q
-    ? this.props.C2Store
-    : this.props.C1Store;
+  store = this.props.C1Store;
   render() {
     const popover = (
       <Popover id="modal-popover" title="tip">
-        See a hint & some stats for this question
+        See a hint and some stats for this question
       </Popover>
     );
     /*const tooltip = <Tooltip id="modal-tooltip">wow.</Tooltip>;*/
@@ -50,16 +48,11 @@ class ModalComp extends Component {
 
         <Modal show={this.state.show} onHide={this.handleClose}>
           <Modal.Header closeButton>
-            <Modal.Title componentClass="h2">
-              Here are the statistics for this question
-            </Modal.Title>
+            <Modal.Title componentClass="h2">Here are the statistics for this question</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <div className="pop-body">
-              <p>
-                Last Answer was:{' '}
-                {this.store.q.lastAnsd === 'w' ? 'incorrect' : 'correct'}
-              </p>
+              <p>Last Answer was: {this.store.q.lastAnsd === 'w' ? 'incorrect' : 'correct'}</p>
               <p>Last saw question: {this.store.q.lastSeen}</p>
               <p>Score: {this.props.C2Store.q.score}</p>
               <p>Times Answered: {this.store.q.timesAnsd}</p>

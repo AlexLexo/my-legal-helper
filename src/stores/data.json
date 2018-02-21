@@ -1,0 +1,2115 @@
+{
+  "cFullName": {
+    "qId": "cFullName",
+    "nxtQId": "cDOB",
+    "title": "What is your full name?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "text",
+    "placeholder": "e.g. Alexander Jeffcott"
+  },
+  "cDOB": {
+    "qId": "cDOB",
+    "nxtQId": "iDate",
+    "title": "What is your date of birth?",
+    "type": "date",
+    "placeholder": "eg. 25/12/1982"
+  },
+  "cEmail": {
+    "qId": "cEmail",
+    "nxtQId": "iDate",
+    "title": "What is your email address?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "email",
+    "placeholder": "e.g. info@mylegalhelper.com"
+  },
+  "iDate": {
+    "qId": "iDate",
+    "nxtQId": "iWhere",
+    "title": "When did the incident take place?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "date",
+    "placeholder": "e.g. 25/12/2009"
+  },
+  "iWhere": {
+    "qId": "iWhere",
+    "title": "Where did the incident take place?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "dropdown",
+    "btnvalues": [
+      {
+        "ansId": "iWhereEngOrWales",
+        "ansLabel": "England or Wales",
+        "nxtQId": "ridingBike"
+      },
+      {
+        "ansId": "iWhereElsewhere",
+        "ansLabel": "Elsewhere",
+        "nxtQId": "jurisdiction"
+      }
+    ]
+  },
+  "ridingBike": {
+    "qId": "ridingBike",
+    "title": "Were you riding a bicycle?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "button",
+    "btnvalues": [
+      {
+        "ansId": "ridingBikeYes",
+        "ansLabel": "Yes",
+        "nxtQId": "dDetsHave"
+      },
+      {
+        "ansId": "ridingBikeNo",
+        "ansLabel": "No",
+        "nxtQId": "bikesOnly"
+      }
+    ]
+  },
+  "dDetsHave": {
+    "qId": "dDetsHave",
+    "title":
+      "Do you have access to the name/address or insurance details for the defendant (i.e. the person who caused the incident)? If they were a driver or riding a moped/motorcycle you just need their registration?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "button",
+    "btnvalues": [
+      {
+        "ansId": "dDetsHaveYes",
+        "ansLabel": "Yes",
+        "nxtQId": "dInsured"
+      },
+      {
+        "ansId": "dDetsHaveNo",
+        "ansLabel": "No",
+        "nxtQId": "hitAndRun"
+      }
+    ]
+  },
+  "dInsured": {
+    "qId": "dInsured",
+    "title": "Is the defendant insured?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "button",
+    "btnvalues": [
+      {
+        "ansId": "dInsuredYes",
+        "ansLabel": "Yes",
+        "nxtQId": "acceptedMoney"
+      },
+      {
+        "ansId": "dInsuredNo",
+        "ansLabel": "No",
+        "nxtQId": "acceptedMoney"
+      },
+      {
+        "ansId": "dInsuredDoNotKnow",
+        "ansLabel": "Not sure",
+        "nxtQId": "acceptedMoney"
+      }
+    ]
+  },
+  "acceptedMoney": {
+    "qId": "acceptedMoney",
+    "title": "Have you accepted money from the defendant?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "button",
+    "btnvalues": [
+      {
+        "ansId": "acceptedMoneyYes",
+        "ansLabel": "Yes",
+        "nxtQId": "dProsecuted"
+      },
+      {
+        "ansId": "acceptedMoneyNo",
+        "ansLabel": "No",
+        "nxtQId": "dProsecuted"
+      }
+    ]
+  },
+  "dProsecuted": {
+    "qId": "dProsecuted",
+    "title": "Was the defendant prosecuted as a result of the incident?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "button",
+    "btnvalues": [
+      {
+        "ansId": "dProsecutedYes",
+        "ansLabel": "Yes",
+        "nxtQId": "dAdmitedLiability"
+      },
+      {
+        "ansId": "dProsecutedNo",
+        "ansLabel": "No",
+        "nxtQId": "dAdmitedLiability"
+      }
+    ]
+  },
+  "dAdmitedLiability": {
+    "qId": "dAdmitedLiability",
+    "title": "Has the defendant admitted liability in writing?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "button",
+    "btnvalues": [
+      {
+        "ansId": "dAdmitedLiabilityYes",
+        "ansLabel": "Yes",
+        "nxtQId": "witnessDets"
+      },
+      {
+        "ansId": "dAdmitedLiabilityNo",
+        "ansLabel": "No",
+        "nxtQId": "witnessDets"
+      }
+    ]
+  },
+  "witnessDets": {
+    "qId": "witnessDets",
+    "title": "Do you have the details of any witnesses?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "button",
+    "btnvalues": [
+      {
+        "ansId": "witnessDetsYes",
+        "ansLabel": "Yes",
+        "nxtQId": "darkLights"
+      },
+      {
+        "ansId": "witnessDetsNo",
+        "ansLabel": "No",
+        "nxtQId": "darkLights"
+      }
+    ]
+  },
+  "darkLights": {
+    "qId": "darkLights",
+    "title": "If it was dark, did you have lights?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "button",
+    "btnvalues": [
+      {
+        "ansId": "darkLightsYes",
+        "ansLabel": "Yes",
+        "nxtQId": "injuredBy"
+      },
+      {
+        "ansId": "darkLightsNo",
+        "ansLabel": "No",
+        "nxtQId": "injuredBy"
+      },
+      {
+        "ansId": "darkLightsNA",
+        "ansLabel": "It was light",
+        "nxtQId": "injuredBy"
+      }
+    ]
+  },
+  "injuredBy": {
+    "qId": "injuredBy",
+    "title": "Was the incident was caused by:",
+    "answered": "",
+    "answeredOn": "",
+    "type": "dropdown",
+    "btnvalues": [
+      {
+        "ansId": "injuredByPed",
+        "ansLabel": "Pedestrian",
+        "nxtQId": "pedDets"
+      },
+      {
+        "ansId": "injuredByBike",
+        "ansLabel": "Cyclist",
+        "nxtQId": "filtering"
+      },
+      {
+        "ansId": "injuredByAnimal",
+        "ansLabel": "Animal",
+        "nxtQId": "animalPet"
+      },
+      {
+        "ansId": "injuredByDoor",
+        "ansLabel": "Car door",
+        "nxtQId": "dooredDets"
+      },
+      {
+        "ansId": "injuredByOther",
+        "ansLabel": "None of the above",
+        "nxtQId": "injuredBy2"
+      }
+    ]
+  },
+  "injuredBy2": {
+    "qId": "injuredBy2",
+    "title": "",
+    "answered": "",
+    "answeredOn": "",
+    "type": "dropdown",
+    "btnvalues": [
+      {
+        "ansId": "injuredByMotorbikeMoped",
+        "ansLabel": "Motorcycle or moped",
+        "nxtQId": "filtering"
+      },
+      {
+        "ansId": "injuredByCarVan",
+        "ansLabel": "Car or van",
+        "nxtQId": "filtering"
+      },
+      {
+        "ansId": "injuredByBusLorry",
+        "ansLabel": "Bus or lorry",
+        "nxtQId": "filtering"
+      },
+      {
+        "ansId": "injuredByRoadDefect",
+        "ansLabel": "Road defect",
+        "nxtQId": "roadDefect"
+      },
+      {
+        "ansId": "injuredByOther2",
+        "ansLabel": "None of the above",
+        "nxtQId": "contactMe"
+      }
+    ]
+  },
+  "filtering": {
+    "qId": "filtering",
+    "title":
+      "Were you filtering? (i.e. moving past a queue of stationary or slow-moving traffic).",
+    "answered": "",
+    "answeredOn": "",
+    "type": "button",
+    "btnvalues": [
+      {
+        "ansId": "filteringYes",
+        "ansLabel": "Yes",
+        "nxtQId": "iDets1"
+      },
+      {
+        "ansId": "filteringNo",
+        "ansLabel": "No",
+        "nxtQId": "manoeuvring"
+      }
+    ]
+  },
+  "manoeuvring": {
+    "qId": "manoeuvring",
+    "title":
+      "Were you manoeuvring around something or overtaking on your bicycle?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "button",
+    "btnvalues": [
+      {
+        "ansId": "manoeuvringYes",
+        "ansLabel": "Yes",
+        "nxtQId": "manoeuvringAdvice"
+      },
+      {
+        "ansId": "manoeuvringNo",
+        "ansLabel": "No",
+        "nxtQId": "iDets1"
+      }
+    ]
+  },
+  "pedDets": {
+    "qId": "pedDets",
+    "title": "What was the pedestrian doing?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "dropdown",
+    "btnvalues": [
+      {
+        "ansId": "pedDetsStationary",
+        "ansLabel": "They were stationary",
+        "nxtQId": "pedStationary"
+      },
+      {
+        "ansId": "pedDetsRanInto",
+        "ansLabel": "They ran into me",
+        "nxtQId": "pedDetsRanIntoDir"
+      },
+      {
+        "ansId": "pedDetsCrossingPath",
+        "ansLabel": "They were crossing me path",
+        "nxtQId": "pedDetsCrossedDir"
+      },
+      {
+        "ansId": "pedDetsOther",
+        "ansLabel": "Other",
+        "nxtQId": "contactMe"
+      }
+    ]
+  },
+  "pedDetsRanIntoDir": {
+    "qId": "pedDetsRanIntoDir",
+    "title": "",
+    "answered": "",
+    "answeredOn": "",
+    "type": "button",
+    "btnvalues": [
+      {
+        "ansId": "pedDetsRanIntoDirR",
+        "ansLabel": "Right",
+        "nxtQId": "pedRanInto"
+      },
+      {
+        "ansId": "pedDetsRanIntoDirL",
+        "ansLabel": "Left",
+        "nxtQId": "pedRanInto"
+      }
+    ]
+  },
+  "pedDetsCrossedDir": {
+    "qId": "pedDetsCrossedDir",
+    "title": "From which direction?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "button",
+    "btnvalues": [
+      {
+        "ansId": "pedDetsCrossedDirR",
+        "ansLabel": "Right",
+        "nxtQId": "cyclingLoc"
+      },
+      {
+        "ansId": "pedDetsCrossedDirL",
+        "ansLabel": "Left",
+        "nxtQId": "cyclingLoc"
+      }
+    ]
+  },
+  "dooredDets": {
+    "qId": "dooredDir",
+    "title": "Which door?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "dropdown",
+    "btnvalues": [
+      {
+        "ansId": "dooredDetsPassenger",
+        "ansLabel": "A passenger's door",
+        "nxtQId": "dooredPassenger"
+      },
+      {
+        "ansId": "dooredDetsDriver",
+        "ansLabel": "The driver's door",
+        "nxtQId": "dooredDriver"
+      }
+    ]
+  },
+  "cyclingLoc": {
+    "qId": "cyclingLoc",
+    "title": "Where were you cycling?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "dropdown",
+    "btnvalues": [
+      {
+        "ansId": "cyclingLocRoad",
+        "ansLabel": "On a road",
+        "nxtQId": "cyclingLocMoreDets"
+      },
+      {
+        "ansId": "cyclingLocOffRoad",
+        "ansLabel": "Off-road",
+        "nxtQId": "crossingOffRoad"
+      },
+      {
+        "ansId": "cyclingLocCarPark",
+        "ansLabel": "In a car park",
+        "nxtQId": "cyclingLocMoreDets"
+      },
+      {
+        "ansId": "cyclingLocPavement",
+        "ansLabel": "On the pavement (cycling not permitted)",
+        "nxtQId": "crossingNotPermitted"
+      },
+      {
+        "ansId": "cyclingLocPath",
+        "ansLabel": "On a cycle path",
+        "nxtQId": "cyclingLocMoreDets"
+      },
+      {
+        "ansId": "cyclingLocPark",
+        "ansLabel": "In a park",
+        "nxtQId": "cyclingPermitted"
+      },
+      {
+        "ansId": "cyclingLocOther",
+        "ansLabel": "Other",
+        "nxtQId": "contactMe"
+      }
+    ]
+  },
+  "cyclingLocMoreDets": {
+    "qId": "cyclingLocMoreDets",
+    "title": "Just a few more details...",
+    "answered": "",
+    "answeredOn": "",
+    "type": "dropdown",
+    "btnvalues": [
+      {
+        "ansId": "cyclingLocMoreDetsTrafLights",
+        "ansLabel": "It was at a set of traffic lights",
+        "nxtQId": "trafLights"
+      },
+      {
+        "ansId": "cyclingLocMoreDetsPedCrossing",
+        "ansLabel": "It was at a pedestrian crossing",
+        "nxtQId": "pedCrossing"
+      },
+      {
+        "ansId": "cyclingLocMoreDetsOther",
+        "ansLabel": "Other",
+        "nxtQId": "behindToPath"
+      }
+    ]
+  },
+  "trafLights": {
+    "qId": "trafLights",
+    "title": "Were they",
+    "answered": "",
+    "answeredOn": "",
+    "type": "dropdown",
+    "btnvalues": [
+      {
+        "ansId": "trafLightsRed",
+        "ansLabel": "Red",
+        "nxtQId": "red"
+      },
+      {
+        "ansId": "trafLightsGreen",
+        "ansLabel": "Green",
+        "nxtQId": "green"
+      },
+      {
+        "ansId": "trafLightsAmberRed",
+        "ansLabel": "Amber going red",
+        "nxtQId": "amberRed"
+      },
+      {
+        "ansId": "trafLightsRedAmber",
+        "ansLabel": "Red and amber",
+        "nxtQId": "redAmber"
+      }
+    ]
+  },
+  "behindToPath": {
+    "qId": "behindToPath",
+    "title": "Did the defendant:",
+    "answered": "",
+    "answeredOn": "",
+    "type": "dropdown",
+    "btnvalues": [
+      {
+        "ansId": "behindToPathObj",
+        "ansLabel": "Step out from behind an object",
+        "nxtQId": "fromBehindObj"
+      },
+      {
+        "ansId": "behindToPathPave",
+        "ansLabel": "Step off the pavement",
+        "nxtQId": "offPavement"
+      },
+      {
+        "ansId": "behindToPathOther",
+        "ansLabel": "Neither of the above",
+        "nxtQId": "contactMe"
+      }
+    ]
+  },
+  "cyclingPermitted": {
+    "qId": "cyclingPermitted",
+    "title": "Was cycling permitted?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "button",
+    "btnvalues": [
+      {
+        "ansId": "cyclingPermittedYes",
+        "ansLabel": "Yes",
+        "nxtQId": "permittedPath"
+      },
+      {
+        "ansId": "cyclingPermittedNo",
+        "ansLabel": "No",
+        "nxtQId": "notPermitted"
+      }
+    ]
+  },
+  "animalPet": {
+    "qId": "animalPet",
+    "title": "Was it a pet?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "button",
+    "btnvalues": [
+      {
+        "ansId": "animalPetYes",
+        "ansLabel": "Yes",
+        "nxtQId": "animalLead"
+      },
+      {
+        "ansId": "animalPetNo",
+        "ansLabel": "No",
+        "nxtQId": "animalType"
+      }
+    ]
+  },
+  "animalLead": {
+    "qId": "animalLead",
+    "title": "Was it on a lead?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "button",
+    "btnvalues": [
+      {
+        "ansId": "animalLeadYes",
+        "ansLabel": "Yes",
+        "nxtQId": "animalType"
+      },
+      {
+        "ansId": "animalLeadNo",
+        "ansLabel": "No",
+        "nxtQId": "animalType"
+      }
+    ]
+  },
+  "animalType": {
+    "qId": "animalType",
+    "nxtQId": "animal",
+    "title": "What kind of animal was it?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "text",
+    "placeholder": "e.g. a dog"
+  },
+  "iDets1": {
+    "qId": "iDets1",
+    "title": "Which best describes your situation?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "dropdown",
+    "btnvalues": [
+      {
+        "ansId": "iDets1TurnInto",
+        "ansLabel": "The defendant turned into me / went across my path",
+        "nxtQId": "vTurned1"
+      },
+      {
+        "ansId": "iDets1Roundabout",
+        "ansLabel": "The incident happened at a roundabout",
+        "nxtQId": "roundabout"
+      },
+      {
+        "ansId": "iDets1Rear",
+        "ansLabel": "I was rear-ended",
+        "nxtQId": "rearEndedBy"
+      },
+      {
+        "ansId": "iDets1HitAsPassed",
+        "ansLabel": "I was hit as I was being passed",
+        "nxtQId": "iDets1HitAsPassedAdvice"
+      },
+      {
+        "ansId": "iDets1Other",
+        "ansLabel": "None of the above",
+        "nxtQId": "iDets2"
+      }
+    ]
+  },
+  "iDets2": {
+    "qId": "iDets2",
+    "title": "Which best describes your situation?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "dropdown",
+    "btnvalues": [
+      {
+        "ansId": "iDets2RanIntoBack",
+        "ansLabel": "I ran into the back of them",
+        "nxtQId": "youRearEnded"
+      },
+      {
+        "ansId": "iDets2RanRedLight",
+        "ansLabel": "I was hit at a junction while jumping a red light",
+        "nxtQId": "iDets2RanRedLightAdvice"
+      },
+      {
+        "ansId": "iDets2Pave",
+        "ansLabel": "I was cycling on the pavement when it was not permitted",
+        "nxtQId": "iDets2PaveAdvice"
+      },
+      {
+        "ansId": "iDets2Other",
+        "ansLabel": "None of the above",
+        "nxtQId": "contactMe"
+      }
+    ]
+  },
+  "vTurned1": {
+    "qId": "vTurned1",
+    "title": "Which best describes your situation?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "dropdown",
+    "btnvalues": [
+      {
+        "ansId": "vTurned1RChangingLanes",
+        "ansLabel":
+          "They were going in the same direction as me and hit me from the right while changing lanes",
+        "nxtQId": "vTurned1ChangingLanesAdvice"
+      },
+      {
+        "ansId": "vTurned1LChangingLanes",
+        "ansLabel":
+          "They were going in the same direction as me and hit me from the left while changing lanes",
+        "nxtQId": "vTurned1ChangingLanesAdvice"
+      },
+      {
+        "ansId": "vTurned1RTurning",
+        "ansLabel":
+          "They were going in the same direction as me and hit me while turning right",
+        "nxtQId": "vDirDetsSameQTurnIntoYouRAdvice"
+      },
+      {
+        "ansId": "vTurned1LTurning",
+        "ansLabel":
+          "They were going in the same direction as me and hit me while turning left",
+        "nxtQId": "vDirDetsSameQTurnIntoYouLAdvice"
+      },
+      {
+        "ansId": "vTurned1None",
+        "ansLabel": "None of the above",
+        "nxtQId": "vTurned2"
+      }
+    ]
+  },
+  "vTurned2": {
+    "qId": "vTurned2",
+    "title": "Which best describes your situation?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "dropdown",
+    "btnvalues": [
+      {
+        "ansId": "vTurned2Overtaking",
+        "ansLabel": "They were oncoming and hit me while overtaking",
+        "nxtQId": "oncomingOvertakingAdvice"
+      },
+      {
+        "ansId": "vTurned2Turning",
+        "ansLabel":
+          "They were oncoming and hit me when they turned across my path",
+        "nxtQId": "oncomingAcrossPathAdvice"
+      },
+      {
+        "ansId": "vTurned2Parking",
+        "ansLabel": "They hit me while exiting a parking space",
+        "nxtQId": "vTurned2ParkingAdvice"
+      },
+      {
+        "ansId": "vTurned2SideRoad",
+        "ansLabel": "They hit me as they turned from a side road",
+        "nxtQId": "dSideRoadName"
+      },
+      {
+        "ansId": "vTurned2None",
+        "ansLabel": "None of the above",
+        "nxtQId": "contactMe"
+      }
+    ]
+  },
+  "dSideRoadName": {
+    "qId": "dSideRoadName",
+    "nxtQId": "vTurned2SideRoadAdvice",
+    "title": "What was the name of the side road?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "text",
+    "placeholder": "e.g. Mulholland Drive"
+  },
+  "roundabout": {
+    "qId": "roundabout",
+    "title": "Which best describes your situation?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "dropdown",
+    "btnvalues": [
+      {
+        "ansId": "roundaboutDirL",
+        "ansLabel":
+          "I was hit by a vehicle entering the roundabout from my left",
+        "nxtQId": "roundaboutL"
+      },
+      {
+        "ansId": "roundaboutDirR",
+        "ansLabel": "I was hit by a vehicle coming from my right",
+        "nxtQId": "roundaboutR"
+      },
+      {
+        "ansId": "roundaboutchangingLanes",
+        "ansLabel": "I was hit on the roundabout while changing lanes",
+        "nxtQId": "changingLanes"
+      },
+      {
+        "ansId": "roundaboutOther",
+        "ansLabel": "None of the above",
+        "nxtQId": "contactMe"
+      }
+    ]
+  },
+  "animal": {
+    "qId": "animal",
+    "nxtQId": "dFullName",
+    "type": "advice"
+  },
+  "crossingNotPermitted": {
+    "qId": "crossingNotPermitted",
+    "nxtQId": "dFullName",
+    "type": "advice",
+    "element2a":
+      "You were injured when you cycled into a pedestrian on the pavement where cycling was prohibited. For your case to succeed you would need to show that the other party is at fault. Given that it was the pedestrian's right of way, proving that they are at fault is likely to be difficult. If you would like further advice please send me a message with more detail."
+  },
+  "crossingOffRoad": {
+    "qId": "crossingOffRoad",
+    "nxtQId": "dFullName",
+    "type": "advice",
+    "element2a":
+      "You were injured when a pedestrian crossed your path whilst you were cycling off-road. For your case to succeed you would need to show that the other party is at fault. You are expected to take care to avoid pedestrians who may be using the path, so proving that they are at fault is likely to be difficult. If you would like further advice please send me a message with more detail."
+  },
+  "dooredPassenger": {
+    "qId": "dooredPassenger",
+    "nxtQId": "dFullName",
+    "type": "advice",
+    "element2a":
+      "You were injured when a passenger opened their door into your path. This would normally mean that you have a good case as they have a duty to keep a look out to make sure it is safe before opening the door. An exception might be if the door had been open for long enough for you to have safely stopped or manoeuvred around it. Normally the driver's insurer to provide cover in these circumstances."
+  },
+  "dooredDriver": {
+    "qId": "dooredDriver",
+    "nxtQId": "dFullName",
+    "type": "advice",
+    "element2a":
+      "You were injured when the driver opened their door into your path. This would normally mean that you have a good case as they have a duty to keep a look out to make sure it is safe before opening the door. An exception might be if the door had been open for long enough for you to have safely stopped or manoeuvred around it."
+  },
+  "fromBehindObj": {
+    "qId": "fromBehindObj",
+    "nxtQId": "dFullName",
+    "type": "advice",
+    "element2a":
+      "You were injured when a pedestrian stepped into your path from behind an object whilst you were cycling. You should bear in mind that the courts expect cyclists to keep an eye out for pedestrians. However, if you did not have any warning of the presence of the pedestrian, and there was little you could have done to avoid the incident, you should have a good case."
+  },
+  "green": {
+    "qId": "green",
+    "nxtQId": "dFullName",
+    "type": "advice",
+    "element2a":
+      "You were injured when you collided with a pedestrian at a set of traffic lights. Given that the light was green it was your right of way so you should have a good case. If you would like further advice please send me a message."
+  },
+  "roundaboutL": {
+    "qId": "roundaboutL",
+    "nxtQId": "dFullName",
+    "type": "advice",
+    "element2a":
+      "You were injured when you were hit on a roundabout by a vehicle entering the roundabout from your left. On that basis it sounds like you should have a good case, given that it was your right of way."
+  },
+  "offPavement": {
+    "qId": "offPavement",
+    "nxtQId": "dFullName",
+    "type": "advice",
+    "element2a":
+      "You were injured when a pedestrian stepped out from the pavement into your path whilst you were cycling. You should bear in mind that the courts expect cyclists to keep an eye out for pedestrians. However, if you did not have any warning of the presence of the pedestrian, and there was little you could have done to avoid the incident, you should have a good case. Alternatively, if the pedestrian can show that you should have been aware that they were crossing the road and you had the opportunity to stop or slow down to avoid the collision then this may weaken your case."
+  },
+  "oncomingAcrossPathAdvice": {
+    "qId": "oncomingAcrossPathAdvice",
+    "nxtQId": "dFullName",
+    "type": "advice",
+    "filteringNo":
+      "You were injured when the defendant turned into a side road on their right, going across your path. They had a duty to check that it was safe to turn before doing so. If they failed to do so you should have a good case.",
+    "filteringYes":
+      "You were injured when the defendant turned into a side road on their right, going across your path. They had a duty to check that it was safe to turn before doing so. However, you were filtering to the left of a queue of traffic when approaching a side road on your left. This is seen as a hazardous manoeuvre and, although your case is likely to win, a court will normally reduce your damages by around 50% for 'contributory negligence'. For more information see this guide – link."
+  },
+  "oncomingOvertakingAdvice": {
+    "qId": "oncomingOvertakingAdvice",
+    "nxtQId": "dFullName",
+    "type": "advice",
+    "element2a":
+      "You were injured when the defendant was travelling in the opposing lane and was overtaking. They had a duty to check that it was safe to proceed as it was a dangerous manoeuvre. On that basis it sounds like you should have a good case."
+  },
+  "pedRanInto": {
+    "qId": "pedRanInto",
+    "nxtQId": "dFullName",
+    "type": "advice",
+    "element2a":
+      "You were injured when a pedestrian ran into the side of you whilst you were cycling. On that basis you should have a good case, unless the incident occurred where cycling was not permitted or where it was the defendant's right of way, such as on a pedestrian crossing."
+  },
+  "rearEndedBy": {
+    "qId": "rearEndedBy",
+    "nxtQId": "dFullName",
+    "type": "advice",
+    "element2a":
+      "You were injured when the defendant went into the back of you whilst you were cycling. The strong presumption is that they were at fault as they were too close. On that basis it sounds like you should have a good case."
+  },
+  "iDets1HitAsPassedAdvice": {
+    "qId": "iDets1HitAsPassedAdvice",
+    "nxtQId": "dFullName",
+    "type": "advice",
+    "element2a":
+      "You were injured when you were hit by a vehicle as it was passing you. It is difficult to say who is to blame without further information. Please send me an email with more detail if you would like any more help."
+  },
+  "redAmber": {
+    "qId": "redAmber",
+    "nxtQId": "dFullName",
+    "type": "advice",
+    "element2a":
+      "You were injured when a pedestrian crossed into your path at a set of traffic lights which were red/amber. Given that it was your right of way you should have a strong case."
+  },
+  "roadDefect": {
+    "qId": "roadDefect",
+    "nxtQId": "dFullName",
+    "type": "advice",
+    "element2a":
+      "You were in an accident caused by a defect in the road. It is important to take photographs of the defect as soon as possible to show how it looked at the time of the incident. Go back to the scene to record the size of the defect and to take photographs with a tape measure in shot so you can accurately show how deep and wide it is. Winning these cases can be challenging. Even if you can show that the defect was a dangerous hazard, the highway authority need only show that they had a 'reasonable system of inspection' in place to avoid blame. The frequency of inspections required will often be once every 3 - 6 months, depending on the type of road. If the highway authority can show that they inspected the road within that timescale then you would need to show that they missed the defect or that they should have been aware of the defect in any event, such as if people had complained about the defect since the inspection. For more details on these types of case, please see my blog post here xxx."
+  },
+  "vTurned2SideRoadAdvice": {
+    "qId": "vTurned2SideRoadAdvice",
+    "nxtQId": "dFullName",
+    "type": "advice",
+    "element2a":
+      "You were injured when you were in an incident with another road user as they were entering your road from a side road. The responsibility was on them to check that it was safe to proceed, as it was your right of way, so your case sounds strong on that basis."
+  },
+  "vTurned2ParkingAdvice": {
+    "qId": "vTurned2ParkingAdvice",
+    "nxtQId": "dFullName",
+    "type": "advice",
+    "element2a":
+      "You were injured when you were in an incident with another road user as they were leaving a parking spot. The responsibility was on them to check that it was safe to proceed, as it was your right of way, so your case sounds strong on that basis."
+  },
+  "vTurned1ChangingLanesAdvice": {
+    "qId": "vTurned1ChangingLanesAdvice",
+    "nxtQId": "dFullName",
+    "type": "advice",
+    "element2a":
+      "You were injured when the defendant turned into you when they changed lanes. It was their duty to check that it is safe to make the manoeuvre and, on that basis, it sounds like you should have a good case."
+  },
+  "vDirDetsSameQTurnIntoYouLAdvice": {
+    "qId": "vDirDetsSameQTurnIntoYouLAdvice",
+    "nxtQId": "dFullName",
+    "type": "advice",
+    "element2a":
+      "You were injured when the defendant struck you when they were turning into a side road. It was their duty to check that it is safe to make the manoeuvre and, on that basis, it sounds like you should have a good case."
+  },
+  "vDirDetsSameQTurnIntoYouRAdvice": {
+    "qId": "vDirDetsSameQTurnIntoYouRAdvice",
+    "nxtQId": "dFullName",
+    "type": "advice",
+    "filteringNo":
+      "You were injured when the defendant turned into you while turning right. They were travelling in the same direction as you. On that basis it sounds like you should have a good case.",
+    "filteringYes":
+      "You were injured when the defendant turned into you while turning right. They were travelling in the same direction as you. You were filtering to the right of a queue of traffic when approaching a side road on your right. This is seen as a hazardous manoeuvre and - although your case is likely to win - you will normally have your damages reduced by around 50% for 'contributory negligence'. For more information see this guide – link."
+  },
+  "changingLanes": {
+    "qId": "changingLanes",
+    "title": "I think I will need more information",
+    "reason":
+      "You were injured when you were hit on a roundabout by a vehicle whilst you changed lanes. It is difficult to say who is to blame without further information. Please send me an email with more detail if you would like any more help.",
+    "type": "weak"
+  },
+  "contactMe": {
+    "qId": "contactMe",
+    "title": "I think I will need more information",
+    "reason":
+      "I have not been able to work out the circumstances of the incident - please send me an email with more detail if you would like any more help.",
+    "type": "weak"
+  },
+  "amber": {
+    "qId": "amber",
+    "title": "I think I will need more information",
+    "reason":
+      "You were injured when you cycled into a pedestrian at a set of traffic lights which were amber. You would need to show that the other party is at fault, which may be challenging in the circumstances as amber is only an indication to proceed and you still need to look out for pedestrians. If you would like further advice please send me a message with more detail.",
+    "type": "weak"
+  },
+  "iDets2RanRedLightAdvice": {
+    "qId": "iDets2RanRedLightAdvice",
+    "title": "I think I will need more information",
+    "reason":
+      "You were injured when you were in an incident with another road user when you jumped a red light. You would need to show that the other party is at fault which may be challenging as they can argue that they did not anticipate your actions and it was their right of way. If you would like further advice please send me a message with more detail.",
+    "type": "weak"
+  },
+  "iDets2PaveAdvice": {
+    "qId": "iDets2PaveAdvice",
+    "title": "I think I will need more information",
+    "reason":
+      "You were injured when you were in an incident with another road user whilst you were cycling on the pavement where cycling was prohibited. You would need to show that the other party is at fault which would normally be difficult as they can argue that they did not expect to see you there. If you would like further advice please send me a message with more detail.",
+    "type": "weak"
+  },
+  "manoeuvringAdvice": {
+    "qId": "manoeuvringAdvice",
+    "title": "I think I will need more information",
+    "reason":
+      "You were injured when you were in an incident with another road user when you were manoeuvring around / overtaking another vehicle on your bicycle. You would need to show that the other party is at fault which will depend on the exact circumstances of the incident. If you would like further advice please send me a message with more detail.",
+    "type": "weak"
+  },
+  "roundaboutR": {
+    "qId": "roundaboutR",
+    "title": "I think I will need more information",
+    "reason":
+      "You were injured when you were hit on a roundabout by a vehicle coming from your right. It sounds like a challenging case as they would have had the right of way. If you would like further advice please send me a message with more detail.",
+    "type": "weak"
+  },
+  "notPermitted": {
+    "qId": "notPermitted",
+    "title": "I think I will need more information",
+    "reason":
+      "You were injured when you cycled into a pedestrian on a path where cycling was prohibited. You would need to show that the other party is at fault so that a case could be brought against them, which may be challenging given that it is their right of way. If you would like further advice please send me a message with more detail using the form at the bottom of the screen.",
+    "type": "weak"
+  },
+  "pedCrossing": {
+    "qId": "pedCrossing",
+    "title": "I think I will need more information",
+    "reason":
+      "You were injured when you cycled into a pedestrian on a pedestrian crossing. For the case to succeed you would need to show that they were at fault which will be challenging given that it is their right of way. If you would like further advice please send me a message with more detail.",
+    "type": "weak"
+  },
+  "pedStationary": {
+    "qId": "pedStationary",
+    "title": "I think I will need more information",
+    "reason":
+      "You were injured when you cycled into a pedestrian who was stationary. You would need to show that the other party is at fault so that a case could be brought against them, which may be challenging in the circumstances. If you would like further advice please send me a message with more detail.",
+    "type": "weak"
+  },
+  "permittedPath": {
+    "qId": "permittedPath",
+    "title": "I think I will need more information",
+    "reason":
+      "You were injured when a pedestrian crossed your path whilst you were cycling. You would need to show that the other party is at fault which may be challenging as you are expected to take care to avoid pedestrians who may be using the path. If you would like further advice please send me a message with more detail.",
+    "type": "weak"
+  },
+  "youRearEnded": {
+    "qId": "youRearEnded",
+    "title": "I think I will need more information",
+    "reason":
+      "You were injured when you were in an incident with another road user when you rode into the back of them on your bicycle. You would need to show that the other party is at fault which may be challenging in the circumstances. If you would like further advice please send me a message with more detail.",
+    "type": "weak"
+  },
+  "red": {
+    "qId": "red",
+    "title": "I think I will need more information",
+    "reason":
+      "You were injured when you cycled into a pedestrian at a set of traffic lights which were showing red for you. You would need to show that the other party is at fault, which may be challenging in the circumstances given that it was their right of way. If you would like further advice please send me a message with more detail.",
+    "type": "weak"
+  },
+  "bikesOnly": {
+    "qId": "bikesOnly",
+    "title": "I'm afraid that this tool is only for cases involving cyclists.",
+    "reason":
+      "Feel free to send me a message if you would like me to point you in the direction of a solicitor who may be able to help and I will respond with some suggestions. I will not pass your details on to anyone else.",
+    "type": "weak"
+  },
+  "hitAndRun": {
+    "qId": "hitAndRun",
+    "title": "You do not have the other party's details.",
+    "reason":
+      "If this is because you or the police did not record their details (and there is no way to trace the driver) then you will not be able to bring a case. Alternatively, if you were injured by a driver or motorcyclist who did not stop at the scene of the incident, you may still be able to get compensation through the Motor Insurance Bureau (MIB). All motor insurance policies contribute to this fund which compensates the victims of hit and run incidents and also incidents caused by uninsured drivers. The MIB have strict time limits to lodge a case with them. The time limits can be found here, along with details on how to apply for compensation: www.mib.org.uk. Feel free to send me a message if you have any other questions.",
+    "type": "weak"
+  },
+  "jurisdiction": {
+    "qId": "jurisdiction",
+    "title":
+      "I'm afraid that this tool is only for incidents occurring in England or Wales. The law in other countries is different and you will need specialist advice on your case.",
+    "reason":
+      "Feel free to send me a message if you would like me to point you in the direction of a solicitor who may be able to help and I will respond with some suggestions. I will not pass your details on to anyone else.",
+    "type": "weak"
+  },
+  "timeBarred": {
+    "qId": "jurisdiction",
+    "title": "I'm afraid that you are probably too late to bring a case.",
+    "reason":
+      "As your incident occurred either over 3 years ago (or it is 3 years since your 18th birthday if the incident happened when you were a child) it is probably too late to bring a case. There are certain exceptions, and the courts have the discretion to allow a case to proceed out of time in special circumstances. If you think you may have a good reason for not bringing a case within the limitation period please feel free to send me a message. I will not pass your details on to anyone else.",
+    "type": "weak"
+  },
+  "dRegHave": {
+    "qId": "dRegHave",
+    "title": "Do you have the defendant's vehicle registration?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "button",
+    "btnvalues": [
+      {
+        "ansId": "dRegHaveYes",
+        "ansLabel": "Yes",
+        "nxtQId": "dReg"
+      },
+      {
+        "ansId": "dRegHaveNo",
+        "ansLabel": "No",
+        "nxtQId": ""
+      }
+    ]
+  },
+  "dReg": {
+    "qId": "dReg",
+    "nxtQId": "",
+    "title": "What is the defendant registration?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "text",
+    "placeholder": "eg. XY52ABC"
+  },
+  "dStreet": {
+    "qId": "dStreet",
+    "nxtQId": "dDir",
+    "title": "Road proceeding along",
+    "answered": "",
+    "answeredOn": "",
+    "type": "text",
+    "placeholder": "e.g. Klemkestrass 43"
+  },
+  "dDir": {
+    "qId": "cDir",
+    "title": "Direction of travel",
+    "answered": "",
+    "answeredOn": "",
+    "type": "dropdown",
+    "btnvalues": [
+      {
+        "ansId": "dDirNorth",
+        "ansLabel": "North",
+        "nxtQId": "landmark"
+      },
+      {
+        "ansId": "dDirSouth",
+        "ansLabel": "South",
+        "nxtQId": "landmark"
+      },
+      {
+        "ansId": "dDirEast",
+        "ansLabel": "East",
+        "nxtQId": "landmark"
+      },
+      {
+        "ansId": "dDirWest",
+        "ansLabel": "West",
+        "nxtQId": "landmark"
+      }
+    ]
+  },
+  "dFullName": {
+    "qId": "dFullName",
+    "nxtQId": "cAddress",
+    "title": "What is the full name of the defendant?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "text",
+    "placeholder": "e.g. Alexander Jeffcott"
+  },
+  "dAddressHave": {
+    "qId": "dAddressHave",
+    "title": "Do you have the defendant's address?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "button",
+    "btnvalues": [
+      {
+        "ansId": "dAddressHaveYes",
+        "ansLabel": "Yes",
+        "nxtQId": "dAddress"
+      },
+      {
+        "ansId": "dAddressHaveNo",
+        "ansLabel": "No",
+        "nxtQId": "cAddress"
+      }
+    ]
+  },
+  "dAddress": {
+    "qId": "dAddress",
+    "nxtQId": "cAddress",
+    "title": "What is the defendant address?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "text",
+    "placeholder": "e.g. Klemkestrasse 43"
+  },
+  "cAddress": {
+    "qId": "cAddress",
+    "nxtQId": "cStreet",
+    "title": "What is your address?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "text",
+    "placeholder": "e.g. Klemkestrass 43"
+  },
+  "cStreet": {
+    "qId": "cStreet",
+    "nxtQId": "cDir",
+    "title": "What is the name of the street where the incident occured?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "text",
+    "placeholder": "e.g. Klemkestrass 43"
+  },
+  "cDir": {
+    "qId": "cDir",
+    "title": "Direction of travel",
+    "answered": "",
+    "answeredOn": "",
+    "type": "dropdown",
+    "btnvalues": [
+      {
+        "ansId": "north",
+        "ansLabel": "North",
+        "nxtQId": "landmark"
+      },
+      {
+        "ansId": "south",
+        "ansLabel": "South",
+        "nxtQId": "landmark"
+      },
+      {
+        "ansId": "east",
+        "ansLabel": "East",
+        "nxtQId": "landmark"
+      },
+      {
+        "ansId": "west",
+        "ansLabel": "West",
+        "nxtQId": "landmark"
+      }
+    ]
+  },
+  "landmark": {
+    "qId": "landmark",
+    "nxtQId": "injured",
+    "title": "Landmark / junction approached at point of incident",
+    "answered": "",
+    "answeredOn": "",
+    "type": "text",
+    "placeholder": "e.g. McDonalds"
+  },
+  "injured": {
+    "qId": "injured",
+    "title": "Were you injured?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "button",
+    "btnvalues": [
+      {
+        "ansId": "injuredYes",
+        "ansLabel": "Yes",
+        "nxtQId": "injuryDets"
+      },
+      {
+        "ansId": "injuredNo",
+        "ansLabel": "No",
+        "nxtQId": "lossesFinancial"
+      }
+    ]
+  },
+  "injuryDets": {
+    "qId": "injuryDets",
+    "nxtQId": "addInjury",
+    "title":
+      "What were your injuries e.g. fracture to right collar bone. (You can add additional injuries after pressing next)",
+    "answered": "",
+    "answeredOn": "",
+    "type": "text",
+    "placeholder": ""
+  },
+  "addInjury": {
+    "qId": "addInjury",
+    "title": "Do you want to add another injury?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "button",
+    "btnvalues": [
+      {
+        "ansId": "addInjuryYes",
+        "ansLabel": "Yes",
+        "nxtQId": "injuryDets01"
+      },
+      {
+        "ansId": "addInjuryNo",
+        "ansLabel": "No",
+        "nxtQId": "suffer"
+      }
+    ]
+  },
+  "injuryDets01": {
+    "qId": "injuryDets01",
+    "nxtQId": "addInjury01",
+    "title":
+      "What were your injuries e.g. fracture to right collar bone. (You can add additional injuries after pressing next)",
+    "answered": "",
+    "answeredOn": "",
+    "type": "text",
+    "placeholder": ""
+  },
+  "addInjury01": {
+    "qId": "addInjury01",
+    "title": "Do you want to add another injury?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "button",
+    "btnvalues": [
+      {
+        "ansId": "addInjuryYes",
+        "ansLabel": "Yes",
+        "nxtQId": "injuryDets02"
+      },
+      {
+        "ansId": "addInjuryNo",
+        "ansLabel": "No",
+        "nxtQId": "suffer"
+      }
+    ]
+  },
+  "injuryDets02": {
+    "qId": "injuryDets02",
+    "nxtQId": "addInjury02",
+    "title":
+      "What were your injuries e.g. fracture to right collar bone. (You can add additional injuries after pressing next)",
+    "answered": "",
+    "answeredOn": "",
+    "type": "text",
+    "placeholder": ""
+  },
+  "addInjury02": {
+    "qId": "addInjury02",
+    "title": "Do you want to add another injury?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "button",
+    "btnvalues": [
+      {
+        "ansId": "addInjuryYes",
+        "ansLabel": "Yes",
+        "nxtQId": "injuryDets03"
+      },
+      {
+        "ansId": "addInjuryNo",
+        "ansLabel": "No",
+        "nxtQId": "suffer"
+      }
+    ]
+  },
+  "injuryDets03": {
+    "qId": "injuryDets03",
+    "nxtQId": "addInjury03",
+    "title":
+      "What were your injuries e.g. fracture to right collar bone. (You can add additional injuries after pressing next)",
+    "answered": "",
+    "answeredOn": "",
+    "type": "text",
+    "placeholder": ""
+  },
+  "addInjury03": {
+    "qId": "addInjury03",
+    "title": "Do you want to add another injury?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "button",
+    "btnvalues": [
+      {
+        "ansId": "addInjuryYes",
+        "ansLabel": "Yes",
+        "nxtQId": "injuryDets04"
+      },
+      {
+        "ansId": "addInjuryNo",
+        "ansLabel": "No",
+        "nxtQId": "suffer"
+      }
+    ]
+  },
+  "injuryDets04": {
+    "qId": "injuryDets04",
+    "nxtQId": "addInjury04",
+    "title":
+      "What were your injuries e.g. fracture to right collar bone. (You can add additional injuries after pressing next)",
+    "answered": "",
+    "answeredOn": "",
+    "type": "text",
+    "placeholder": ""
+  },
+  "addInjury04": {
+    "qId": "addInjury04",
+    "title": "Do you want to add another injury?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "button",
+    "btnvalues": [
+      {
+        "ansId": "addInjuryYes",
+        "ansLabel": "Yes",
+        "nxtQId": "injuryDets05"
+      },
+      {
+        "ansId": "addInjuryNo",
+        "ansLabel": "No",
+        "nxtQId": "suffer"
+      }
+    ]
+  },
+  "injuryDets05": {
+    "qId": "injuryDets05",
+    "nxtQId": "addInjury05",
+    "title":
+      "What were your injuries e.g. fracture to right collar bone. (You can add additional injuries after pressing next)",
+    "answered": "",
+    "answeredOn": "",
+    "type": "text",
+    "placeholder": ""
+  },
+  "addInjury05": {
+    "qId": "addInjury05",
+    "title": "Do you want to add another injury?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "button",
+    "btnvalues": [
+      {
+        "ansId": "addInjuryYes",
+        "ansLabel": "Yes",
+        "nxtQId": "injuryDets06"
+      },
+      {
+        "ansId": "addInjuryNo",
+        "ansLabel": "No",
+        "nxtQId": "suffer"
+      }
+    ]
+  },
+  "injuryDets06": {
+    "qId": "injuryDets06",
+    "nxtQId": "addInjury06",
+    "title":
+      "What were your injuries e.g. fracture to right collar bone. (You can add additional injuries after pressing next)",
+    "answered": "",
+    "answeredOn": "",
+    "type": "text",
+    "placeholder": ""
+  },
+  "addInjury06": {
+    "qId": "addInjury06",
+    "title": "Do you want to add another injury?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "button",
+    "btnvalues": [
+      {
+        "ansId": "addInjuryYes",
+        "ansLabel": "Yes",
+        "nxtQId": "injuryDets07"
+      },
+      {
+        "ansId": "addInjuryNo",
+        "ansLabel": "No",
+        "nxtQId": "suffer"
+      }
+    ]
+  },
+  "injuryDets07": {
+    "qId": "injuryDets07",
+    "nxtQId": "addInjury07",
+    "title":
+      "What were your injuries e.g. fracture to right collar bone. (You can add additional injuries after pressing next)",
+    "answered": "",
+    "answeredOn": "",
+    "type": "text",
+    "placeholder": ""
+  },
+  "addInjury07": {
+    "qId": "addInjury07",
+    "title": "Do you want to add another injury?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "button",
+    "btnvalues": [
+      {
+        "ansId": "addInjuryYes",
+        "ansLabel": "Yes",
+        "nxtQId": "injuryDets08"
+      },
+      {
+        "ansId": "addInjuryNo",
+        "ansLabel": "No",
+        "nxtQId": "suffer"
+      }
+    ]
+  },
+  "injuryDets08": {
+    "qId": "injuryDets08",
+    "nxtQId": "addInjury08",
+    "title":
+      "What were your injuries e.g. fracture to right collar bone. (You can add additional injuries after pressing next)",
+    "answered": "",
+    "answeredOn": "",
+    "type": "text",
+    "placeholder": ""
+  },
+  "addInjury08": {
+    "qId": "addInjury08",
+    "title": "Do you want to add another injury?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "button",
+    "btnvalues": [
+      {
+        "ansId": "addInjuryYes",
+        "ansLabel": "Yes",
+        "nxtQId": "injuryDets09"
+      },
+      {
+        "ansId": "addInjuryNo",
+        "ansLabel": "No",
+        "nxtQId": "suffer"
+      }
+    ]
+  },
+  "injuryDets09": {
+    "qId": "injuryDets09",
+    "nxtQId": "addInjury09",
+    "title":
+      "What were your injuries e.g. fracture to right collar bone. (You can add additional injuries after pressing next)",
+    "answered": "",
+    "answeredOn": "",
+    "type": "text",
+    "placeholder": ""
+  },
+  "addInjury09": {
+    "qId": "addInjury09",
+    "title": "Do you want to add another injury?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "button",
+    "btnvalues": [
+      {
+        "ansId": "addInjuryYes",
+        "ansLabel": "Yes",
+        "nxtQId": "injuryDets10"
+      },
+      {
+        "ansId": "addInjuryNo",
+        "ansLabel": "No",
+        "nxtQId": "suffer"
+      }
+    ]
+  },
+  "injuryDets10": {
+    "qId": "injuryDets10",
+    "nxtQId": "addInjury10",
+    "title":
+      "What were your injuries e.g. fracture to right collar bone. (You can add additional injuries after pressing next)",
+    "answered": "",
+    "answeredOn": "",
+    "type": "text",
+    "placeholder": ""
+  },
+  "addInjury10": {
+    "qId": "addInjury10",
+    "title": "You have added the maximum number of injuries this tool can add.",
+    "answered": "",
+    "answeredOn": "",
+    "type": "button",
+    "btnvalues": [
+      {
+        "ansId": "addInjuryYes",
+        "ansLabel": "continue",
+        "nxtQId": "suffer"
+      }
+    ]
+  },
+  "suffer": {
+    "qId": "suffer",
+    "title": "Do you still suffer from your injuries?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "button",
+    "btnvalues": [
+      {
+        "ansId": "sufferYes",
+        "ansLabel": "Yes",
+        "nxtQId": "hospital"
+      },
+      {
+        "ansId": "sufferNo",
+        "ansLabel": "No",
+        "nxtQId": "hospital"
+      }
+    ]
+  },
+  "hospital": {
+    "qId": "hospital",
+    "title": "Did you go to hospital?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "button",
+    "btnvalues": [
+      {
+        "ansId": "hospitalYes",
+        "ansLabel": "Yes",
+        "nxtQId": "hospitalWhich"
+      },
+      {
+        "ansId": "hospitalNo",
+        "ansLabel": "No",
+        "nxtQId": "lossOfEarnings"
+      }
+    ]
+  },
+  "hospitalWhich": {
+    "qId": "hospitalWhich",
+    "nxtQId": "lossesFinancial",
+    "title": "Which hospital did you attend?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "text",
+    "placeholder": "Kings College Hospital, London"
+  },
+
+  "lossesFinancial": {
+    "qId": "lossesFinancial",
+    "title": "Did you suffer financial loss?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "button",
+    "btnvalues": [
+      {
+        "ansId": "lossesFinancialYes",
+        "ansLabel": "Yes",
+        "nxtQId": "lossOfEarnings"
+      },
+      {
+        "ansId": "lossesFinancialNo",
+        "ansLabel": "No",
+        "nxtQId": "writeWho"
+      }
+    ]
+  },
+  "lossOfEarnings": {
+    "qId": "lossOfEarnings",
+    "title": "Did you have any unpaid time off work?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "dropdown",
+    "btnvalues": [
+      {
+        "ansId": "lossOfEarningsYesLostJob",
+        "ansLabel": "DELETE",
+        "nxtQId": "lossOfEarningsYesLostJobDets"
+      },
+      {
+        "ansId": "lossOfEarningsYesTimeOff",
+        "ansLabel": "Yes",
+        "nxtQId": "lossOfEarningsYesTimeOffDets"
+      },
+      {
+        "ansId": "lossOfEarningsNo",
+        "ansLabel": "No",
+        "nxtQId": "lossesMed"
+      }
+    ]
+  },
+  "lossOfEarningsYesLostJobDets": {
+    "qId": "lossOfEarningsYesLostJobDets",
+    "nxtQId": "lossOfEarningsFrom",
+    "title": "What was your occupation?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "text",
+    "placeholder": "e.g. plumber"
+  },
+  "lossOfEarningsYesTimeOffDets": {
+    "qId": "lossOfEarningsYesTimeOffDets",
+    "nxtQId": "lossOfEarningsFrom",
+    "title": "What is your occupation?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "text",
+    "placeholder": "e.g. plumber"
+  },
+  "lossOfEarningsFrom": {
+    "qId": "lossOfEarningsFrom",
+    "nxtQId": "lossOfEarningsTo",
+    "title": "When was your first day off work as a result of your injuries?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "date",
+    "placeholder": "e.g. 25/12/1982"
+  },
+  "lossOfEarningsTo": {
+    "qId": "lossOfEarningsTo",
+    "nxtQId": "netWeeklyIncome",
+    "title":
+      "When did you go back to work? Put 'ongoing' if you are still off work.",
+    "answered": "",
+    "answeredOn": "",
+    "type": "text",
+    "placeholder": "ongoing"
+  },
+  "netWeeklyIncome": {
+    "qId": "netWeeklyIncome",
+    "nxtQId": "lossesMed",
+    "title": "What is your usual weekly income (after tax)?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "text",
+    "placeholder": "e.g. £100"
+  },
+  "lossOfEarningsDets": {
+    "qId": "lossOfEarningsDets",
+    "nxtQId": "lossesMed",
+    "title": "Approximately how much income have you lost (after tax)?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "text",
+    "placeholder": "e.g. £100"
+  },
+  "lossesMed": {
+    "qId": "lossesMed",
+    "title": "Did you pay for any private medical treatment e.g. an operation?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "button",
+    "btnvalues": [
+      {
+        "ansId": "lossesMedYes",
+        "ansLabel": "Yes",
+        "nxtQId": "lossesMedDets"
+      },
+      {
+        "ansId": "lossesMedNo",
+        "ansLabel": "No",
+        "nxtQId": "lossesTreatment"
+      }
+    ]
+  },
+  "lossesMedDets": {
+    "qId": "lossesMedDets",
+    "nxtQId": "lossesTreatment",
+    "title": "Approximately how much have you spent?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "text",
+    "placeholder": "e.g. £100"
+  },
+  "lossesTreatment": {
+    "qId": "lossesTreatment",
+    "title":
+      "Did you spend any money for any other treatment e.g. physiotherapy?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "button",
+    "btnvalues": [
+      {
+        "ansId": "lossesTreatmentYes",
+        "ansLabel": "Yes",
+        "nxtQId": "lossesTreatmentDets"
+      },
+      {
+        "ansId": "lossesTreatmentNo",
+        "ansLabel": "No",
+        "nxtQId": "lossesProperty"
+      }
+    ]
+  },
+  "lossesTreatmentDets": {
+    "qId": "lossesTreatmentDets",
+    "nxtQId": "lossesProperty",
+    "title": "Approximately how much have you spent?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "text",
+    "placeholder": "e.g. £100"
+  },
+  "lossesProperty": {
+    "qId": "lossesProperty",
+    "title": "Did you damage any property e.g. your bicycle, clothing, etc?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "button",
+    "btnvalues": [
+      {
+        "ansId": "lossesPropertyYes",
+        "ansLabel": "Yes",
+        "nxtQId": "lossesPropertyDets"
+      },
+      {
+        "ansId": "lossesPropertyNo",
+        "ansLabel": "No",
+        "nxtQId": "lossesTravel"
+      }
+    ]
+  },
+  "lossesPropertyDets": {
+    "qId": "lossesPropertyDets",
+    "nxtQId": "lossesTravel",
+    "title": "What is the approximate replacement cost for the damaged items?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "text",
+    "placeholder": "e.g. £100"
+  },
+  "lossesTravel": {
+    "qId": "lossesTravel",
+    "title":
+      "Have you had any travel costs e.g. taxi fares or public transport?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "button",
+    "btnvalues": [
+      {
+        "ansId": "lossesTravelYes",
+        "ansLabel": "Yes",
+        "nxtQId": "lossesTravelDets"
+      },
+      {
+        "ansId": "lossesTravelNo",
+        "ansLabel": "No",
+        "nxtQId": "lossesFinancialOther"
+      }
+    ]
+  },
+  "lossesTravelDets": {
+    "qId": "lossesTravelDets",
+    "nxtQId": "lossesFinancialOther",
+    "title": "Approximately how much have you spent?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "text",
+    "placeholder": "e.g. £100"
+  },
+  "lossesFinancialOther": {
+    "qId": "lossesFinancialOther",
+    "title": "Have you had any other financial losses?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "button",
+    "btnvalues": [
+      {
+        "ansId": "lossesFinancialOtherYes",
+        "ansLabel": "Yes",
+        "nxtQId": "lossesFinancialOtherDets"
+      },
+      {
+        "ansId": "lossesFinancialOtherNo",
+        "ansLabel": "No",
+        "nxtQId": "writeWho"
+      }
+    ]
+  },
+  "lossesFinancialOtherDets": {
+    "qId": "lossesFinancialOtherDets",
+    "nxtQId": "writeWho",
+    "title": "Approximately how much have you spent?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "text",
+    "placeholder": "e.g. £100"
+  },
+  "writeWho": {
+    "qId": "writeWho",
+    "title": "Who would you like to write to?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "button",
+    "btnvalues": [
+      {
+        "ansId": "writeWhoDefendant",
+        "ansLabel": "Defendant",
+        "nxtQId": "letter"
+      },
+      {
+        "ansId": "writeWhoInsurer",
+        "ansLabel": "Their insurer",
+        "nxtQId": "dPolicyNumber"
+      }
+    ]
+  },
+  "dPolicyNumber": {
+    "qId": "dPolicyNumber",
+    "nxtQId": "letter",
+    "title": "Please enter their policy number:",
+    "answered": "",
+    "answeredOn": "",
+    "type": "text",
+    "placeholder": "e.g. A1098726/13"
+  },
+  "roadDefectLetter": {
+    "qId": "roadDefectLetter",
+    "materialTimes": "the authority responsible for the highway in question.",
+    "afterLandmark": "I hit a pothole, causing me to fall from my bicycle.",
+    "liability1":
+      "You failed to institute any or any reasonable system of inspection for the relevant highway.",
+    "liability2": "You failed to repair a dangerous defect on the highway.",
+    "liabilityResult":
+      "The above amounts to a breach of section 41 of the Highways Act 1980. As a result, it is clear in my view that liability attaches to",
+    "type": "letter"
+  },
+  "injuredByAnimalLetter": {
+    "qId": "injuredByAnimalLetter",
+    "materialTimes": "a pet owner responsible for the pet in question.",
+    "afterLandmark":
+      "the pet ran across my path causing me to fall from my bicycle.",
+    "liability1": "For failing to control your pet.",
+    "liability2":
+      "For failing to take any reasonable precautions to ensure that your pet did not cause injury of the type claimed.",
+    "liability3":
+      "For failing to consider the harm that would be caused by failing to control your pet.",
+    "liabilityResult":
+      "As a result of the above it is clear in my view that liability attaches to ",
+    "type": "letter"
+  },
+  "injuredByPedestrianLetter": {
+    "qId": "injuredByPedestrianLetter",
+    "materialTimes": "a pedestrian.",
+    "afterLandmark": "stepped into my path causing me to fall from my bicycle.",
+    "liability1": "For suddenly and without warning walking into my path.",
+    "liability2": "For causing me to fall from my bicycle.",
+    "liability3": "For failing to heed my presence.",
+    "liability4": "For failing to give way.",
+    "liability5": "For failing to keep a proper lookout.",
+    "liability6": "For failing to cross the road in a safe manner.",
+    "liability7": "For failing to avoid colliding with me.",
+    "liability8": "For failing to apply Rule 7 of the Highway Code.",
+    "liability9": "For failing to apply Rule 14 of the Highway Code.",
+    "liability10": "For failing to apply Rule 17 of the Highway Code.",
+    "liability11": "For failing to apply Rule 12 of the Highway Code.",
+    "liabilityResult":
+      "As a result of the above it is clear in my view that liability attaches to ",
+    "type": "letter"
+  },
+  "rearEndedByLetter": {
+    "qId": "rearEndedByLetter",
+    "materialTimes": "in charge the vehicle in question.",
+    "afterLandmark":
+      "I was rear-ended by the vehicle in question which had been travelling behind me. ",
+    "liability1": "For failing to give way.",
+    "liability2": "For failing to brake in time if at all.",
+    "liability3": "For failing to swerve out of the way.",
+    "liability4":
+      "For failing to drive at a speed suitable in all the circumstances.",
+    "liability5": "For failing to keep a proper lookout.",
+    "liability6": "For failing to drive in a safe manner.",
+    "liability7": "For failing to avoid colliding with me.",
+    "liability8": "For failing to safely control the vehicle.",
+    "liability9":
+      "For failing to sound any warning of the approach of the vehicle.",
+    "liability10": "For hitting me from behind with the vehicle.",
+    "liability11": "For failing to apply Rule 151 of the Highway Code.",
+    "liabilityResult":
+      "As a result of the above it is clear in my view that liability attaches to ",
+    "type": "letter"
+  },
+  "vTurned1RChangingLanesLetter": {
+    "qId": "vTurned1RChangingLanesLetter",
+    "materialTimes": "in charge the vehicle in question.",
+    "afterLandmark":
+      "the vehicle in question was going in the same direction as me and hit me from the right while changing lanes.",
+    "liability1": "For failing to give way.",
+    "liability2": "For failing to keep a proper lookout.",
+    "liability3": "For failing to drive in a safe manner.",
+    "liability4": "For failing to safely control the vehicle.",
+    "liability5": "",
+    "liability6": "",
+    "liability7": "",
+    "liability8": "",
+    "liability9": "",
+    "liability10": "",
+    "liability11": "",
+    "liabilityResult":
+      "As a result of the above it is clear in my view that liability attaches to ",
+    "type": "letter"
+  },
+  "vTurned1LChangingLanesLetter": {
+    "qId": "vTurned1LChangingLanesLetter",
+    "materialTimes": "in charge the vehicle in question.",
+    "afterLandmark":
+      "the vehicle in question was going in the same direction as me and hit me from the left while changing lanes.",
+    "liability1": "For failing to give way.",
+    "liability2": "For failing to keep a proper lookout.",
+    "liability3": "For failing to drive in a safe manner.",
+    "liability4": "For failing to safely control the vehicle.",
+    "liability5": "",
+    "liability6": "",
+    "liability7": "",
+    "liability8": "",
+    "liability9": "",
+    "liability10": "",
+    "liability11": "",
+    "liabilityResult":
+      "As a result of the above it is clear in my view that liability attaches to ",
+    "type": "letter"
+  },
+  "vDirDetsSameQTurnIntoYouRLetter": {
+    "qId": "vDirDetsSameQTurnIntoYouRLetter",
+    "materialTimes": "in charge the vehicle in question.",
+    "afterLandmark":
+      "the vehicle in question was going in the same direction as me and hit me while turning right",
+    "liability1": "For failing to give way.",
+    "liability2": "For failing to keep a proper lookout.",
+    "liability3": "For failing to drive in a safe manner.",
+    "liability4": "For failing to safely control the vehicle.",
+    "liability5": "",
+    "liability6": "",
+    "liability7": "",
+    "liability8": "",
+    "liability9": "",
+    "liability10": "",
+    "liability11": "",
+    "liabilityResult":
+      "As a result of the above it is clear in my view that liability attaches to ",
+    "type": "letter"
+  },
+  "vDirDetsSameQTurnIntoYouLLetter": {
+    "qId": "vDirDetsSameQTurnIntoYouLLetter",
+    "materialTimes": "in charge the vehicle in question.",
+    "afterLandmark":
+      "the vehicle in question was going in the same direction as me and hit me while turning left",
+    "liability1": "For failing to give way.",
+    "liability2": "For failing to keep a proper lookout.",
+    "liability3": "For failing to drive in a safe manner.",
+    "liability4": "For failing to safely control the vehicle.",
+    "liability5": "",
+    "liability6": "",
+    "liability7": "",
+    "liability8": "",
+    "liability9": "",
+    "liability10": "",
+    "liability11": "",
+    "liabilityResult":
+      "As a result of the above it is clear in my view that liability attaches to ",
+    "type": "letter"
+  },
+  "oncomingOvertakingLetter": {
+    "qId": "oncomingOvertakingLetter",
+    "materialTimes": "in charge the vehicle in question.",
+    "afterLandmark":
+      "the vehicle in question was oncoming and hit me while overtaking",
+    "liability1": "For failing to give way.",
+    "liability2": "For failing to keep a proper lookout.",
+    "liability3": "For failing to drive in a safe manner.",
+    "liability4": "For failing to safely control the vehicle.",
+    "liability5": "",
+    "liability6": "",
+    "liability7": "",
+    "liability8": "",
+    "liability9": "",
+    "liability10": "",
+    "liability11": "",
+    "liabilityResult":
+      "As a result of the above it is clear in my view that liability attaches to ",
+    "type": "letter"
+  },
+  "oncomingAcrossPathLetter": {
+    "qId": "oncomingAcrossPathLetter",
+    "materialTimes": "in charge the vehicle in question.",
+    "afterLandmark":
+      "the vehicle in question was oncoming when it turned across my path",
+    "liability1": "For failing to give way.",
+    "liability2": "For failing to keep a proper lookout.",
+    "liability3": "For failing to drive in a safe manner.",
+    "liability4": "For failing to safely control the vehicle.",
+    "liability5": "",
+    "liability6": "",
+    "liability7": "",
+    "liability8": "",
+    "liability9": "",
+    "liability10": "",
+    "liability11": "",
+    "liabilityResult":
+      "As a result of the above it is clear in my view that liability attaches to ",
+    "type": "letter"
+  },
+  "vTurned2ParkingLetter": {
+    "qId": "vTurned2ParkingLetter",
+    "materialTimes": "in charge the vehicle in question.",
+    "afterLandmark":
+      "the vehicle in question hit me while exiting a parking space",
+    "liability1": "For failing to give way.",
+    "liability2": "For failing to keep a proper lookout.",
+    "liability3": "For failing to drive in a safe manner.",
+    "liability4": "For failing to safely control the vehicle.",
+    "liability5": "",
+    "liability6": "",
+    "liability7": "",
+    "liability8": "",
+    "liability9": "",
+    "liability10": "",
+    "liability11": "",
+    "liabilityResult":
+      "As a result of the above it is clear in my view that liability attaches to ",
+    "type": "letter"
+  },
+  "vTurned2SideRoadLetter": {
+    "qId": "vTurned2SideRoadLetter",
+    "materialTimes": "in charge the vehicle in question.",
+    "afterLandmark": "the vehicle in question hit me while exiting a side road",
+    "liability1": "For failing to give way.",
+    "liability2": "For failing to keep a proper lookout.",
+    "liability3": "For failing to drive in a safe manner.",
+    "liability4": "For failing to safely control the vehicle.",
+    "liability5": "",
+    "liability6": "",
+    "liability7": "",
+    "liability8": "",
+    "liability9": "",
+    "liability10": "",
+    "liability11": "",
+    "liabilityResult":
+      "As a result of the above it is clear in my view that liability attaches to ",
+    "type": "letter"
+  },
+  "roundaboutLLetter": {
+    "qId": "roundaboutLLetter",
+    "materialTimes": "in charge the vehicle in question.",
+    "afterLandmark":
+      "the vehicle in question hit me from the left while on a roundabout.",
+    "liability1": "For failing to give way.",
+    "liability2": "For failing to keep a proper lookout.",
+    "liability3": "For failing to drive in a safe manner.",
+    "liability4": "For failing to safely control the vehicle.",
+    "liability5": "",
+    "liability6": "",
+    "liability7": "",
+    "liability8": "",
+    "liability9": "",
+    "liability10": "",
+    "liability11": "",
+    "liabilityResult":
+      "As a result of the above it is clear in my view that liability attaches to ",
+    "type": "letter"
+  },
+  "iDets1HitAsPassedLetter": {
+    "qId": "iDets1HitAsPassedLetter",
+    "materialTimes": "in charge the vehicle in question.",
+    "afterLandmark": "the vehicle in question hit me while passing.",
+    "liability1": "For failing to give way.",
+    "liability2": "For failing to keep a proper lookout.",
+    "liability3": "For failing to drive in a safe manner.",
+    "liability4": "For failing to safely control the vehicle.",
+    "liability5": "",
+    "liability6": "",
+    "liability7": "",
+    "liability8": "",
+    "liability9": "",
+    "liability10": "",
+    "liability11": "",
+    "liabilityResult":
+      "As a result of the above it is clear in my view that liability attaches to ",
+    "type": "letter"
+  }
+}

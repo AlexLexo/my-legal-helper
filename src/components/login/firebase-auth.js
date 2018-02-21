@@ -20,19 +20,17 @@ class FirebaseAuth extends Component {
     credentialHelper: firebaseui.auth.CredentialHelper.GOOGLE_YOLO,
     callbacks: {
       signInSuccess: user => {
-        this.props.SessionStore.setUser(user);
+        //this.props.SessionStore.createUser(user);
         setTimeout(() => {
           this.props.history.push('/');
         }, 2000);
-        return false;
+        //return false;
       }
     }
   };
 
   componentDidMount() {
-    this.firebaseUiWidget =
-      firebaseui.auth.AuthUI.getInstance() ||
-      new firebaseui.auth.AuthUI(firebase.auth());
+    this.firebaseUiWidget = firebaseui.auth.AuthUI.getInstance() || new firebaseui.auth.AuthUI(firebase.auth());
     this.firebaseUiWidget.reset();
     this.firebaseUiWidget.start('#firebaseui_container', this.uiConfig);
   }

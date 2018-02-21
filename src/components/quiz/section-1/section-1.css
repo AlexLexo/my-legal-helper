@@ -3,17 +3,43 @@
     padding: 40px 0;
   }
 }
+.bottom-buttons {
+  padding-top: 20px;
+}
 
-h1 {
+.case-tool-button {
+  margin-bottom: 10px;
+}
+.footer-navigation-buttons > .btn {
+  margin-top: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+  float: none;
+}
+
+.show {
+  display: block;
+}
+.hide {
+  display: none;
+}
+.btn:focus {
+  border-color: #ccc;
+  outline: none !important;
+  outline-offset: none !important;
+}
+
+h1:not(.firebaseui-title) {
   font-size: 4vw !important;
 }
 h3 {
   font-size: 3.5vw !important;
+  text-align: center;
 }
 h4 {
   font-size: 3vw !important;
 }
-p {
+p:not(.firebaseui-error .firebaseui-info-bar) {
   font-size: 2.5vw !important;
 }
 
@@ -22,13 +48,6 @@ p {
 }
 .btn-group-vertical {
   max-width: 50%;
-}
-
-.c1-q {
-  margin-left: 20%;
-  margin-right: 20%;
-  text-align: justify;
-  max-width: 60%;
 }
 
 @keyframes showScore {

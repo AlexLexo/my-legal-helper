@@ -22,9 +22,7 @@ class Menu extends Component {
       <div>
         <Navbar fluid collapseOnSelect>
           <Navbar.Header>
-            <Navbar.Brand onClick={() => this.props.history.push('/')}>
-              Vocab Learner
-            </Navbar.Brand>
+            <Navbar.Brand onClick={() => this.props.history.push('/')}>My Legal Helper</Navbar.Brand>
             <Navbar.Toggle />
           </Navbar.Header>
           <Navbar.Collapse>
@@ -38,22 +36,17 @@ class Menu extends Component {
               {this.props.SessionStore.signedIn
                 ? [
                     <IndexLinkContainer key="1" to="/quiz">
-                      <NavItem className="fadeInMenuItem"> Quiz </NavItem>
+                      <NavItem className="fadeInMenuItem"> Case Tool </NavItem>
                     </IndexLinkContainer>,
                     <IndexLinkContainer key="2" to="/#">
-                      <NavItem
-                        onClick={this.handleLogout}
-                        className="fadeInMenuItem"
-                      >
+                      <NavItem onClick={this.handleLogout} className="fadeInMenuItem">
                         Logout
                       </NavItem>
                     </IndexLinkContainer>
                   ]
                 : [
                     <IndexLinkContainer key="3" to="/login">
-                      <NavItem className="fadeInMenuItem">
-                        Sign in / Sign up
-                      </NavItem>
+                      <NavItem className="fadeInMenuItem">Sign in / Sign up</NavItem>
                     </IndexLinkContainer>
                   ]}
             </Nav>

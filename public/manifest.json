@@ -1,6 +1,6 @@
 {
-  "name": "Vocab App",
-  "short_name": "Vocab App",
+  "name": "My Legal Helper",
+  "short_name": "Legal Helper",
   "start_url": "/",
   "display": "standalone",
   "theme_color": "#ffffff",
@@ -8,7 +8,7 @@
 
   "icons": [
     {
-      "src": "/android-chrome-192x192.png?v=0001",
+      "src": "/android-chrome-192x192.png?v=0002",
       "sizes": "192x192",
       "type": "image/png"
     },

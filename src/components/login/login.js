@@ -12,7 +12,8 @@ class Login extends Component {
   }
 
   render() {
-    if (!this.props.SessionStore.user.user) {
+    //console.log(this.props.SessionStore.userAuth);
+    if (!this.props.SessionStore.userAuth) {
       return (
         <div className="login">
           <h1> Sign In or Sign Up! </h1>
@@ -21,15 +22,13 @@ class Login extends Component {
           <FirebaseAuth {...this.props} />
         </div>
       );
-    } else if (this.props.SessionStore.user.user.name) {
+    } else if (this.props.SessionStore.userAuth) {
       return (
         <div className="login">
-          <h1>Welcome {this.props.SessionStore.user.user.name}!</h1>
+          <h1>Welcome {this.props.SessionStore.userAuth.displayName}!</h1>
           <h3> You are now signed in. </h3>
         </div>
       );
-    } else {
-      return <div>Loading...</div>;
     }
   }
 }
