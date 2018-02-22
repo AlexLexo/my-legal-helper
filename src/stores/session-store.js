@@ -98,7 +98,7 @@ class MobxSessionStore {
   get letterTemplate() {
     if (this.userObj.allQs.injuredBy2.answered === 'injuredByRoadDefect') return 'roadDefectLetter';
     if (this.userObj.allQs.injuredBy.answered === 'injuredByAnimal') return 'injuredByAnimalLetter';
-    if (this.userObj.allQs.injuredBy.answered === 'injuredByPed') return 'injuredByPedLetter';
+    if (this.userObj.allQs.injuredBy.answered === 'injuredByPed') return 'injuredByPedestrianLetter';
     if (this.userObj.allQs.iDets1.answered === 'iDets1Rear') return 'rearEndedByLetter';
     if (this.userObj.allQs.vTurned1.answered === 'vTurned1RChangingLanes') return 'vTurned1RChangingLanesLetter';
     if (this.userObj.allQs.vTurned1.answered === 'vTurned1LChangingLanes') return 'vTurned1LChangingLanesLetter';
@@ -114,13 +114,7 @@ class MobxSessionStore {
 
   @action('setCurrentQ')
   setCurrentQ = nxtQId => {
-    console.log(this.userObj.allQs);
-    console.log(this.userObj.allQs.injuredBy2);
-    console.log(this.userObj.allQs.injuredBy2.answered);
-    console.log(this.letterTemplate);
-    console.log(nxtQId);
     this.currentQId = nxtQId === 'letter' ? this.letterTemplate : nxtQId;
-    console.log(this.currentQId);
   };
 
   updateLastQs = () => {

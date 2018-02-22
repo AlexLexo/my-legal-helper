@@ -1607,11 +1607,6 @@
     "type": "dropdown",
     "btnvalues": [
       {
-        "ansId": "lossOfEarningsYesLostJob",
-        "ansLabel": "DELETE",
-        "nxtQId": "lossOfEarningsYesLostJobDets"
-      },
-      {
         "ansId": "lossOfEarningsYesTimeOff",
         "ansLabel": "Yes",
         "nxtQId": "lossOfEarningsYesTimeOffDets"
@@ -1622,15 +1617,6 @@
         "nxtQId": "lossesMed"
       }
     ]
-  },
-  "lossOfEarningsYesLostJobDets": {
-    "qId": "lossOfEarningsYesLostJobDets",
-    "nxtQId": "lossOfEarningsFrom",
-    "title": "What was your occupation?",
-    "answered": "",
-    "answeredOn": "",
-    "type": "text",
-    "placeholder": "e.g. plumber"
   },
   "lossOfEarningsYesTimeOffDets": {
     "qId": "lossOfEarningsYesTimeOffDets",
