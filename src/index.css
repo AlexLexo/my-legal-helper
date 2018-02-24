@@ -24,14 +24,8 @@ body {
   z-index: 1000;
 }
 
-.home {
-  padding: 40px 0;
-}
 .home h1 {
   font-weight: 600;
-}
-.home p {
-  color: rgb(100, 100, 100);
 }
 /*h1,
 h2,
