@@ -11,19 +11,6 @@ import './menu.css';
 @inject('UIStore', 'SessionStore')
 @observer
 class Menu extends Component {
-  /*constructor(props) {
-    super(props);
-
-    this.state = {
-      isOpen: false
-    };
-  }
-  toggle = () => {
-    this.setState({
-      isOpen: !this.state.isOpen
-    });
-  };*/
-
   componentWillMount() {
     this.props.UIStore.handleFadeIn();
   }
@@ -32,11 +19,15 @@ class Menu extends Component {
     fire.auth().signOut();
     this.props.history.push('/');
   };
+
+  handleNavbarBrandClick = () =>
+    !this.props.UIStore.navBarIsOpen ? this.props.history.push('/') : this.props.UIStore.closeNavBar();
+
   render() {
     return (
-      <Navbar color="inverse" light expand="md" className="navBar">
-        <NavbarBrand onClick={() => this.props.history.push('/')}>My Legal Helper</NavbarBrand>
-        <NavbarToggler /*onClick={this.toggle}*/ onClick={this.props.UIStore.toggleNavBar} />
+      <Navbar color="inverse" light expand={false}>
+        <NavbarBrand onClick={this.handleNavbarBrandClick}>My Legal Helper</NavbarBrand>
+        <NavbarToggler onClick={this.props.UIStore.toggleNavBar} />
         <Collapse isOpen={this.props.UIStore.navBarIsOpen} navbar onClick={this.props.UIStore.toggleNavBar}>
           <Nav className="ml-auto" navbar>
             <IndexLinkContainer to="/">
@@ -48,20 +39,19 @@ class Menu extends Component {
             {this.props.SessionStore.signedIn
               ? [
                   <IndexLinkContainer key="1" to="/quiz">
-                    <NavLink className="fadeInMenuItem"> Case Tool </NavLink>
+                    <NavLink> Case Tool </NavLink>
                   </IndexLinkContainer>,
                   <IndexLinkContainer key="2" to="/#">
-                    <NavLink onClick={this.handleLogout} className="fadeInMenuItem">
-                      Logout
-                    </NavLink>
+                    <NavLink onClick={this.handleLogout}>Logout</NavLink>
                   </IndexLinkContainer>
                 ]
               : [
                   <IndexLinkContainer key="3" to="/login">
-                    <NavLink className="fadeInMenuItem">Sign in / Sign up</NavLink>
+                    <NavLink>Sign in / Sign up</NavLink>
                   </IndexLinkContainer>
                 ]}
           </Nav>
+          <div className="menu-filler" />
         </Collapse>
       </Navbar>
     );

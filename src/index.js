@@ -7,7 +7,6 @@ import UIStore from './stores/ui-store';
 import SessionStore from './stores/session-store';
 import Routes from './components/routes/routes';
 
-//import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/scss/bootstrap.scss';
 import './index.css';
 

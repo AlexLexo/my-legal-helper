@@ -33,9 +33,13 @@ class Routes extends Component {
   render() {
     return (
       <BrowserRouter>
-        <div className="container">
+        <div className="app">
           <Route component={Menu} />
-          <div className={`${this.props.UIStore.fadeIn} `} onClick={this.props.UIStore.closeNavBar}>
+          <div
+            className={`noNavBarContainer ${this.props.UIStore.navBarIsOpen ? 'show' : 'hide'}`}
+            onClick={this.props.UIStore.closeNavBar}
+          />
+          <div className={`${this.props.UIStore.fadeIn}`}>
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/faqs" component={FAQs} />
