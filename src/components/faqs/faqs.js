@@ -14,16 +14,13 @@ class FAQs extends Component {
       <div className="faqs">
         <h1> FAQs </h1>
         <h3>Is this right for me?</h3>
-        <br />
-        <div className="text-justify">
-          <p>
-            If you are seriously injured you should always get help from a solicitor. However, in more straightforward
-            cases a solicitor may add little value and you can often settle the case yourself. A solicitor will usually
-            take 25% of your damages in legal fees, so it is important to decide whether they will add value to your
-            case. These tools and guides are designed to help you make that decision and guide you through the case if
-            you want to do it yourself.
-          </p>
-        </div>
+        <p className="text-justify">
+          If you are seriously injured you should always get help from a solicitor. However, in more straightforward
+          cases a solicitor may add little value and you can often settle the case yourself. A solicitor will usually
+          take 25% of your damages in legal fees, so it is important to decide whether they will add value to your case.
+          These tools and guides are designed to help you make that decision and guide you through the case if you want
+          to do it yourself.
+        </p>
       </div>
     );
   }

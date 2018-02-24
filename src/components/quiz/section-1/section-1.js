@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
 import DOMPurify from 'dompurify';
-import ToggleButtonGroup from 'react-bootstrap/lib/ToggleButtonGroup';
-import ToggleButton from 'react-bootstrap/lib/ToggleButton';
-//import Modal from './../../modal/modal';<Modal />
+
 import Weak from './weak';
 import Advice from './advice';
 import Letter from './letter';
-
-import './section-1.css';
+import Buttons from './buttons';
+import Dates from './dates';
+import Texts from './texts';
+import Email from './emails';
 
 @inject('UIStore', 'SessionStore')
 @observer
@@ -25,18 +25,6 @@ class Section1 extends Component {
     this.props.UIStore.handleFadeIn();
   }
 
-  handleChange = e => this.setState({ value: e.target.value, nxtQId: e.target.name });
-
-  handleBtnChange = e => console.log(e);
-
-  handleBtnClick = e => {
-    e.preventDefault();
-    this.setState({
-      value: e.target.dataset['ansid'],
-      nxtQId: e.target.dataset['nxtqid'],
-      btnValue: e.target.value
-    });
-  };
   handleBack = () => {
     this.props.SessionStore.handleBack();
     this.setState({
@@ -59,7 +47,6 @@ class Section1 extends Component {
       value = 'advice';
       nxtQId = this.props.SessionStore.userObj.allQs[this.props.SessionStore.currentQId].nxtQId;
     }
-    console.log(value, nxtQId);
     if (!value || !nxtQId) return alert('please enter something!');
     this.props.SessionStore.handleNext(value, nxtQId);
     this.resetState();
@@ -68,53 +55,15 @@ class Section1 extends Component {
 
   render() {
     const q = this.props.SessionStore.userObj.allQs[this.props.SessionStore.currentQId];
-    const title =
-      q.type === 'letter' ? { __html: DOMPurify.sanitize('Letter of Claim') } : { __html: DOMPurify.sanitize(q.title) };
-    if (q.type === 'text' || q.type === 'email') {
-      this.input = (
-        <input
-          type={q.type}
-          name={q.nxtQId}
-          placeholder={q.answered ? q.answered : q.placeholder}
-          value={this.state.value}
-          onChange={this.handleChange}
-        />
-      );
+    const title = q.type === 'letter' ? { __html: DOMPurify.sanitize('x') } : { __html: DOMPurify.sanitize(q.title) };
+    if (q.type === 'text') {
+      this.input = <Texts q={q} value={this.state.value} callback={(v, n) => this.setState({ value: v, nxtQId: n })} />;
+    } else if (q.type === 'email') {
+      this.input = <Email q={q} value={this.state.value} callback={(v, n) => this.setState({ value: v, nxtQId: n })} />;
     } else if (q.type === 'date') {
-      this.input = (
-        <input
-          type="text"
-          name={q.nxtQId}
-          placeholder={q.answered ? q.answered : q.placeholder}
-          value={this.state.value}
-          onChange={this.handleChange}
-        />
-      );
+      this.input = <Dates q={q} value={this.state.value} callback={(v, n) => this.setState({ value: v, nxtQId: n })} />;
     } else if (q.type === 'button' || q.type === 'dropdown') {
-      this.input = (
-        <ToggleButtonGroup
-          type="radio"
-          name="options"
-          value={this.state.value}
-          onChange={this.handleBtnChange}
-          vertical
-        >
-          {q.btnvalues.map((item, i) => {
-            return (
-              <ToggleButton
-                key={i}
-                data-nxtqid={item.nxtQId}
-                data-ansid={item.ansId}
-                value={item.ansId}
-                onClick={this.handleBtnClick}
-                className="btn-primary case-tool-button"
-              >
-                {item.ansLabel}
-              </ToggleButton>
-            );
-          })}
-        </ToggleButtonGroup>
-      );
+      this.input = <Buttons btnvalues={q.btnvalues} callback={(v, n) => this.setState({ value: v, nxtQId: n })} />;
     } else if (q.type === 'weak') {
       this.input = <Weak userObj={this.props.SessionStore.userObj} q={q} />;
     } else if (q.type === 'advice') {
@@ -129,14 +78,18 @@ class Section1 extends Component {
         <form onSubmit={this.handleSubmit}>
           {this.input}
           <br />
-          <div className="btn-group bottom-buttons">
+          <div className="btn-group bottom-button-group">
             <input
               type="button"
               onClick={this.handleBack}
               value="Back"
-              className={`btn btn-secondary ${q.qId === 'cFullName' ? 'disabled' : ''}`}
+              className={`btn btn-outline-warning bottom-button ${q.qId === 'cFullName' ? 'disabled' : ''}`}
             />
-            <input type="submit" value="Next" className={`btn btn-secondary ${q.type === 'weak' ? 'disabled' : ''}`} />
+            <input
+              type="submit"
+              value="Next"
+              className={`btn btn-outline-warning bottom-button rounded-circle ${q.type === 'weak' ? 'disabled' : ''}`}
+            />
           </div>
         </form>
       </div>

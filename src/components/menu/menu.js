@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
-import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import { IndexLinkContainer } from 'react-router-bootstrap';
+
+import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavLink } from 'reactstrap';
+
 import fire from './../../services/fire';
 
 import './menu.css';
@@ -9,6 +11,19 @@ import './menu.css';
 @inject('UIStore', 'SessionStore')
 @observer
 class Menu extends Component {
+  /*constructor(props) {
+    super(props);
+
+    this.state = {
+      isOpen: false
+    };
+  }
+  toggle = () => {
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
+  };*/
+
   componentWillMount() {
     this.props.UIStore.handleFadeIn();
   }
@@ -19,40 +34,36 @@ class Menu extends Component {
   };
   render() {
     return (
-      <div>
-        <Navbar fluid collapseOnSelect>
-          <Navbar.Header>
-            <Navbar.Brand onClick={() => this.props.history.push('/')}>My Legal Helper</Navbar.Brand>
-            <Navbar.Toggle />
-          </Navbar.Header>
-          <Navbar.Collapse>
-            <Nav pullRight>
-              <IndexLinkContainer to="/">
-                <NavItem> Home </NavItem>
-              </IndexLinkContainer>
-              <IndexLinkContainer to="/faqs">
-                <NavItem> FAQs </NavItem>
-              </IndexLinkContainer>
-              {this.props.SessionStore.signedIn
-                ? [
-                    <IndexLinkContainer key="1" to="/quiz">
-                      <NavItem className="fadeInMenuItem"> Case Tool </NavItem>
-                    </IndexLinkContainer>,
-                    <IndexLinkContainer key="2" to="/#">
-                      <NavItem onClick={this.handleLogout} className="fadeInMenuItem">
-                        Logout
-                      </NavItem>
-                    </IndexLinkContainer>
-                  ]
-                : [
-                    <IndexLinkContainer key="3" to="/login">
-                      <NavItem className="fadeInMenuItem">Sign in / Sign up</NavItem>
-                    </IndexLinkContainer>
-                  ]}
-            </Nav>
-          </Navbar.Collapse>
-        </Navbar>
-      </div>
+      <Navbar color="inverse" light expand="md" className="navBar">
+        <NavbarBrand onClick={() => this.props.history.push('/')}>My Legal Helper</NavbarBrand>
+        <NavbarToggler /*onClick={this.toggle}*/ onClick={this.props.UIStore.toggleNavBar} />
+        <Collapse isOpen={this.props.UIStore.navBarIsOpen} navbar onClick={this.props.UIStore.toggleNavBar}>
+          <Nav className="ml-auto" navbar>
+            <IndexLinkContainer to="/">
+              <NavLink> Home </NavLink>
+            </IndexLinkContainer>
+            <IndexLinkContainer to="/faqs">
+              <NavLink> FAQs </NavLink>
+            </IndexLinkContainer>
+            {this.props.SessionStore.signedIn
+              ? [
+                  <IndexLinkContainer key="1" to="/quiz">
+                    <NavLink className="fadeInMenuItem"> Case Tool </NavLink>
+                  </IndexLinkContainer>,
+                  <IndexLinkContainer key="2" to="/#">
+                    <NavLink onClick={this.handleLogout} className="fadeInMenuItem">
+                      Logout
+                    </NavLink>
+                  </IndexLinkContainer>
+                ]
+              : [
+                  <IndexLinkContainer key="3" to="/login">
+                    <NavLink className="fadeInMenuItem">Sign in / Sign up</NavLink>
+                  </IndexLinkContainer>
+                ]}
+          </Nav>
+        </Collapse>
+      </Navbar>
     );
   }
 }
