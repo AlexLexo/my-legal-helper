@@ -1,16 +1,13 @@
 body {
-  background-color: rgb(245, 245, 245);
+  background-color: #f7f7f6;
 }
 
 .app {
-  margin: 0;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-right: 15%;
-  padding-left: 15%;
+  padding-right: auto;
+  padding-left: auto;
   font-family: "PT Serif", serif;
   font-size: 16px;
-  color: #333;
+  color: #42506b;
   text-align: center;
 }
 
@@ -22,17 +19,87 @@ body {
   min-width: 100%;
 }
 
+.navbar {
+  z-index: 1000;
+  padding-left: 15%;
+  padding-right: 15%;
+  background-color: #42506b;
+  color: white;
+}
+
+.navbar ul > a {
+  font-size: 3rem;
+}
+
+.navbar ul > a:first-child {
+  padding-top: 5%;
+}
+
 .menu-filler {
   height: 80vh;
 }
 
-.navbar {
-  z-index: 1000;
-  width: 100%;
+.case-tool-button-group {
+  width: 80%;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
 }
+
+.case-tool-button {
+  margin-bottom: 10px;
+  border-radius: 24px;
+  background-color: #3cc;
+  border: 0 none;
+  color: white;
+}
+
+.case-tool-button:hover,
+.case-tool-button:focus {
+  background-color: #fbcf4c;
+  color: #42506b;
+}
+
+.btn-lg.btn-block {
+  border-radius: 0;
+  border: 0 none;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.bottom-button {
+  margin-top: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+  border-radius: 24px;
+  background-color: #3cc;
+  border: 0 none;
+  color: white;
+}
+
+.bottom-button:hover {
+  background-color: #fbcf4c;
+  color: #42506b;
+}
+
+/*h3 {
+  font-size: 2.5vw !important;
+  text-align: center;
+}*/
 
 .home h1 {
   font-weight: 600;
+  color: #3cc;
+}
+
+.faqs {
+  height: 100vh;
+  padding: 30px;
+  color: white;
+  background-color: #42506b;
+}
+.faqs h1 {
+  color: #fbcf4c;
 }
 
 .show {
@@ -78,9 +145,6 @@ input.form-control {
   font-size: 16px;
 }
 
-.App {
-  margin-top: 15px;
-}
 
 
 .opacityZero {
@@ -96,39 +160,14 @@ input.form-control {
   }
 }
 
-.case-tool-button-group {
-  max-width: 40%;
-}
-.case-tool-button {
-  text-align: center;
-  margin-bottom: 10px;
-}
 
-/*.footer-navigation-buttons > .btn {
-  margin-top: 10px;
-  margin-right: 10px;
-  margin-left: 10px;
-  float: none;
-}
-.bottom-button-group {
-  margin-top: 10px;
-  margin-right: 10px;
-  margin-left: 10px;
-  float: none;
-}
-.bottom-button {
-  padding-top: 20px;
-}
 
 
 
 h1:not(.firebaseui-title) {
   font-size: 3vw !important;
 }
-h3 {
-  font-size: 2.5vw !important;
-  text-align: center;
-}
+
 h4 {
   font-size: 2vw !important;
 }

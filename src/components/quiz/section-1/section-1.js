@@ -83,12 +83,12 @@ class Section1 extends Component {
               type="button"
               onClick={this.handleBack}
               value="Back"
-              className={`btn btn-outline-warning bottom-button ${q.qId === 'cFullName' ? 'disabled' : ''}`}
+              className={`btn btn-primary bottom-button ${q.qId === 'cFullName' ? 'disabled' : ''}`}
             />
             <input
               type="submit"
               value="Next"
-              className={`btn btn-outline-warning bottom-button rounded-circle ${q.type === 'weak' ? 'disabled' : ''}`}
+              className={`btn btn-primary bottom-button ${q.type === 'weak' ? 'disabled' : ''}`}
             />
           </div>
         </form>

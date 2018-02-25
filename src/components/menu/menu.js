@@ -25,7 +25,7 @@ class Menu extends Component {
 
   render() {
     return (
-      <Navbar color="inverse" light expand={false}>
+      <Navbar dark expand={false}>
         <NavbarBrand onClick={this.handleNavbarBrandClick}>My Legal Helper</NavbarBrand>
         <NavbarToggler onClick={this.props.UIStore.toggleNavBar} />
         <Collapse isOpen={this.props.UIStore.navBarIsOpen} navbar onClick={this.props.UIStore.toggleNavBar}>

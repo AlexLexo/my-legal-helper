@@ -24,7 +24,7 @@ class Quiz extends Component {
             <h3>Where to now?</h3>
             <br />
             <div>
-              <button type="button" className="btn btn-secondary btn-block" onClick={this.handleClick} name="section1">
+              <button type="button" className="btn btn-primary" onClick={this.handleClick} name="section1">
                 Let's get started
               </button>
             </div>
