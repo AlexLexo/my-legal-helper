@@ -39,9 +39,15 @@ class Menu extends Component {
             {this.props.SessionStore.signedIn
               ? [
                   <IndexLinkContainer key="1" to="/quiz">
+                    <NavLink> All Tools </NavLink>
+                  </IndexLinkContainer>,
+                  <IndexLinkContainer key="2" to="/section1">
                     <NavLink> Case Tool </NavLink>
                   </IndexLinkContainer>,
-                  <IndexLinkContainer key="2" to="/#">
+                  <IndexLinkContainer key="3" to="/valuation">
+                    <NavLink> Valuation Tool </NavLink>
+                  </IndexLinkContainer>,
+                  <IndexLinkContainer key="4" to="/#">
                     <NavLink onClick={this.handleLogout}>Logout</NavLink>
                   </IndexLinkContainer>
                 ]

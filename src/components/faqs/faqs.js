@@ -21,6 +21,22 @@ class FAQs extends Component {
           These tools and guides are designed to help you make that decision and guide you through the case if you want
           to do it yourself.
         </p>
+        <button
+          type="button"
+          className="btn btn-primary"
+          onClick={() => this.props.history.push(`section1`)}
+          name="section1"
+        >
+          Do I have a case?
+        </button>
+        <button
+          type="button"
+          className="btn btn-primary"
+          onClick={() => this.props.history.push(`valuation`)}
+          name="section1"
+        >
+          Valuation Tool
+        </button>
       </div>
     );
   }

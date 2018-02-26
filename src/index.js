@@ -7,6 +7,7 @@ import UIStore from './stores/ui-store';
 import SessionStore from './stores/session-store';
 import Routes from './components/routes/routes';
 
+//import 'typeface-quicksand';
 import 'bootstrap/scss/bootstrap.scss';
 import './index.css';
 

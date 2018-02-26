@@ -9,9 +9,6 @@ class Quiz extends Component {
   componentWillMount() {
     this.props.UIStore.handleFadeIn();
   }
-  handleClick = e => {
-    this.props.history.push(`section1`);
-  };
 
   render() {
     return (
@@ -23,11 +20,22 @@ class Quiz extends Component {
             <h1>Welcome {this.props.SessionStore.userAuth.displayName}!</h1>
             <h3>Where to now?</h3>
             <br />
-            <div>
-              <button type="button" className="btn btn-primary" onClick={this.handleClick} name="section1">
-                Let's get started
-              </button>
-            </div>
+            <button
+              type="button"
+              className="btn btn-primary"
+              onClick={() => this.props.history.push(`section1`)}
+              name="section1"
+            >
+              Do I have a case?
+            </button>
+            <button
+              type="button"
+              className="btn btn-primary"
+              onClick={() => this.props.history.push(`valuation`)}
+              name="section1"
+            >
+              Valuation Tool
+            </button>
           </div>
         )}
       </div>

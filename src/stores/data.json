@@ -74,7 +74,7 @@
   "dDetsHave": {
     "qId": "dDetsHave",
     "title":
-      "Do you have access to the name/address or insurance details for the defendant (i.e. the person who caused the incident)? If they were a driver or riding a moped/motorcycle you just need their registration?",
+      "Do you have access to the name, address or insurance details for the person who caused the incident? If they were driving or riding a motorcycle you just need the registration.",
     "answered": "",
     "answeredOn": "",
     "type": "button",

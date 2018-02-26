@@ -72,24 +72,21 @@ class Section1 extends Component {
       this.input = <Letter allQs={this.props.SessionStore.userObj.allQs} q={q} />;
     }
     return (
-      <div className={`quiz`}>
-        <h1 className={q.type !== 'letter' ? 'show' : 'hide'}>Case Evaluation Tool</h1>
-        <h3 className={q.type !== 'letter' ? 'show' : 'hide'} dangerouslySetInnerHTML={title} />
+      <div className={`section1`}>
+        {/*<h1 className={q.type !== 'letter' ? 'show' : 'hide'}>Case Evaluation Tool</h1>*/}
+        <div className={`section1-title ${q.type !== 'letter' ? 'show' : 'hide'}`}>
+          <h3 dangerouslySetInnerHTML={title} />
+        </div>
         <form onSubmit={this.handleSubmit}>
-          {this.input}
-          <br />
+          <div className="input">{this.input}</div>
           <div className="btn-group bottom-button-group">
             <input
               type="button"
               onClick={this.handleBack}
               value="Back"
-              className={`btn btn-primary bottom-button ${q.qId === 'cFullName' ? 'disabled' : ''}`}
+              className={`btn bottom-button ${q.qId === 'cFullName' ? 'disabled' : ''}`}
             />
-            <input
-              type="submit"
-              value="Next"
-              className={`btn btn-primary bottom-button ${q.type === 'weak' ? 'disabled' : ''}`}
-            />
+            <input type="submit" value="Next" className={`btn bottom-button ${q.type === 'weak' ? 'disabled' : ''}`} />
           </div>
         </form>
       </div>

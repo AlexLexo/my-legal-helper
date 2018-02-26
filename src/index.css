@@ -5,7 +5,8 @@ body {
 .app {
   padding-right: auto;
   padding-left: auto;
-  font-family: "PT Serif", serif;
+  /*font-family: "PT Serif", serif;*/
+  /*font-family: "PT Serif", serif;*/
   font-size: 16px;
   color: #42506b;
   text-align: center;
@@ -19,6 +20,23 @@ body {
   min-width: 100%;
 }
 
+.btn {
+  margin-top: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+  border-radius: 24px;
+  background-color: #3cc;
+  border: 0 none;
+  color: white;
+}
+
+.btn:hover {
+  background-color: #fbcf4c;
+  color: #42506b;
+}
+
+/*/////////// NavBar /////////////////////*/
+
 .navbar {
   z-index: 1000;
   padding-left: 15%;
@@ -28,7 +46,7 @@ body {
 }
 
 .navbar ul > a {
-  font-size: 3rem;
+  font-size: 2rem;
 }
 
 .navbar ul > a:first-child {
@@ -39,6 +57,48 @@ body {
   height: 80vh;
 }
 
+/*/////////// landing page ////////////////*/
+.home h1 {
+  font-weight: 600;
+  color: #3cc;
+}
+.home h3 {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+.home > img {
+  padding-top: 40px;
+  padding-bottom: 20px;
+  max-width: 250px;
+}
+
+/*/////////// faqs page ////////////////*/
+.faqs {
+  height: 100vh;
+  padding: 30px;
+  color: white;
+  background-color: #42506b;
+}
+.faqs h1 {
+  color: #fbcf4c;
+}
+
+/*/////////// quiz page ////////////////*/
+.quiz {
+  height: 100vh;
+  padding: 30px;
+  color: white;
+  background-color: #42506b;
+}
+.quiz h1 {
+  color: #fbcf4c;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+/*/////////// section 1 ////////////////*/
 .case-tool-button-group {
   width: 80%;
   max-width: 500px;
@@ -60,48 +120,44 @@ body {
   color: #42506b;
 }
 
-.btn-lg.btn-block {
-  border-radius: 0;
-  border: 0 none;
-  padding-top: 10px;
-  padding-bottom: 10px;
+.section1-title > h3 {
+  font-size: 1.3rem;
+  height: 30vh;
+  width: 100vw;
+  padding-left: 5vw;
+  padding-right: 5vw;
+  vertical-align: middle;
+  display: table-cell;
 }
 
+.section1 .input {
+  min-height: 45vh;
+}
+
+.bottom-button-group {
+  color: black;
+}
 .bottom-button {
   margin-top: 10px;
   margin-right: 10px;
   margin-left: 10px;
   border-radius: 24px;
-  background-color: #3cc;
+  background-color: #42506b;
   border: 0 none;
   color: white;
 }
 
 .bottom-button:hover {
-  background-color: #fbcf4c;
-  color: #42506b;
-}
-
-/*h3 {
-  font-size: 2.5vw !important;
-  text-align: center;
-}*/
-
-.home h1 {
-  font-weight: 600;
-  color: #3cc;
-}
-
-.faqs {
-  height: 100vh;
-  padding: 30px;
-  color: white;
-  background-color: #42506b;
-}
-.faqs h1 {
+  background-color: #2c3952;
   color: #fbcf4c;
 }
 
+.bottom-button:disabled,
+.bottom-button:active {
+  opacity: 0.5;
+}
+
+/*///////////////////animations etc//////////////////////*/
 .show {
   display: block;
 }
