@@ -39,10 +39,12 @@ const Advice = props => {
           <p>
             You have indicated that you don't know whether the defendant is insured. If they were using a motor vehicle
             that normally required motor insurance then you should be able to bring a case through the Motor Insurer's
-            Bureau (for more information see this guide – link). If not then this can be a big problem as even if you do
-            have a good case you may not be able to get any money from the defendant. However, if they were acting in
-            the course of their employment you may be able to bring a case against the company direct. For more
-            information see this guide – link.
+            Bureau (for more information see this guide –{' '}
+            <a href="https://www.mib.org.uk/" target="_blank" rel="noopener noreferrer">
+              link
+            </a>). If not then this can be a big problem as even if you do have a good case you may not be able to get
+            any money from the defendant. However, if they were acting in the course of their employment you may be able
+            to bring a case against the company direct. For more information see this guide – link.
           </p>
         )}
 
@@ -51,45 +53,52 @@ const Advice = props => {
         </p>
         <p>{props.q.element2a}</p>
 
-        {props.userObj.allQs.animalPet === 'animalPetNo' ? (
-          <p>
-            You were injured by a wild animal whilst cycling. You would need to show that another party is at fault so
-            that a case could be brought against them which would be challenging. If you would like further advice
-            please send me a message with more detail.
-          </p>
+        {props.userObj.allQs.injuredBy.answered === 'injuredByAnimal' ? (
+          props.userObj.allQs.animalPet.answered === 'animalPetNo' ? (
+            <p>
+              You were injured by a wild animal whilst cycling. You would need to show that another party is at fault so
+              that a case could be brought against them which would be challenging. If you would like further advice
+              please send me a message with more detail.
+            </p>
+          ) : (
+            <p>
+              You were injured when someone's pet caused you to fall from your bicycle. The owner of the pet should have
+              kept control over them, and you should have a good case. An exception is if you were cycling through a
+              park or similar. In those circumstances, you may need to show you took appropriate care and could not have
+              avoided the incident.
+            </p>
+          )
         ) : (
-          <p>
-            You were injured when someone's pet caused you to fall from your bicycle. The owner of the pet should have
-            kept control over them, and you should have a good case. An exception is if you were cycling through a park
-            or similar. In those circumstances, you may need to show you took appropriate care and could not have
-            avoided the incident.
-          </p>
+          ''
         )}
         <p>{props.q.filteringYes}</p>
         <p>{props.q.filteringNo}</p>
-        {props.userObj.allQs.darkLights === 'darkLightsNo' ? (
+        {props.userObj.allQs.darkLights.answered === 'darkLightsNo' ? (
           <p>
             As you were not riding with lights, this may pose a problem as the defendants will argue that they were
             unable to see you in order to avoid the incident. Alternatively, it may lead to a reduction in your damages
-            for 'contributory negligence'. For more information see this guide – link.
+            for 'contributory negligence'. For more information see this guide –{' '}
+            <a href="https://en.wikipedia.org/wiki/Contributory_negligence" target="_blank" rel="noopener noreferrer">
+              link
+            </a>.
           </p>
         ) : (
           ''
         )}
-        {props.userObj.allQs.witnessDets === 'witnessDetsYes' ? (
+        {props.userObj.allQs.witnessDets.answered === 'witnessDetsYes' ? (
           <p>It is helpful that you have a witness who can confirm how the incident occurred.</p>
         ) : (
           ''
         )}
-        {props.userObj.allQs.dAdmitedLiability === 'dAdmitedLiabilityYes' ? (
-          props.userObj.allQs.dProsecuted === 'dProsecutedYes' ? (
+        {props.userObj.allQs.dAdmitedLiability.answered === 'dAdmitedLiabilityYes' ? (
+          props.userObj.allQs.dProsecuted.answered === 'dProsecutedYes' ? (
             <p>
               Given that the defendant has both admitted liability and been prosecuted, your case should be very strong.
             </p>
           ) : (
             <p>Given that the defendant has admitted liability, your case should be very strong.</p>
           )
-        ) : props.userObj.allQs.dProsecuted === 'dProsecutedYes' ? (
+        ) : props.userObj.allQs.dProsecuted.answered === 'dProsecutedYes' ? (
           <p>Given that the defendant has been prosecuted, your case should be very strong.</p>
         ) : (
           ''
@@ -107,7 +116,7 @@ const Advice = props => {
         <p>
           <strong>Next Steps</strong>
         </p>
-        <p>If you would now like to use the letter writing tool please press the 'letter tool' button below.</p>
+        <p>If you would now like to use the letter writing tool please press the 'next' button below.</p>
         <p>
           Alternatively, feel free to send me a message if you have any queries regarding the advice. I will not pass
           your details on to anyone else.

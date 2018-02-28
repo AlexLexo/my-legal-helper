@@ -33,22 +33,28 @@ const Letter = props => {
       : false;
 
   return (
-    <div className="text-justify">
+    <div className="letter text-justify">
       <p>{todaysDate}</p>
       <p>Dear Sirs</p>
       <p>
-        <strong>Name:</strong> {props.allQs.cFullName.answered}
+        <strong>Name: {props.allQs.cFullName.answered}</strong>
       </p>
       <p>
-        <strong>Address:</strong> {x.cAddress.answered}
+        <strong>Address: {x.cAddress.answered}</strong>
       </p>
       <p>
-        <strong>Incident date:</strong> {x.iDate.answered}
+        <strong>Incident date: {x.iDate.answered}</strong>
+      </p>
+      <p>
+        <strong>Defendant name: {x.dFullName.answered}</strong>
+      </p>
+      <p className={x.writeWho.answered === 'writeWhoDefendant' ? 'hide' : ''}>
+        <strong>Policy number: {x.dPolicyNumber.answered}</strong>
       </p>
       <p>
         On the above date I suffered {sufferedWhat} in a road traffic incident caused by {writingTo}.
       </p>
-      <div className={x.writeWho === 'writeWhoDefendant' ? 'show' : 'hide'}>
+      <div className={x.writeWho.answered === 'writeWhoDefendant' ? '' : 'hide'}>
         <p>
           <ins>Insurance</ins>
         </p>
@@ -74,66 +80,66 @@ const Letter = props => {
       </p>
       <p>I am alleging fault against {writingTo} for the following reasons:-</p>
       <ol>
-        <li className={q.liability1 ? 'show' : 'hide'}>{q.liability1}</li>
-        <li className={q.liability2 ? 'show' : 'hide'}>{q.liability2}</li>
-        <li className={q.liability3 ? 'show' : 'hide'}>{q.liability3}</li>
-        <li className={q.liability4 ? 'show' : 'hide'}>{q.liability4}</li>
-        <li className={q.liability5 ? 'show' : 'hide'}>{q.liability5}</li>
-        <li className={q.liability6 ? 'show' : 'hide'}>{q.liability6}</li>
-        <li className={q.liability7 ? 'show' : 'hide'}>{q.liability7}</li>
-        <li className={q.liability8 ? 'show' : 'hide'}>{q.liability8}</li>
-        <li className={q.liability9 ? 'show' : 'hide'}>{q.liability9}</li>
-        <li className={q.liability10 ? 'show' : 'hide'}>{q.liability10}</li>
-        <li className={q.liability11 ? 'show' : 'hide'}>{q.liability11}</li>
+        <li className={q.liability1 ? '' : 'hide'}>{q.liability1}</li>
+        <li className={q.liability2 ? '' : 'hide'}>{q.liability2}</li>
+        <li className={q.liability3 ? '' : 'hide'}>{q.liability3}</li>
+        <li className={q.liability4 ? '' : 'hide'}>{q.liability4}</li>
+        <li className={q.liability5 ? '' : 'hide'}>{q.liability5}</li>
+        <li className={q.liability6 ? '' : 'hide'}>6. {q.liability6}</li>
+        <li className={q.liability7 ? '' : 'hide'}>7. {q.liability7}</li>
+        <li className={q.liability8 ? '' : 'hide'}>8. {q.liability8}</li>
+        <li className={q.liability9 ? '' : 'hide'}>9. {q.liability9}</li>
+        <li className={q.liability10 ? '' : 'hide'}>10. {q.liability10}</li>
+        <li className={q.liability11 ? '' : 'hide'}>11. {q.liability11}</li>
       </ol>
       <p>
         {q.liabilityResult} {writingTo}. I trust you will provide a full admission within the 3 month time limit in
         accordance with the Pre-Action Protocol for Personal Injury Claims in the Civil Procedure Rules.
       </p>
-      <div className={x.injuryDets.answered ? 'show' : 'hide'}>
+      <div className={x.injuryDets.answered ? '' : 'hide'}>
         <p>
           <ins>Injuries</ins>
         </p>
         <p>A description of my injuries is as follows:</p>
-        <ol>
-          <li className={x.injuryDets.answered ? 'show' : 'hide'}>{x.injuryDets.answered}</li>
-          <li className={x.injuryDets01.answered ? 'show' : 'hide'}>{x.injuryDets01.answered}</li>
-          <li className={x.injuryDets02.answered ? 'show' : 'hide'}>{x.injuryDets02.answered}</li>
-          <li className={x.injuryDets03.answered ? 'show' : 'hide'}>{x.injuryDets03.answered}</li>
-          <li className={x.injuryDets04.answered ? 'show' : 'hide'}>{x.injuryDets04.answered}</li>
-          <li className={x.injuryDets05.answered ? 'show' : 'hide'}>{x.injuryDets05.answered}</li>
-          <li className={x.injuryDets06.answered ? 'show' : 'hide'}>{x.injuryDets06.answered}</li>
-          <li className={x.injuryDets07.answered ? 'show' : 'hide'}>{x.injuryDets07.answered}</li>
-          <li className={x.injuryDets08.answered ? 'show' : 'hide'}>{x.injuryDets08.answered}</li>
-          <li className={x.injuryDets09.answered ? 'show' : 'hide'}>{x.injuryDets09.answered}</li>
-          <li className={x.injuryDets10.answered ? 'show' : 'hide'}>{x.injuryDets10.answered}</li>
-        </ol>
-        <p className={x.hospitalWhich.answered ? 'show' : 'hide'}>
+        <ul>
+          <li className={x.injuryDets.answered ? '' : 'hide'}>{x.injuryDets.answered}</li>
+          <li className={x.injuryDets01.answered ? '' : 'hide'}>{x.injuryDets01.answered}</li>
+          <li className={x.injuryDets02.answered ? '' : 'hide'}>{x.injuryDets02.answered}</li>
+          <li className={x.injuryDets03.answered ? '' : 'hide'}>{x.injuryDets03.answered}</li>
+          <li className={x.injuryDets04.answered ? '' : 'hide'}>{x.injuryDets04.answered}</li>
+          <li className={x.injuryDets05.answered ? '' : 'hide'}>{x.injuryDets05.answered}</li>
+          <li className={x.injuryDets06.answered ? '' : 'hide'}>{x.injuryDets06.answered}</li>
+          <li className={x.injuryDets07.answered ? '' : 'hide'}>{x.injuryDets07.answered}</li>
+          <li className={x.injuryDets08.answered ? '' : 'hide'}>{x.injuryDets08.answered}</li>
+          <li className={x.injuryDets09.answered ? '' : 'hide'}>{x.injuryDets09.answered}</li>
+          <li className={x.injuryDets10.answered ? '' : 'hide'}>{x.injuryDets10.answered}</li>
+        </ul>
+        <p className={x.hospitalWhich.answered ? '' : 'hide'}>
           I received treatment for my injuries at {x.hospitalWhich.answered}.
         </p>
-        <p className={x.injured.answered === 'sufferYes' ? 'show' : 'hide'}>
+        <p className={x.injured.answered === 'sufferYes' ? '' : 'hide'}>
           I am still suffering from the effects of my injuries.
         </p>
       </div>
-      <div className={x.lossesFinancial.answered === 'lossesFinancialYes' ? 'show' : 'hide'}>
+      <div className={x.lossesFinancial.answered === 'lossesFinancialYes' ? '' : 'hide'}>
         <p>
           <ins>Loss of Earnings</ins>
         </p>
-        <div className={lossOfEarningsA ? 'show' : 'hide'}>
+        <div className={lossOfEarningsA ? '' : 'hide'}>
           <p>
             I am employed as a {x.lossOfEarningsYesTimeOffDets.answered} and have been off work since{' '}
             {x.lossOfEarningsFrom.answered}.
           </p>
           <p>My approximate net weekly income is {x.netWeeklyIncome.answered}.</p>
         </div>
-        <div className={lossOfEarningsB ? 'show' : 'hide'}>
+        <div className={lossOfEarningsB ? '' : 'hide'}>
           <p>
             I am employed as a {x.lossOfEarningsYesTimeOffDets.answered} and was off work between{' '}
             {x.lossOfEarningsFrom.answered} and {x.lossOfEarningsTo.answered}.
           </p>
           <p>My approximate net weekly income is {x.netWeeklyIncome.answered}.</p>
         </div>
-        <div className={lossOfEarningsC ? 'show' : 'hide'}>
+        <div className={lossOfEarningsC ? '' : 'hide'}>
           <p>
             I was employed as a {x.lossOfEarningsYesTimeOffDets.answered} and have incurred loss of earnings since{' '}
             {x.lossOfEarningsFrom.answered}.
@@ -148,28 +154,26 @@ const Letter = props => {
           <p>My approximate net weekly income was {x.netWeeklyIncome.answered}.</p>
         </div>
       </div>
-      <div className={otherFinancialLosses ? 'show' : 'hide'}>
+      <div className={otherFinancialLosses ? '' : 'hide'}>
         <p>
           <ins>Other Financial Losses</ins>
         </p>
         <p>I also estimate that I have incurred the following financial losses:</p>
         <ol>
-          <li className={x.lossesMedDets.answered ? 'show' : 'hide'}>{x.lossesMedDets.answered} in medical expenses</li>
-          <li className={x.lossesTreatmentDets.answered ? 'show' : 'hide'}>
-            {x.lossesTreatmentDets.answered} in medical treatment
+          <li className={x.lossesMedDets.answered ? '' : 'hide'}>{x.lossesMedDets.answered} in medical expenses</li>
+          <li className={x.lossesTreatmentDets.answered ? '' : 'hide'}>
+            Medical treatment: {x.lossesTreatmentDets.answered}
           </li>
-          <li className={x.lossesPropertyDets.answered ? 'show' : 'hide'}>
-            {x.lossesPropertyDets.answered} in property damage
+          <li className={x.lossesPropertyDets.answered ? '' : 'hide'}>
+            Property damage: {x.lossesPropertyDets.answered}
           </li>
-          <li className={x.lossesTravelDets.answered ? 'show' : 'hide'}>
-            {x.lossesTravelDets.answered} in travel costs
-          </li>
-          <li className={x.lossesFinancialOtherDets.answered ? 'show' : 'hide'}>
-            {x.lossesFinancialOtherDets.answered} for other expenses
+          <li className={x.lossesTravelDets.answered ? '' : 'hide'}>{x.lossesTravelDets.answered} in travel costs</li>
+          <li className={x.lossesFinancialOtherDets.answered ? '' : 'hide'}>
+            Other expenses: {x.lossesFinancialOtherDets.answered}
           </li>
         </ol>
       </div>
-      <div className={x.injuredBy2.answered === 'injuredByRoadDefect' ? 'show' : 'hide'}>
+      <div className={x.injuredBy2.answered === 'injuredByRoadDefect' ? '' : 'hide'}>
         <p>
           <ins>Disclosure</ins>
         </p>

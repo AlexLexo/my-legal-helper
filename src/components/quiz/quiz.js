@@ -3,37 +3,30 @@ import { observer, inject } from 'mobx-react';
 
 import './quiz.css';
 
-@inject('UIStore', 'SessionStore')
+@inject('RootStore')
 @observer
 class Quiz extends Component {
   componentWillMount() {
-    this.props.UIStore.handleFadeIn();
+    this.props.RootStore.UIStore.handleFadeIn();
   }
-
+  handleClick = e => {
+    this.props.history.push(`section1`);
+    this.props.RootStore.UIStore.setCurrentSection(e.target.name);
+  };
   render() {
     return (
       <div>
-        {!this.props.SessionStore.userAuth ? (
+        {!this.props.RootStore.SessionStore.userAuth ? (
           <div>Loading...</div>
         ) : (
           <div className="quiz">
-            <h1>Welcome {this.props.SessionStore.userAuth.displayName}!</h1>
+            <h1>Welcome {this.props.RootStore.SessionStore.userAuth.displayName}!</h1>
             <h3>Where to now?</h3>
             <br />
-            <button
-              type="button"
-              className="btn btn-primary"
-              onClick={() => this.props.history.push(`section1`)}
-              name="section1"
-            >
+            <button type="button" className="btn btn-primary" onClick={this.handleClick} name="caseTool">
               Do I have a case?
             </button>
-            <button
-              type="button"
-              className="btn btn-primary"
-              onClick={() => this.props.history.push(`valuation`)}
-              name="section1"
-            >
+            <button type="button" className="btn btn-primary" onClick={this.handleClick} name="valuer">
               Valuation Tool
             </button>
           </div>

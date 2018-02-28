@@ -4,7 +4,7 @@ import firebaseui from 'firebaseui';
 import { observer, inject } from 'mobx-react';
 import 'firebaseui/dist/firebaseui.css';
 
-@inject('UIStore', 'SessionStore')
+/*@inject('UIStore', 'SessionStore')*/ @inject('RootStore')
 @observer
 class FirebaseAuth extends Component {
   uiConfig = {
@@ -20,7 +20,7 @@ class FirebaseAuth extends Component {
     credentialHelper: firebaseui.auth.CredentialHelper.GOOGLE_YOLO,
     callbacks: {
       signInSuccess: user => {
-        //this.props.SessionStore.createUser(user);
+        //this.props.RootStore.SessionStore.createUser(user);
         setTimeout(() => {
           this.props.history.push('/');
         }, 2000);

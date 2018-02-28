@@ -1,11 +1,20 @@
 import { observable, action, useStrict } from 'mobx';
 useStrict(true);
-class MobxUIStore {
+export default class MobxUIStore {
+  constructor(rootStore) {
+    this.RootStore = rootStore;
+  }
   @observable fadeIn = '';
   @observable navBarIsOpen = false;
+  @observable currentSection = 'valuer';
 
   @action('toggleNavBar') toggleNavBar = () => (this.navBarIsOpen = !this.navBarIsOpen);
   @action('closeNavBar') closeNavBar = () => (this.navBarIsOpen = false);
+  @action('setCurrentSection')
+  setCurrentSection = x => {
+    this.currentSection = x;
+    this.RootStore.SessionStore.setInitialQ();
+  };
 
   @action('handleFadeIn')
   handleFadeIn = () => {
@@ -19,6 +28,3 @@ class MobxUIStore {
     );
   };
 }
-
-const UIStore = new MobxUIStore();
-export default UIStore;

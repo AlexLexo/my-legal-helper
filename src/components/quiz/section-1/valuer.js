@@ -3,9 +3,6 @@ import { observer, inject } from 'mobx-react';
 import DOMPurify from 'dompurify';
 
 import Weak from './weak';
-import Advice from './advice';
-import Letter from './letter';
-import Valuation from './valuation';
 import Buttons from './buttons';
 import Dates from './dates';
 import Texts from './texts';
@@ -13,7 +10,7 @@ import Email from './emails';
 
 /*@inject('UIStore', 'SessionStore')*/ @inject('RootStore')
 @observer
-class Section1 extends Component {
+class Valuer extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -45,12 +42,6 @@ class Section1 extends Component {
       this.state.nxtQId === ''
         ? this.props.RootStore.SessionStore.userObj.allQs[this.props.RootStore.SessionStore.currentQId].nxtQId
         : this.state.nxtQId;
-    if (
-      this.props.RootStore.SessionStore.userObj.allQs[this.props.RootStore.SessionStore.currentQId].type === 'advice'
-    ) {
-      value = 'advice';
-      nxtQId = this.props.RootStore.SessionStore.userObj.allQs[this.props.RootStore.SessionStore.currentQId].nxtQId;
-    }
     if (!value || !nxtQId) return alert('please enter something!');
     this.props.RootStore.SessionStore.handleNext(value, nxtQId);
     this.resetState();
@@ -70,33 +61,31 @@ class Section1 extends Component {
       this.input = <Buttons btnvalues={q.btnvalues} callback={(v, n) => this.setState({ value: v, nxtQId: n })} />;
     } else if (q.type === 'weak') {
       this.input = <Weak userObj={this.props.RootStore.SessionStore.userObj} q={q} />;
-    } else if (q.type === 'advice') {
-      this.input = <Advice userObj={this.props.RootStore.SessionStore.userObj} q={q} />;
-    } else if (q.type === 'letter') {
-      this.input = <Letter allQs={this.props.RootStore.SessionStore.userObj.allQs} q={q} />;
-    } else if (q.type === 'valuation') {
-      this.input = <Valuation allQs={this.props.RootStore.SessionStore.userObj.allQs} q={q} />;
-    }
-    return (
-      <div className={`section1`}>
-        <div className={`section1-title ${q.type !== 'letter' && q.type !== 'advice' ? 'show' : 'hide'}`}>
-          {q.qId === 'val0' ? <p dangerouslySetInnerHTML={title} /> : <h3 dangerouslySetInnerHTML={title} />}
-        </div>
-        <form onSubmit={this.handleSubmit}>
-          <div className="input">{this.input}</div>
-          <div className="btn-group bottom-button-group">
-            <input
-              type="button"
-              onClick={this.handleBack}
-              value="Back"
-              className={`btn bottom-button ${q.qId === 'cFullName' ? 'disabled' : ''}`}
-            />
-            <input type="submit" value="Next" className={`btn bottom-button ${q.type === 'weak' ? 'disabled' : ''}`} />
+      return (
+        <div className={`section1`}>
+          {/*<h1 className={q.type !== 'letter' ? 'show' : 'hide'}>Case Evaluation Tool</h1>*/}
+          <div className={`section1-title ${q.type !== 'letter' && q.type !== 'advice' ? 'show' : 'hide'}`}>
+            <h3 dangerouslySetInnerHTML={title} />
           </div>
-        </form>
-      </div>
-    );
+          <form onSubmit={this.handleSubmit}>
+            <div className="input">{this.input}</div>
+            <div className="btn-group bottom-button-group">
+              <input
+                type="button"
+                onClick={this.handleBack}
+                value="Back"
+                className={`btn bottom-button ${q.qId === 'cFullName' ? 'disabled' : ''}`}
+              />
+              <input
+                type="submit"
+                value="Next"
+                className={`btn bottom-button ${q.type === 'weak' ? 'disabled' : ''}`}
+              />
+            </div>
+          </form>
+        </div>
+      );
+    }
   }
 }
-
-export default Section1;
+export default Valuer;

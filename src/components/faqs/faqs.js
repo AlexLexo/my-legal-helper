@@ -3,12 +3,16 @@ import { observer, inject } from 'mobx-react';
 
 import './faqs.css';
 
-@inject('UIStore', 'SessionStore')
+@inject('RootStore')
 @observer
 class FAQs extends Component {
   componentWillMount() {
-    this.props.UIStore.handleFadeIn();
+    this.props.RootStore.UIStore.handleFadeIn();
   }
+  handleClick = e => {
+    this.props.history.push(`section1`);
+    this.props.RootStore.UIStore.setCurrentSection(e.target.name);
+  };
   render() {
     return (
       <div className="faqs">
@@ -21,20 +25,10 @@ class FAQs extends Component {
           These tools and guides are designed to help you make that decision and guide you through the case if you want
           to do it yourself.
         </p>
-        <button
-          type="button"
-          className="btn btn-primary"
-          onClick={() => this.props.history.push(`section1`)}
-          name="section1"
-        >
+        <button type="button" className="btn btn-primary" onClick={this.handleClick} name="caseTool">
           Do I have a case?
         </button>
-        <button
-          type="button"
-          className="btn btn-primary"
-          onClick={() => this.props.history.push(`valuation`)}
-          name="section1"
-        >
+        <button type="button" className="btn btn-primary" onClick={this.handleClick} name="valuer">
           Valuation Tool
         </button>
       </div>

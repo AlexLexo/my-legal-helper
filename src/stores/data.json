@@ -224,22 +224,22 @@
     "btnvalues": [
       {
         "ansId": "injuredByPed",
-        "ansLabel": "Pedestrian",
+        "ansLabel": "a pedestrian",
         "nxtQId": "pedDets"
       },
       {
         "ansId": "injuredByBike",
-        "ansLabel": "Cyclist",
+        "ansLabel": "another cyclist",
         "nxtQId": "filtering"
       },
       {
         "ansId": "injuredByAnimal",
-        "ansLabel": "Animal",
+        "ansLabel": "an animal",
         "nxtQId": "animalPet"
       },
       {
         "ansId": "injuredByDoor",
-        "ansLabel": "Car door",
+        "ansLabel": "a car door",
         "nxtQId": "dooredDets"
       },
       {
@@ -251,29 +251,29 @@
   },
   "injuredBy2": {
     "qId": "injuredBy2",
-    "title": "",
+    "title": "Was the incident was caused by:",
     "answered": "",
     "answeredOn": "",
     "type": "dropdown",
     "btnvalues": [
       {
         "ansId": "injuredByMotorbikeMoped",
-        "ansLabel": "Motorcycle or moped",
+        "ansLabel": "a motorcycle or moped",
         "nxtQId": "filtering"
       },
       {
         "ansId": "injuredByCarVan",
-        "ansLabel": "Car or van",
+        "ansLabel": "a car or van",
         "nxtQId": "filtering"
       },
       {
         "ansId": "injuredByBusLorry",
-        "ansLabel": "Bus or lorry",
+        "ansLabel": "a bus or lorry",
         "nxtQId": "filtering"
       },
       {
         "ansId": "injuredByRoadDefect",
-        "ansLabel": "Road defect",
+        "ansLabel": "a road defect",
         "nxtQId": "roadDefect"
       },
       {
@@ -922,91 +922,91 @@
   },
   "changingLanes": {
     "qId": "changingLanes",
-    "title": "I think I will need more information",
+    "title": "I think I will need more information.",
     "reason":
       "You were injured when you were hit on a roundabout by a vehicle whilst you changed lanes. It is difficult to say who is to blame without further information. Please send me an email with more detail if you would like any more help.",
     "type": "weak"
   },
   "contactMe": {
     "qId": "contactMe",
-    "title": "I think I will need more information",
+    "title": "I think I will need more information.",
     "reason":
       "I have not been able to work out the circumstances of the incident - please send me an email with more detail if you would like any more help.",
     "type": "weak"
   },
   "amber": {
     "qId": "amber",
-    "title": "I think I will need more information",
+    "title": "I think I will need more information.",
     "reason":
       "You were injured when you cycled into a pedestrian at a set of traffic lights which were amber. You would need to show that the other party is at fault, which may be challenging in the circumstances as amber is only an indication to proceed and you still need to look out for pedestrians. If you would like further advice please send me a message with more detail.",
     "type": "weak"
   },
   "iDets2RanRedLightAdvice": {
     "qId": "iDets2RanRedLightAdvice",
-    "title": "I think I will need more information",
+    "title": "I think I will need more information.",
     "reason":
       "You were injured when you were in an incident with another road user when you jumped a red light. You would need to show that the other party is at fault which may be challenging as they can argue that they did not anticipate your actions and it was their right of way. If you would like further advice please send me a message with more detail.",
     "type": "weak"
   },
   "iDets2PaveAdvice": {
     "qId": "iDets2PaveAdvice",
-    "title": "I think I will need more information",
+    "title": "I think I will need more information.",
     "reason":
       "You were injured when you were in an incident with another road user whilst you were cycling on the pavement where cycling was prohibited. You would need to show that the other party is at fault which would normally be difficult as they can argue that they did not expect to see you there. If you would like further advice please send me a message with more detail.",
     "type": "weak"
   },
   "manoeuvringAdvice": {
     "qId": "manoeuvringAdvice",
-    "title": "I think I will need more information",
+    "title": "I think I will need more information.",
     "reason":
       "You were injured when you were in an incident with another road user when you were manoeuvring around / overtaking another vehicle on your bicycle. You would need to show that the other party is at fault which will depend on the exact circumstances of the incident. If you would like further advice please send me a message with more detail.",
     "type": "weak"
   },
   "roundaboutR": {
     "qId": "roundaboutR",
-    "title": "I think I will need more information",
+    "title": "I think I will need more information.",
     "reason":
       "You were injured when you were hit on a roundabout by a vehicle coming from your right. It sounds like a challenging case as they would have had the right of way. If you would like further advice please send me a message with more detail.",
     "type": "weak"
   },
   "notPermitted": {
     "qId": "notPermitted",
-    "title": "I think I will need more information",
+    "title": "I think I will need more information.",
     "reason":
       "You were injured when you cycled into a pedestrian on a path where cycling was prohibited. You would need to show that the other party is at fault so that a case could be brought against them, which may be challenging given that it is their right of way. If you would like further advice please send me a message with more detail using the form at the bottom of the screen.",
     "type": "weak"
   },
   "pedCrossing": {
     "qId": "pedCrossing",
-    "title": "I think I will need more information",
+    "title": "I think I will need more information.",
     "reason":
       "You were injured when you cycled into a pedestrian on a pedestrian crossing. For the case to succeed you would need to show that they were at fault which will be challenging given that it is their right of way. If you would like further advice please send me a message with more detail.",
     "type": "weak"
   },
   "pedStationary": {
     "qId": "pedStationary",
-    "title": "I think I will need more information",
+    "title": "I think I will need more information.",
     "reason":
       "You were injured when you cycled into a pedestrian who was stationary. You would need to show that the other party is at fault so that a case could be brought against them, which may be challenging in the circumstances. If you would like further advice please send me a message with more detail.",
     "type": "weak"
   },
   "permittedPath": {
     "qId": "permittedPath",
-    "title": "I think I will need more information",
+    "title": "I think I will need more information.",
     "reason":
       "You were injured when a pedestrian crossed your path whilst you were cycling. You would need to show that the other party is at fault which may be challenging as you are expected to take care to avoid pedestrians who may be using the path. If you would like further advice please send me a message with more detail.",
     "type": "weak"
   },
   "youRearEnded": {
     "qId": "youRearEnded",
-    "title": "I think I will need more information",
+    "title": "I think I will need more information.",
     "reason":
       "You were injured when you were in an incident with another road user when you rode into the back of them on your bicycle. You would need to show that the other party is at fault which may be challenging in the circumstances. If you would like further advice please send me a message with more detail.",
     "type": "weak"
   },
   "red": {
     "qId": "red",
-    "title": "I think I will need more information",
+    "title": "I think I will need more information.",
     "reason":
       "You were injured when you cycled into a pedestrian at a set of traffic lights which were showing red for you. You would need to show that the other party is at fault, which may be challenging in the circumstances given that it was their right of way. If you would like further advice please send me a message with more detail.",
     "type": "weak"
@@ -2097,5 +2097,538 @@
     "liabilityResult":
       "As a result of the above it is clear in my view that liability attaches to ",
     "type": "letter"
+  },
+  "val0": {
+    "qId": "val0",
+    "title":
+      "If the person died in the incident or suffered more serious injuries then we advise you to speak with a solicitor. Please note that this is not completely accurate. It could be that your case is worth more or less than the tool suggests – we are just giving you are best guess on the basis of the questions answered. If you want an accurate valuation of your case you should speak with a solicitor. If you were not injured and want to know what your potential financial losses are please click here.",
+    "answered": "",
+    "answeredOn": "",
+    "type": "button",
+    "btnvalues": [
+      {
+        "ansId": "accept",
+        "ansLabel": "I accept",
+        "nxtQId": "val1"
+      }
+    ]
+  },
+  "val1": {
+    "qId": "val1",
+    "title":
+      "What type of injury did you have? You can add more injuries later.",
+    "answered": "",
+    "answeredOn": "",
+    "type": "dropdown",
+    "btnvalues": [
+      {
+        "ansId": "soft",
+        "ansLabel": "Soft tissue / ligaments / bruising",
+        "nxtQId": "valSoftDets1"
+      },
+      {
+        "ansId": "fracture",
+        "ansLabel": "Fracture",
+        "nxtQId": "valFractureDets1"
+      },
+      {
+        "ansId": "burn",
+        "ansLabel": "Burn / laceration / scarring",
+        "nxtQId": "valBurnDets"
+      },
+      {
+        "ansId": "psych",
+        "ansLabel": "Psychiatric",
+        "nxtQId": "valPsychDets"
+      },
+      {
+        "ansId": "dental",
+        "ansLabel": "Damage to Teeth",
+        "nxtQId": "valAnsDental"
+      },
+      {
+        "ansId": "none",
+        "ansLabel": "None of the above",
+        "nxtQId": "contactMe"
+      }
+    ]
+  },
+  "valSoftDets1": {
+    "qId": "valSoftDets1",
+    "title": "Where was the injury located?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "dropdown",
+    "btnvalues": [
+      {
+        "ansId": "softBrain",
+        "ansLabel": "Brain injury / concussion",
+        "nxtQId": "contactMe"
+      },
+      {
+        "ansId": "softNeck",
+        "ansLabel": "Neck",
+        "nxtQId": "valAnsSoftNeck"
+      },
+      {
+        "ansId": "softShoulders",
+        "ansLabel": "Shoulders",
+        "nxtQId": "valAnsSoftShoulders"
+      },
+      {
+        "ansId": "softBack",
+        "ansLabel": "Back",
+        "nxtQId": "valAnsSoftBack"
+      },
+      {
+        "ansId": "softPelvis",
+        "ansLabel": "Pelvis / hips",
+        "nxtQId": "valAnsSoftPelvis"
+      },
+      {
+        "ansId": "none",
+        "ansLabel": "See more Options",
+        "nxtQId": "valSoftDets2"
+      }
+    ]
+  },
+  "valSoftDets2": {
+    "qId": "valSoftDets2",
+    "title": "Where was the injury located?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "dropdown",
+    "btnvalues": [
+      {
+        "ansId": "softArm",
+        "ansLabel": "Arm or hand Area",
+        "nxtQId": "valSoftArm"
+      },
+      {
+        "ansId": "softLeg",
+        "ansLabel": "Leg or foot Area",
+        "nxtQId": "valSoftLeg"
+      },
+      {
+        "ansId": "softOrgans",
+        "ansLabel": "Internal Organs",
+        "nxtQId": "valSoftOrgans1"
+      }
+    ]
+  },
+  "valSoftArm": {
+    "qId": "valSoftArm",
+    "title": "Where was the injury located?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "dropdown",
+    "btnvalues": [
+      {
+        "ansId": "softArm",
+        "ansLabel": "Arm",
+        "nxtQId": "valAnsSoftArm"
+      },
+      {
+        "ansId": "softHand",
+        "ansLabel": "Hand",
+        "nxtQId": "valAnsSoftHand"
+      },
+      {
+        "ansId": "softWrist",
+        "ansLabel": "Wrist",
+        "nxtQId": "valAnsSoftWrist"
+      },
+      {
+        "ansId": "softElbow",
+        "ansLabel": "Elbow",
+        "nxtQId": "valAnsSoftElbow"
+      }
+    ]
+  },
+  "valSoftLeg": {
+    "qId": "valSoftLeg",
+    "title": "Where was the injury located?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "dropdown",
+    "btnvalues": [
+      {
+        "ansId": "softLeg",
+        "ansLabel": "Leg",
+        "nxtQId": "valAnsSoftLeg"
+      },
+      {
+        "ansId": "softFoot",
+        "ansLabel": "Foot",
+        "nxtQId": "valAnsSoftFoot"
+      },
+      {
+        "ansId": "softAnkle",
+        "ansLabel": "Ankle",
+        "nxtQId": "valAnsSoftAnkle"
+      },
+      {
+        "ansId": "softKnee",
+        "ansLabel": "Elbow",
+        "nxtQId": "valAnsSoftElbow"
+      },
+      {
+        "ansId": "softToe",
+        "ansLabel": "Toe",
+        "nxtQId": "valAnsSoftToe"
+      }
+    ]
+  },
+  "valSoftOrgans1": {
+    "qId": "valSoftOrgans1",
+    "title": "Where was the injury located?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "dropdown",
+    "btnvalues": [
+      {
+        "ansId": "softChest",
+        "ansLabel": "Chest",
+        "nxtQId": "valAnsSoftChest"
+      },
+      {
+        "ansId": "softLung",
+        "ansLabel": "Lung",
+        "nxtQId": "valAnsSoftLung"
+      },
+      {
+        "ansId": "softRepro",
+        "ansLabel": "Reproductive system",
+        "nxtQId": "valAnsSoftRepro"
+      },
+      {
+        "ansId": "softDig",
+        "ansLabel": "Digestive system",
+        "nxtQId": "valAnsSoftDig"
+      },
+      {
+        "ansId": "softKidney",
+        "ansLabel": "Kidney",
+        "nxtQId": "valAnsSoftKidney"
+      },
+      {
+        "ansId": "none",
+        "ansLabel": "See more Options",
+        "nxtQId": "valSoftOrgans2"
+      }
+    ]
+  },
+  "valSoftOrgans2": {
+    "qId": "valSoftOrgans2",
+    "title": "Where was the injury located?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "dropdown",
+    "btnvalues": [
+      {
+        "ansId": "softBowels",
+        "ansLabel": "Bowels",
+        "nxtQId": "valAnsSoftBowels"
+      },
+      {
+        "ansId": "softBladder",
+        "ansLabel": "Bladder",
+        "nxtQId": "valAnsSoftBladder"
+      },
+      {
+        "ansId": "softSpleen",
+        "ansLabel": "Spleen",
+        "nxtQId": "valAnsSoftSpleen"
+      },
+      {
+        "ansId": "softDig",
+        "ansLabel": "Digestive system",
+        "nxtQId": "valAnsSoftDig"
+      },
+      {
+        "ansId": "softHernia",
+        "ansLabel": "Hernia",
+        "nxtQId": "valAnsSoftHernia"
+      },
+      {
+        "ansId": "none",
+        "ansLabel": "None of the above",
+        "nxtQId": "contactMe"
+      }
+    ]
+  },
+  "valFractureDets1": {
+    "qId": "valFractureDets1",
+    "title": "Where was the injury located?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "dropdown",
+    "btnvalues": [
+      {
+        "ansId": "fractureHead",
+        "ansLabel": "Head",
+        "nxtQId": "valFractureHead"
+      },
+      {
+        "ansId": "fractureNeckShoulders",
+        "ansLabel": "Neck / Shoulders",
+        "nxtQId": "valFractureNeckShoulders"
+      },
+      {
+        "ansId": "fractureBack",
+        "ansLabel": "Back",
+        "nxtQId": "contactMe"
+      },
+      {
+        "ansId": "fracturePelvis",
+        "ansLabel": "Pelvis / Hips",
+        "nxtQId": "contactMe"
+      },
+      {
+        "ansId": "none",
+        "ansLabel": "See more Options",
+        "nxtQId": "valFractureDets2"
+      }
+    ]
+  },
+  "valFractureHead": {
+    "qId": "valFractureHead",
+    "title": "Where was the injury located?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "dropdown",
+    "btnvalues": [
+      {
+        "ansId": "fractureNose",
+        "ansLabel": "Nose",
+        "nxtQId": "valAnsFractureNose"
+      },
+      {
+        "ansId": "other",
+        "ansLabel": "Other",
+        "nxtQId": "contactMe"
+      }
+    ]
+  },
+  "valFractureNeckShoulders": {
+    "qId": "valFractureNeckShoulders",
+    "title": "Where was the injury located?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "dropdown",
+    "btnvalues": [
+      {
+        "ansId": "fractureNeck",
+        "ansLabel": "Nose",
+        "nxtQId": "contactMe"
+      },
+      {
+        "ansId": "fractureClavicle",
+        "ansLabel": "Clavicle",
+        "nxtQId": "valAnsFractureClavicle"
+      },
+      {
+        "ansId": "fractureHumerus",
+        "ansLabel": "Humerus",
+        "nxtQId": "valAnsFractureHumerus"
+      }
+    ]
+  },
+  "valFractureDets2": {
+    "qId": "valFractureDets2",
+    "title": "Where was the injury located?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "dropdown",
+    "btnvalues": [
+      {
+        "ansId": "fractureArm",
+        "ansLabel": "Arm or hand Area",
+        "nxtQId": "valFractureArm"
+      },
+      {
+        "ansId": "fractureLeg",
+        "ansLabel": "Leg or foot Area",
+        "nxtQId": "valFractureLeg"
+      },
+      {
+        "ansId": "none",
+        "ansLabel": "None of the above",
+        "nxtQId": "contactMe"
+      }
+    ]
+  },
+  "valFractureArm": {
+    "qId": "valFractureArm",
+    "title": "Where was the injury located?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "dropdown",
+    "btnvalues": [
+      {
+        "ansId": "fractureArm",
+        "ansLabel": "Arm",
+        "nxtQId": "valAnsFractureArm"
+      },
+      {
+        "ansId": "fractureHand",
+        "ansLabel": "Hand",
+        "nxtQId": "valAnsFractureHand"
+      },
+      {
+        "ansId": "fractureWrist",
+        "ansLabel": "Wrist",
+        "nxtQId": "valAnsFractureWrist"
+      },
+      {
+        "ansId": "fractureElbow",
+        "ansLabel": "Elbow",
+        "nxtQId": "valAnsFractureElbow"
+      },
+      {
+        "ansId": "fractureFinger",
+        "ansLabel": "Finger",
+        "nxtQId": "valAnsFractureFinger"
+      },
+      {
+        "ansId": "fractureThumb",
+        "ansLabel": "Thumb",
+        "nxtQId": "valAnsFractureThumb"
+      }
+    ]
+  },
+  "valFractureLeg": {
+    "qId": "valFractureLeg",
+    "title": "Where was the injury located?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "dropdown",
+    "btnvalues": [
+      {
+        "ansId": "fractureLeg",
+        "ansLabel": "Leg",
+        "nxtQId": "valAnsFractureLeg"
+      },
+      {
+        "ansId": "fractureFoot",
+        "ansLabel": "Foot",
+        "nxtQId": "valAnsFractureFoot"
+      },
+      {
+        "ansId": "fractureAnkle",
+        "ansLabel": "Ankle",
+        "nxtQId": "valAnsFractureAnkle"
+      },
+      {
+        "ansId": "fractureKnee",
+        "ansLabel": "Elbow",
+        "nxtQId": "valAnsFractureElbow"
+      },
+      {
+        "ansId": "fractureToe",
+        "ansLabel": "Toe",
+        "nxtQId": "valAnsFractureToe"
+      }
+    ]
+  },
+  "valBurnDets": {
+    "qId": "valBurnDets",
+    "title": "Where was the injury located?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "dropdown",
+    "btnvalues": [
+      {
+        "ansId": "burnFace",
+        "ansLabel": "face",
+        "nxtQId": "valBurnFaceDets"
+      },
+      {
+        "ansId": "burnOther",
+        "ansLabel": "Other",
+        "nxtQId": "valAnsBurnOther"
+      }
+    ]
+  },
+  "valBurnFaceDets": {
+    "qId": "valBurnFaceDets",
+    "title": "How severe was the injury?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "dropdown",
+    "btnvalues": [
+      {
+        "ansId": "burnFaceVSev",
+        "ansLabel": "Very Severe Scarring",
+        "nxtQId": "valAnsBurnFace"
+      },
+      {
+        "ansId": "burnFaceLSev",
+        "ansLabel": "Less Severe Scarring",
+        "nxtQId": "valAnsBurnFace"
+      },
+      {
+        "ansId": "burnFaceSig",
+        "ansLabel": "Significant Scarring",
+        "nxtQId": "valAnsBurnFace"
+      },
+      {
+        "ansId": "burnFaceLSig",
+        "ansLabel": "Less Significant Scarring",
+        "nxtQId": "valAnsBurnFace"
+      },
+      {
+        "ansId": "burnFaceTriv",
+        "ansLabel": "Trivial Scarring",
+        "nxtQId": "valAnsBurnFace"
+      }
+    ]
+  },
+  "valPsychDets": {
+    "qId": "valPsychDets",
+    "title": "Where was the injury located?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "dropdown",
+    "btnvalues": [
+      {
+        "ansId": "psychTravel",
+        "ansLabel": "Travel Anxiety",
+        "nxtQId": "valAnsPsychTravel"
+      },
+      {
+        "ansId": "psychOther",
+        "ansLabel": "Other",
+        "nxtQId": "contactMe"
+      }
+    ]
+  },
+  "valAnsBurnFace": {
+    "qId": "valAnsBurnFace",
+    "title": "Facial Burns",
+    "valuation":
+      "In this class of case a number of common factors fall to be considered:<br />the nature of the underlying injury which has resulted in facial disfigurement;<br />the nature and extent of treatment;<br />the nature and extent of the residual scarring or disfigurement;<br />the age of the claimant;<br />the subjective impact of the disfigurement upon the claimant including the extent to which they valued their appearance;<br />the extent to which the injury adversely affects the claimant’s social, domestic and work lives;<br />The psychological impact upon the claimant, which in severe cases may be very substantial.<br />The subject of burns is not dealt with separately. Burns of any degree of severity are particularly painful and disfiguring, and awards are invariably at the upper ends of the brackets, or above them altogether. The very worst burns may lead not only to considerable disfigurement and pain but to a variety of continuing physical and psychological injuries meriting very high awards. <br />(a) Very Severe Scarring<br />In a relatively young claimants (typically teens to early 30s) where the cosmetic effect is very disfiguring and the psychological reaction severe. £26,120 to £85,340<br />(b) Less Severe Scarring<br />Where the disfigurement is still substantial and where there is a significant psychological reaction. £15,750 to £42,460<br />(c) Significant Scarring<br />Where the worst effects have been or will be reduced by plastic surgery leaving some cosmetic disability and where the psychological reaction is not great or, having been considerable at the outset, has diminished to relatively minor proportions. £7,990 to £26,380<br />(d) Less Significant Scarring<br />In these cases there may be but one scar which can be camouflaged or, though there are a number of very small scars, the overall effect is to mar but not markedly to affect the appearance and the reaction is no more than that of an ordinarily sensitive young woman. £3,460 to £12,050<br />(e) Trivial Scarring<br />In these cases the effect is minor only. £1,500 to £3,090",
+    "type": "valuation"
+  },
+  "valAnsBurnOther": {
+    "qId": "valAnsBurnOther",
+    "title": "Non-facial Burns",
+    "valuation":
+      "This is an area in which it is not possible to offer much useful guidance. The principles (including the approach to awards for different genders) are the same as those applied to cases of facial disfigurement. It must be remembered that many of the physical injuries already described involve some element of disfigurement and that element is of course taken into account in suggesting the appropriate bracket. There remain some cases where the element of disfigurement is the predominant one in the assessment of damages. Where the scarring is not to the face or is not usually visible then the awards will tend to be lower than those for facial or readily visible disfigurement.<br />A large proportion of awards for a number of noticeable laceration scars, or a single disfiguring scar, of leg(s) or arm(s) or hand(s) or back or chest, fall in the bracket of £6,870 to £19,930.<br />In cases where an exploratory laparotomy has been performed but no significant internal injury has been found, the award reflects the operation and the inevitable scar.<br />In the region of £7,580<br />A single noticeable scar, or several superficial scars, of leg(s) or arm(s) or hand(s), with some minor cosmetic deficit.<br />£2,080 to £6,870<br />As we have noted in Chapter 9, the effects of burns will normally be regarded as more serious since they tend to cause a greater degree of pain and may lead to continuing physical and psychological injury. Serious burn injuries will attract very significant awards. Where significant burns cover 40% or more of the body, awards are likely to exceed £91,910. Factors which will influence the size of award in burns cases will include:<br />The percentage body area affected by the burns;<br />Whether the burns are full thickness, partial thickness or superficial;<br />The cosmetic impact of the injuries and the injured person’s reaction to them;<br />The need for (and extent of) surgery;<br />Any resulting physical disability;<br />The psychological impact.",
+    "type": "valuation"
+  },
+  "valAnsPsychTravel": {
+    "qId": "valAnsPsychTravel",
+    "title": "Travel anxiety",
+    "valuation":
+      "Claims solely in respect of shock or travel anxiety in the absence of physical or recognised psychiatric injury will not attract an award of compensation. If this is only element of case lasting more than 3 months can still fall in minor injuries. If it lasts for 2 months plus, add 20% of value of other injury up to a maximum of £1,000. If lasts less than 2 months add £300 to the other injury.",
+    "type": "valuation"
+  },
+  "valAnsDental": {
+    "qId": "valAnsDental",
+    "title": "Damage to Teeth",
+    "valuation":
+      "Significant, chronic, tooth pain (such as from an untreated abscess) extending over a number of years together with significant general deterioration in the overall condition of teeth: Up to £33,430<br />(i) Loss of or serious damage to several front teeth. £7,650 to £10,010<br />(ii) Loss of or serious damage to two front teeth. £3,810 to £6,690<br />(iii) Loss of or serious damage to one front tooth. £1,930 to £3,460<br />(iv) Loss of or damage to back teeth: per tooth: £960 to £1,500",
+    "type": "valuation"
   }
 }
