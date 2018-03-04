@@ -37,19 +37,19 @@ const Letter = props => {
       <p>{todaysDate}</p>
       <p>Dear Sirs</p>
       <p>
-        <strong>Name: {props.allQs.cFullName.answered}</strong>
-      </p>
-      <p>
-        <strong>Address: {x.cAddress.answered}</strong>
-      </p>
-      <p>
-        <strong>Incident date: {x.iDate.answered}</strong>
-      </p>
-      <p>
-        <strong>Defendant name: {x.dFullName.answered}</strong>
-      </p>
-      <p className={x.writeWho.answered === 'writeWhoDefendant' ? 'hide' : ''}>
-        <strong>Policy number: {x.dPolicyNumber.answered}</strong>
+        <strong>
+          Name: {props.allQs.cFullName.answered}
+          <br />
+          Address: {x.cAddress.answered}
+          <br />
+          Incident date: {x.iDate.answered}
+          <br />
+          <span className={x.writeWho.answered === 'writeWhoDefendant' ? 'hide' : ''}>
+            Defendant name: {x.dFullName.answered}
+            <br />
+            Policy number: {x.dPolicyNumber.answered}
+          </span>
+        </strong>
       </p>
       <p>
         On the above date I suffered {sufferedWhat} in a road traffic incident caused by {writingTo}.
@@ -73,7 +73,9 @@ const Letter = props => {
       </p>
       <p>
         As I was cycling along {x.cStreet.answered} I was heading {x.cDir.answered}. When I reached the{' '}
-        {x.landmark.answered} {q.afterLandmark} As a result I suffered {sufferedWhat}.
+        {x.landmark.answered} {writingTo} {q.afterLandmark}{' '}
+        {x.pedDetsCrossedDir.answered === 'pedDetsCrossedDirR' ? q.afterLandmarkR : q.afterLandmarkL} As a result I
+        suffered {sufferedWhat}.
       </p>
       <p>
         <ins>Liability</ins>
@@ -85,12 +87,12 @@ const Letter = props => {
         <li className={q.liability3 ? '' : 'hide'}>{q.liability3}</li>
         <li className={q.liability4 ? '' : 'hide'}>{q.liability4}</li>
         <li className={q.liability5 ? '' : 'hide'}>{q.liability5}</li>
-        <li className={q.liability6 ? '' : 'hide'}>6. {q.liability6}</li>
-        <li className={q.liability7 ? '' : 'hide'}>7. {q.liability7}</li>
-        <li className={q.liability8 ? '' : 'hide'}>8. {q.liability8}</li>
-        <li className={q.liability9 ? '' : 'hide'}>9. {q.liability9}</li>
-        <li className={q.liability10 ? '' : 'hide'}>10. {q.liability10}</li>
-        <li className={q.liability11 ? '' : 'hide'}>11. {q.liability11}</li>
+        <li className={q.liability6 ? '' : 'hide'}>{q.liability6}</li>
+        <li className={q.liability7 ? '' : 'hide'}>{q.liability7}</li>
+        <li className={q.liability8 ? '' : 'hide'}>{q.liability8}</li>
+        <li className={q.liability9 ? '' : 'hide'}>{q.liability9}</li>
+        <li className={q.liability10 ? '' : 'hide'}>{q.liability10}</li>
+        <li className={q.liability11 ? '' : 'hide'}>{q.liability11}</li>
       </ol>
       <p>
         {q.liabilityResult} {writingTo}. I trust you will provide a full admission within the 3 month time limit in
@@ -160,14 +162,14 @@ const Letter = props => {
         </p>
         <p>I also estimate that I have incurred the following financial losses:</p>
         <ol>
-          <li className={x.lossesMedDets.answered ? '' : 'hide'}>{x.lossesMedDets.answered} in medical expenses</li>
+          <li className={x.lossesMedDets.answered ? '' : 'hide'}>Medical expenses: {x.lossesMedDets.answered}</li>
           <li className={x.lossesTreatmentDets.answered ? '' : 'hide'}>
             Medical treatment: {x.lossesTreatmentDets.answered}
           </li>
           <li className={x.lossesPropertyDets.answered ? '' : 'hide'}>
             Property damage: {x.lossesPropertyDets.answered}
           </li>
-          <li className={x.lossesTravelDets.answered ? '' : 'hide'}>{x.lossesTravelDets.answered} in travel costs</li>
+          <li className={x.lossesTravelDets.answered ? '' : 'hide'}>Travel costs: {x.lossesTravelDets.answered}</li>
           <li className={x.lossesFinancialOtherDets.answered ? '' : 'hide'}>
             Other expenses: {x.lossesFinancialOtherDets.answered}
           </li>

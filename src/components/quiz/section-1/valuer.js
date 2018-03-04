@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+/*import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
 import DOMPurify from 'dompurify';
 
@@ -8,7 +8,7 @@ import Dates from './dates';
 import Texts from './texts';
 import Email from './emails';
 
-/*@inject('UIStore', 'SessionStore')*/ @inject('RootStore')
+@inject('RootStore')
 @observer
 class Valuer extends Component {
   constructor(props) {
@@ -63,7 +63,7 @@ class Valuer extends Component {
       this.input = <Weak userObj={this.props.RootStore.SessionStore.userObj} q={q} />;
       return (
         <div className={`section1`}>
-          {/*<h1 className={q.type !== 'letter' ? 'show' : 'hide'}>Case Evaluation Tool</h1>*/}
+          {/*<h1 className={q.type !== 'letter' ? 'show' : 'hide'}>Case Evaluation Tool</h1>}
           <div className={`section1-title ${q.type !== 'letter' && q.type !== 'advice' ? 'show' : 'hide'}`}>
             <h3 dangerouslySetInnerHTML={title} />
           </div>
@@ -89,3 +89,4 @@ class Valuer extends Component {
   }
 }
 export default Valuer;
+*/

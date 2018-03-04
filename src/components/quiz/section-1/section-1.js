@@ -11,7 +11,7 @@ import Dates from './dates';
 import Texts from './texts';
 import Email from './emails';
 
-/*@inject('UIStore', 'SessionStore')*/ @inject('RootStore')
+@inject('RootStore')
 @observer
 class Section1 extends Component {
   constructor(props) {
@@ -31,6 +31,11 @@ class Section1 extends Component {
     this.setState({
       value: this.props.RootStore.SessionStore.userObj.allQs[this.props.RootStore.SessionStore.currentQId].answered
     });
+  };
+
+  handleClick = e => {
+    this.props.history.push(e.target.name === 'caseTool' ? 'section1' : e.target.name);
+    this.props.RootStore.UIStore.setCurrentSection(e.target.name);
   };
 
   handleSubmit = e => {
@@ -71,9 +76,18 @@ class Section1 extends Component {
     } else if (q.type === 'weak') {
       this.input = <Weak userObj={this.props.RootStore.SessionStore.userObj} q={q} />;
     } else if (q.type === 'advice') {
-      this.input = <Advice userObj={this.props.RootStore.SessionStore.userObj} q={q} />;
+      this.input = (
+        <Advice
+          userObj={this.props.RootStore.SessionStore.userObj}
+          q={q}
+          history={this.props.history}
+          setSection={x => this.props.RootStore.UIStore.setCurrentSection(x)}
+        />
+      );
     } else if (q.type === 'letter') {
-      this.input = <Letter allQs={this.props.RootStore.SessionStore.userObj.allQs} q={q} />;
+      this.input = (
+        <Letter allQs={this.props.RootStore.SessionStore.userObj.allQs} q={q} history={this.props.history} />
+      );
     } else if (q.type === 'valuation') {
       this.input = <Valuation allQs={this.props.RootStore.SessionStore.userObj.allQs} q={q} />;
     }
@@ -85,11 +99,28 @@ class Section1 extends Component {
         <form onSubmit={this.handleSubmit}>
           <div className="input">{this.input}</div>
           <div className="btn-group bottom-button-group">
+            {q.qId !== 'val0' ? (
+              <input
+                type="button"
+                onClick={this.handleBack}
+                value="Back"
+                className={`btn bottom-button ${q.qId === 'cFullName' ? 'disabled' : ''}`}
+              />
+            ) : (
+              <input
+                type="button"
+                onClick={this.handleClick}
+                value="Go to Case Tool"
+                name="caseTool"
+                className={`btn bottom-button`}
+              />
+            )}
             <input
               type="button"
-              onClick={this.handleBack}
-              value="Back"
-              className={`btn bottom-button ${q.qId === 'cFullName' ? 'disabled' : ''}`}
+              onClick={this.handleClick}
+              value="Get in Touch"
+              name="contact"
+              className={`btn bottom-button`}
             />
             <input type="submit" value="Next" className={`btn bottom-button ${q.type === 'weak' ? 'disabled' : ''}`} />
           </div>

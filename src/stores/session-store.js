@@ -124,8 +124,8 @@ export default class mobxSessionStore {
     if (this.userObj.allQs.iDets1.answered === 'iDets1Rear') return 'rearEndedByLetter';
     if (this.userObj.allQs.vTurned1.answered === 'vTurned1RChangingLanes') return 'vTurned1RChangingLanesLetter';
     if (this.userObj.allQs.vTurned1.answered === 'vTurned1LChangingLanes') return 'vTurned1LChangingLanesLetter';
-    if (this.userObj.allQs.iDets1.answered === 'vTurned1RTurning') return 'vDirDetsSameQTurnIntoYouRLetter';
-    if (this.userObj.allQs.iDets1.answered === 'vTurned1LTurning') return 'vDirDetsSameQTurnIntoYouLLetter';
+    if (this.userObj.allQs.vTurned1.answered === 'vTurned1RTurning') return 'vDirDetsSameQTurnIntoYouRLetter';
+    if (this.userObj.allQs.vTurned1.answered === 'vTurned1LTurning') return 'vDirDetsSameQTurnIntoYouLLetter';
     if (this.userObj.allQs.vTurned2.answered === 'vTurned2Overtaking') return 'oncomingOvertakingLetter';
     if (this.userObj.allQs.vTurned2.answered === 'vTurned2Turning') return 'oncomingAcrossPathLetter';
     if (this.userObj.allQs.vTurned2.answered === 'vTurned2Parking') return 'vTurned2ParkingLetter';

@@ -27,7 +27,7 @@ class Menu extends Component {
     return (
       <Navbar dark expand={false}>
         <NavbarBrand onClick={this.handleNavbarBrandClick}>My Legal Helper</NavbarBrand>
-        <NavbarToggler onClick={this.props.RootStore.UIStore.toggleNavBar} />
+        <NavbarToggler onClick={this.props.RootStore.UIStore.toggleNavBar} aria-label="menu" />
         <Collapse
           isOpen={this.props.RootStore.UIStore.navBarIsOpen}
           navbar

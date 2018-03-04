@@ -3,7 +3,7 @@ import { observer, inject } from 'mobx-react';
 
 import './contact.css';
 
-/*@inject('UIStore', 'SessionStore')*/ @inject('RootStore')
+@inject('RootStore')
 @observer
 class Contact extends Component {
   constructor(props) {

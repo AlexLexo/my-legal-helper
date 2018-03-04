@@ -230,7 +230,7 @@
       {
         "ansId": "injuredByBike",
         "ansLabel": "another cyclist",
-        "nxtQId": "filtering"
+        "nxtQId": "injuredByHireBike"
       },
       {
         "ansId": "injuredByAnimal",
@@ -246,6 +246,26 @@
         "ansId": "injuredByOther",
         "ansLabel": "None of the above",
         "nxtQId": "injuredBy2"
+      }
+    ]
+  },
+  "injuredByHireBike": {
+    "qId": "injuredByHireBike",
+    "title":
+      "Was the defendant riding a cycle hire bicycle (e.g. Santander, Mobike)?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "dropdown",
+    "btnvalues": [
+      {
+        "ansId": "injuredByHireBikeYes",
+        "ansLabel": "Yes",
+        "nxtQId": "filtering"
+      },
+      {
+        "ansId": "injuredByHireBikeNo",
+        "ansLabel": "No",
+        "nxtQId": "filtering"
       }
     ]
   },
@@ -342,7 +362,7 @@
       },
       {
         "ansId": "pedDetsCrossingPath",
-        "ansLabel": "They were crossing me path",
+        "ansLabel": "They stepped into my path",
         "nxtQId": "pedDetsCrossedDir"
       },
       {
@@ -391,7 +411,7 @@
     ]
   },
   "dooredDets": {
-    "qId": "dooredDir",
+    "qId": "dooredDets",
     "title": "Which door?",
     "answered": "",
     "answeredOn": "",
@@ -795,7 +815,7 @@
     "nxtQId": "dFullName",
     "type": "advice",
     "element2a":
-      "You were injured when a passenger opened their door into your path. This would normally mean that you have a good case as they have a duty to keep a look out to make sure it is safe before opening the door. An exception might be if the door had been open for long enough for you to have safely stopped or manoeuvred around it. Normally the driver's insurer to provide cover in these circumstances."
+      "You were injured when a passenger opened their door into your path. This would normally mean that you have a good case as they have a duty to keep a look out to make sure it is safe before opening the door. An exception might be if the door had been open for long enough for you to have safely stopped or manoeuvred around it. Normally the driver's insurer will provide cover in these circumstances."
   },
   "dooredDriver": {
     "qId": "dooredDriver",
@@ -881,7 +901,7 @@
     "nxtQId": "dFullName",
     "type": "advice",
     "element2a":
-      "You were in an accident caused by a defect in the road. It is important to take photographs of the defect as soon as possible to show how it looked at the time of the incident. Go back to the scene to record the size of the defect and to take photographs with a tape measure in shot so you can accurately show how deep and wide it is. Winning these cases can be challenging. Even if you can show that the defect was a dangerous hazard, the highway authority need only show that they had a 'reasonable system of inspection' in place to avoid blame. The frequency of inspections required will often be once every 3 - 6 months, depending on the type of road. If the highway authority can show that they inspected the road within that timescale then you would need to show that they missed the defect or that they should have been aware of the defect in any event, such as if people had complained about the defect since the inspection. For more details on these types of case, please see my blog post here xxx."
+      "You were in an accident caused by a defect in the road. It is important to take photographs of the defect as soon as possible to show how it looked at the time of the incident. Go back to the scene to record the size of the defect and to take photographs with a tape measure in shot so you can accurately show how deep and wide it is. Winning these cases can be challenging. Even if you can show that the defect was a dangerous hazard, the highway authority need only show that they had a 'reasonable system of inspection' in place to avoid blame. The frequency of inspections required will often be once every 3 - 6 months, depending on the type of road. If the highway authority can show that they inspected the road within that timescale then you would need to show that they missed the defect or that they should have been aware of the defect in any event, such as if people had complained about the defect since the inspection."
   },
   "vTurned2SideRoadAdvice": {
     "qId": "vTurned2SideRoadAdvice",
@@ -1658,7 +1678,8 @@
   "lossOfEarningsDets": {
     "qId": "lossOfEarningsDets",
     "nxtQId": "lossesMed",
-    "title": "Approximately how much income have you lost (after tax)?",
+    "title":
+      "Approximately how much income have you lost (after tax)? If you are not sure, please enter 'TBC'.",
     "answered": "",
     "answeredOn": "",
     "type": "text",
@@ -1686,7 +1707,8 @@
   "lossesMedDets": {
     "qId": "lossesMedDets",
     "nxtQId": "lossesTreatment",
-    "title": "Approximately how much have you spent?",
+    "title":
+      "Approximately how much have you spent? If you are not sure, please enter 'TBC'.",
     "answered": "",
     "answeredOn": "",
     "type": "text",
@@ -1715,7 +1737,8 @@
   "lossesTreatmentDets": {
     "qId": "lossesTreatmentDets",
     "nxtQId": "lossesProperty",
-    "title": "Approximately how much have you spent?",
+    "title":
+      "Approximately how much have you spent? If you are not sure, please enter 'TBC'.",
     "answered": "",
     "answeredOn": "",
     "type": "text",
@@ -1743,7 +1766,8 @@
   "lossesPropertyDets": {
     "qId": "lossesPropertyDets",
     "nxtQId": "lossesTravel",
-    "title": "What is the approximate replacement cost for the damaged items?",
+    "title":
+      "What is the approximate replacement cost for the damaged items? If you are not sure, please enter 'TBC'.",
     "answered": "",
     "answeredOn": "",
     "type": "text",
@@ -1772,7 +1796,8 @@
   "lossesTravelDets": {
     "qId": "lossesTravelDets",
     "nxtQId": "lossesFinancialOther",
-    "title": "Approximately how much have you spent?",
+    "title":
+      "Approximately how much have you spent? If you are not sure, please enter 'TBC'.",
     "answered": "",
     "answeredOn": "",
     "type": "text",
@@ -1800,7 +1825,8 @@
   "lossesFinancialOtherDets": {
     "qId": "lossesFinancialOtherDets",
     "nxtQId": "writeWho",
-    "title": "Approximately how much have you spent?",
+    "title":
+      "Approximately how much have you spent? If you are not sure, please enter 'TBC'.",
     "answered": "",
     "answeredOn": "",
     "type": "text",
@@ -1847,14 +1873,14 @@
   },
   "injuredByAnimalLetter": {
     "qId": "injuredByAnimalLetter",
-    "materialTimes": "a pet owner responsible for the pet in question.",
+    "materialTimes": "an animal owner responsible for the animal in question.",
     "afterLandmark":
-      "the pet ran across my path causing me to fall from my bicycle.",
-    "liability1": "For failing to control your pet.",
+      "the animal ran across my path causing me to fall from my bicycle.",
+    "liability1": "For failing to control your animal.",
     "liability2":
-      "For failing to take any reasonable precautions to ensure that your pet did not cause injury of the type claimed.",
+      "For failing to take any reasonable precautions to ensure that your animal did not cause injury of the type claimed.",
     "liability3":
-      "For failing to consider the harm that would be caused by failing to control your pet.",
+      "For failing to consider the harm that would be caused by failing to control your animal.",
     "liabilityResult":
       "As a result of the above it is clear in my view that liability attaches to ",
     "type": "letter"
@@ -1862,7 +1888,10 @@
   "injuredByPedestrianLetter": {
     "qId": "injuredByPedestrianLetter",
     "materialTimes": "a pedestrian.",
-    "afterLandmark": "stepped into my path causing me to fall from my bicycle.",
+    "afterLandmarkR":
+      "stepped into my path from my right causing me to fall from my bicycle.",
+    "afterLandmarkL":
+      "stepped into my path from my left causing me to fall from my bicycle.",
     "liability1": "For suddenly and without warning walking into my path.",
     "liability2": "For causing me to fall from my bicycle.",
     "liability3": "For failing to heed my presence.",
@@ -1944,7 +1973,7 @@
     "qId": "vDirDetsSameQTurnIntoYouRLetter",
     "materialTimes": "in charge the vehicle in question.",
     "afterLandmark":
-      "the vehicle in question was going in the same direction as me and hit me while turning right",
+      "the vehicle in question was going in the same direction as me and hit me while turning right.",
     "liability1": "For failing to give way.",
     "liability2": "For failing to keep a proper lookout.",
     "liability3": "For failing to drive in a safe manner.",
@@ -1964,7 +1993,7 @@
     "qId": "vDirDetsSameQTurnIntoYouLLetter",
     "materialTimes": "in charge the vehicle in question.",
     "afterLandmark":
-      "the vehicle in question was going in the same direction as me and hit me while turning left",
+      "the vehicle in question was going in the same direction as me and hit me while turning left.",
     "liability1": "For failing to give way.",
     "liability2": "For failing to keep a proper lookout.",
     "liability3": "For failing to drive in a safe manner.",
@@ -2004,7 +2033,7 @@
     "qId": "oncomingAcrossPathLetter",
     "materialTimes": "in charge the vehicle in question.",
     "afterLandmark":
-      "the vehicle in question was oncoming when it turned across my path",
+      "the vehicle in question was oncoming when it turned across my path.",
     "liability1": "For failing to give way.",
     "liability2": "For failing to keep a proper lookout.",
     "liability3": "For failing to drive in a safe manner.",
@@ -2024,7 +2053,7 @@
     "qId": "vTurned2ParkingLetter",
     "materialTimes": "in charge the vehicle in question.",
     "afterLandmark":
-      "the vehicle in question hit me while exiting a parking space",
+      "the vehicle in question hit me while exiting a parking space.",
     "liability1": "For failing to give way.",
     "liability2": "For failing to keep a proper lookout.",
     "liability3": "For failing to drive in a safe manner.",
@@ -2043,7 +2072,8 @@
   "vTurned2SideRoadLetter": {
     "qId": "vTurned2SideRoadLetter",
     "materialTimes": "in charge the vehicle in question.",
-    "afterLandmark": "the vehicle in question hit me while exiting a side road",
+    "afterLandmark":
+      "the vehicle in question hit me while exiting a side road.",
     "liability1": "For failing to give way.",
     "liability2": "For failing to keep a proper lookout.",
     "liability3": "For failing to drive in a safe manner.",

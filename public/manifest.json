@@ -1,19 +1,19 @@
 {
-    "name": "My Legal Helper",
-    "short_name": "My Legal Helper",
-    "icons": [
-        {
-            "src": "/android-chrome-192x192.png?v=yyab4N8l3E",
-            "sizes": "192x192",
-            "type": "image/png"
-        },
-        {
-            "src": "/android-chrome-512x512.png?v=yyab4N8l3E",
-            "sizes": "512x512",
-            "type": "image/png"
-        }
-    ],
-    "theme_color": "#fafafa",
-    "background_color": "#fafafa",
-    "display": "standalone"
+  "name": "My Legal Helper",
+  "short_name": "MLH",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png?v=BGAOeve7YN",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png?v=BGAOeve7YN",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#42506b",
+  "background_color": "#42506b",
+  "display": "standalone"
 }
