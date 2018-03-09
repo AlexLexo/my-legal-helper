@@ -2,6 +2,7 @@ import { observable, action, computed, useStrict } from 'mobx';
 
 import fire from './../services/fire';
 import Data from './data.json';
+import Inj from './valuerData.json';
 
 useStrict(true);
 
@@ -66,6 +67,15 @@ export default class mobxSessionStore {
           valuer: ['start']
         },
         allQs: Data,
+        injuries: [
+          {
+            injuryType: 'none',
+            injuryLocation: 'none',
+            injuryDuration: 'none',
+            injuryStart: 'none',
+            injuryEnd: 'none'
+          }
+        ],
         messages: [
           {
             messageTitle: 'Welcome',
@@ -87,6 +97,8 @@ export default class mobxSessionStore {
 
   @action('setInitialQ')
   setInitialQ = () => {
+    if (this.RootStore.UIStore.currentSection !== 'caseTool' && this.RootStore.UIStore.currentSection !== 'valuer')
+      return;
     this.currentQId =
       this.userObj.lastQIds[this.RootStore.UIStore.currentSection].length === 1
         ? this.RootStore.UIStore.currentSection === 'caseTool' ? 'cFullName' : 'val0'
@@ -97,10 +109,10 @@ export default class mobxSessionStore {
   handleBack = () => {
     if (this.userObj.lastQIds[this.RootStore.UIStore.currentSection].length === 1) return;
     this.userObj.allQs[this.currentQId].answered = '';
-    this.currentQId =
-      this.userObj.lastQIds[this.RootStore.UIStore.currentSection].length === 1
-        ? this.RootStore.UIStore.currentSection === 'caseTool' ? 'cFullName' : 'val0'
-        : this.userObj.lastQIds[this.RootStore.UIStore.currentSection].pop();
+    db.child(`users/${this.userObj.uid}/allQs/${this.currentQId}`).update({
+      answered: ''
+    });
+    this.currentQId = this.userObj.lastQIds[this.RootStore.UIStore.currentSection].pop();
     this.updateLastQs();
   };
 
@@ -134,15 +146,74 @@ export default class mobxSessionStore {
     if (this.userObj.allQs.iDets1.answered === 'iDets1HitAsPassed') return 'iDets1HitAsPassedLetter';
   }
 
+  @action('setInjuryLocation')
+  setInjuryLocation = x => {
+    console.log(x);
+    this.injuryLocation = x;
+  };
+
+  @action('setInjuryDuration')
+  setInjuryDuration = (start, end, duration) => {
+    const injuryDuration = {
+      start: start,
+      end: end,
+      duration: duration
+    };
+    this.addInjury(injuryDuration);
+  };
+
+  @computed
+  get wks() {
+    return this.duration < 8
+      ? '1wk'
+      : this.duration < 15
+        ? '2wks'
+        : this.duration < 22
+          ? '3wks'
+          : this.duration < 31
+            ? '4wks'
+            : this.duration < 61
+              ? '8wks'
+              : this.duration < 92
+                ? '13wks'
+                : this.duration < 183
+                  ? '26wks'
+                  : this.duration < 366
+                    ? '52wks'
+                    : this.duration < 548 ? '76wks' : this.duration < 730 ? '104wks' : 'longer';
+  }
+
+  @action('addInjury')
+  addInjury = injuryDuration => {
+    this.duration = injuryDuration.duration;
+    const newInjury = {
+      injuryType: this.userObj.allQs.valInjuryType.answered,
+      injuryTypeAndLocation: this.injuryLocation,
+      txt: Inj[this.userObj.allQs.valInjuryType.answered][this.injuryLocation].txt,
+      injuryDuration: injuryDuration.duration,
+      injuryStart: injuryDuration.start,
+      injuryEnd: injuryDuration.end,
+      injuryValue: Inj[this.userObj.allQs.valInjuryType.answered][this.injuryLocation][this.wks]
+    };
+    this.userObj.injuries.push(newInjury);
+    if (this.userObj.injuries[0].injuryType === 'none') this.userObj.injuries.shift();
+    this.updateInjuries();
+  };
+
   @action('setCurrentQ')
   setCurrentQ = nxtQId => {
-    this.currentQId = nxtQId === 'letter' ? this.letterTemplate : nxtQId;
+    this.currentQId =
+      nxtQId === 'letter' ? this.letterTemplate : nxtQId === 'injuryLocation' ? 'valInjuryDuration' : nxtQId;
   };
 
   updateLastQs = () => {
     db.child(`users/${this.userObj.uid}/lastQIds`).update({
       [this.RootStore.UIStore.currentSection]: this.userObj.lastQIds[this.RootStore.UIStore.currentSection]
     });
+  };
+
+  updateInjuries = () => {
+    db.child(`users/${this.userObj.uid}`).update({ injuries: this.userObj.injuries });
   };
 
   @action('sendMessage')

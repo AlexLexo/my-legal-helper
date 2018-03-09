@@ -1054,7 +1054,7 @@
     "type": "weak"
   },
   "timeBarred": {
-    "qId": "jurisdiction",
+    "qId": "timeBarred",
     "title": "I'm afraid that you are probably too late to bring a case.",
     "reason":
       "As your incident occurred either over 3 years ago (or it is 3 years since your 18th birthday if the incident happened when you were a child) it is probably too late to bring a case. There are certain exceptions, and the courts have the discretion to allow a case to proceed out of time in special circumstances. If you think you may have a good reason for not bringing a case within the limitation period please feel free to send me a message. I will not pass your details on to anyone else.",
@@ -1900,9 +1900,6 @@
     "liability6": "For failing to cross the road in a safe manner.",
     "liability7": "For failing to avoid colliding with me.",
     "liability8": "For failing to apply Rule 7 of the Highway Code.",
-    "liability9": "For failing to apply Rule 14 of the Highway Code.",
-    "liability10": "For failing to apply Rule 17 of the Highway Code.",
-    "liability11": "For failing to apply Rule 12 of the Highway Code.",
     "liabilityResult":
       "As a result of the above it is clear in my view that liability attaches to ",
     "type": "letter"
@@ -1914,17 +1911,14 @@
       "I was rear-ended by the vehicle in question which had been travelling behind me. ",
     "liability1": "For failing to give way.",
     "liability2": "For failing to brake in time if at all.",
-    "liability3": "For failing to swerve out of the way.",
+    "liability3": "For hitting me from behind.",
     "liability4":
       "For failing to drive at a speed suitable in all the circumstances.",
     "liability5": "For failing to keep a proper lookout.",
-    "liability6": "For failing to drive in a safe manner.",
-    "liability7": "For failing to avoid colliding with me.",
-    "liability8": "For failing to safely control the vehicle.",
-    "liability9":
+    "liability6": "For failing to safely control the vehicle.",
+    "liability7":
       "For failing to sound any warning of the approach of the vehicle.",
-    "liability10": "For hitting me from behind with the vehicle.",
-    "liability11": "For failing to apply Rule 151 of the Highway Code.",
+    "liability8": "For failing to apply Rule 151 of the Highway Code.",
     "liabilityResult":
       "As a result of the above it is clear in my view that liability attaches to ",
     "type": "letter"
@@ -1938,7 +1932,7 @@
     "liability2": "For failing to keep a proper lookout.",
     "liability3": "For failing to drive in a safe manner.",
     "liability4": "For failing to safely control the vehicle.",
-    "liability5": "",
+    "liability5": "For undertaking a manoeuvre when it was not safe to do so.",
     "liability6": "",
     "liability7": "",
     "liability8": "",
@@ -1958,7 +1952,7 @@
     "liability2": "For failing to keep a proper lookout.",
     "liability3": "For failing to drive in a safe manner.",
     "liability4": "For failing to safely control the vehicle.",
-    "liability5": "",
+    "liability5": "For undertaking a manoeuvre when it was not safe to do so.",
     "liability6": "",
     "liability7": "",
     "liability8": "",
@@ -1978,7 +1972,7 @@
     "liability2": "For failing to keep a proper lookout.",
     "liability3": "For failing to drive in a safe manner.",
     "liability4": "For failing to safely control the vehicle.",
-    "liability5": "",
+    "liability5": "For undertaking a manoeuvre when it was not safe to do so.",
     "liability6": "",
     "liability7": "",
     "liability8": "",
@@ -1998,7 +1992,7 @@
     "liability2": "For failing to keep a proper lookout.",
     "liability3": "For failing to drive in a safe manner.",
     "liability4": "For failing to safely control the vehicle.",
-    "liability5": "",
+    "liability5": "For undertaking a manoeuvre when it was not safe to do so.",
     "liability6": "",
     "liability7": "",
     "liability8": "",
@@ -2018,7 +2012,7 @@
     "liability2": "For failing to keep a proper lookout.",
     "liability3": "For failing to drive in a safe manner.",
     "liability4": "For failing to safely control the vehicle.",
-    "liability5": "",
+    "liability5": "For undertaking a manoeuvre when it was not safe to do so.",
     "liability6": "",
     "liability7": "",
     "liability8": "",
@@ -2038,7 +2032,7 @@
     "liability2": "For failing to keep a proper lookout.",
     "liability3": "For failing to drive in a safe manner.",
     "liability4": "For failing to safely control the vehicle.",
-    "liability5": "",
+    "liability5": "For undertaking a manoeuvre when it was not safe to do so.",
     "liability6": "",
     "liability7": "",
     "liability8": "",
@@ -2058,7 +2052,7 @@
     "liability2": "For failing to keep a proper lookout.",
     "liability3": "For failing to drive in a safe manner.",
     "liability4": "For failing to safely control the vehicle.",
-    "liability5": "",
+    "liability5": "For undertaking a manoeuvre when it was not safe to do so.",
     "liability6": "",
     "liability7": "",
     "liability8": "",
@@ -2078,7 +2072,7 @@
     "liability2": "For failing to keep a proper lookout.",
     "liability3": "For failing to drive in a safe manner.",
     "liability4": "For failing to safely control the vehicle.",
-    "liability5": "",
+    "liability5": "For undertaking a manoeuvre when it was not safe to do so.",
     "liability6": "",
     "liability7": "",
     "liability8": "",
@@ -2098,7 +2092,7 @@
     "liability2": "For failing to keep a proper lookout.",
     "liability3": "For failing to drive in a safe manner.",
     "liability4": "For failing to safely control the vehicle.",
-    "liability5": "",
+    "liability5": "For undertaking a manoeuvre when it was not safe to do so.",
     "liability6": "",
     "liability7": "",
     "liability8": "",
@@ -2117,7 +2111,7 @@
     "liability2": "For failing to keep a proper lookout.",
     "liability3": "For failing to drive in a safe manner.",
     "liability4": "For failing to safely control the vehicle.",
-    "liability5": "",
+    "liability5": "For undertaking a manoeuvre when it was not safe to do so.",
     "liability6": "",
     "liability7": "",
     "liability8": "",
@@ -2139,12 +2133,12 @@
       {
         "ansId": "accept",
         "ansLabel": "I accept",
-        "nxtQId": "val1"
+        "nxtQId": "valInjuryType"
       }
     ]
   },
-  "val1": {
-    "qId": "val1",
+  "valInjuryType": {
+    "qId": "valInjuryType",
     "title":
       "What type of injury did you have? You can add more injuries later.",
     "answered": "",
@@ -2196,39 +2190,25 @@
         "nxtQId": "contactMe"
       },
       {
-        "ansId": "softNeck",
+        "ansId": "neck",
         "ansLabel": "Neck",
-        "nxtQId": "valAnsSoftNeck"
+        "nxtQId": "injuryLocation"
       },
       {
-        "ansId": "softShoulders",
+        "ansId": "shoulders",
         "ansLabel": "Shoulders",
-        "nxtQId": "valAnsSoftShoulders"
+        "nxtQId": "injuryLocation"
       },
       {
-        "ansId": "softBack",
+        "ansId": "back",
         "ansLabel": "Back",
-        "nxtQId": "valAnsSoftBack"
+        "nxtQId": "injuryLocation"
       },
       {
-        "ansId": "softPelvis",
+        "ansId": "pelvis",
         "ansLabel": "Pelvis / hips",
-        "nxtQId": "valAnsSoftPelvis"
+        "nxtQId": "injuryLocation"
       },
-      {
-        "ansId": "none",
-        "ansLabel": "See more Options",
-        "nxtQId": "valSoftDets2"
-      }
-    ]
-  },
-  "valSoftDets2": {
-    "qId": "valSoftDets2",
-    "title": "Where was the injury located?",
-    "answered": "",
-    "answeredOn": "",
-    "type": "dropdown",
-    "btnvalues": [
       {
         "ansId": "softArm",
         "ansLabel": "Arm or hand Area",
@@ -2242,7 +2222,7 @@
       {
         "ansId": "softOrgans",
         "ansLabel": "Internal Organs",
-        "nxtQId": "valSoftOrgans1"
+        "nxtQId": "contactMe"
       }
     ]
   },
@@ -2254,24 +2234,19 @@
     "type": "dropdown",
     "btnvalues": [
       {
-        "ansId": "softArm",
-        "ansLabel": "Arm",
-        "nxtQId": "valAnsSoftArm"
-      },
-      {
-        "ansId": "softHand",
+        "ansId": "hand",
         "ansLabel": "Hand",
-        "nxtQId": "valAnsSoftHand"
+        "nxtQId": "injuryLocation"
       },
       {
-        "ansId": "softWrist",
+        "ansId": "wrist",
         "ansLabel": "Wrist",
-        "nxtQId": "valAnsSoftWrist"
+        "nxtQId": "injuryLocation"
       },
       {
-        "ansId": "softElbow",
+        "ansId": "elbow",
         "ansLabel": "Elbow",
-        "nxtQId": "valAnsSoftElbow"
+        "nxtQId": "injuryLocation"
       }
     ]
   },
@@ -2283,107 +2258,29 @@
     "type": "dropdown",
     "btnvalues": [
       {
-        "ansId": "softLeg",
+        "ansId": "leg",
         "ansLabel": "Leg",
-        "nxtQId": "valAnsSoftLeg"
+        "nxtQId": "injuryLocation"
       },
       {
-        "ansId": "softFoot",
+        "ansId": "foot",
         "ansLabel": "Foot",
-        "nxtQId": "valAnsSoftFoot"
+        "nxtQId": "injuryLocation"
       },
       {
-        "ansId": "softAnkle",
+        "ansId": "ankle",
         "ansLabel": "Ankle",
-        "nxtQId": "valAnsSoftAnkle"
+        "nxtQId": "injuryLocation"
       },
       {
-        "ansId": "softKnee",
+        "ansId": "knee",
         "ansLabel": "Elbow",
-        "nxtQId": "valAnsSoftElbow"
+        "nxtQId": "injuryLocation"
       },
       {
-        "ansId": "softToe",
+        "ansId": "toe",
         "ansLabel": "Toe",
-        "nxtQId": "valAnsSoftToe"
-      }
-    ]
-  },
-  "valSoftOrgans1": {
-    "qId": "valSoftOrgans1",
-    "title": "Where was the injury located?",
-    "answered": "",
-    "answeredOn": "",
-    "type": "dropdown",
-    "btnvalues": [
-      {
-        "ansId": "softChest",
-        "ansLabel": "Chest",
-        "nxtQId": "valAnsSoftChest"
-      },
-      {
-        "ansId": "softLung",
-        "ansLabel": "Lung",
-        "nxtQId": "valAnsSoftLung"
-      },
-      {
-        "ansId": "softRepro",
-        "ansLabel": "Reproductive system",
-        "nxtQId": "valAnsSoftRepro"
-      },
-      {
-        "ansId": "softDig",
-        "ansLabel": "Digestive system",
-        "nxtQId": "valAnsSoftDig"
-      },
-      {
-        "ansId": "softKidney",
-        "ansLabel": "Kidney",
-        "nxtQId": "valAnsSoftKidney"
-      },
-      {
-        "ansId": "none",
-        "ansLabel": "See more Options",
-        "nxtQId": "valSoftOrgans2"
-      }
-    ]
-  },
-  "valSoftOrgans2": {
-    "qId": "valSoftOrgans2",
-    "title": "Where was the injury located?",
-    "answered": "",
-    "answeredOn": "",
-    "type": "dropdown",
-    "btnvalues": [
-      {
-        "ansId": "softBowels",
-        "ansLabel": "Bowels",
-        "nxtQId": "valAnsSoftBowels"
-      },
-      {
-        "ansId": "softBladder",
-        "ansLabel": "Bladder",
-        "nxtQId": "valAnsSoftBladder"
-      },
-      {
-        "ansId": "softSpleen",
-        "ansLabel": "Spleen",
-        "nxtQId": "valAnsSoftSpleen"
-      },
-      {
-        "ansId": "softDig",
-        "ansLabel": "Digestive system",
-        "nxtQId": "valAnsSoftDig"
-      },
-      {
-        "ansId": "softHernia",
-        "ansLabel": "Hernia",
-        "nxtQId": "valAnsSoftHernia"
-      },
-      {
-        "ansId": "none",
-        "ansLabel": "None of the above",
-        "nxtQId": "contactMe"
+        "nxtQId": "injuryLocation"
       }
     ]
   },
@@ -2496,34 +2393,29 @@
     "type": "dropdown",
     "btnvalues": [
       {
-        "ansId": "fractureArm",
+        "ansId": "fractureForearm",
         "ansLabel": "Arm",
-        "nxtQId": "valAnsFractureArm"
+        "nxtQId": "valAnsFractureForearm"
       },
       {
-        "ansId": "fractureHand",
-        "ansLabel": "Hand",
-        "nxtQId": "valAnsFractureHand"
-      },
-      {
-        "ansId": "fractureWrist",
+        "ansId": "wrist",
         "ansLabel": "Wrist",
-        "nxtQId": "valAnsFractureWrist"
+        "nxtQId": "injuryLocation"
       },
       {
-        "ansId": "fractureElbow",
+        "ansId": "elbow",
         "ansLabel": "Elbow",
-        "nxtQId": "valAnsFractureElbow"
+        "nxtQId": "injuryLocation"
       },
       {
-        "ansId": "fractureFinger",
+        "ansId": "finger",
         "ansLabel": "Finger",
-        "nxtQId": "valAnsFractureFinger"
+        "nxtQId": "injuryLocation"
       },
       {
-        "ansId": "fractureThumb",
+        "ansId": "thumb",
         "ansLabel": "Thumb",
-        "nxtQId": "valAnsFractureThumb"
+        "nxtQId": "injuryLocation"
       }
     ]
   },
@@ -2535,29 +2427,24 @@
     "type": "dropdown",
     "btnvalues": [
       {
-        "ansId": "fractureLeg",
+        "ansId": "thigh",
         "ansLabel": "Leg",
-        "nxtQId": "valAnsFractureLeg"
+        "nxtQId": "injuryLocation"
       },
       {
-        "ansId": "fractureFoot",
+        "ansId": "knee",
         "ansLabel": "Foot",
-        "nxtQId": "valAnsFractureFoot"
+        "nxtQId": "injuryLocation"
       },
       {
-        "ansId": "fractureAnkle",
+        "ansId": "ankle",
         "ansLabel": "Ankle",
-        "nxtQId": "valAnsFractureAnkle"
+        "nxtQId": "injuryLocation"
       },
       {
-        "ansId": "fractureKnee",
-        "ansLabel": "Elbow",
-        "nxtQId": "valAnsFractureElbow"
-      },
-      {
-        "ansId": "fractureToe",
+        "ansId": "toe",
         "ansLabel": "Toe",
-        "nxtQId": "valAnsFractureToe"
+        "nxtQId": "injuryLocation"
       }
     ]
   },
@@ -2571,46 +2458,12 @@
       {
         "ansId": "burnFace",
         "ansLabel": "face",
-        "nxtQId": "valBurnFaceDets"
+        "nxtQId": "valAnsBurnFace"
       },
       {
         "ansId": "burnOther",
         "ansLabel": "Other",
         "nxtQId": "valAnsBurnOther"
-      }
-    ]
-  },
-  "valBurnFaceDets": {
-    "qId": "valBurnFaceDets",
-    "title": "How severe was the injury?",
-    "answered": "",
-    "answeredOn": "",
-    "type": "dropdown",
-    "btnvalues": [
-      {
-        "ansId": "burnFaceVSev",
-        "ansLabel": "Very Severe Scarring",
-        "nxtQId": "valAnsBurnFace"
-      },
-      {
-        "ansId": "burnFaceLSev",
-        "ansLabel": "Less Severe Scarring",
-        "nxtQId": "valAnsBurnFace"
-      },
-      {
-        "ansId": "burnFaceSig",
-        "ansLabel": "Significant Scarring",
-        "nxtQId": "valAnsBurnFace"
-      },
-      {
-        "ansId": "burnFaceLSig",
-        "ansLabel": "Less Significant Scarring",
-        "nxtQId": "valAnsBurnFace"
-      },
-      {
-        "ansId": "burnFaceTriv",
-        "ansLabel": "Trivial Scarring",
-        "nxtQId": "valAnsBurnFace"
       }
     ]
   },
@@ -2629,36 +2482,121 @@
       {
         "ansId": "psychOther",
         "ansLabel": "Other",
-        "nxtQId": "contactMe"
+        "nxtQId": "valAnsPsychOther"
       }
     ]
   },
-  "valAnsBurnFace": {
-    "qId": "valAnsBurnFace",
-    "title": "Facial Burns",
-    "valuation":
-      "In this class of case a number of common factors fall to be considered:<br />the nature of the underlying injury which has resulted in facial disfigurement;<br />the nature and extent of treatment;<br />the nature and extent of the residual scarring or disfigurement;<br />the age of the claimant;<br />the subjective impact of the disfigurement upon the claimant including the extent to which they valued their appearance;<br />the extent to which the injury adversely affects the claimant’s social, domestic and work lives;<br />The psychological impact upon the claimant, which in severe cases may be very substantial.<br />The subject of burns is not dealt with separately. Burns of any degree of severity are particularly painful and disfiguring, and awards are invariably at the upper ends of the brackets, or above them altogether. The very worst burns may lead not only to considerable disfigurement and pain but to a variety of continuing physical and psychological injuries meriting very high awards. <br />(a) Very Severe Scarring<br />In a relatively young claimants (typically teens to early 30s) where the cosmetic effect is very disfiguring and the psychological reaction severe. £26,120 to £85,340<br />(b) Less Severe Scarring<br />Where the disfigurement is still substantial and where there is a significant psychological reaction. £15,750 to £42,460<br />(c) Significant Scarring<br />Where the worst effects have been or will be reduced by plastic surgery leaving some cosmetic disability and where the psychological reaction is not great or, having been considerable at the outset, has diminished to relatively minor proportions. £7,990 to £26,380<br />(d) Less Significant Scarring<br />In these cases there may be but one scar which can be camouflaged or, though there are a number of very small scars, the overall effect is to mar but not markedly to affect the appearance and the reaction is no more than that of an ordinarily sensitive young woman. £3,460 to £12,050<br />(e) Trivial Scarring<br />In these cases the effect is minor only. £1,500 to £3,090",
-    "type": "valuation"
+  "valInjuryDuration": {
+    "qId": "valInjuryDuration",
+    "title": "How long did this injury last for?",
+    "nxtQId": "valAddInjury",
+    "answered": "",
+    "answeredOn": "",
+    "type": "injuryDurationInputs",
+    "inputs": [
+      {
+        "qId": "injuryStart",
+        "title": "start of injury",
+        "type": "date",
+        "placeholder": ""
+      },
+      {
+        "qId": "injuryEnd",
+        "title": "End of injury",
+        "type": "date",
+        "placeholder": ""
+      }
+    ]
   },
-  "valAnsBurnOther": {
-    "qId": "valAnsBurnOther",
-    "title": "Non-facial Burns",
-    "valuation":
-      "This is an area in which it is not possible to offer much useful guidance. The principles (including the approach to awards for different genders) are the same as those applied to cases of facial disfigurement. It must be remembered that many of the physical injuries already described involve some element of disfigurement and that element is of course taken into account in suggesting the appropriate bracket. There remain some cases where the element of disfigurement is the predominant one in the assessment of damages. Where the scarring is not to the face or is not usually visible then the awards will tend to be lower than those for facial or readily visible disfigurement.<br />A large proportion of awards for a number of noticeable laceration scars, or a single disfiguring scar, of leg(s) or arm(s) or hand(s) or back or chest, fall in the bracket of £6,870 to £19,930.<br />In cases where an exploratory laparotomy has been performed but no significant internal injury has been found, the award reflects the operation and the inevitable scar.<br />In the region of £7,580<br />A single noticeable scar, or several superficial scars, of leg(s) or arm(s) or hand(s), with some minor cosmetic deficit.<br />£2,080 to £6,870<br />As we have noted in Chapter 9, the effects of burns will normally be regarded as more serious since they tend to cause a greater degree of pain and may lead to continuing physical and psychological injury. Serious burn injuries will attract very significant awards. Where significant burns cover 40% or more of the body, awards are likely to exceed £91,910. Factors which will influence the size of award in burns cases will include:<br />The percentage body area affected by the burns;<br />Whether the burns are full thickness, partial thickness or superficial;<br />The cosmetic impact of the injuries and the injured person’s reaction to them;<br />The need for (and extent of) surgery;<br />Any resulting physical disability;<br />The psychological impact.",
-    "type": "valuation"
+  "valAddInjury": {
+    "qId": "valAddInjury",
+    "title": "Would you like to add another injury?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "dropdown",
+    "btnvalues": [
+      {
+        "ansId": "valAddInjuryYes",
+        "ansLabel": "Yes",
+        "nxtQId": "valInjuryType"
+      },
+      {
+        "ansId": "valAddInjuryNo",
+        "ansLabel": "No",
+        "nxtQId": "valFinancial"
+      }
+    ]
   },
-  "valAnsPsychTravel": {
-    "qId": "valAnsPsychTravel",
-    "title": "Travel anxiety",
-    "valuation":
-      "Claims solely in respect of shock or travel anxiety in the absence of physical or recognised psychiatric injury will not attract an award of compensation. If this is only element of case lasting more than 3 months can still fall in minor injuries. If it lasts for 2 months plus, add 20% of value of other injury up to a maximum of £1,000. If lasts less than 2 months add £300 to the other injury.",
-    "type": "valuation"
+  "valFinancial": {
+    "qId": "valFinancial",
+    "title": "Did you suffer any financial losses?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "dropdown",
+    "btnvalues": [
+      {
+        "ansId": "valFinancialYes",
+        "ansLabel": "Yes",
+        "nxtQId": "valFinancialDets"
+      },
+      {
+        "ansId": "valFinancialNo",
+        "ansLabel": "No",
+        "nxtQId": "valValuation"
+      }
+    ]
   },
-  "valAnsDental": {
-    "qId": "valAnsDental",
-    "title": "Damage to Teeth",
-    "valuation":
-      "Significant, chronic, tooth pain (such as from an untreated abscess) extending over a number of years together with significant general deterioration in the overall condition of teeth: Up to £33,430<br />(i) Loss of or serious damage to several front teeth. £7,650 to £10,010<br />(ii) Loss of or serious damage to two front teeth. £3,810 to £6,690<br />(iii) Loss of or serious damage to one front tooth. £1,930 to £3,460<br />(iv) Loss of or damage to back teeth: per tooth: £960 to £1,500",
+  "valFinancialDets": {
+    "qId": "valFinancialDets",
+    "title": "Did you suffer any financial losses?",
+    "nxtQId": "valValuation",
+    "answered": "",
+    "answeredOn": "",
+    "type": "financialInputs",
+    "inputs": [
+      {
+        "qId": "finTravel",
+        "title": "travel expenses",
+        "type": "text",
+        "placeholder": "0"
+      },
+      {
+        "qId": "finTreatment",
+        "title": "treatment costs",
+        "type": "text",
+        "placeholder": "0"
+      },
+      {
+        "qId": "finEarnings",
+        "title": "loss of earnings",
+        "type": "text",
+        "placeholder": "0"
+      },
+      {
+        "qId": "finMedication",
+        "title": "prescriptions for medication",
+        "type": "text",
+        "placeholder": "0"
+      },
+      {
+        "qId": "finRepairs",
+        "title": "vehicle repairs and excess",
+        "type": "text",
+        "placeholder": "0"
+      },
+      {
+        "qId": "finCare",
+        "title": "care and assistance costs",
+        "type": "text",
+        "placeholder": "0"
+      }
+    ]
+  },
+  "valValuation": {
+    "qId": "valValuation",
+    "nxtQId": "valValuation",
+    "title": "Here is your valuation",
+    "valuation": "",
     "type": "valuation"
   }
 }
