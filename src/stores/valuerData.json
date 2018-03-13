@@ -81,7 +81,8 @@
       "26wks": 2620,
       "52wks": 3090,
       "76wks": 3500,
-      "104wks": 4000
+      "104wks": 4000,
+      "longer": 99999
     },
     "elbow": {
       "txt": "a soft tissue injury to your elbow",

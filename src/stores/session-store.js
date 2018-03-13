@@ -76,6 +76,18 @@ export default class mobxSessionStore {
             injuryEnd: 'none'
           }
         ],
+        editedLetter: {
+          cFullName: '',
+          cAddress: '',
+          iDate: '',
+          dFullName: '',
+          dPolicyNumber: '',
+          intro: '',
+          circumstancesofIncident1: '',
+          circumstancesofIncident2: '',
+          letterId: '',
+          createdOn: ''
+        },
         messages: [
           {
             messageTitle: 'Welcome',
@@ -145,6 +157,24 @@ export default class mobxSessionStore {
     if (this.userObj.allQs.roundabout.answered === 'roundaboutDirL') return 'roundaboutLLetter';
     if (this.userObj.allQs.iDets1.answered === 'iDets1HitAsPassed') return 'iDets1HitAsPassedLetter';
   }
+
+  @action('setEditedLetter')
+  setEditedLetter = (edits, letterId) => {
+    this.userObj.editedLetter = {
+      cFullName: edits.cFullName,
+      cAddress: edits.cAddress,
+      iDate: edits.iDate,
+      dFullName: edits.dFullName,
+      dPolicyNumber: edits.dPolicyNumber,
+      intro: edits.intro,
+      circumstancesofIncident1: edits.circumstancesofIncident1,
+      circumstancesofIncident2: edits.circumstancesofIncident2,
+      letterId: letterId,
+      createdOn: Date.now()
+    };
+    db.child(`users/${this.userObj.uid}/editedLetter`).update(this.userObj.editedLetter);
+    console.log(this.userObj.editedLetter);
+  };
 
   @action('setInjuryLocation')
   setInjuryLocation = x => {

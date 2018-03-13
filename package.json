@@ -46,6 +46,7 @@
     "react-firebaseui": "^1.0.10",
     "react-router-bootstrap": "^0.24.4",
     "react-router-dom": "^4.2.2",
+    "react-textarea-autosize": "^6.0.0",
     "reactstrap": "^5.0.0-beta",
     "save-dev": "^2.0.0",
     "style-loader": "0.19.0",

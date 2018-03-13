@@ -6,6 +6,7 @@ import moment from 'moment';
 import Weak from './weak';
 import Advice from './advice';
 import Letter from './letter';
+//import EditedLetter from './edited-letter';
 import Valuation from './valuation';
 import Financial from './financial-inputs';
 import InjuryDuration from './injury-duration-inputs';
@@ -27,7 +28,8 @@ class Section1 extends Component {
       value3: '',
       value4: '',
       value5: '',
-      value6: ''
+      value6: '',
+      editedLetter: false
     };
     this.qs = null;
     this.qId = null;
@@ -38,6 +40,8 @@ class Section1 extends Component {
   }
 
   handleBack = () => {
+    if (this.state.editedLetter) this.setState({ editedLetter: false });
+    //this.state.editedLetter = this.editedLetter && false;
     this.props.RootStore.SessionStore.handleBack();
   };
 
@@ -70,8 +74,15 @@ class Section1 extends Component {
         this.postSubmit();
       }
     } else if (this.state.nxtQId === 'injuryLocation') {
+      //set injury location
       this.props.RootStore.SessionStore.setInjuryLocation(this.state.value);
       this.postSubmit();
+    } else if (this.qs[this.qId].type === 'letter') {
+      //go to edited letter
+      this.props.RootStore.SessionStore.setEditedLetter(this.state.value, this.state.nxtQId);
+      this.setState({ editedLetter: true });
+      //this.resetState();
+      //this.postSubmit();
     } else {
       this.postSubmit();
     }
@@ -111,55 +122,92 @@ class Section1 extends Component {
   render() {
     this.qs = this.props.RootStore.SessionStore.userObj.allQs;
     this.qId = this.props.RootStore.SessionStore.currentQId;
-    const q = this.qs[this.qId];
-    const title = q.type === 'letter' ? { __html: DOMPurify.sanitize('x') } : { __html: DOMPurify.sanitize(q.title) };
-    switch (q.type) {
+    const qType = this.qs[this.qId].type;
+    const title =
+      this.qs[this.qId].type === 'letter'
+        ? { __html: DOMPurify.sanitize('x') }
+        : { __html: DOMPurify.sanitize(this.qs[this.qId].title) };
+    switch (qType) {
       case 'text':
         this.input = (
-          <Texts q={q} value={this.state.value} callback={(v, n) => this.setState({ value: v, nxtQId: n })} />
+          <Texts
+            q={this.qs[this.qId]}
+            value={this.state.value}
+            callback={(v, n) => this.setState({ value: v, nxtQId: n })}
+          />
         );
         break;
       case 'email':
         this.input = (
-          <Email q={q} value={this.state.value} callback={(v, n) => this.setState({ value: v, nxtQId: n })} />
+          <Email
+            q={this.qs[this.qId]}
+            value={this.state.value}
+            callback={(v, n) => this.setState({ value: v, nxtQId: n })}
+          />
         );
         break;
       case 'date':
         this.input = (
-          <Dates q={q} value={this.state.value} callback={(v, n) => this.setState({ value: v, nxtQId: n })} />
+          <Dates
+            q={this.qs[this.qId]}
+            value={this.state.value}
+            callback={(v, n) => this.setState({ value: v, nxtQId: n })}
+          />
         );
         break;
       case 'button':
         this.input = (
-          <Buttons q={q} value={this.state.value} callback={(v, n) => this.setState({ value: v, nxtQId: n })} />
+          <Buttons
+            q={this.qs[this.qId]}
+            value={this.state.value}
+            callback={(v, n) => this.setState({ value: v, nxtQId: n })}
+          />
         );
         break;
       case 'dropdown':
         this.input = (
-          <Buttons q={q} value={this.state.value} callback={(v, n) => this.setState({ value: v, nxtQId: n })} />
+          <Buttons
+            q={this.qs[this.qId]}
+            value={this.state.value}
+            callback={(v, n) => this.setState({ value: v, nxtQId: n })}
+          />
         );
         break;
       case 'weak':
-        this.input = <Weak userObj={this.props.RootStore.SessionStore.userObj} q={q} />;
+        this.input = <Weak userObj={this.props.RootStore.SessionStore.userObj} q={this.qs[this.qId]} />;
         break;
       case 'advice':
         this.input = (
           <Advice
             userObj={this.props.RootStore.SessionStore.userObj}
-            q={q}
+            q={this.qs[this.qId]}
             history={this.props.history}
             setSection={x => this.props.RootStore.UIStore.setCurrentSection(x)}
           />
         );
         break;
       case 'letter':
-        this.input = <Letter allQs={this.qs} q={q} history={this.props.history} />;
+        this.input = (
+          <Letter
+            history={this.props.history}
+            editedLetter={this.state.editedLetter}
+            callback={v =>
+              this.setState({
+                value: v,
+                nxtQId: this.qId
+              })
+            }
+          />
+        );
         break;
+      /*case 'editedLetter':
+        this.input = <EditedLetter edits={this.props.RootStore.SessionStore.userObj.editedLetter} />;
+        break;*/
       case 'financialInputs':
         this.input = (
           <Financial
             allQs={this.qs}
-            q={q}
+            q={this.qs[this.qId]}
             callback={(p, v, n) => this.setState({ value: 'multiValue', [p]: v, nxtQId: n })}
           />
         );
@@ -168,32 +216,49 @@ class Section1 extends Component {
         this.input = (
           <InjuryDuration
             allQs={this.qs}
-            q={q}
+            q={this.qs[this.qId]}
             callback={(p, v, n) => this.setState({ value: 'multiValue', [p]: v, nxtQId: n })}
           />
         );
         break;
       case 'valuation':
-        this.input = <Valuation allQs={this.qs} q={q} injuries={this.props.RootStore.SessionStore.userObj.injuries} />;
+        this.input = (
+          <Valuation
+            allQs={this.qs}
+            q={this.qs[this.qId]}
+            injuries={this.props.RootStore.SessionStore.userObj.injuries}
+          />
+        );
         break;
       default:
         break;
     }
-
     return (
       <div className={`section1`}>
-        <div className={`section1-title ${q.type !== 'letter' && q.type !== 'advice' ? 'show' : 'hide'}`}>
-          {q.qId === 'val0' ? <p dangerouslySetInnerHTML={title} /> : <h3 dangerouslySetInnerHTML={title} />}
+        <div
+          className={`section1-title ${
+            this.qs[this.qId].type !== 'letter' &&
+            this.qs[this.qId].type !== 'valuation' &&
+            this.qs[this.qId].type !== 'advice'
+              ? 'show'
+              : 'hide'
+          }`}
+        >
+          {this.qs[this.qId].qId === 'val0' ? (
+            <p dangerouslySetInnerHTML={title} />
+          ) : (
+            <h3 dangerouslySetInnerHTML={title} />
+          )}
         </div>
         <form onSubmit={this.handleSubmit}>
           <div className="input">{this.input}</div>
           <div className="btn-group bottom-button-group">
-            {q.qId !== 'val0' ? (
+            {this.qs[this.qId].qId !== 'val0' ? (
               <input
                 type="button"
                 onClick={this.handleBack}
                 value="Back"
-                className={`btn bottom-button ${q.qId === 'cFullName' ? 'disabled' : ''}`}
+                className={`btn bottom-button ${this.qs[this.qId].qId === 'cFullName' ? 'disabled' : ''}`}
               />
             ) : (
               <input
@@ -211,7 +276,11 @@ class Section1 extends Component {
               name="contact"
               className={`btn bottom-button`}
             />
-            <input type="submit" value="Next" className={`btn bottom-button ${q.type === 'weak' ? 'disabled' : ''}`} />
+            <input
+              type="submit"
+              value="Next"
+              className={`btn bottom-button ${this.qs[this.qId].type === 'weak' ? 'disabled' : ''}`}
+            />
           </div>
         </form>
       </div>

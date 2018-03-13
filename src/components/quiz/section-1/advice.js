@@ -10,9 +10,7 @@ const Advice = props => {
     <div className="advice">
       <h4>Some feedback about your claim</h4>
       <div className="text-justify">
-        <p>
-          <strong>General Points</strong>
-        </p>
+        <strong>General Points</strong>
         <p>
           In general terms, there is no legal barrier stopping you from bringing a case. Your case is in time, and you
           have until your 21st birthday or 3 years from the date of the incident in which to issue proceedings in the
@@ -77,7 +75,7 @@ const Advice = props => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                link
+                www.mib.org.uk
               </a>). All motor insurance policies contribute to this fund which covers hit and run incidents and those
               caused by uninsured drivers. There are strict time limits which can be found here, along with details on
               how to apply for compensation.<br />However, if they were acting in the course of their employment you may
@@ -101,7 +99,7 @@ const Advice = props => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                link
+                www.mib.org.uk
               </a>). All motor insurance policies contribute to this fund which covers hit and run incidents and those
               caused by uninsured drivers. There are strict time limits which can be found here, along with details on
               how to apply for compensation.<br />However, given that they were acting in the course of their employment
@@ -137,14 +135,14 @@ const Advice = props => {
               You have indicated that defendant is not insured. You can find out if the vehicle was insured by searching
               the insurance database{' '}
               <a href="https://www.askmid.com/askmidenquiry.aspx" target="_blank" rel="noopener noreferrer">
-                here
+                www.askmid.com/askmidenquiry.aspx
               </a>). If the defendant was not insured, or did not stop at the scene, you should be able to get
               compensation through the Motor Insurers' Bureau (<a
                 href="https://www.mib.org.uk/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                link
+                www.mib.org.uk
               </a>). All motor insurance policies contribute to this fund which covers hit and run incidents and those
               caused by uninsured drivers. There are strict time limits which can be found here, along with details on
               how to apply for compensation.<br />However, if they were acting in the course of their employment you may
@@ -168,7 +166,7 @@ const Advice = props => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                link
+                www.mib.org.uk
               </a>). All motor insurance policies contribute to this fund which covers hit and run incidents and those
               caused by uninsured drivers. There are strict time limits which can be found here, along with details on
               how to apply for compensation.<br />However, given that they were acting in the course of their employment
@@ -179,9 +177,16 @@ const Advice = props => {
             </p>
           )}
 
-        <p>
-          <strong>Circumstances of Incident</strong>
-        </p>
+        {x.injuredByHireBike.answered === 'injuredByHireBikeYes' ? (
+          <p>
+            As the defendant was riding a cycle hire bicycle you may be able to bring a claim through the 'third party
+            liability' insurance of the company in question, and you should approach them direct.
+          </p>
+        ) : (
+          <p />
+        )}
+
+        <strong>Circumstances of Incident</strong>
         <p>{props.q.element2a}</p>
 
         {x.injuredBy.answered === 'injuredByAnimal' ? (
@@ -200,7 +205,7 @@ const Advice = props => {
             </p>
           )
         ) : (
-          ''
+          <p />
         )}
         <p>{props.q.filteringYes}</p>
         <p>{props.q.filteringNo}</p>
@@ -210,16 +215,19 @@ const Advice = props => {
             unable to see you in order to avoid the incident. Alternatively, it may lead to a reduction in your damages
             for 'contributory negligence'. For more information see this guide –{' '}
             <a href="https://en.wikipedia.org/wiki/Contributory_negligence" target="_blank" rel="noopener noreferrer">
-              link
+              en.wikipedia.org/wiki/Contributory_negligence
             </a>.
           </p>
         ) : (
-          ''
+          <p />
         )}
         {x.witnessDets.answered === 'witnessDetsYes' ? (
           <p>It is helpful that you have a witness who can confirm how the incident occurred.</p>
         ) : (
-          'You have indicated that you do not have the details of any witnesses. This might make it difficult for you to prove how the incident occurred.'
+          <p>
+            You have indicated that you do not have the details of any witnesses. This might make it difficult for you
+            to prove how the incident occurred.
+          </p>
         )}
         {x.dAdmitedLiability.answered === 'dAdmitedLiabilityYes' ? (
           x.dProsecuted.answered === 'dProsecutedYes' ? (
@@ -232,36 +240,27 @@ const Advice = props => {
         ) : x.dProsecuted.answered === 'dProsecutedYes' ? (
           <p>Given that the defendant has been prosecuted, your case should be very strong.</p>
         ) : (
-          ''
+          <p />
         )}
 
-        {x.injuredByHireBike.answered === 'injuredByHireBikeYes' ? (
-          <p>
-            As the defendant was riding a cycle hire bicycle you may be able to bring a claim through the 'third party
-            liability' insurance of the company in question, and you should approach them direct.
-          </p>
-        ) : (
-          ''
-        )}
-
-        <p>
-          <strong>Value Of Case</strong>
-        </p>
+        <strong>Value Of Case</strong>
         <p>
           If you have sustained an injury and the case succeeds, you will be entitled to damages for this depending on
           the type of injury, its severity and the length of time it lasts. In addition you are entitled to your
           financial losses as a result of the incident. For more details see this guide –{' '}
           <button name="valuer" onClick={handleClick}>
-            link
-          </button>. If you have not sustained an injury and the case succeeds, you will still be entitled to damages
-          for your financial losses as a result of the incident.
+            go to valuation tool
+          </button>.
         </p>
         <p>
-          <strong>Next Steps</strong>
+          If you have not sustained an injury and the case succeeds, you will still be entitled to damages for your
+          financial losses as a result of the incident.
         </p>
+
+        <strong>Next Steps</strong>
         <p>If you would now like to use the letter writing tool please press the 'next' button below.</p>
         <p>
-          Alternatively, feel free to send me a message if you have any queries regarding the advice. I will not pass
+          Alternatively, feel free to send us a message if you have any queries regarding the advice. We will not pass
           your details on to anyone else.
         </p>
       </div>
