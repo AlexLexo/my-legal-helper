@@ -37,6 +37,9 @@ class Section1 extends Component {
 
   componentWillMount() {
     this.props.RootStore.UIStore.handleFadeIn();
+    if (this.props.history.location.pathname === '/valuer') this.props.RootStore.UIStore.setCurrentSection('valuer');
+    if (this.props.history.location.pathname === '/case-tool')
+      this.props.RootStore.UIStore.setCurrentSection('caseTool');
   }
 
   handleBack = () => {
@@ -45,10 +48,10 @@ class Section1 extends Component {
     this.props.RootStore.SessionStore.handleBack();
   };
 
-  handleClick = e => {
-    this.props.history.push(e.target.name === 'caseTool' ? 'section1' : e.target.name);
-    this.props.RootStore.UIStore.setCurrentSection(e.target.name);
-  };
+  /*handleClick = e => {
+    this.props.history.push(e.target.name === 'caseTool' ? 'case-tool' : e.target.name);
+    //this.props.RootStore.UIStore.setCurrentSection(e.target.name);
+  };*/
 
   handleSubmit = e => {
     e.preventDefault();
@@ -263,7 +266,10 @@ class Section1 extends Component {
             ) : (
               <input
                 type="button"
-                onClick={this.handleClick}
+                onClick={() => {
+                  this.props.history.push(`case-tool`);
+                  this.props.RootStore.UIStore.setCurrentSection('caseTool');
+                }}
                 value="Go to Case Tool"
                 name="caseTool"
                 className={`btn bottom-button`}
@@ -271,7 +277,10 @@ class Section1 extends Component {
             )}
             <input
               type="button"
-              onClick={this.handleClick}
+              onClick={() => {
+                this.props.history.push(`contact`);
+                this.props.RootStore.UIStore.setCurrentSection('contact');
+              }}
               value="Get in Touch"
               name="contact"
               className={`btn bottom-button`}

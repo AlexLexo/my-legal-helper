@@ -12,11 +12,11 @@ class Menu extends Component {
     this.props.RootStore.UIStore.handleFadeIn();
   }
 
-  handleLogout = e => {
+  /*handleLogout = e => {
     e.preventDefault();
     fire.auth().signOut();
-    this.props.history.push('/');
-  };
+    //this.props.history.push('/');
+  };*/
 
   handleNavbarBrandClick = () =>
     !this.props.RootStore.UIStore.navBarIsOpen
@@ -45,12 +45,12 @@ class Menu extends Component {
                   <IndexLinkContainer key="1" to="/quiz">
                     <NavLink> All Tools </NavLink>
                   </IndexLinkContainer>,
-                  <IndexLinkContainer key="2" to="/section1">
+                  <IndexLinkContainer key="2" to="/case-tool">
                     <NavLink onClick={() => this.props.RootStore.UIStore.setCurrentSection('caseTool')}>
                       Case Tool
                     </NavLink>
                   </IndexLinkContainer>,
-                  <IndexLinkContainer key="3" to="/section1">
+                  <IndexLinkContainer key="3" to="/valuer">
                     <NavLink onClick={() => this.props.RootStore.UIStore.setCurrentSection('valuer')}>
                       Valuation Tool
                     </NavLink>
@@ -60,8 +60,8 @@ class Menu extends Component {
                       Get in Touch
                     </NavLink>
                   </IndexLinkContainer>,
-                  <IndexLinkContainer key="5" to="/#">
-                    <NavLink onClick={() => this.handleLogout}>Logout</NavLink>
+                  <IndexLinkContainer key="5" to="/login">
+                    <NavLink onClick={() => fire.auth().signOut()}>Logout</NavLink>
                   </IndexLinkContainer>
                 ]
               : [

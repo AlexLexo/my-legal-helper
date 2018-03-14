@@ -9,13 +9,12 @@ import Contact from './../contact/contact';
 import Login from './../login/login';
 import Quiz from './../quiz/quiz';
 import Section1 from './../quiz/section-1/section-1';
-import Valuer from './../quiz/section-1/valuer';
 import NotFound from './../not-found/not-found';
 
 import PrivateRoute from './private-route';
 import fire from './../../services/fire';
 
-/*@inject('UIStore', 'SessionStore')*/ @inject('RootStore')
+@inject('RootStore')
 @observer
 class Routes extends Component {
   componentDidMount() {
@@ -56,14 +55,14 @@ class Routes extends Component {
               <PrivateRoute
                 authed={this.props.RootStore.SessionStore.signedIn}
                 exact
-                path="/section1"
+                path="/case-tool"
                 component={Section1}
               />
               <PrivateRoute
                 authed={this.props.RootStore.SessionStore.signedIn}
                 exact
-                path="/valuation"
-                component={Valuer}
+                path="/valuer"
+                component={Section1}
               />
               <Route component={NotFound} />
             </Switch>
