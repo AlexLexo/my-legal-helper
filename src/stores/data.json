@@ -12,17 +12,10 @@
     "qId": "cDOB",
     "nxtQId": "iDate",
     "title": "What is your date of birth?",
-    "type": "date",
-    "placeholder": "eg. 25/12/1982"
-  },
-  "cEmail": {
-    "qId": "cEmail",
-    "nxtQId": "iDate",
-    "title": "What is your email address?",
     "answered": "",
     "answeredOn": "",
-    "type": "email",
-    "placeholder": "e.g. info@mylegalhelper.com"
+    "type": "date",
+    "placeholder": "eg. 25/12/1982"
   },
   "iDate": {
     "qId": "iDate",
@@ -814,7 +807,7 @@
     "nxtQId": "dFullName",
     "type": "advice",
     "element2a":
-      "You were injured when you were hit on a roundabout by a vehicle entering the roundabout from your left. On that basis it sounds like you should have a good case, given that it was your right of way."
+      "You were injured when you were hit on a roundabout by a vehicle entering the roundabout. On that basis it sounds like you should have a good case, given that it was your right of way."
   },
   "offPavement": {
     "qId": "offPavement",

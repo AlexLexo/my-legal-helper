@@ -14,6 +14,7 @@ import Buttons from './buttons';
 import Dates from './dates';
 import Texts from './texts';
 import Email from './emails';
+import Test from './test';
 
 @inject('RootStore')
 @observer
@@ -29,7 +30,8 @@ class Section1 extends Component {
       value4: '',
       value5: '',
       value6: '',
-      editedLetter: false
+      editedLetter: false,
+      testEnvironment: false
     };
     this.qs = null;
     this.qId = null;
@@ -182,7 +184,7 @@ class Section1 extends Component {
       case 'advice':
         this.input = (
           <Advice
-            userObj={this.props.RootStore.SessionStore.userObj}
+            allQs={this.props.RootStore.SessionStore.userObj.allQs}
             q={this.qs[this.qId]}
             history={this.props.history}
             setSection={x => this.props.RootStore.UIStore.setCurrentSection(x)}
@@ -238,60 +240,69 @@ class Section1 extends Component {
     }
     return (
       <div className={`section1`}>
-        <div
-          className={`section1-title ${
-            this.qs[this.qId].type !== 'letter' &&
-            this.qs[this.qId].type !== 'valuation' &&
-            this.qs[this.qId].type !== 'advice'
-              ? 'show'
-              : 'hide'
-          }`}
-        >
-          {this.qs[this.qId].qId === 'val0' ? (
-            <p dangerouslySetInnerHTML={title} />
-          ) : (
-            <h3 dangerouslySetInnerHTML={title} />
-          )}
-        </div>
-        <form onSubmit={this.handleSubmit}>
-          <div className="input">{this.input}</div>
-          <div className="btn-group bottom-button-group">
-            {this.qs[this.qId].qId !== 'val0' ? (
-              <input
-                type="button"
-                onClick={this.handleBack}
-                value="Back"
-                className={`btn bottom-button ${this.qs[this.qId].qId === 'cFullName' ? 'disabled' : ''}`}
-              />
-            ) : (
-              <input
-                type="button"
-                onClick={() => {
-                  this.props.history.push(`case-tool`);
-                  this.props.RootStore.UIStore.setCurrentSection('caseTool');
-                }}
-                value="Go to Case Tool"
-                name="caseTool"
-                className={`btn bottom-button`}
-              />
-            )}
-            <input
-              type="button"
-              onClick={() => {
-                this.props.history.push(`contact`);
-                this.props.RootStore.UIStore.setCurrentSection('contact');
-              }}
-              value="Get in Touch"
-              name="contact"
-              className={`btn bottom-button`}
-            />
-            <input
-              type="submit"
-              value="Next"
-              className={`btn bottom-button ${this.qs[this.qId].type === 'weak' ? 'disabled' : ''}`}
-            />
+        <p onClick={() => this.setState({ testEnvironment: !this.testEnvironment })}>testEnvironment</p>
+
+        {this.state.testEnvironment ? (
+          <Test />
+        ) : (
+          <div>
+            <div
+              className={`section1-title ${
+                this.qs[this.qId].type !== 'letter' &&
+                this.qs[this.qId].type !== 'valuation' &&
+                this.qs[this.qId].type !== 'advice'
+                  ? 'show'
+                  : 'hide'
+              }`}
+            >
+              {this.qs[this.qId].qId === 'val0' ? (
+                <p dangerouslySetInnerHTML={title} />
+              ) : (
+                <h3 dangerouslySetInnerHTML={title} />
+              )}
+            </div>
+
+            <form onSubmit={this.handleSubmit}>
+              <div className="input">{this.input}</div>
+              <div className="btn-group bottom-button-group">
+                {this.qs[this.qId].qId !== 'val0' ? (
+                  <input
+                    type="button"
+                    onClick={this.handleBack}
+                    value="Back"
+                    className={`btn bottom-button ${this.qs[this.qId].qId === 'cFullName' ? 'disabled' : ''}`}
+                  />
+                ) : (
+                  <input
+                    type="button"
+                    onClick={() => {
+                      this.props.history.push(`case-tool`);
+                      this.props.RootStore.UIStore.setCurrentSection('caseTool');
+                    }}
+                    value="Go to Case Tool"
+                    name="caseTool"
+                    className={`btn bottom-button`}
+                  />
+                )}
+                <input
+                  type="button"
+                  onClick={() => {
+                    this.props.history.push(`contact`);
+                    this.props.RootStore.UIStore.setCurrentSection('contact');
+                  }}
+                  value="Get in Touch"
+                  name="contact"
+                  className={`btn bottom-button`}
+                />
+                <input
+                  type="submit"
+                  value="Next"
+                  className={`btn bottom-button ${this.qs[this.qId].type === 'weak' ? 'disabled' : ''}`}
+                />
+              </div>
+            </form>
           </div>
-        </form>
+        )}
       </div>
     );
   }
