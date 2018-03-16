@@ -47,21 +47,45 @@ class Test extends Component {
       'oncomingOvertakingAdvice',
       'oncomingOvertakingAdvice',
       'pedRanInto',
-      'pedRanInto'
+      'pedRanInto',
+      'rearEndedBy',
+      'rearEndedBy',
+      'rearEndedBy',
+      'rearEndedBy',
+      'iDets1HitAsPassedAdvice',
+      'iDets1HitAsPassedAdvice',
+      'iDets1HitAsPassedAdvice',
+      'iDets1HitAsPassedAdvice',
+      'redAmber',
+      'redAmber',
+      'roadDefect',
+      'vTurned2SideRoadAdvice',
+      'vTurned2SideRoadAdvice',
+      'vTurned2SideRoadAdvice',
+      'vTurned2SideRoadAdvice',
+      'vTurned2ParkingAdvice',
+      'vTurned2ParkingAdvice',
+      'vTurned2ParkingAdvice',
+      'vTurned2ParkingAdvice',
+      'vTurned1ChangingLanesAdvice',
+      'vTurned1ChangingLanesAdvice',
+      'vTurned1ChangingLanesAdvice',
+      'vTurned1ChangingLanesAdvice',
+      'vTurned1ChangingLanesAdvice',
+      'vTurned1ChangingLanesAdvice',
+      'vTurned1ChangingLanesAdvice',
+      'vTurned1ChangingLanesAdvice',
+      'vDirDetsSameQTurnIntoYouRAdvice',
+      'vDirDetsSameQTurnIntoYouRAdvice',
+      'vDirDetsSameQTurnIntoYouRAdvice',
+      'vDirDetsSameQTurnIntoYouRAdvice',
+      'vDirDetsSameQTurnIntoYouLAdvice',
+      'vDirDetsSameQTurnIntoYouLAdvice',
+      'vDirDetsSameQTurnIntoYouLAdvice',
+      'vDirDetsSameQTurnIntoYouLAdvice'
     ];
   }
 
-  /*
-  'rearEndedBy',
-  'iDets1HitAsPassedAdvice',
-  'redAmber',
-  'roadDefect',
-  'vTurned2SideRoadAdvice',
-  'vTurned2ParkingAdvice',
-  'vTurned1ChangingLanesAdvice',
-  'vDirDetsSameQTurnIntoYouLAdvice',
-  'vDirDetsSameQTurnIntoYouRAdvice'
-*/
   render() {
     /*<Letter
             history={this.props.history}
