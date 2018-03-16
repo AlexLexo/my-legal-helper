@@ -9,7 +9,7 @@ import Contact from './../contact/contact';
 import Login from './../login/login';
 import Quiz from './../quiz/quiz';
 import Section1 from './../quiz/section-1/section-1';
-import Test from './../quiz/section-1/test';
+//import Test from './../quiz/section-1/test';<Route exact path="/test" component={Test} />
 import NotFound from './../not-found/not-found';
 
 import PrivateRoute from './private-route';
@@ -46,7 +46,6 @@ class Routes extends Component {
               <Route exact path="/" component={Home} />
               <Route exact path="/faqs" component={FAQs} />
               <Route exact path="/login" component={Login} />
-              <Route exact path="/test" component={Test} />
               <PrivateRoute authed={this.props.RootStore.SessionStore.signedIn} exact path="/quiz" component={Quiz} />
               <PrivateRoute
                 authed={this.props.RootStore.SessionStore.signedIn}

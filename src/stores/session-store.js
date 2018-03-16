@@ -173,7 +173,7 @@ export default class mobxSessionStore {
       createdOn: Date.now()
     };
     db.child(`users/${this.userObj.uid}/editedLetter`).update(this.userObj.editedLetter);
-    console.log(this.userObj.editedLetter);
+    //console.log(this.userObj.editedLetter);
   };
 
   @action('setInjuryLocation')

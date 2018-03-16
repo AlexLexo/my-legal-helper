@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
-import MockData from '../../../stores/mock-data.json';
+import MockDataAdvice from '../../../stores/mock-data-advice.json';
 import Advice from './advice';
-//import Letter from './letter';
 
 @inject('RootStore')
 @observer
@@ -10,7 +9,6 @@ class Test extends Component {
   constructor(props) {
     super(props);
     this.adviceId = [
-      'animal',
       'animal',
       'animal',
       'animal',
@@ -43,6 +41,8 @@ class Test extends Component {
       'oncomingAcrossPathAdvice',
       'oncomingAcrossPathAdvice',
       'oncomingAcrossPathAdvice',
+      'oncomingAcrossPathAdvice',
+      'oncomingOvertakingAdvice',
       'oncomingOvertakingAdvice',
       'oncomingOvertakingAdvice',
       'oncomingOvertakingAdvice',
@@ -87,27 +87,18 @@ class Test extends Component {
   }
 
   render() {
-    /*<Letter
-            history={this.props.history}
-            editedLetter={this.state.editedLetter}
-            callback={v =>
-              this.setState({
-                value: v,
-                nxtQId: this.qId
-              })
-            }
-          />*/
     return (
       <div>
         {this.adviceId.map((item, i) => {
+          //console.log(`${i} ${this.adviceId[i]}`);
           return (
-            <div key={`${i} ${this.adviceId[i]} div`}>
-              <h3 key={`${i} ${this.adviceId[i]} h1`}>
-                {i}) {this.adviceId[i]} : {MockData[i].details}
+            <div key={`${i} div`}>
+              <h3 key={`${i} h1`}>
+                {i}) {this.adviceId[i]} : {MockDataAdvice[i].details}
               </h3>
               <Advice
-                key={`${i} ${this.adviceId[i]} advice`}
-                allQs={MockData[i]}
+                key={`${i} advice`}
+                allQs={MockDataAdvice[i]}
                 q={this.props.RootStore.SessionStore.userObj.allQs[this.adviceId[i]]}
                 history={this.props.history}
                 setSection={x => this.props.RootStore.UIStore.setCurrentSection(x)}

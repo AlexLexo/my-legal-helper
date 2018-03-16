@@ -577,7 +577,7 @@
       {
         "ansId": "animalPetNo",
         "ansLabel": "No",
-        "nxtQId": "animalType"
+        "nxtQId": "contactMe"
       }
     ]
   },
@@ -1024,72 +1024,6 @@
       "As your incident occurred either over 3 years ago (or it is 3 years since your 18th birthday if the incident happened when you were a child) it is probably too late to bring a case. There are certain exceptions, and the courts have the discretion to allow a case to proceed out of time in special circumstances. If you think you may have a good reason for not bringing a case within the limitation period please feel free to send me a message. I will not pass your details on to anyone else.",
     "type": "weak"
   },
-  "dRegHave": {
-    "qId": "dRegHave",
-    "title": "Do you have the defendant's vehicle registration?",
-    "answered": "",
-    "answeredOn": "",
-    "type": "button",
-    "btnvalues": [
-      {
-        "ansId": "dRegHaveYes",
-        "ansLabel": "Yes",
-        "nxtQId": "dReg"
-      },
-      {
-        "ansId": "dRegHaveNo",
-        "ansLabel": "No",
-        "nxtQId": ""
-      }
-    ]
-  },
-  "dReg": {
-    "qId": "dReg",
-    "nxtQId": "",
-    "title": "What is the defendant registration?",
-    "answered": "",
-    "answeredOn": "",
-    "type": "text",
-    "placeholder": "eg. XY52ABC"
-  },
-  "dStreet": {
-    "qId": "dStreet",
-    "nxtQId": "dDir",
-    "title": "Road proceeding along",
-    "answered": "",
-    "answeredOn": "",
-    "type": "text",
-    "placeholder": "e.g. Klemkestrass 43"
-  },
-  "dDir": {
-    "qId": "cDir",
-    "title": "Direction of travel",
-    "answered": "",
-    "answeredOn": "",
-    "type": "dropdown",
-    "btnvalues": [
-      {
-        "ansId": "dDirNorth",
-        "ansLabel": "North",
-        "nxtQId": "landmark"
-      },
-      {
-        "ansId": "dDirSouth",
-        "ansLabel": "South",
-        "nxtQId": "landmark"
-      },
-      {
-        "ansId": "dDirEast",
-        "ansLabel": "East",
-        "nxtQId": "landmark"
-      },
-      {
-        "ansId": "dDirWest",
-        "ansLabel": "West",
-        "nxtQId": "landmark"
-      }
-    ]
-  },
   "dFullName": {
     "qId": "dFullName",
     "nxtQId": "cAddress",
@@ -1098,34 +1032,6 @@
     "answeredOn": "",
     "type": "text",
     "placeholder": "e.g. Alexander Jeffcott"
-  },
-  "dAddressHave": {
-    "qId": "dAddressHave",
-    "title": "Do you have the defendant's address?",
-    "answered": "",
-    "answeredOn": "",
-    "type": "button",
-    "btnvalues": [
-      {
-        "ansId": "dAddressHaveYes",
-        "ansLabel": "Yes",
-        "nxtQId": "dAddress"
-      },
-      {
-        "ansId": "dAddressHaveNo",
-        "ansLabel": "No",
-        "nxtQId": "cAddress"
-      }
-    ]
-  },
-  "dAddress": {
-    "qId": "dAddress",
-    "nxtQId": "cAddress",
-    "title": "What is the defendant address?",
-    "answered": "",
-    "answeredOn": "",
-    "type": "text",
-    "placeholder": "e.g. Klemkestrasse 43"
   },
   "cAddress": {
     "qId": "cAddress",
@@ -1551,7 +1457,7 @@
       {
         "ansId": "hospitalNo",
         "ansLabel": "No",
-        "nxtQId": "lossOfEarnings"
+        "nxtQId": "lossesFinancial"
       }
     ]
   },

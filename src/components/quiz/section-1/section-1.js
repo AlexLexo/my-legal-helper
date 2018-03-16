@@ -14,7 +14,8 @@ import Buttons from './buttons';
 import Dates from './dates';
 import Texts from './texts';
 import Email from './emails';
-import Test from './test';
+import TestAdvice from './test-advice';
+import TestLetter from './test-letter';
 
 @inject('RootStore')
 @observer
@@ -31,7 +32,7 @@ class Section1 extends Component {
       value5: '',
       value6: '',
       editedLetter: false,
-      testEnvironment: false
+      test: false
     };
     this.qs = null;
     this.qId = null;
@@ -194,6 +195,8 @@ class Section1 extends Component {
       case 'letter':
         this.input = (
           <Letter
+            q={this.qs[this.qId]}
+            allQs={this.props.RootStore.SessionStore.userObj.allQs}
             history={this.props.history}
             editedLetter={this.state.editedLetter}
             callback={v =>
@@ -240,10 +243,12 @@ class Section1 extends Component {
     }
     return (
       <div className={`section1`}>
-        <p onClick={() => this.setState({ testEnvironment: !this.testEnvironment })}>testEnvironment</p>
-
-        {this.state.testEnvironment ? (
-          <Test />
+        <p onClick={() => this.setState({ test: !this.test })}>test</p>
+        {this.state.test ? (
+          <div>
+            <TestAdvice />
+            <TestLetter />
+          </div>
         ) : (
           <div>
             <div
