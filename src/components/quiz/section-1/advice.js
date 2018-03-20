@@ -26,7 +26,7 @@ const Advice = props => {
             damages.
           </p>
         )}
-        {allQs.dInsured.answered === 'dInsuredNo' && (
+        {/*allQs.dInsured.answered === 'dInsuredNo' && (
           <p>
             You have indicated that the defendant is not insured. This can cause a big problem as even if you do have a
             good case you may not be able to get any money from them. However, if they were acting in the course of
@@ -36,125 +36,150 @@ const Advice = props => {
               link
             </a>).
           </p>
-        )}
+        )*/}
 
         {allQs.dInsured.answered === 'dInsuredDoNotKnow' &&
           (allQs.injuredBy.answered === 'injuredByPed' ||
             allQs.injuredBy.answered === 'injuredByBike' ||
             allQs.injuredBy.answered === 'injuredByAnimal') && (
-            <p>
-              You have indicated that you don't know whether the defendant is insured. From a practical point of view,
-              it is very difficult to recover damages against{' '}
-              {allQs.injuredBy.answered === 'injuredByPed' && 'a pedestrian'}
-              {allQs.injuredBy.answered === 'injuredByBike' && 'a cyclist'}
-              {allQs.injuredBy.answered === 'injuredByAnimal' && 'an animal owner'} as they are not normally insured
-              against such incidents. If they have household insurance this can sometimes cover them. Alternatively, you
-              can pursue them for damages personally, although this is challenging and would only be worthwhile if they
-              had sufficient money to justify it.<br />However, if they were acting in the course of their employment
-              you may be able to bring a case against the company direct for more information see this guide –{' '}
-              <a href="link" target="_blank" rel="noopener noreferrer">
-                link
-              </a>.
-            </p>
+            <div>
+              <p>
+                You have indicated that you don't know whether the defendant is insured. From a practical point of view,
+                it is very difficult to recover damages against{' '}
+                {allQs.injuredBy.answered === 'injuredByPed' && 'a pedestrian'}
+                {allQs.injuredBy.answered === 'injuredByBike' && 'a cyclist'}
+                {allQs.injuredBy.answered === 'injuredByAnimal' && 'an animal owner'} as they are not normally insured
+                against such incidents. If they have household insurance this can sometimes cover them. Alternatively,
+                you can pursue them for damages personally, although this is challenging and would only be worthwhile if
+                they had sufficient money to justify it.
+              </p>
+              <p>
+                However, if they were acting in the course of their employment you may be able to bring a case against
+                the company direct for more information see this guide –{' '}
+                <a href="link" target="_blank" rel="noopener noreferrer">
+                  link
+                </a>.
+              </p>
+            </div>
           )}
         {allQs.dInsured.answered === 'dInsuredDoNotKnow' &&
           (allQs.injuredBy.answered === 'injuredByDoor' ||
             allQs.injuredBy2.answered === 'injuredByMotorbikeMoped' ||
             allQs.injuredBy2.answered === 'injuredByCarVan') && (
-            <p>
-              You have indicated that you don't know whether the defendant is insured. You can find out if the vehicle
-              was insured by searching the insurance database{' '}
-              <a href="https://www.askmid.com/askmidenquiry.aspx" target="_blank" rel="noopener noreferrer">
-                here
-              </a>). If the defendant was not insured, or did not stop at the scene, you should be able to get
-              compensation through the Motor Insurers' Bureau (<a
-                href="https://www.mib.org.uk/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                www.mib.org.uk
-              </a>). All motor insurance policies contribute to this fund which covers hit and run incidents and those
-              caused by uninsured drivers. There are strict time limits which can be found here, along with details on
-              how to apply for compensation.<br />However, if they were acting in the course of their employment you may
-              be able to bring a case against the company direct (for more information see this guide –{' '}
-              <a href="link" target="_blank" rel="noopener noreferrer">
-                link
-              </a>).
-            </p>
+            <div>
+              <p>
+                You have indicated that you don't know whether the defendant is insured. You can find out if the vehicle
+                was insured by searching the insurance database{' '}
+                <a href="https://www.askmid.com/askmidenquiry.aspx" target="_blank" rel="noopener noreferrer">
+                  here
+                </a>). If the defendant was not insured, or did not stop at the scene, you should be able to get
+                compensation through the Motor Insurers' Bureau (<a
+                  href="https://www.mib.org.uk/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  www.mib.org.uk
+                </a>). All motor insurance policies contribute to this fund which covers hit and run incidents and those
+                caused by uninsured drivers. There are strict time limits which can be found here, along with details on
+                how to apply for compensation.
+              </p>
+              <p>
+                However, if they were acting in the course of their employment you may be able to bring a case against
+                the company direct (for more information see this guide –{' '}
+                <a href="link" target="_blank" rel="noopener noreferrer">
+                  link
+                </a>).
+              </p>
+            </div>
           )}
 
         {allQs.dInsured.answered === 'dInsuredDoNotKnow' &&
           allQs.injuredBy2.answered === 'injuredByBusLorry' && (
-            <p>
-              You have indicated that you don't know whether the defendant is insured. You can find out if the vehicle
-              was insured by searching the insurance database{' '}
-              <a href="https://www.askmid.com/askmidenquiry.aspx" target="_blank" rel="noopener noreferrer">
-                here
-              </a>). If the defendant was not insured, or did not stop at the scene, you should be able to get
-              compensation through the Motor Insurers' Bureau (<a
-                href="https://www.mib.org.uk/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                www.mib.org.uk
-              </a>). All motor insurance policies contribute to this fund which covers hit and run incidents and those
-              caused by uninsured drivers. There are strict time limits which can be found here, along with details on
-              how to apply for compensation.<br />However, given that they were acting in the course of their employment
-              you should be able to bring a case against the company direct (for more information see this guide –{' '}
-              <a href="link" target="_blank" rel="noopener noreferrer">
-                link
-              </a>).
-            </p>
+            <div>
+              <p>
+                You have indicated that you don't know whether the defendant is insured. You can find out if the vehicle
+                was insured by searching the insurance database{' '}
+                <a href="https://www.askmid.com/askmidenquiry.aspx" target="_blank" rel="noopener noreferrer">
+                  here
+                </a>). If the defendant was not insured, or did not stop at the scene, you should be able to get
+                compensation through the Motor Insurers' Bureau (<a
+                  href="https://www.mib.org.uk/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  www.mib.org.uk
+                </a>). All motor insurance policies contribute to this fund which covers hit and run incidents and those
+                caused by uninsured drivers. There are strict time limits which can be found here, along with details on
+                how to apply for compensation.
+              </p>
+              <p>
+                However, given that they were acting in the course of their employment you should be able to bring a
+                case against the company direct (for more information see this guide –{' '}
+                <a href="link" target="_blank" rel="noopener noreferrer">
+                  link
+                </a>).
+              </p>
+            </div>
           )}
         {allQs.dInsured.answered === 'dInsuredNo' &&
           (allQs.injuredBy.answered === 'injuredByPed' ||
             allQs.injuredBy.answered === 'injuredByBike' ||
             allQs.injuredBy.answered === 'injuredByAnimal') && (
-            <p>
-              You have indicated that defendant is not insured. From a practical point of view, it is very difficult to
-              recover damages against {allQs.injuredBy.answered === 'injuredByPed' && 'a pedestrian'}
-              {allQs.injuredBy.answered === 'injuredByBike' && 'a cyclist'}
-              {allQs.injuredBy.answered === 'injuredByAnimal' && 'an animal owner'} as they are not normally insured
-              against such incidents. If they have household insurance this can sometimes cover them. Alternatively, you
-              can pursue them for damages personally, although this is challenging and would only be worthwhile if they
-              had sufficient money to justify it.<br />However, if they were acting in the course of their employment
-              you may be able to bring a case against the company direct for more information see this guide –{' '}
-              <a href="link" target="_blank" rel="noopener noreferrer">
-                link
-              </a>.
-            </p>
+            <div>
+              <p>
+                You have indicated that the defendant is not insured. From a practical point of view, it is very
+                difficult to recover damages against {allQs.injuredBy.answered === 'injuredByPed' && 'a pedestrian'}
+                {allQs.injuredBy.answered === 'injuredByBike' && 'a cyclist'}
+                {allQs.injuredBy.answered === 'injuredByAnimal' && 'an animal owner'} as they are not normally insured
+                against such incidents. If they have household insurance this can sometimes cover them. Alternatively,
+                you can pursue them for damages personally, although this is challenging and would only be worthwhile if
+                they had sufficient money to justify it.
+              </p>
+              <p>
+                However, if they were acting in the course of their employment you may be able to bring a case against
+                the company direct for more information see this guide –{' '}
+                <a href="link" target="_blank" rel="noopener noreferrer">
+                  link
+                </a>.
+              </p>
+            </div>
           )}
         {allQs.dInsured.answered === 'dInsuredNo' &&
           (allQs.injuredBy.answered === 'injuredByDoor' ||
             allQs.injuredBy2.answered === 'injuredByMotorbikeMoped' ||
             allQs.injuredBy2.answered === 'injuredByCarVan') && (
-            <p>
-              You have indicated that defendant is not insured. You can find out if the vehicle was insured by searching
-              the insurance database{' '}
-              <a href="https://www.askmid.com/askmidenquiry.aspx" target="_blank" rel="noopener noreferrer">
-                www.askmid.com/askmidenquiry.aspx
-              </a>). If the defendant was not insured, or did not stop at the scene, you should be able to get
-              compensation through the Motor Insurers' Bureau (<a
-                href="https://www.mib.org.uk/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                www.mib.org.uk
-              </a>). All motor insurance policies contribute to this fund which covers hit and run incidents and those
-              caused by uninsured drivers. There are strict time limits which can be found here, along with details on
-              how to apply for compensation.<br />However, if they were acting in the course of their employment you may
-              be able to bring a case against the company direct (for more information see this guide –{' '}
-              <a href="link" target="_blank" rel="noopener noreferrer">
-                link
-              </a>).
-            </p>
+            <div>
+              <p>
+                You have indicated that the defendant is not insured. You can find out if the vehicle was insured by
+                searching the insurance database{' '}
+                <a href="https://www.askmid.com/askmidenquiry.aspx" target="_blank" rel="noopener noreferrer">
+                  www.askmid.com/askmidenquiry.aspx
+                </a>). If the defendant was not insured, or did not stop at the scene, you should be able to get
+                compensation through the Motor Insurers' Bureau (<a
+                  href="https://www.mib.org.uk/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  www.mib.org.uk
+                </a>). All motor insurance policies contribute to this fund which covers hit and run incidents and those
+                caused by uninsured drivers. There are strict time limits which can be found here, along with details on
+                how to apply for compensation.
+              </p>
+              <p>
+                However, if they were acting in the course of their employment you may be able to bring a case against
+                the company direct (for more information see this guide –{' '}
+                <a href="link" target="_blank" rel="noopener noreferrer">
+                  link
+                </a>).
+              </p>
+            </div>
           )}
 
         {allQs.dInsured.answered === 'dInsuredNo' &&
           allQs.injuredBy2.answered === 'injuredByBusLorry' && (
             <p>
-              You have indicated that defendant is not insured. You can find out if the vehicle was insured by searching
-              the insurance database{' '}
+              You have indicated that the defendant is not insured. You can find out if the vehicle was insured by
+              searching the insurance database{' '}
               <a href="https://www.askmid.com/askmidenquiry.aspx" target="_blank" rel="noopener noreferrer">
                 here
               </a>). If the defendant was not insured, or did not stop at the scene, you should be able to get
@@ -202,10 +227,59 @@ const Advice = props => {
             </p>
           )
         ) : (
-          <p />
+          <span />
         )}
         <p>{currentAdvice.filteringYes}</p>
         <p>{currentAdvice.filteringNo}</p>
+
+        {currentAdvice.qId === 'oncomingAcrossPathAdvice' ? (
+          allQs.filtering.answered === 'filteringYes' ? (
+            <p>
+              You were injured when the defendant turned into a side road on their right, going across your path. They
+              had a duty to check that it was safe to turn before doing so. However, you were filtering to the left of a
+              queue of traffic when approaching a side road on your left. This is seen as a hazardous manoeuvre and,
+              although your case is likely to win, a court will normally reduce your damages by around 50% for
+              'contributory negligence'. For more information see this guide – link.
+            </p>
+          ) : (
+            <p>
+              You were injured when the defendant turned into a side road on their right, going across your path. They
+              had a duty to check that it was safe to turn before doing so. If they failed to do so you should have a
+              good case.
+            </p>
+          )
+        ) : (
+          <span />
+        )}
+
+        {currentAdvice.qId === 'vDirDetsSameQTurnIntoYouRAdvice' ? (
+          allQs.filtering.answered === 'filteringYes' ? (
+            <p>
+              You were injured when the defendant turned into you while turning right. They were travelling in the same
+              direction as you. You were filtering to the right of a queue of traffic when approaching a side road on
+              your right. This is seen as a hazardous manoeuvre and - although your case is likely to win - you will
+              normally have your damages reduced by around 50% for 'contributory negligence'. For more information see
+              this guide – link.
+            </p>
+          ) : (
+            <p>
+              You were injured when the defendant turned into you while turning right. They were travelling in the same
+              direction as you. On that basis it sounds like you should have a good case.
+            </p>
+          )
+        ) : (
+          <span />
+        )}
+
+        {allQs.pedFiltering.answered === 'pedFilteringYes' && (
+          <p>
+            You have indicated that you were filtering. If the pedestrian stepped in front of your path from the
+            pavement this should not pose a problem. If they were walking between stationary vehicles and stepped into
+            your path then they should have been on the lookout for you but there is an argument that you should have
+            been aware of pedestrians crossing between the vehicles so you need to take care. As long as you were
+            cycling carefully and at a reasonable speed then this should not be an issue.
+          </p>
+        )}
         {allQs.darkLights.answered === 'darkLightsNo' ? (
           <p>
             As you were not riding with lights, this may pose a problem as the defendants will argue that they were
@@ -239,7 +313,6 @@ const Advice = props => {
         ) : (
           <p />
         )}
-
         <strong>Value Of Case</strong>
         <p>
           If you have sustained an injury and the case succeeds, you will be entitled to damages for this depending on

@@ -156,6 +156,8 @@ export default class mobxSessionStore {
     if (this.userObj.allQs.vTurned2.answered === 'vTurned2SideRoad') return 'vTurned2SideRoadLetter';
     if (this.userObj.allQs.roundabout.answered === 'roundaboutDirL') return 'roundaboutLLetter';
     if (this.userObj.allQs.iDets1.answered === 'iDets1HitAsPassed') return 'iDets1HitAsPassedLetter';
+    if (this.userObj.allQs.dooredDets.answered === 'dooredPassenger') return 'dooredPassengerLetter';
+    if (this.userObj.allQs.dooredDets.answered === 'dooredDriver') return 'dooredDriverLetter';
   }
 
   @action('setEditedLetter')

@@ -8,7 +8,6 @@ import Textarea from 'react-textarea-autosize';
 class Letter extends Component {
   constructor(props) {
     super(props);
-    //console.log(this.props);
     this.state = {
       cFullName: this.props.allQs.cFullName.answered,
       cAddress: this.props.allQs.cAddress.answered,
@@ -94,8 +93,8 @@ class Letter extends Component {
               Address: {this.props.RootStore.SessionStore.userObj.editedLetter.cAddress}
               <br />
               Incident date: {this.props.RootStore.SessionStore.userObj.editedLetter.iDate}
-              <br />
               <span className={this.props.allQs.writeWho === 'writeWhoDefendant' ? 'hide' : ''}>
+                <br />
                 Defendant name: {this.props.RootStore.SessionStore.userObj.editedLetter.dFullName}
                 <br />
                 Policy number: {this.props.RootStore.SessionStore.userObj.editedLetter.dPolicyNumber}
@@ -156,11 +155,14 @@ class Letter extends Component {
         {this.props.editedLetter ? (
           <p>{this.props.RootStore.SessionStore.userObj.editedLetter.intro}</p>
         ) : (
-          <Textarea
-            style={{ width: '100%' }}
-            value={this.state.intro}
-            onChange={e => this.setState({ intro: e.target.value }, () => this.props.callback(this.state))}
-          />
+          <div>
+            <Textarea
+              style={{ width: '100%' }}
+              value={this.state.intro}
+              onChange={e => this.setState({ intro: e.target.value }, () => this.props.callback(this.state))}
+            />
+            <br />
+          </div>
         )}
         {this.props.allQs.writeWho.answered !== 'writeWhoDefendant' && (
           <div>
@@ -196,6 +198,7 @@ class Letter extends Component {
                 this.setState({ circumstancesofIncident2: e.target.value }, () => this.props.callback(this.state))
               }
             />
+            <br />
           </div>
         )}
         <ins>Liability</ins>

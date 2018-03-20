@@ -14,8 +14,7 @@ import Buttons from './buttons';
 import Dates from './dates';
 import Texts from './texts';
 import Email from './emails';
-import TestAdvice from './test-advice';
-import TestLetter from './test-letter';
+import Test from './test';
 
 @inject('RootStore')
 @observer
@@ -245,10 +244,7 @@ class Section1 extends Component {
       <div className={`section1`}>
         <p onClick={() => this.setState({ test: !this.test })}>test</p>
         {this.state.test ? (
-          <div>
-            <TestAdvice />
-            <TestLetter />
-          </div>
+          <Test />
         ) : (
           <div>
             <div
