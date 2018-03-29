@@ -4,6 +4,7 @@ import { IndexLinkContainer } from 'react-router-bootstrap';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavLink } from 'reactstrap';
 import fire from './../../services/fire';
 import './menu.css';
+import LogoWhite from './../../assets/LITEM_LOGO_FINAL_white.svg';
 
 @inject('RootStore')
 @observer
@@ -26,7 +27,10 @@ class Menu extends Component {
   render() {
     return (
       <Navbar dark expand={false}>
-        <NavbarBrand onClick={this.handleNavbarBrandClick}>My Legal Helper</NavbarBrand>
+        <NavbarBrand />
+        {/*<NavbarBrand onClick={this.handleNavbarBrandClick}>
+          <img width="40%" src={LogoWhite} alt="Litem Logo" />
+    </NavbarBrand>*/}
         <NavbarToggler onClick={this.props.RootStore.UIStore.toggleNavBar} aria-label="menu" />
         <Collapse
           isOpen={this.props.RootStore.UIStore.navBarIsOpen}

@@ -6,51 +6,61 @@ import Textarea from 'react-textarea-autosize';
 @inject('RootStore')
 @observer
 class Letter extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      cFullName: this.props.allQs.cFullName.answered,
-      cAddress: this.props.allQs.cAddress.answered,
-      iDate: this.props.allQs.iDate.answered,
-      dFullName: this.props.allQs.dFullName.answered,
-      dPolicyNumber: this.props.allQs.dPolicyNumber.answered,
-      intro: `On the above date I suffered ${
-        this.props.allQs.injured.answered === 'injuredYes'
-          ? this.props.allQs.lossesFinancial.answered === 'lossesFinancialYes'
-            ? 'injuries and financial loss'
-            : 'injuries'
-          : 'financial loss'
-      } in a road traffic incident caused by ${
-        this.props.allQs.writeWho.answered === 'writeWhoDefendant' ? 'you' : 'your insured'
-      }${this.props.allQs.animalType.answered &&
-        (this.props.allQs.writeWho.answered === 'writeWhoDefendant'
-          ? ` and your ${this.props.allQs.animalType.answered}`
-          : ` and their ${this.props.allQs.animalType.answered}`)}.`,
-      circumstancesofIncident1: `On ${this.props.allQs.iDate.answered} I was a cyclist proceeding ${
-        this.props.allQs.cDir.answered
-      } along ${this.props.allQs.cStreet.answered}. At all material times, ${
-        this.props.allQs.writeWho.answered === 'writeWhoDefendant' ? 'you were' : 'your insured was'
-      } ${this.props.q.materialTimes}`,
-      circumstancesofIncident2: `As I was cycling along ${this.props.allQs.cStreet.answered} I was heading ${
-        this.props.allQs.cDir.answered
-      }. When I reached the ${this.props.allQs.landmark.answered} ${
-        this.props.q.afterLandmark
-          ? this.props.q.afterLandmark
-          : this.props.allQs.pedDetsCrossedDir.answered === 'pedDetsCrossedDirR' ||
-            this.props.allQs.pedDetsRanIntoDir.answered === 'pedDetsRanIntoDirR'
-            ? this.props.q.afterLandmarkR
-            : this.props.q.afterLandmarkL
-      } As a result I suffered ${
-        this.props.allQs.injured.answered === 'injuredYes'
-          ? this.props.allQs.lossesFinancial.answered === 'lossesFinancialYes'
-            ? 'injuries and financial loss'
-            : 'injuries'
-          : 'financial loss'
-      }.`
-    };
-    this.be = this.props.allQs.writeWho.answered === 'writeWhoDefendant' ? 'you were' : 'your insured was';
-    this.writingTo = this.props.allQs.writeWho.answered === 'writeWhoDefendant' ? 'you' : 'your insured';
-  }
+  state = {
+    cFullName: this.props.allQs.cFullName.answered,
+    cAddress: this.props.allQs.cAddress.answered,
+    iDate: this.props.allQs.iDate.answered,
+    dFullName: this.props.allQs.dFullName.answered,
+    dPolicyNumber: this.props.allQs.dPolicyNumber.answered,
+    intro: `On the above date I suffered ${
+      this.props.allQs.injured.answered === 'injuredYes'
+        ? this.props.allQs.lossesFinancial.answered === 'lossesFinancialYes'
+          ? 'injuries and financial loss'
+          : 'injuries'
+        : 'financial loss'
+    } in a road traffic incident caused by ${
+      this.props.allQs.writeWho.answered === 'writeWhoDefendant' ? 'you' : 'your insured'
+    }${this.props.allQs.animalType.answered &&
+      (this.props.allQs.writeWho.answered === 'writeWhoDefendant'
+        ? ` and your ${this.props.allQs.animalType.answered}`
+        : ` and their ${this.props.allQs.animalType.answered}`)}.`,
+    circumstancesofIncident1: `On ${this.props.allQs.iDate.answered} I was a cyclist proceeding ${
+      this.props.allQs.cDir.answered
+    } along ${this.props.allQs.cStreet.answered}. At all material times, ${
+      this.props.allQs.writeWho.answered === 'writeWhoDefendant' ? 'you were' : 'your insured was'
+    } ${this.props.q.materialTimes}`,
+    circumstancesofIncident2: `As I was cycling along ${this.props.allQs.cStreet.answered} I was heading ${
+      this.props.allQs.cDir.answered
+    }. When I reached the ${this.props.allQs.landmark.answered}${
+      this.props.allQs.dooredDets.answered && this.props.allQs.dooredDets.answered === 'dooredDetsPassenger'
+        ? `, the door of the vehicle belonging to ${
+            this.props.allQs.writeWho.answered === 'writeWhoDefendant' ? 'you' : 'your insured'
+          }`
+        : ''
+    } ${
+      this.props.q.afterLandmark
+        ? this.props.q.afterLandmark
+        : this.props.allQs.pedDetsCrossedDir.answered === 'pedDetsCrossedDirR'
+          ? `${this.props.allQs.writeWho.answered === 'writeWhoDefendant' ? 'you' : 'your insured'} ${
+              this.props.q.afterLandmarkR
+            }`
+          : `${this.props.allQs.writeWho.answered === 'writeWhoDefendant' ? 'you' : 'your insured'} ${
+              this.props.q.afterLandmarkL
+            }`
+    } ${
+      this.props.allQs.trafLights.answered && this.props.allQs.trafLights.answered === 'trafLightsGreen'
+        ? 'This occurred at a set of traffic lights which were green at the time in question. '
+        : ''
+    } As a result I suffered ${
+      this.props.allQs.injured.answered === 'injuredYes'
+        ? this.props.allQs.lossesFinancial.answered === 'lossesFinancialYes'
+          ? 'injuries and financial loss'
+          : 'injuries'
+        : 'financial loss'
+    }.`
+  };
+  be = this.props.allQs.writeWho.answered === 'writeWhoDefendant' ? 'you were' : 'your insured was';
+  writingTo = this.props.allQs.writeWho.answered === 'writeWhoDefendant' ? 'you' : 'your insured';
 
   componentDidMount() {
     this.props.callback(this.state);
@@ -202,7 +212,12 @@ class Letter extends Component {
           </div>
         )}
         <ins>Liability</ins>
-        <p>I am alleging fault against {this.writingTo} for the following reasons:-</p>
+        <p>
+          I am alleging fault against{' '}
+          {this.props.allQs.dooredDets.answered === 'dooredDetsPassenger' &&
+            'the passenger of the vehicle belonging to '}
+          {this.writingTo} for the following reasons:-
+        </p>
         <ol>
           <li className={this.props.q.liability1 || 'hide'}>{this.props.q.liability1}</li>
           <li className={this.props.q.liability2 || 'hide'}>{this.props.q.liability2}</li>

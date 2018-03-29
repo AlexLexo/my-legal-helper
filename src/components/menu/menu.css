@@ -1,1 +1,6 @@
-
+.navbar-dark .navbar-toggler:focus {
+  outline-color: none !important;
+}
+.navbar-toggler-icon {
+  background-image: url(./../../assets/hamburgermenu.svg) !important;
+}

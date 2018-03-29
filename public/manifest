@@ -1,0 +1,20 @@
+{
+    "name": "Litem",
+    "short_name": "Litem",
+    "icons": [
+        {
+            "src": "/android-chrome-192x192.png?v=xQzY2K7XNw",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/android-chrome-512x512.png?v=xQzY2K7XNw",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#f7f7f6",
+    "background_color": "#f7f7f6",
+    "start_url": "/",
+    "display": "standalone"
+}

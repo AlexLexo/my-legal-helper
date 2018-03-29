@@ -826,7 +826,7 @@
     "nxtQId": "dFullName",
     "type": "advice",
     "element2a":
-      "You were injured when you collided with a pedestrian at a set of traffic lights. Given that the light was green it was your right of way so you should have a good case. If you would like further advice please send me a message."
+      "You were injured when you collided with a pedestrian at a set of traffic lights. Given that the light was green it was your right of way so you should have a good case."
   },
   "roundaboutL": {
     "qId": "roundaboutL",
@@ -1777,7 +1777,8 @@
   "dooredDriverLetter": {
     "qId": "dooredDriverLetter",
     "materialTimes": "in charge of the vehicle in question.",
-    "afterLandmark": "opened the door of the vehicle in question into my path.",
+    "afterLandmark":
+      "the driver door of the vehicle in question was opened into my path.",
     "liability1": "For failing to keep a good lookout.",
     "liability2": "For opening the door of the vehicle into my path.",
     "liability3": "For failing to heed my presence.",
@@ -1788,7 +1789,7 @@
   },
   "dooredPassengerLetter": {
     "qId": "dooredPassengerLetter",
-    "materialTimes": "in charge of the vehicle in question.",
+    "materialTimes": "a passenger in the vehicle in question.",
     "afterLandmark": "was opened into my path by a passenger in the vehicle.",
     "liability1": "For failing to keep a good lookout.",
     "liability2": "For opening the door of the vehicle into my path.",
@@ -1835,12 +1836,12 @@
     "qId": "rearEndedByLetter",
     "materialTimes": "in charge of the vehicle in question.",
     "afterLandmark":
-      "the vehicle in question, which had been travelling behind me, rear-ended me.",
+      "the vehicle in question, which had been travelling behind me, ran into the back of me.",
     "liability1": "For failing to give way.",
     "liability2": "For failing to brake in time if at all.",
     "liability3": "For hitting me from behind.",
     "liability4":
-      "For failing to drive at a speed suitable in all the circumstances.",
+      "For failing to proceed at a speed suitable in all the circumstances.",
     "liability5": "For failing to keep a proper lookout.",
     "liability6": "For failing to safely control the vehicle.",
     "liability7":
@@ -2014,7 +2015,7 @@
     "qId": "roundaboutLLetter",
     "materialTimes": "in charge of the vehicle in question.",
     "afterLandmark":
-      "the vehicle in question hit me from the left while on a roundabout.",
+      "the vehicle in question hit me from the left whilst I was lodged on the roundabout.",
     "liability1": "For failing to give way.",
     "liability2": "For failing to keep a proper lookout.",
     "liability3": "For failing to drive in a safe manner.",

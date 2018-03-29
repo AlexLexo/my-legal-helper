@@ -55,7 +55,7 @@ const Advice = props => {
               </p>
               <p>
                 However, if they were acting in the course of their employment you may be able to bring a case against
-                the company direct for more information see this guide –{' '}
+                the company direct. For more information see this guide –{' '}
                 <a href="link" target="_blank" rel="noopener noreferrer">
                   link
                 </a>.
@@ -85,10 +85,10 @@ const Advice = props => {
               </p>
               <p>
                 However, if they were acting in the course of their employment you may be able to bring a case against
-                the company direct (for more information see this guide –{' '}
+                the company direct. For more information see this guide –{' '}
                 <a href="link" target="_blank" rel="noopener noreferrer">
                   link
-                </a>).
+                </a>.
               </p>
             </div>
           )}
@@ -114,10 +114,10 @@ const Advice = props => {
               </p>
               <p>
                 However, given that they were acting in the course of their employment you should be able to bring a
-                case against the company direct (for more information see this guide –{' '}
+                case against the company direct. For more information see this guide –{' '}
                 <a href="link" target="_blank" rel="noopener noreferrer">
                   link
-                </a>).
+                </a>.
               </p>
             </div>
           )}
@@ -167,10 +167,10 @@ const Advice = props => {
               </p>
               <p>
                 However, if they were acting in the course of their employment you may be able to bring a case against
-                the company direct (for more information see this guide –{' '}
+                the company direct. For more information see this guide –{' '}
                 <a href="link" target="_blank" rel="noopener noreferrer">
                   link
-                </a>).
+                </a>.
               </p>
             </div>
           )}
@@ -192,10 +192,10 @@ const Advice = props => {
               </a>). All motor insurance policies contribute to this fund which covers hit and run incidents and those
               caused by uninsured drivers. There are strict time limits which can be found here, along with details on
               how to apply for compensation.<br />However, given that they were acting in the course of their employment
-              you should be able to bring a case against the company direct (for more information see this guide –{' '}
+              you should be able to bring a case against the company direct. For more information see this guide –{' '}
               <a href="link" target="_blank" rel="noopener noreferrer">
                 link
-              </a>).
+              </a>.
             </p>
           )}
 
@@ -239,7 +239,10 @@ const Advice = props => {
               had a duty to check that it was safe to turn before doing so. However, you were filtering to the left of a
               queue of traffic when approaching a side road on your left. This is seen as a hazardous manoeuvre and,
               although your case is likely to win, a court will normally reduce your damages by around 50% for
-              'contributory negligence'. For more information see this guide – link.
+              'contributory negligence'. For more information see this guide –{' '}
+              <a href="link" target="_blank" rel="noopener noreferrer">
+                link
+              </a>.
             </p>
           ) : (
             <p>

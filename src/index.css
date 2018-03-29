@@ -24,15 +24,15 @@ body {
   margin-top: 10px;
   margin-right: 10px;
   margin-left: 10px;
-  border-radius: 24px;
-  background-color: #3cc;
+  /*border-radius: 24px;*/
+  background-color: #fccf4d;
   border: 0 none;
-  color: white;
+  color: #42506b;
 }
 
 .btn:hover {
-  background-color: #fbcf4c;
-  color: #42506b;
+  background-color: #3cc;
+  color: white;
 }
 
 /*/////////// NavBar /////////////////////*/
@@ -68,10 +68,11 @@ body {
   font-size: 1.5rem;
 }
 
-.home > img {
-  padding-top: 40px;
-  padding-bottom: 20px;
-  max-width: 250px;
+.home-logo {
+  padding-top: 5rem;
+  padding-bottom: 1rem;
+  width: 60%;
+  max-width: 500px;
 }
 
 /*/////////// faqs page ////////////////*/
@@ -82,7 +83,7 @@ body {
   background-color: #42506b;
 }
 .faqs h1 {
-  color: #fbcf4c;
+  color: #fccf4d;
 }
 
 /*/////////// quiz page ////////////////*/
@@ -93,7 +94,7 @@ body {
   background-color: #42506b;
 }
 .quiz h1 {
-  color: #fbcf4c;
+  color: #fccf4d;
   padding-top: 20px;
   padding-bottom: 20px;
 }
@@ -107,19 +108,28 @@ body {
   max-height: 30vh;
 }
 
-.case-tool-button {
+/*.case-tool-button {
   margin-bottom: 10px;
   border-radius: 24px;
   background-color: #3cc;
   border: 0 none;
   color: white;
+}*/
+
+/*background-color: #fccf4d;
+border: 0 none;
+color: #42506b;
 }
 
-.case-tool-button:hover,
+.btn:hover {
+background-color: #3cc;
+color: white;*/
+
+/*.case-tool-button:hover,
 .case-tool-button:focus {
-  background-color: #fbcf4c;
+  background-color: #fccf4d;
   color: #42506b;
-}
+}*/
 
 .section1-title > h3 {
   font-size: 1.3rem;
@@ -148,7 +158,7 @@ body {
 
 .bottom-button:hover {
   background-color: #2c3952;
-  color: #fbcf4c;
+  color: #fccf4d;
 }
 
 .bottom-button:disabled,

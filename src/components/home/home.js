@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
+import { Container, Row, Col, Button } from 'reactstrap';
 
-import Bike from './../../assets/BIKE.svg';
+import LogoDark from './../../assets/LITEM_LOGO_FINAL.svg';
 import './home.css';
 
 @inject('RootStore')
@@ -15,19 +16,17 @@ class Home extends Component {
   };
   render() {
     return (
-      <div className="home">
-        <h1> My Legal Helper </h1>
-        <img width="50%" src={Bike} alt="Bike Logo" />
-        <h3>
-          Free tools and guides <br />helping injured cyclists <br />exercise their rights
-        </h3>
-        <button type="button" className="btn btn-primary" onClick={this.handleClick} name="quiz">
-          Get Started
-        </button>
-        <button type="button" className="btn btn-primary" onClick={this.handleClick} name="faqs">
-          Go to FAQs
-        </button>
-      </div>
+      <Container className="home">
+        <Row>
+          <Col>
+            <img className="home-logo" src={LogoDark} alt="Litem Logo" />
+            <h3>Law tech service to help injured cyclists</h3>
+            <Button color="primary" size="lg" onClick={this.handleClick} name="quiz">
+              Get Started
+            </Button>
+          </Col>
+        </Row>
+      </Container>
     );
   }
 }
