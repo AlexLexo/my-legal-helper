@@ -1,10 +1,9 @@
 import React from 'react';
 //import DOMPurify from 'dompurify';
-import { ButtonGroup } from 'reactstrap';
 
 const Buttons = props => {
   return (
-    <ButtonGroup className="case-tool-button-group btn-group-vertical text-center">
+    <div className="case-tool-button-group btn-group-vertical text-center">
       {props.q.btnvalues.map((item, i) => {
         return (
           <button
@@ -19,7 +18,7 @@ const Buttons = props => {
           </button>
         );
       })}
-    </ButtonGroup>
+    </div>
   );
 };
 export default Buttons;

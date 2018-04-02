@@ -1,67 +1,28 @@
 import { observable, action, computed, useStrict } from 'mobx';
 
-import fire from './../services/fire';
 import Data from './data.json';
 import Inj from './valuerData.json';
 
 useStrict(true);
 
-const db = fire.database().ref();
-
 export default class mobxSessionStore {
   constructor(rootStore) {
     this.RootStore = rootStore;
   }
-  @observable userAuth = {};
   @observable userObj = {};
-  @observable signedIn = null;
   @observable currentQId = '';
 
-  @action('handleSignedIn')
-  handleSignedIn = (signedIn, userAuth) => {
-    console.log(signedIn);
-    console.log(userAuth);
-    this.signedIn = signedIn;
-    this.userAuth = userAuth;
-    if (signedIn) this.checkUserExists();
+  setLocal = () => {
+    localStorage.setItem('userObj', JSON.stringify(this.userObj));
   };
 
-  checkUserExists() {
-    db
-      .child(`users/${this.userAuth.uid}`)
-      .once('value', snapshot => {
-        this.userExists = snapshot.val() !== null;
-      })
-      .then(() => {
-        if (this.userExists) {
-          this.updateSignInTime();
-        } else {
-          this.createNewUser();
-        }
-      });
-  }
-
-  updateSignInTime() {
-    db
-      .child(`users/${this.userAuth.uid}`)
-      .update({
-        lastSignIn: this.userAuth.metadata.lastSignInTime
-      })
-      .then(this.setUserObj());
-  }
-
-  createNewUser() {
-    db
-      .child(`users/${this.userAuth.uid}`)
-      .set({
-        uid: this.userAuth.uid,
-        name: this.userAuth.displayName,
-        email: this.userAuth.email,
-        emailVerified: this.userAuth.emailVerified,
-        created: this.userAuth.metadata.creationTime,
-        lastSignIn: this.userAuth.metadata.lastSignInTime,
-        phoneNo: this.userAuth.phoneNumber,
-        photoURL: this.userAuth.photoURL,
+  @action('setUserObj')
+  setUserObj = () => {
+    const local = localStorage.getItem('userObj');
+    if (localStorage.getItem('userObj') !== null) {
+      this.userObj = JSON.parse(local);
+    } else {
+      this.userObj = {
         lastQIds: {
           caseTool: ['start'],
           valuer: ['start']
@@ -87,30 +48,20 @@ export default class mobxSessionStore {
           circumstancesofIncident2: '',
           letterId: '',
           createdOn: ''
-        },
-        messages: [
-          {
-            messageTitle: 'Welcome',
-            messageBody: 'Welcome to My Legal Helper',
-            date: Date.now()
-          }
-        ]
-      })
-      .then(this.setUserObj());
-  }
-
-  @action('setUserObj')
-  setUserObj = () => {
-    db.child(`users/${this.userAuth.uid}`).once('value', snapshot => {
-      this.userObj = snapshot.val();
-      this.setInitialQ();
-    });
+        }
+      };
+    }
+    this.setInitialQ();
   };
 
   @action('setInitialQ')
   setInitialQ = () => {
     if (this.RootStore.UIStore.currentSection !== 'caseTool' && this.RootStore.UIStore.currentSection !== 'valuer')
       return;
+    if (this.userObj.lastQIds === undefined) {
+      this.setUserObj();
+      return;
+    }
     this.currentQId =
       this.userObj.lastQIds[this.RootStore.UIStore.currentSection].length === 1
         ? this.RootStore.UIStore.currentSection === 'caseTool' ? 'cFullName' : 'val0'
@@ -121,11 +72,7 @@ export default class mobxSessionStore {
   handleBack = () => {
     if (this.userObj.lastQIds[this.RootStore.UIStore.currentSection].length === 1) return;
     this.userObj.allQs[this.currentQId].answered = '';
-    db.child(`users/${this.userObj.uid}/allQs/${this.currentQId}`).update({
-      answered: ''
-    });
     this.currentQId = this.userObj.lastQIds[this.RootStore.UIStore.currentSection].pop();
-    this.updateLastQs();
   };
 
   @action('handleNext')
@@ -133,11 +80,14 @@ export default class mobxSessionStore {
     this.userObj.lastQIds[this.RootStore.UIStore.currentSection].push(this.currentQId);
     this.userObj.allQs[this.currentQId].answered = givenAnswer;
     this.userObj.allQs[this.currentQId].answeredOn = Date.now();
-    db.child(`users/${this.userObj.uid}/allQs`).update({
-      [this.currentQId]: this.userObj.allQs[this.currentQId]
-    });
-    this.updateLastQs();
     this.setCurrentQ(nxtQId);
+    this.setLocal();
+  };
+
+  @action('setCurrentQ')
+  setCurrentQ = nxtQId => {
+    this.currentQId =
+      nxtQId === 'letter' ? this.letterTemplate : nxtQId === 'injuryLocation' ? 'valInjuryDuration' : nxtQId;
   };
 
   @computed
@@ -174,13 +124,10 @@ export default class mobxSessionStore {
       letterId: letterId,
       createdOn: Date.now()
     };
-    db.child(`users/${this.userObj.uid}/editedLetter`).update(this.userObj.editedLetter);
-    //console.log(this.userObj.editedLetter);
   };
 
   @action('setInjuryLocation')
   setInjuryLocation = x => {
-    console.log(x);
     this.injuryLocation = x;
   };
 
@@ -229,33 +176,5 @@ export default class mobxSessionStore {
     };
     this.userObj.injuries.push(newInjury);
     if (this.userObj.injuries[0].injuryType === 'none') this.userObj.injuries.shift();
-    this.updateInjuries();
-  };
-
-  @action('setCurrentQ')
-  setCurrentQ = nxtQId => {
-    this.currentQId =
-      nxtQId === 'letter' ? this.letterTemplate : nxtQId === 'injuryLocation' ? 'valInjuryDuration' : nxtQId;
-  };
-
-  updateLastQs = () => {
-    db.child(`users/${this.userObj.uid}/lastQIds`).update({
-      [this.RootStore.UIStore.currentSection]: this.userObj.lastQIds[this.RootStore.UIStore.currentSection]
-    });
-  };
-
-  updateInjuries = () => {
-    db.child(`users/${this.userObj.uid}`).update({ injuries: this.userObj.injuries });
-  };
-
-  @action('sendMessage')
-  sendMessage = message => {
-    this.userObj.messages.push(message);
-    this.updateMessages();
-  };
-  updateMessages = () => {
-    db.child(`users/${this.userObj.uid}`).update({
-      messages: this.userObj.messages
-    });
   };
 }

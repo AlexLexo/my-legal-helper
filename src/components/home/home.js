@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
-import { Container, Row, Col, Button } from 'reactstrap';
 
 import LogoDark from './../../assets/LITEM_LOGO_FINAL.svg';
 import './home.css';
@@ -16,17 +15,17 @@ class Home extends Component {
   };
   render() {
     return (
-      <Container className="home">
-        <Row>
-          <Col>
+      <div className="container home">
+        <div className="row">
+          <div className="col">
             <img className="home-logo" src={LogoDark} alt="Litem Logo" />
             <h3>Free tools and guides for injured cyclists to exercise their rights</h3>
-            <Button color="primary" size="lg" onClick={this.handleClick} name="quiz">
+            <button className="btn btn-primary btn-lg" onClick={this.handleClick} name="quiz">
               Get Started
-            </Button>
-          </Col>
-        </Row>
-      </Container>
+            </button>
+          </div>
+        </div>
+      </div>
     );
   }
 }

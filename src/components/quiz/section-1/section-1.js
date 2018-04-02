@@ -2,40 +2,36 @@ import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
 import DOMPurify from 'dompurify';
 import moment from 'moment';
+import { DatePicker } from 'react-md';
 
 import Weak from './weak';
 import Advice from './advice';
 import Letter from './letter';
-//import EditedLetter from './edited-letter';
 import Valuation from './valuation';
 import Financial from './financial-inputs';
 import InjuryDuration from './injury-duration-inputs';
 import Buttons from './buttons';
-import Dates from './dates';
 import Texts from './texts';
-import Email from './emails';
+import Dates from './dates';
 import Test from './test';
 
 @inject('RootStore')
 @observer
 class Section1 extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: '',
-      nxtQId: '',
-      value1: '',
-      value2: '',
-      value3: '',
-      value4: '',
-      value5: '',
-      value6: '',
-      editedLetter: false,
-      test: false
-    };
-    this.qs = null;
-    this.qId = null;
-  }
+  state = {
+    value: '',
+    nxtQId: '',
+    value1: '',
+    value2: '',
+    value3: '',
+    value4: '',
+    value5: '',
+    value6: '',
+    editedLetter: false,
+    test: false
+  };
+  qs = null;
+  qId = null;
 
   componentWillMount() {
     this.props.RootStore.UIStore.handleFadeIn();
@@ -46,14 +42,8 @@ class Section1 extends Component {
 
   handleBack = () => {
     if (this.state.editedLetter) this.setState({ editedLetter: false });
-    //this.state.editedLetter = this.editedLetter && false;
     this.props.RootStore.SessionStore.handleBack();
   };
-
-  /*handleClick = e => {
-    this.props.history.push(e.target.name === 'caseTool' ? 'case-tool' : e.target.name);
-    //this.props.RootStore.UIStore.setCurrentSection(e.target.name);
-  };*/
 
   handleSubmit = e => {
     e.preventDefault();
@@ -142,15 +132,6 @@ class Section1 extends Component {
           />
         );
         break;
-      case 'email':
-        this.input = (
-          <Email
-            q={this.qs[this.qId]}
-            value={this.state.value}
-            callback={(v, n) => this.setState({ value: v, nxtQId: n })}
-          />
-        );
-        break;
       case 'date':
         this.input = (
           <Dates
@@ -207,9 +188,6 @@ class Section1 extends Component {
           />
         );
         break;
-      /*case 'editedLetter':
-        this.input = <EditedLetter edits={this.props.RootStore.SessionStore.userObj.editedLetter} />;
-        break;*/
       case 'financialInputs':
         this.input = (
           <Financial
