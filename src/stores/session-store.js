@@ -82,6 +82,7 @@ export default class mobxSessionStore {
     this.userObj.allQs[this.currentQId].answeredOn = Date.now();
     this.setCurrentQ(nxtQId);
     this.setLocal();
+    window.scrollTo(0, 0);
   };
 
   @action('setCurrentQ')

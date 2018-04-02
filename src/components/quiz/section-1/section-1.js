@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
 import DOMPurify from 'dompurify';
 import moment from 'moment';
-import { DatePicker } from 'react-md';
+//import { DatePicker } from 'react-md';
 
 import Weak from './weak';
 import Advice from './advice';
