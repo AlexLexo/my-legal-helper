@@ -1,13 +1,13 @@
 import React from 'react';
 //import DOMPurify from 'dompurify';
-import { Button, ButtonGroup } from 'reactstrap';
+import { ButtonGroup } from 'reactstrap';
 
 const Buttons = props => {
   return (
     <ButtonGroup className="case-tool-button-group btn-group-vertical text-center">
       {props.q.btnvalues.map((item, i) => {
         return (
-          <Button
+          <button
             key={i}
             type="submit"
             onClick={() => {
@@ -16,7 +16,7 @@ const Buttons = props => {
             className="btn btn-primary btn-block case-tool-button"
           >
             {item.ansLabel}
-          </Button>
+          </button>
         );
       })}
     </ButtonGroup>

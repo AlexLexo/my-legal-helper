@@ -46,9 +46,6 @@ class Menu extends Component {
             </IndexLinkContainer>
             {this.props.RootStore.SessionStore.signedIn
               ? [
-                  <IndexLinkContainer key="1" to="/quiz">
-                    <NavLink> All Tools </NavLink>
-                  </IndexLinkContainer>,
                   <IndexLinkContainer key="2" to="/case-tool">
                     <NavLink onClick={() => this.props.RootStore.UIStore.setCurrentSection('caseTool')}>
                       Case Tool

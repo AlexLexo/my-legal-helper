@@ -20,7 +20,7 @@ class Home extends Component {
         <Row>
           <Col>
             <img className="home-logo" src={LogoDark} alt="Litem Logo" />
-            <h3>Law tech service to help injured cyclists</h3>
+            <h3>Free tools and guides for injured cyclists to exercise their rights</h3>
             <Button color="primary" size="lg" onClick={this.handleClick} name="quiz">
               Get Started
             </Button>

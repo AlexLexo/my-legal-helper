@@ -31,13 +31,7 @@ class Letter extends Component {
     } ${this.props.q.materialTimes}`,
     circumstancesofIncident2: `As I was cycling along ${this.props.allQs.cStreet.answered} I was heading ${
       this.props.allQs.cDir.answered
-    }. When I reached the ${this.props.allQs.landmark.answered}${
-      this.props.allQs.dooredDets.answered && this.props.allQs.dooredDets.answered === 'dooredDetsPassenger'
-        ? `, the door of the vehicle belonging to ${
-            this.props.allQs.writeWho.answered === 'writeWhoDefendant' ? 'you' : 'your insured'
-          }`
-        : ''
-    } ${
+    }. When I reached the ${this.props.allQs.landmark.answered} ${
       this.props.q.afterLandmark
         ? this.props.q.afterLandmark
         : this.props.allQs.pedDetsCrossedDir.answered === 'pedDetsCrossedDirR'

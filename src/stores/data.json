@@ -352,12 +352,12 @@
       {
         "ansId": "pedFilteringNo",
         "ansLabel": "No",
-        "nxtQId": "manoeuvring"
+        "nxtQId": "pedManoeuvring"
       }
     ]
   },
   "pedManoeuvring": {
-    "qId": "manoeuvring",
+    "qId": "pedManoeuvring",
     "title":
       "Were you manoeuvring around something or overtaking on your bicycle?",
     "answered": "",
@@ -453,7 +453,7 @@
       {
         "ansId": "dooredDetsPassenger",
         "ansLabel": "A passenger's door",
-        "nxtQId": "dooredPassenger"
+        "nxtQId": "contactMe"
       },
       {
         "ansId": "dooredDetsDriver",
@@ -532,7 +532,7 @@
   },
   "trafLights": {
     "qId": "trafLights",
-    "title": "Were they",
+    "title": "What colour were the traffic lights?",
     "answered": "",
     "answeredOn": "",
     "type": "dropdown",
@@ -550,7 +550,7 @@
       {
         "ansId": "trafLightsAmberRed",
         "ansLabel": "Amber going red",
-        "nxtQId": "amberRed"
+        "nxtQId": "contactMe"
       },
       {
         "ansId": "trafLightsRedAmber",
@@ -873,7 +873,7 @@
     "nxtQId": "dFullName",
     "type": "advice",
     "element2a":
-      "You were injured when a pedestrian crossed into your path at a set of traffic lights which were red/amber. Given that the traffic light had only just moved from red a court would expect you to keep an eye out for any pedestrians still crossing. On that basis it might be a challenge to win the case."
+      "You were injured when a pedestrian crossed into your path at a set of traffic lights which indicated that it was my right-of-way. Given that the traffic light had only just moved from red a court would expect you to keep an eye out for any pedestrians still crossing. On that basis it might be a challenge to win the case."
   },
   "roadDefect": {
     "qId": "roadDefect",
@@ -1778,7 +1778,7 @@
     "qId": "dooredDriverLetter",
     "materialTimes": "in charge of the vehicle in question.",
     "afterLandmark":
-      "the driver door of the vehicle in question was opened into my path.",
+      "the driver's door of the vehicle in question was opened into my path.",
     "liability1": "For failing to keep a good lookout.",
     "liability2": "For opening the door of the vehicle into my path.",
     "liability3": "For failing to heed my presence.",

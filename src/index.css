@@ -1,3 +1,7 @@
+html {
+  touch-action: manipulation;
+}
+
 body {
   background-color: #f7f7f6;
 }
@@ -20,23 +24,7 @@ body {
   min-width: 100%;
 }
 
-.btn {
-  margin-top: 10px;
-  margin-right: 10px;
-  margin-left: 10px;
-  /*border-radius: 24px;*/
-  background-color: #fccf4d;
-  border: 0 none;
-  color: #42506b;
-}
-
-.btn:hover {
-  background-color: #3cc;
-  color: white;
-}
-
 /*/////////// NavBar /////////////////////*/
-
 .navbar {
   z-index: 1000;
   padding-left: 15%;
@@ -44,59 +32,151 @@ body {
   background-color: #42506b;
   color: white;
 }
-
 .navbar ul > a {
   font-size: 2rem;
 }
-
 .navbar ul > a:first-child {
   padding-top: 5%;
 }
-
 .menu-filler {
   height: 80vh;
 }
 
 /*/////////// landing page ////////////////*/
-.home h1 {
-  font-weight: 600;
-  color: #3cc;
-}
-.home h3 {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  font-size: 1.5rem;
-}
-
 .home-logo {
-  padding-top: 5rem;
-  padding-bottom: 1rem;
+  padding-top: 10%;
+  padding-bottom: 10%;
   width: 60%;
   max-width: 500px;
 }
 
+.home h3 {
+  padding-bottom: 10%;
+  padding-left: 20%;
+  padding-right: 20%;
+  font-size: 1.5rem;
+}
+
+@media only screen and (max-width: 500px) {
+  .home h3 {
+    padding-bottom: 10%;
+    padding-left: 10%;
+    padding-right: 10%;
+    font-size: 1.3rem;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .home-logo {
+    padding-top: 8%;
+    padding-bottom: 8%;
+    width: 60%;
+    max-width: 500px;
+  }
+
+  .home h3 {
+    padding-bottom: 8%;
+    padding-left: 10%;
+    padding-right: 10%;
+    font-size: 1.3rem;
+  }
+}
+
+@media only screen and (min-width: 1500px) {
+  .home-logo {
+    padding-top: 6%;
+    padding-bottom: 6%;
+    width: 60%;
+    max-width: 500px;
+  }
+
+  .home h3 {
+    padding-bottom: 6%;
+    padding-left: 10%;
+    padding-right: 10%;
+    font-size: 1.3rem;
+  }
+}
+
 /*/////////// faqs page ////////////////*/
 .faqs {
-  height: 100vh;
+  min-height: 100vh;
   padding: 30px;
   color: white;
   background-color: #42506b;
 }
 .faqs h1 {
   color: #fccf4d;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.faqs p {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 20%;
+  padding-right: 20%;
+  font-size: 1.1rem;
+  text-align: justify;
+}
+
+@media only screen and (max-width: 600px) {
+  .faqs h3 {
+    padding-left: 10%;
+    text-align: left;
+  }
+  .faqs p {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 10%;
+    padding-right: 10%;
+    font-size: 1rem;
+    text-align: left;
+  }
 }
 
 /*/////////// quiz page ////////////////*/
 .quiz {
-  height: 100vh;
+  min-height: 100vh;
   padding: 30px;
   color: white;
   background-color: #42506b;
 }
+
 .quiz h1 {
   color: #fccf4d;
   padding-top: 20px;
   padding-bottom: 20px;
+}
+
+.quiz h3 {
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+.quiz .btn {
+  width: 80%;
+  border-radius: 24px;
+}
+
+.quiz p {
+  padding-top: 5%;
+  padding-bottom: 2%;
+  padding-left: 20%;
+  padding-right: 20%;
+  font-size: 1.1rem;
+  text-align: justify;
+}
+
+@media only screen and (max-width: 500px) {
+  .quiz p {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 10%;
+    padding-right: 10%;
+    font-size: 1rem;
+    text-align: left;
+  }
 }
 
 /*/////////// section 1 ////////////////*/
@@ -108,27 +188,8 @@ body {
   max-height: 30vh;
 }
 
-/*.case-tool-button {
-  margin-bottom: 10px;
-  border-radius: 24px;
-  background-color: #3cc;
-  border: 0 none;
-  color: white;
-}*/
-
-/*background-color: #fccf4d;
-border: 0 none;
-color: #42506b;
-}
-
-.btn:hover {
-background-color: #3cc;
-color: white;*/
-
-/*.case-tool-button:hover,
-.case-tool-button:focus {
-  background-color: #fccf4d;
-  color: #42506b;
+/*.case-tool-button-group > btn {
+  white-space: normal !important;
 }*/
 
 .section1-title > h3 {
@@ -145,6 +206,7 @@ color: white;*/
   min-height: 50vh;
 }
 
+/*footer*/
 .bottom-button {
   margin-top: 10px;
   margin-right: 10px;
@@ -180,9 +242,6 @@ color: white;*/
   margin: 10px;
 }
 
-.contact-btn {
-  width: 60vw;
-}
 /*///////////////////animations etc//////////////////////*/
 .show {
   display: block;
@@ -190,12 +249,6 @@ color: white;*/
 
 .hide {
   display: none;
-}
-
-.btn:focus {
-  border-color: #ccc;
-  outline: none !important;
-  outline-offset: none !important;
 }
 
 @keyframes fadeInKey {
@@ -212,81 +265,43 @@ color: white;*/
   animation-duration: 1000ms;
 }
 
-/*h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "PT Serif", serif;
-}*/
-/*
-select.form-control,
-textarea.form-control,
-input.form-control {
-  font-size: 16px;
-}
-
-
-
-.opacityZero {
-  opacity: 0;
-}
-.displayNone {
-  display: none;
-}
-
-@media all and (min-width: 480px) {
-  .quiz {
-    padding: 40px 0;
-  }
-}
-
-
-
-
-
-h1:not(.firebaseui-title) {
-  font-size: 3vw !important;
-}
-
-h4 {
-  font-size: 2vw !important;
-}
-p:not(.firebaseui-error) {
-  font-size: 1.5vw !important;
-}
-p:not(.firebaseui-info-bar) {
-  font-size: 1.5vw !important;
-}
+/*buttons*/
 .btn {
-  font-size: 2vw !important;
+  margin-top: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+  border: 0 none;
+  font-size: 1.3em;
+  white-space: normal !important;
 }
 
-@media all and (min-width: 480px) {
-  .faqs {
-    padding: 40px 0;
-  }
-}
-.faqs h1 {
-  font-weight: 600;
-}
-.faqs p {
-  padding-left: 20%;
-  padding-right: 20%;
-  color: #999;
+.btn:hover {
+  background-color: #3cc;
+  color: white;
 }
 
-.navbar-brand {
-  font-weight: bold;
+.btn:focus {
+  border-color: #cccccc;
+  outline: none !important;
+  outline-offset: none !important;
 }
 
-/*@keyframes fadeInMenuItemKey{
-  0% {opacity: 0;}
-  80% {opacity: 0;}
-  100% {opacity: 1;}
-  }
-.fadeInMenuItem{
-  animation-name: fadeInMenuItemKey;
-  animation-duration: 200ms;
-}*/
+.contact-btn {
+  width: 60vw;
+}
+
+/*text input*/
+input[type="text"]:not(#cFullName):not(#cAddress):not(#iDate):not(#dFullName):not(#dPolicyNumber) {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 1.5em;
+}
+
+/*make a span into a non-anchor link*/
+.span-link {
+  color: #fccf4d;
+}
+.span-link:hover {
+  color: #3cc;
+  text-decoration: underline;
+}
