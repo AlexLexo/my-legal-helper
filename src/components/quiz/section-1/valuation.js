@@ -40,9 +40,9 @@ const Valuation = props => {
           <strong>SUMMARY</strong>
         </p>
         <p>
-          The overall value of your claim is in the region of <strong>£{totalLoss}</strong>. This is made from the value
-          of your injury and your financial losses. Valuing a case is not an exact science and (were the case to go to
-          trial) a different judge might award a different amount.
+          The overall value of your claim is in the region of <strong>£{totalLoss}</strong>. This is calculated from the
+          value of your injury and your financial losses. Valuing a case is not an exact science and (were the case to
+          go to trial) a different judge might award a different amount.
         </p>
         <p>This figure is to give you a guide for what your case might be worth, from the information given.</p>
         <p>
