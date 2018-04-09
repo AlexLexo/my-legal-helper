@@ -3,7 +3,7 @@ import React from 'react';
 
 const Buttons = props => {
   return (
-    <div className="case-tool-button-group btn-group-vertical text-center">
+    <div className="case-tool-button-group text-center">
       {props.q.btnvalues.map((item, i) => {
         return (
           <button
@@ -12,7 +12,7 @@ const Buttons = props => {
             onClick={() => {
               props.callback(item.ansId, item.nxtQId);
             }}
-            className="btn btn-primary btn-block case-tool-button"
+            className="btn btn-primary case-tool-button"
           >
             {item.ansLabel}
           </button>

@@ -34,7 +34,7 @@ const Valuation = props => {
   const totalLoss = totalFin + totalInjury.injuryValue;
   return (
     <div className="advice">
-      <h4 dangerouslySetInnerHTML={title} />
+      <h4>Here is your valuation</h4>
       <div className="text-justify">
         <p>
           <strong>SUMMARY</strong>
@@ -44,10 +44,26 @@ const Valuation = props => {
           of your injury and your financial losses. Valuing a case is not an exact science and (were the case to go to
           trial) a different judge might award a different amount.
         </p>
-        <p>This figure is to give you a guide for what your case might be worth, from the information given.</p>
+        <p>
+          This figure is to give you a guide for what your case might be worth, from the information given and settling
+          on the basis of this information is at your own risk.
+        </p>
         <p>
           <strong>VALUE OF INJURY</strong>
         </p>
+        {props.allQs.valFractureArm.answered === 'valAnsFractureForearm' && (
+          <div>
+            <h6>FOREARM</h6>
+            <p>
+              Serious fractures of one or both forearms where there is significant permanent residual disability whether
+              functional or cosmetic.<br />£34,340 to £52,490
+            </p>
+            <p>
+              Fractures of the Forearm<br />£5,810 to £16,830
+            </p>
+          </div>
+        )}
+
         <p>You suffered from the following injuries:</p>
         <ul>
           {props.injuries.map((item, i) => {

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
 import DOMPurify from 'dompurify';
 import moment from 'moment';
-//import { DatePicker } from 'react-md';
 
 import Weak from './weak';
 import Advice from './advice';
@@ -11,9 +10,11 @@ import Valuation from './valuation';
 import Financial from './financial-inputs';
 import InjuryDuration from './injury-duration-inputs';
 import Buttons from './buttons';
+import Dropdowns from './dropdowns';
 import Texts from './texts';
 import Dates from './dates';
-import Test from './test';
+import PreLetter from './../../pre-letter-tool/pre-letter-tool';
+//import Test from './test';
 
 @inject('RootStore')
 @observer
@@ -32,7 +33,7 @@ class Section1 extends Component {
   };
   qs = null;
   qId = null;
-
+  resetDropdown = false;
   componentWillMount() {
     this.props.RootStore.UIStore.handleFadeIn();
     if (this.props.history.location.pathname === '/valuer') this.props.RootStore.UIStore.setCurrentSection('valuer');
@@ -41,13 +42,18 @@ class Section1 extends Component {
   }
 
   handleBack = () => {
-    if (this.state.editedLetter) this.setState({ editedLetter: false });
+    if (this.state.editedLetter) {
+      this.setState({ editedLetter: false });
+      return;
+    }
+    this.resetState();
     this.props.RootStore.SessionStore.handleBack();
   };
 
   handleSubmit = e => {
     e.preventDefault();
     if (this.qs[this.qId].type === 'weak') return;
+    this.resetDropdown = !this.resetDropdown;
     if (this.qId === 'valInjuryDuration') {
       //injuryDuration
       const injuryStart = moment(this.state.value1, 'DD/MM/YYYY');
@@ -76,8 +82,6 @@ class Section1 extends Component {
       //go to edited letter
       this.props.RootStore.SessionStore.setEditedLetter(this.state.value, this.state.nxtQId);
       this.setState({ editedLetter: true });
-      //this.resetState();
-      //this.postSubmit();
     } else {
       this.postSubmit();
     }
@@ -94,10 +98,11 @@ class Section1 extends Component {
             this.state.value5,
             this.state.value6
           ]
-        : this.state.value === '' ? this.qs[this.qId].answered : this.state.value;
+        : /*this.state.value === '' ? this.qs[this.qId].answered :*/ this.state.value;
     let nxtQId = this.state.nxtQId === '' ? this.qs[this.qId].nxtQId : this.state.nxtQId;
     if (this.qs[this.qId].type === 'advice') value = 'advice';
-    if (!value || !nxtQId) return alert('please enter something!');
+    if (this.qs[this.qId].type === 'preletter') value = 'preletter';
+    if (!value || !nxtQId) return alert('please enter an answer');
     this.props.RootStore.SessionStore.handleNext(value, nxtQId);
     this.resetState();
   };
@@ -152,10 +157,11 @@ class Section1 extends Component {
         break;
       case 'dropdown':
         this.input = (
-          <Buttons
+          <Dropdowns
             q={this.qs[this.qId]}
             value={this.state.value}
             callback={(v, n) => this.setState({ value: v, nxtQId: n })}
+            resetDropdown={this.resetDropdown}
           />
         );
         break;
@@ -206,6 +212,15 @@ class Section1 extends Component {
           />
         );
         break;
+      case 'preletter':
+        this.input = (
+          <PreLetter
+            allQs={this.qs}
+            q={this.qs[this.qId]}
+            callback={(p, v, n) => this.setState({ value: 'multiValue', [p]: v, nxtQId: n })}
+          />
+        );
+        break;
       case 'valuation':
         this.input = (
           <Valuation
@@ -219,16 +234,33 @@ class Section1 extends Component {
         break;
     }
     return (
-      <div className={`section1`}>
-        <p onClick={() => this.setState({ test: !this.test })}>test</p>
-        {this.state.test ? (
+      <div className="section1">
+        {/*<p onClick={() => this.setState({ test: !this.test })}>test</p>*/}
+        {/*this.state.test ? (
           <Test />
-        ) : (
+        ): this.qs[this.qId].type === 'preletter' ? (
+          <PreLetter
+            allQs={this.props.RootStore.SessionStore.userObj.allQs}
+            q={this.qs[this.qId]}
+            history={this.props.history}
+            setSection={x => this.props.RootStore.UIStore.setCurrentSection(x)}
+          />
+        ) :*/ this
+          .qs[this.qId].qId === 'val0' ? (
           <div>
+            <h1>Valuation Tool</h1>
+            <br />
+            <h3>Building the best personal injury valuation tool on the internet takes time!</h3>
+            <br />
+            <h5>Check back with us in {moment('20180430', 'YYYYMMDD').fromNow()} to get your valuation!</h5>
+          </div>
+        ) : (
+          <React.Fragment>
             <div
               className={`section1-title ${
                 this.qs[this.qId].type !== 'letter' &&
                 this.qs[this.qId].type !== 'valuation' &&
+                this.qs[this.qId].type !== 'preletter' &&
                 this.qs[this.qId].type !== 'advice'
                   ? 'show'
                   : 'hide'
@@ -243,44 +275,50 @@ class Section1 extends Component {
 
             <form onSubmit={this.handleSubmit}>
               <div className="input">{this.input}</div>
-              <div className="btn-group bottom-button-group">
-                {this.qs[this.qId].qId !== 'val0' ? (
-                  <input
-                    type="button"
-                    onClick={this.handleBack}
-                    value="Back"
-                    className={`btn bottom-button ${this.qs[this.qId].qId === 'cFullName' ? 'disabled' : ''}`}
-                  />
-                ) : (
-                  <input
-                    type="button"
-                    onClick={() => {
-                      this.props.history.push(`case-tool`);
-                      this.props.RootStore.UIStore.setCurrentSection('caseTool');
-                    }}
-                    value="Go to Case Tool"
-                    name="caseTool"
-                    className={`btn bottom-button`}
-                  />
-                )}
-                <input
-                  type="button"
-                  onClick={() => {
-                    this.props.history.push(`contact`);
-                    this.props.RootStore.UIStore.setCurrentSection('contact');
-                  }}
-                  value="Get in Touch"
-                  name="contact"
-                  className={`btn bottom-button`}
-                />
-                <input
-                  type="submit"
-                  value="Next"
-                  className={`btn bottom-button ${this.qs[this.qId].type === 'weak' ? 'disabled' : ''}`}
-                />
+              <div className="bottom-button-group-container">
+                <div className="bottom-button-group">
+                  {this.qs[this.qId].qId !== 'val0' ? (
+                    <input
+                      type="button"
+                      onClick={this.handleBack}
+                      value="Back"
+                      className={`btn btn-primary bottom-button float-left pull-left ${this.qs[this.qId].qId ===
+                        'cFullName' && 'disabled'}`}
+                    />
+                  ) : (
+                    <input
+                      type="button"
+                      onClick={() => {
+                        this.props.history.push(`case-tool`);
+                        this.props.RootStore.UIStore.setCurrentSection('caseTool');
+                      }}
+                      value="Go to Case Tool"
+                      name="caseTool"
+                      className={`btn btn-primary bottom-button float-right pull-right`}
+                    />
+                  )}
+                  {!this.state.editedLetter ? (
+                    <input
+                      type="submit"
+                      value="Next"
+                      className={`btn btn-primary bottom-button float-right pull-right ${this.qs[this.qId].type ===
+                        'weak' && 'disabled'}`}
+                    />
+                  ) : (
+                    <input
+                      type="print"
+                      value="print your letter"
+                      onClick={() => {
+                        window.scrollTo(0, 0);
+                        window.print();
+                      }}
+                      className="btn btn-primary bottom-button float-right pull-right"
+                    />
+                  )}
+                </div>
               </div>
             </form>
-          </div>
+          </React.Fragment>
         )}
       </div>
     );

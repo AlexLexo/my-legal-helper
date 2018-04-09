@@ -5,7 +5,7 @@ const Texts = props => {
     <div>
       <label htmlFor={props.q.inputs[0].qId}>Start of injury: </label>
       <input
-        type="text"
+        type="date"
         id={props.q.inputs[0].qId}
         placeholder={props.q.inputs[0].answered ? props.q.inputs[0].answered : props.q.inputs[0].placeholder}
         value={props.value}
@@ -14,7 +14,7 @@ const Texts = props => {
       <br />
       <label htmlFor={props.q.inputs[1].qId}>End of Injury: </label>
       <input
-        type="text"
+        type="date"
         id={props.q.inputs[1].qId}
         placeholder={props.q.inputs[1].answered ? props.q.inputs[1].answered : props.q.inputs[1].placeholder}
         value={props.value}

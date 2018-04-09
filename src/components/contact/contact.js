@@ -6,14 +6,13 @@ import './contact.css';
 @inject('RootStore')
 @observer
 class Contact extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      messageTitle: '',
-      messageBody: '',
-      sent: false
-    };
-  }
+  state = {
+    messageTitle: '',
+    messageBody: '',
+    emailAddress: '',
+    sent: false
+  };
+
   componentWillMount() {
     this.props.RootStore.UIStore.handleFadeIn();
   }
@@ -24,7 +23,7 @@ class Contact extends Component {
       const message = {
         messageTitle: this.state.messageTitle,
         messageBody: this.state.messageBody,
-        date: Date.now()
+        emailAddress: this.state.emailAddress
       };
       this.props.RootStore.SessionStore.sendMessage(message);
       this.props.RootStore.UIStore.handleFadeIn();
@@ -36,9 +35,10 @@ class Contact extends Component {
       this.setState({
         messageTitle: '',
         messageBody: '',
+        emailAddress: '',
         sent: false
       });
-    }, 1000);
+    }, 3000);
   };
   render() {
     return (
@@ -46,27 +46,38 @@ class Contact extends Component {
         {!this.state.sent ? (
           <div>
             <h1> Get in Touch </h1>
+            <h3>Feel free to drop us an email at info@litem.co.uk. Alternatively, please send us a message below.</h3>
             <form onSubmit={this.handleSubmit}>
+              <input
+                type="email"
+                placeholder="Your email address"
+                required
+                autoComplete="email"
+                className="message-title"
+                value={this.state.emailAddress}
+                onChange={e => this.setState({ emailAddress: e.target.value })}
+              />
+              <br />
               <input
                 type="text"
                 placeholder="Message Title"
                 required
-                className="messageTitle"
+                className="message-title"
                 value={this.state.messageTitle}
                 onChange={e => this.setState({ messageTitle: e.target.value })}
               />
               <br />
               <textarea
-                placeholder="Message Title"
+                placeholder="Your Message"
                 rows="10"
-                cols="50"
+                cols="100"
                 required
-                className="messageBody"
+                className="message-body"
                 value={this.state.messageBody}
                 onChange={e => this.setState({ messageBody: e.target.value })}
               />
               <br />
-              <input className="contact-btn btn" type="submit" value="send" />
+              <input className="contact-btn btn btn-primary" type="submit" value="send" />
             </form>
           </div>
         ) : (

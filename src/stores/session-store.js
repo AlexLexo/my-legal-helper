@@ -1,5 +1,5 @@
 import { observable, action, computed, useStrict } from 'mobx';
-
+import fire from './../services/fire';
 import Data from './data.json';
 import Inj from './valuerData.json';
 
@@ -70,18 +70,30 @@ export default class mobxSessionStore {
 
   @action('handleBack')
   handleBack = () => {
+    //prevent handleBack if at begining of tool questions
     if (this.userObj.lastQIds[this.RootStore.UIStore.currentSection].length === 1) return;
+    //wipes any answer given for the current question
     this.userObj.allQs[this.currentQId].answered = '';
+    //sets the current question to the last question answered
     this.currentQId = this.userObj.lastQIds[this.RootStore.UIStore.currentSection].pop();
   };
 
   @action('handleNext')
   handleNext = (givenAnswer, nxtQId) => {
+    //prevent handleNext if no answer has been given
+    console.log(givenAnswer);
+    if (!givenAnswer) return;
+    //adds the current question to the list of answered questions
     this.userObj.lastQIds[this.RootStore.UIStore.currentSection].push(this.currentQId);
+    //sets the answer to the question to the answer given
     this.userObj.allQs[this.currentQId].answered = givenAnswer;
-    this.userObj.allQs[this.currentQId].answeredOn = Date.now();
+    //sets the date and time of when the question was answered (not that this is needed!)
+    //this.userObj.allQs[this.currentQId].answeredOn = Date.now();
+    //sends the id of the next question to be set
     this.setCurrentQ(nxtQId);
+    //calls the function to update the localStorage
     this.setLocal();
+    //scrolls the window to the top of the page
     window.scrollTo(0, 0);
   };
 
@@ -125,6 +137,7 @@ export default class mobxSessionStore {
       letterId: letterId,
       createdOn: Date.now()
     };
+    window.scrollTo(0, 0);
   };
 
   @action('setInjuryLocation')
@@ -177,5 +190,15 @@ export default class mobxSessionStore {
     };
     this.userObj.injuries.push(newInjury);
     if (this.userObj.injuries[0].injuryType === 'none') this.userObj.injuries.shift();
+  };
+
+  @action('sendMessage')
+  sendMessage = message => {
+    fire
+      .database()
+      .ref()
+      .child(`messages/${Date.now()}`)
+      .set(message)
+      .then(() => console.log('sent'));
   };
 }

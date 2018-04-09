@@ -1,5 +1,4 @@
 import React from 'react';
-//import DatePicker from 'material-ui/DatePicker';
 
 const Dates = props => {
   return (
@@ -9,7 +8,6 @@ const Dates = props => {
       value={props.value}
       onChange={e => props.callback(e.target.value, props.q.nxtQId)}
     />
-    /*<DatePicker hintText="Portrait Dialog" />*/
   );
 };
 export default Dates;

@@ -19,7 +19,7 @@ class Menu extends Component {
 
   render() {
     return (
-      <Navbar dark expand={false}>
+      <Navbar dark expand={false} className="sticky-top">
         <NavbarBrand />
         <NavbarToggler onClick={this.props.RootStore.UIStore.toggleNavBar} aria-label="menu" />
         <Collapse
@@ -31,16 +31,25 @@ class Menu extends Component {
             <IndexLinkContainer to="/">
               <NavLink onClick={() => this.props.RootStore.UIStore.setCurrentSection('home')}> Home </NavLink>
             </IndexLinkContainer>
-            <IndexLinkContainer to="/faqs">
+            {/*<IndexLinkContainer to="/faqs">
               <NavLink onClick={() => this.props.RootStore.UIStore.setCurrentSection('faqs')}> FAQs </NavLink>
+    </IndexLinkContainer>*/}
+            <IndexLinkContainer key="2" to="/pre-case-tool">
+              <NavLink onClick={() => console.log(1) /*this.props.RootStore.UIStore.setCurrentSection('caseTool')*/}>
+                Case Tool
+              </NavLink>
             </IndexLinkContainer>
-            <IndexLinkContainer key="2" to="/case-tool">
-              <NavLink onClick={() => this.props.RootStore.UIStore.setCurrentSection('caseTool')}>Case Tool</NavLink>
+            <IndexLinkContainer key="3" to="/pre-valuer-tool">
+              <NavLink onClick={() => console.log(1) /*this.props.RootStore.UIStore.setCurrentSection('valuer')*/}>
+                Valuation Tool
+              </NavLink>
             </IndexLinkContainer>
-            <IndexLinkContainer key="3" to="/valuer">
-              <NavLink onClick={() => this.props.RootStore.UIStore.setCurrentSection('valuer')}>Valuation Tool</NavLink>
+            <IndexLinkContainer key="4" to="/guides">
+              <NavLink onClick={() => console.log(1) /*this.props.RootStore.UIStore.setCurrentSection('valuer')*/}>
+                Guides
+              </NavLink>
             </IndexLinkContainer>
-            <IndexLinkContainer key="4" to="/contact">
+            <IndexLinkContainer key="5" to="/contact">
               <NavLink onClick={() => this.props.RootStore.UIStore.setCurrentSection('contact')}>Get in Touch</NavLink>
             </IndexLinkContainer>
             <Link to="/" className="nav-link" onClick={() => localStorage.clear()}>

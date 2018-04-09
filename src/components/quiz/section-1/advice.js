@@ -1,13 +1,13 @@
 import React from 'react';
+import Accordion from './../../accordion/accordion';
 
 const Advice = props => {
   const allQs = props.allQs;
   const currentAdvice = props.q;
-  return (
-    <div className="advice">
-      <h4>Some feedback about your claim</h4>
-      <div className="text-justify">
-        <strong>General Points</strong>
+  const generalPoints = {
+    title: 'General Points',
+    body: (
+      <div>
         <p>
           In general terms, there is no legal barrier stopping you from bringing a case. Your case is in time, and you
           have until your 21st birthday or 3 years from the date of the incident in which to issue proceedings in the
@@ -26,18 +26,6 @@ const Advice = props => {
             damages.
           </p>
         )}
-        {/*allQs.dInsured.answered === 'dInsuredNo' && (
-          <p>
-            You have indicated that the defendant is not insured. This can cause a big problem as even if you do have a
-            good case you may not be able to get any money from them. However, if they were acting in the course of
-            their employment you may be able to bring a case against the company direct (for more information see this
-            guide –{' '}
-            <a href="link" target="_blank" rel="noopener noreferrer">
-              link
-            </a>).
-          </p>
-        )*/}
-
         {allQs.dInsured.answered === 'dInsuredDoNotKnow' &&
           (allQs.injuredBy.answered === 'injuredByPed' ||
             allQs.injuredBy.answered === 'injuredByBike' ||
@@ -207,10 +195,14 @@ const Advice = props => {
         ) : (
           <p />
         )}
-
-        <strong>Circumstances of Incident</strong>
+      </div>
+    )
+  };
+  const circumstancesOfIncident = {
+    title: 'Circumstances of Incident',
+    body: (
+      <div>
         {currentAdvice.element2a && <p>{currentAdvice.element2a}</p>}
-
         {allQs.injuredBy.answered === 'injuredByAnimal' ? (
           allQs.animalPet.answered === 'animalPetNo' ? (
             <p>
@@ -231,7 +223,6 @@ const Advice = props => {
         )}
         <p>{currentAdvice.filteringYes}</p>
         <p>{currentAdvice.filteringNo}</p>
-
         {currentAdvice.qId === 'oncomingAcrossPathAdvice' ? (
           allQs.filtering.answered === 'filteringYes' ? (
             <p>
@@ -254,7 +245,6 @@ const Advice = props => {
         ) : (
           <span />
         )}
-
         {currentAdvice.qId === 'vDirDetsSameQTurnIntoYouRAdvice' ? (
           allQs.filtering.answered === 'filteringYes' ? (
             <p>
@@ -273,7 +263,6 @@ const Advice = props => {
         ) : (
           <span />
         )}
-
         {allQs.pedFiltering.answered === 'pedFilteringYes' && (
           <p>
             You have indicated that you were filtering. If the pedestrian stepped in front of your path from the
@@ -316,7 +305,13 @@ const Advice = props => {
         ) : (
           <p />
         )}
-        <strong>Value Of Case</strong>
+      </div>
+    )
+  };
+  const valueOfCase = {
+    title: 'Value Of Case',
+    body: (
+      <div>
         <p>
           If you have sustained an injury and the case succeeds, you will be entitled to damages for this depending on
           the type of injury, its severity and the length of time it lasts. In addition you are entitled to your
@@ -335,13 +330,22 @@ const Advice = props => {
           If you have not sustained an injury and the case succeeds, you will still be entitled to damages for your
           financial losses as a result of the incident.
         </p>
-
         <strong>Next Steps</strong>
         <p>If you would now like to use the letter writing tool please press the 'next' button below.</p>
         <p>
           Alternatively, feel free to send us a message if you have any queries regarding the advice. We will not pass
           your details on to anyone else.
         </p>
+      </div>
+    )
+  };
+  return (
+    <div className="advice">
+      <h4>Some feedback about your claim</h4>
+      <div className="text-justify">
+        <Accordion content={generalPoints} />
+        <Accordion content={circumstancesOfIncident} />
+        <Accordion content={valueOfCase} />
       </div>
     </div>
   );

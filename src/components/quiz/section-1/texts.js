@@ -1,13 +1,7 @@
 import React from 'react';
-
+/*placeholder={props.q.answered ? props.q.answered : props.q.placeholder}*/
 const Texts = props => {
-  return (
-    <input
-      type="text"
-      placeholder={props.q.answered ? props.q.answered : props.q.placeholder}
-      value={props.value}
-      onChange={e => props.callback(e.target.value, props.q.nxtQId)}
-    />
-  );
+  console.log(props.value);
+  return <input type="text" value={props.value} onChange={e => props.callback(e.target.value, props.q.nxtQId)} />;
 };
 export default Texts;
