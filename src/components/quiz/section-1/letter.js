@@ -111,12 +111,14 @@ class Letter extends Component {
               Address: {this.props.RootStore.SessionStore.userObj.editedLetter.cAddress}
               <br />
               Incident date: {this.props.RootStore.SessionStore.userObj.editedLetter.iDate}
-              <span className={this.props.allQs.writeWho === 'writeWhoDefendant' ? 'hide' : ''}>
-                <br />
-                Defendant name: {this.props.RootStore.SessionStore.userObj.editedLetter.dFullName}
-                <br />
-                Policy number: {this.props.RootStore.SessionStore.userObj.editedLetter.dPolicyNumber}
-              </span>
+              {this.state.dPolicyNumber && (
+                <span>
+                  <br />
+                  Defendant name: {this.props.RootStore.SessionStore.userObj.editedLetter.dFullName}
+                  <br />
+                  Policy number: {this.props.RootStore.SessionStore.userObj.editedLetter.dPolicyNumber}
+                </span>
+              )}
             </strong>
           ) : (
             <strong>
@@ -146,7 +148,7 @@ class Letter extends Component {
                 onChange={e => this.setState({ iDate: e.target.value }, () => this.props.callback(this.state))}
               />
               <br />
-              {this.props.allQs.writeWho.answered !== 'writeWhoDefendant' && (
+              {this.state.dPolicyNumber && (
                 <span>
                   <label htmlFor="dFullName">Defendant name:</label>
                   <input

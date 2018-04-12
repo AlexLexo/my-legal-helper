@@ -1,6 +1,9 @@
 html {
   touch-action: manipulation;
 }
+body {
+  font-family: "Quicksand" !important;
+}
 
 /*buttons*/
 .btn {
@@ -227,7 +230,7 @@ html {
   }
 }
 
-.dropdown-toggle {
+/*.dropdown-toggle {
   width: 80%;
   max-width: 600px;
   height: 50px;
@@ -238,7 +241,7 @@ html {
   width: 80%;
   max-width: 600px;
   min-width: 260px;
-}
+}*/
 
 .app {
   padding-right: auto;

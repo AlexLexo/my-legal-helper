@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
+import ReactGA from 'react-ga';
 
 import Contact from './../contact/contact';
 
@@ -19,8 +20,18 @@ class Home extends Component {
   componentWillMount() {
     this.props.RootStore.UIStore.handleFadeIn();
   }
+
+  componentDidMount() {
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }
+
   handleClick = e => {
     this.props.history.push(e.target.name);
+    ReactGA.event({
+      category: 'content interaction',
+      action: `clicked button: ${e.target.id}`,
+      label: e.target.id
+    });
   };
   render() {
     return (
@@ -28,7 +39,7 @@ class Home extends Component {
         <div className="home-landing">
           <img alt="Litem Logo" className="home-landing-logo" src={LogoDark} />
           <h3>Free tools and guides for injured cyclists to exercise their rights</h3>
-          <button className="btn btn-primary btn-get-started" onClick={this.handleClick} name="quiz">
+          <button className="btn btn-primary btn-get-started" onClick={this.handleClick} id="get started 1" name="quiz">
             Get Started
           </button>
         </div>
@@ -53,35 +64,6 @@ class Home extends Component {
               <img alt="Selling Point 3" className="home-why-use-litem-imgs" src={imgThree} />
               <h3>Our straight-forward process makes it easy for you to settle your own case.</h3>
             </div>
-            {/*<h3>Use our process to settle your case:</h3>
-              <div className="row">
-                <div className="col-12">
-                  <button
-                    type="button"
-                    className="btn btn-primary btn-home-why-use-litem"
-                    onClick={e => this.handleClick(e)}
-                    name="case-tool"
-                  >
-                    Do I have a case? / write a letter (takes 5 mins)
-                  </button>
-                  <button
-                    type="button"
-                    className="btn btn-primary btn-home-why-use-litem"
-                    onClick={e => this.handleClick(e)}
-                    name="valuer"
-                  >
-                    What is my case worth (takes 3 mins)
-                  </button>
-                  <button
-                    type="button"
-                    className="btn btn-primary btn-home-why-use-litem"
-                    onClick={e => this.handleClick(e)}
-                    name="valuer"
-                  >
-                    Or would you prefer to read our guides
-                  </button>
-              </div>
-              </div>*/}
           </div>
         </div>
         <div className="container-fluid home-our-process">
@@ -139,13 +121,14 @@ class Home extends Component {
           <button
             type="button"
             className="btn btn-primary btn-get-started"
-            onClick={() => this.props.history.push(`quiz`)}
-            name="caseTool"
+            onClick={this.handleClick}
+            id="get started 2"
+            name="quiz"
           >
             Get Started
           </button>
         </div>
-        <Contact />
+        <Contact id="home conact form" />
         <footer>
           <p>
             Litem is an online service providing legal information.<br />It is not a substitute for a lawyer’s advice

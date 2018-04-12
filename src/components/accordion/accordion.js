@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Collapse } from 'reactstrap';
+import ReactGA from 'react-ga';
 
 class Accordion extends Component {
   state = { collapse: false, status: 'closed' };
@@ -9,6 +10,11 @@ class Accordion extends Component {
   };
   onEntering = () => {
     this.setState({ status: 'opening' });
+    ReactGA.event({
+      category: 'content interaction',
+      action: `opened accordion: ${this.props.id}`,
+      label: this.props.id
+    });
   };
 
   onEntered = () => {
@@ -21,6 +27,11 @@ class Accordion extends Component {
 
   onExited = () => {
     this.setState({ status: 'closed' });
+    ReactGA.event({
+      category: 'content interaction',
+      action: `closed accordion: ${this.props.id}`,
+      label: this.props.id
+    });
   };
 
   render() {

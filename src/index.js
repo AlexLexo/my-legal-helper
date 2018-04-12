@@ -6,9 +6,8 @@ import registerServiceWorker from './registerServiceWorker';
 import RootStore from './stores/root-store';
 import Routes from './components/routes/routes';
 
-//import 'typeface-quicksand';
 import 'bootstrap/scss/bootstrap.scss';
-import './index.css';
+import './index.scss';
 
 ReactDOM.render(
   <Provider RootStore={new RootStore()}>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactGA from 'react-ga';
 import { observer, inject } from 'mobx-react';
 
 import './contact.css';
@@ -16,6 +17,9 @@ class Contact extends Component {
   componentWillMount() {
     this.props.RootStore.UIStore.handleFadeIn();
   }
+  componentDidMount() {
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }
 
   handleSubmit = e => {
     e.preventDefault();
@@ -28,6 +32,11 @@ class Contact extends Component {
       this.props.RootStore.SessionStore.sendMessage(message);
       this.props.RootStore.UIStore.handleFadeIn();
       this.resetState();
+      ReactGA.event({
+        category: 'contact form',
+        action: `message sent: ${this.props.id}`,
+        label: this.props.id
+      });
     });
   };
   resetState = () => {

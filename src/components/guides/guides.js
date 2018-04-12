@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactGA from 'react-ga';
 import Accordion from './../accordion/accordion';
 
 const guide1 = {
@@ -224,8 +225,8 @@ const guide10 = {
     </div>
   )
 };
-
 const Guides = props => {
+  ReactGA.pageview(window.location.pathname + window.location.search);
   return (
     <div className="guides">
       <h1>Guides</h1>
@@ -233,16 +234,16 @@ const Guides = props => {
         Here are our guides to help you settle you case. Please let us know if you would like to see a guide which isn't
         shown.
       </h3>
-      <Accordion content={guide1} />
-      <Accordion content={guide2} />
-      <Accordion content={guide3} />
-      <Accordion content={guide4} />
-      <Accordion content={guide5} />
-      <Accordion content={guide6} />
-      <Accordion content={guide7} />
-      <Accordion content={guide8} />
-      <Accordion content={guide9} />
-      <Accordion content={guide10} />
+      <Accordion id="guide1" content={guide1} />
+      <Accordion id="guide2" content={guide2} />
+      <Accordion id="guide3" content={guide3} />
+      <Accordion id="guide4" content={guide4} />
+      <Accordion id="guide5" content={guide5} />
+      <Accordion id="guide6" content={guide6} />
+      <Accordion id="guide7" content={guide7} />
+      <Accordion id="guide8" content={guide8} />
+      <Accordion id="guide9" content={guide9} />
+      <Accordion id="guide10" content={guide10} />
     </div>
   );
 };

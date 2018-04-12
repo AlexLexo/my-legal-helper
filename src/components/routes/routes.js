@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route, BrowserRouter, Switch } from 'react-router-dom';
 import { observer, inject } from 'mobx-react';
+import ReactGA from 'react-ga';
 
 import Menu from './../menu/menu';
 import Home from './../home/home';
@@ -18,6 +19,11 @@ import NotFound from './../not-found/not-found';
 @inject('RootStore')
 @observer
 class Routes extends Component {
+  componentDidMount() {
+    ReactGA.initialize('UA-77504696-3');
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }
+
   render() {
     return (
       <BrowserRouter>
