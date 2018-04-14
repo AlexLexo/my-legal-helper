@@ -1,4 +1,6 @@
 import React from 'react';
+import BtnGetStarted from './../styled-components/btn-get-started';
+import { pageView, handleNavClick } from './../../services/ga-helpers';
 
 const preValuer = (
   <React.Fragment>
@@ -20,17 +22,16 @@ const preValuer = (
 );
 
 class PreTool extends React.Component {
+  componentDidMount() {
+    pageView(window.location.pathname);
+  }
   render() {
     return (
       <div className="pre-tool">
         {preValuer}
-        <button
-          type="button"
-          className="btn btn-primary btn-get-started"
-          onClick={() => this.props.history.push('valuer')}
-        >
-          Get Started
-        </button>
+        <BtnGetStarted onClick={e => handleNavClick(e, this.props.history)} id="get started pre-valuer" name="valuer">
+          Start
+        </BtnGetStarted>
       </div>
     );
   }

@@ -1,10 +1,13 @@
 import React from 'react';
+import Header from './../../styled-components/header';
+import P from './../../styled-components/p';
 
 const Weak = props => {
   return (
-    <div className="weak text-justify">
-      <p>{props.q.reason}</p>
-    </div>
+    <React.Fragment>
+      <Header>{props.q.title}</Header>
+      <P>{props.q.reason}</P>
+    </React.Fragment>
   );
 };
 

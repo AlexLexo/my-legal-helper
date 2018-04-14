@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactGA from 'react-ga';
 import { observer, inject } from 'mobx-react';
 
+import { pageView } from './../../services/ga-helpers';
 import './contact.css';
 
 @inject('RootStore')
@@ -18,7 +19,7 @@ class Contact extends Component {
     this.props.RootStore.UIStore.handleFadeIn();
   }
   componentDidMount() {
-    ReactGA.pageview(window.location.pathname + window.location.search);
+    pageView(window.location.pathname);
   }
 
   handleSubmit = e => {

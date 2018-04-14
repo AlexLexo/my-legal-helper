@@ -852,13 +852,17 @@ label {
   cursor: pointer;
 }
 
+input[type="date"]::-webkit-inner-spin-button {
+  display: none;
+}
+
 @media print {
-  div.bottom-button-group-container,
   nav {
     display: none;
   }
   * {
     color: black;
+    background-color: white;
   }
   .section1,
   .letter {

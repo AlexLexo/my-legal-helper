@@ -1,7 +1,12 @@
 import React from 'react';
 import Lightbox from './../lightbox/lightbox';
 
+import { pageView } from './../../services/ga-helpers';
+
 class PreTool extends React.Component {
+  componentDidMount() {
+    pageView(window.location.pathname);
+  }
   render() {
     return (
       <div className="pre-tool">

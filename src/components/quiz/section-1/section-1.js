@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
 import DOMPurify from 'dompurify';
 import moment from 'moment';
+import { pageView, clicked } from './../../../services/ga-helpers';
+
+import Title from './../../styled-components/title';
+import Container from './../../styled-components/container';
+import Header from './../../styled-components/header';
 
 import Weak from './weak';
 import Advice from './advice';
@@ -13,7 +18,9 @@ import Buttons from './buttons';
 import Dropdowns from './dropdowns';
 import Texts from './texts';
 import Dates from './dates';
+import PostCaseTool from './../../post-case-tool/post-case-tool';
 import PreLetter from './../../pre-letter-tool/pre-letter-tool';
+import PostLetter from './../../post-letter-tool/post-letter-tool';
 //import Test from './test';
 
 @inject('RootStore')
@@ -40,6 +47,9 @@ class Section1 extends Component {
     if (this.props.history.location.pathname === '/case-tool')
       this.props.RootStore.UIStore.setCurrentSection('caseTool');
   }
+  componentDidMount() {
+    pageView(window.location.pathname);
+  }
 
   handleBack = () => {
     if (this.state.editedLetter) {
@@ -52,17 +62,20 @@ class Section1 extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
+    //if the type is 'weak' then the next button does nothing
     if (this.qs[this.qId].type === 'weak') return;
+    //reset the dropdown
     this.resetDropdown = !this.resetDropdown;
+
     if (this.qId === 'valInjuryDuration') {
-      //injuryDuration
+      //if the question is 'valInjuryDuration' then do the calculation
       const injuryStart = moment(this.state.value1, 'DD/MM/YYYY');
       const injuryEnd = moment(this.state.value2, 'DD/MM/YYYY');
       const injuryDuration = injuryEnd.diff(injuryStart, 'days');
       this.props.RootStore.SessionStore.setInjuryDuration(this.state.value1, this.state.value2, injuryDuration);
       this.postSubmit();
     } else if (this.qId === 'iDate') {
-      //timeBarred
+      //if the question is 'iDate' then do the calculation
       const dob = moment(this.qs.cDOB.answered, 'DD/MM/YYYY');
       const accidentDate = moment(this.state.value, 'DD/MM/YYYY');
       const nowMinus3 = moment().subtract(3, 'years');
@@ -75,14 +88,15 @@ class Section1 extends Component {
         this.postSubmit();
       }
     } else if (this.state.nxtQId === 'injuryLocation') {
-      //set injury location
+      //if the next question is 'injuryLocation' then add the value to the injury array and go to postSubmit
       this.props.RootStore.SessionStore.setInjuryLocation(this.state.value);
       this.postSubmit();
     } else if (this.qs[this.qId].type === 'letter') {
-      //go to edited letter
+      //if the question type is 'letter' then show the edited letter and setState accordingly
       this.props.RootStore.SessionStore.setEditedLetter(this.state.value, this.state.nxtQId);
       this.setState({ editedLetter: true });
     } else {
+      //if none of the above go to postSubmit
       this.postSubmit();
     }
   };
@@ -102,6 +116,8 @@ class Section1 extends Component {
     let nxtQId = this.state.nxtQId === '' ? this.qs[this.qId].nxtQId : this.state.nxtQId;
     if (this.qs[this.qId].type === 'advice') value = 'advice';
     if (this.qs[this.qId].type === 'preletter') value = 'preletter';
+    if (this.qs[this.qId].type === 'postCaseTool') value = 'preCaseTool';
+    if (this.qs[this.qId].type === 'postLetter') value = 'postLetter';
     if (!value || !nxtQId) return alert('please enter an answer');
     this.props.RootStore.SessionStore.handleNext(value, nxtQId);
     this.resetState();
@@ -212,9 +228,30 @@ class Section1 extends Component {
           />
         );
         break;
+      case 'postCaseTool':
+        this.input = (
+          <PostCaseTool
+            history={this.props.history}
+            allQs={this.qs}
+            q={this.qs[this.qId]}
+            callback={(p, v, n) => this.setState({ value: 'multiValue', [p]: v, nxtQId: n })}
+          />
+        );
+        break;
       case 'preletter':
         this.input = (
           <PreLetter
+            history={this.props.history}
+            allQs={this.qs}
+            q={this.qs[this.qId]}
+            callback={(p, v, n) => this.setState({ value: 'multiValue', [p]: v, nxtQId: n })}
+          />
+        );
+        break;
+      case 'postLetter':
+        this.input = (
+          <PostLetter
+            history={this.props.history}
             allQs={this.qs}
             q={this.qs[this.qId]}
             callback={(p, v, n) => this.setState({ value: 'multiValue', [p]: v, nxtQId: n })}
@@ -224,6 +261,7 @@ class Section1 extends Component {
       case 'valuation':
         this.input = (
           <Valuation
+            history={this.props.history}
             allQs={this.qs}
             q={this.qs[this.qId]}
             injuries={this.props.RootStore.SessionStore.userObj.injuries}
@@ -234,8 +272,9 @@ class Section1 extends Component {
         break;
     }
     return (
-      <div className="section1">
-        {/*<p onClick={() => this.setState({ test: !this.test })}>test</p>*/}
+      <Container>
+        {/*<div className="section1">
+        <p onClick={() => this.setState({ test: !this.test })}>test</p>*/}
         {/*this.state.test ? (
           <Test />
         ): this.qs[this.qId].type === 'preletter' ? (
@@ -247,20 +286,27 @@ class Section1 extends Component {
           />
         ) :*/ this
           .qs[this.qId].qId === 'val0' ? (
-          <div>
-            <h1>Valuation Tool</h1>
+          <Container>
+            <Title>Valuation Tool</Title>
             <br />
-            <h3>Building the best personal injury valuation tool on the internet takes time!</h3>
+            <Header>Building the best personal injury valuation tool on the internet takes time!</Header>
             <br />
-            <h5>Check back with us in {moment('20180430', 'YYYYMMDD').fromNow()} to get your valuation!</h5>
-          </div>
+            <Header>Check back with us in {moment('20180430', 'YYYYMMDD').fromNow()} to get your valuation!</Header>
+          </Container>
         ) : (
           <React.Fragment>
             <div
               className={`section1-title ${
                 this.qs[this.qId].type !== 'letter' &&
                 this.qs[this.qId].type !== 'valuation' &&
+                this.qs[this.qId].type !== 'postCaseTool' &&
+                this.qs[this.qId].type !== 'postLetter' &&
                 this.qs[this.qId].type !== 'preletter' &&
+                this.qs[this.qId].type !== 'text' &&
+                this.qs[this.qId].type !== 'date' &&
+                this.qs[this.qId].type !== 'button' &&
+                this.qs[this.qId].type !== 'dropdown' &&
+                this.qs[this.qId].type !== 'weak' &&
                 this.qs[this.qId].type !== 'advice'
                   ? 'show'
                   : 'hide'
@@ -274,13 +320,16 @@ class Section1 extends Component {
             </div>
 
             <form onSubmit={this.handleSubmit}>
-              <div className="input">{this.input}</div>
+              <Container>{this.input}</Container>
               <div className="bottom-button-group-container">
                 <div className="bottom-button-group">
                   {this.qs[this.qId].qId !== 'val0' ? (
                     <input
                       type="button"
-                      onClick={this.handleBack}
+                      onClick={() => {
+                        this.handleBack();
+                        clicked(`case-tool back on ${this.qId}`);
+                      }}
                       value="Back"
                       className={`btn btn-primary bottom-button float-left pull-left ${this.qs[this.qId].qId ===
                         'cFullName' && 'disabled'}`}
@@ -303,14 +352,16 @@ class Section1 extends Component {
                       value="Next"
                       className={`btn btn-primary bottom-button float-right pull-right ${this.qs[this.qId].type ===
                         'weak' && 'disabled'}`}
+                      onClick={() => clicked(`case-tool next on ${this.qId}`)}
                     />
                   ) : (
                     <input
                       type="print"
-                      value="print your letter"
+                      value="print"
                       onClick={() => {
                         window.scrollTo(0, 0);
                         window.print();
+                        clicked('case-tool print letter');
                       }}
                       className="btn btn-primary bottom-button float-right pull-right"
                     />
@@ -320,7 +371,7 @@ class Section1 extends Component {
             </form>
           </React.Fragment>
         )}
-      </div>
+      </Container>
     );
   }
 }

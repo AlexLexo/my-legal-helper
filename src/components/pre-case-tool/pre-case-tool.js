@@ -1,4 +1,6 @@
 import React from 'react';
+import BtnGetStarted from './../styled-components/btn-get-started';
+import { pageView, handleNavClick } from './../../services/ga-helpers';
 
 const preCase = (
   <React.Fragment>
@@ -11,17 +13,16 @@ const preCase = (
 );
 
 class PreTool extends React.Component {
+  componentDidMount() {
+    pageView(window.location.pathname);
+  }
   render() {
     return (
       <div className="pre-tool">
         {preCase}
-        <button
-          type="button"
-          className="btn btn-primary btn-get-started"
-          onClick={() => this.props.history.push('case-tool')}
-        >
-          Get Started
-        </button>
+        <BtnGetStarted onClick={e => handleNavClick(e, this.props.history)} id="get started pre-case" name="case-tool">
+          Start
+        </BtnGetStarted>
       </div>
     );
   }
