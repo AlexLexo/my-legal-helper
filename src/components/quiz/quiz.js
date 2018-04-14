@@ -39,7 +39,6 @@ class Quiz extends Component {
             <br />Please tick here to confirm that you have read this
             <Checkbox onClick={() => this.setState({ show: !this.state.show })} />
           </P>
-
           <div className={this.state.show ? 'show' : 'hide'}>
             <Header dark>Please select one of the following:</Header>
             <br />
