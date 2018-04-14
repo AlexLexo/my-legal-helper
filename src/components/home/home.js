@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
-import ReactGA from 'react-ga';
+
+import { pageView, handleNavClick } from './../../services/ga-helpers';
+import BtnGetStarted from './../styled-components/btn-get-started';
+import P from './../styled-components/p';
+import Header from './../styled-components/header';
+import Title from './../styled-components/title';
 
 import Contact from './../contact/contact';
 
@@ -12,7 +17,6 @@ import imgQuestionMark from './../../assets/IMAGES/img-question-mark.svg';
 import imgPoundSign from './../../assets/IMAGES/img-pound-sign.svg';
 import imgLetter from './../../assets/IMAGES/img-letter.svg';
 import imgTick from './../../assets/IMAGES/img-tick.svg';
-import './home.css';
 
 @inject('RootStore')
 @observer
@@ -22,26 +26,18 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    ReactGA.pageview(window.location.pathname + window.location.search);
+    pageView(window.location.pathname);
   }
 
-  handleClick = e => {
-    this.props.history.push(e.target.name);
-    ReactGA.event({
-      category: 'content interaction',
-      action: `clicked button: ${e.target.id}`,
-      label: e.target.id
-    });
-  };
   render() {
     return (
       <React.Fragment>
         <div className="home-landing">
           <img alt="Litem Logo" className="home-landing-logo" src={LogoDark} />
           <h3>Free tools and guides for injured cyclists to exercise their rights</h3>
-          <button className="btn btn-primary btn-get-started" onClick={this.handleClick} id="get started 1" name="quiz">
-            Get Started
-          </button>
+          <BtnGetStarted onClick={e => handleNavClick(e, this.props.history)} id="get started home1" name="quiz">
+            Start
+          </BtnGetStarted>
         </div>
 
         <div className="container-fluid home-why-use-litem">
@@ -88,47 +84,43 @@ class Home extends Component {
           </div>
         </div>
 
-        <div className="faqs">
-          <h1> FAQs </h1>
-          <h3>IS MY DATA SAFE?</h3>
-          <p>
+        <div className="">
+          <Title> FAQs </Title>
+          <Header>IS MY DATA SAFE?</Header>
+          <P>
             Yes, our website is designed to be 100% secure. None of your personal data leaves your device so you can be
             confident that it cannot be accessed by us or anyone else.
-          </p>
-          <h3>WHO ARE WE?</h3>
-          <p>
+          </P>
+          <Header>WHO ARE WE?</Header>
+          <P>
             Litem was built by a team who are passionate about access to justice and putting the law in the hands of
             injured people. All the legal advice has been checked by an expert.
-          </p>
-          <h3>WHY IS LITEM FREE?</h3>
-          <p>
+          </P>
+          <Header>WHY IS LITEM FREE?</Header>
+          <P>
             Litem was built on the principle that injured people shouldn't have to pay for advice. Our team have given
             their time without charge because they believe in access to justice.
-          </p>
-          <h3>DO I NEED A LAWYER?</h3>
-          <p>
+          </P>
+          <Header>DO I NEED A LAWYER?</Header>
+          <P>
             You should speak with a lawyer if your case is complex e.g. if the defendants want to fight the case or you
             have suffered serious injury. However, most cases can be settled without instructing a solicitor. Our tools
             and guides provide everything you need to settle your injury case directly with the defendant's insurer.
-          </p>
-          <h3>HOW ACCURATE IS LITEM?</h3>
-          <p>
+          </P>
+          <Header>HOW ACCURATE IS LITEM?</Header>
+          <P>
             A lot of time has been taken to make our advice as accurate as possible. However, we offer a free legal
             information service and it is not as accurate as instructing a lawyer. If you have a query or would like us
             to suggest a law firm then feel free to get in touch and we will send you some suggestions. We are not paid
             to recommend these law firms and we will never pass your details on to anyone.
-          </p>
-          <button
-            type="button"
-            className="btn btn-primary btn-get-started"
-            onClick={this.handleClick}
-            id="get started 2"
-            name="quiz"
-          >
-            Get Started
-          </button>
+          </P>
+          <br />
+          <br />
+          <BtnGetStarted onClick={e => handleNavClick(e, this.props.history)} id="get started home2" name="quiz">
+            Start
+          </BtnGetStarted>
         </div>
-        <Contact id="home conact form" />
+        <Contact id="home contact form" />
         <footer>
           <p>
             Litem is an online service providing legal information.<br />It is not a substitute for a lawyer’s advice

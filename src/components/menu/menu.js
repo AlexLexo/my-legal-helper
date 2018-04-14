@@ -3,6 +3,7 @@ import { observer, inject } from 'mobx-react';
 import { Link } from 'react-router-dom';
 import { IndexLinkContainer } from 'react-router-bootstrap';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavLink } from 'reactstrap';
+import { clicked } from './../../services/ga-helpers';
 import './menu.css';
 
 @inject('RootStore')
@@ -12,16 +13,23 @@ class Menu extends Component {
     this.props.RootStore.UIStore.handleFadeIn();
   }
 
-  handleNavbarBrandClick = () =>
+  /*handleNavbarBrandClick = () =>
     !this.props.RootStore.UIStore.navBarIsOpen
       ? this.props.history.push('/')
-      : this.props.RootStore.UIStore.closeNavBar();
+      : this.props.RootStore.UIStore.closeNavBar();*/
 
   render() {
     return (
       <Navbar dark expand={false} className="sticky-top">
         <NavbarBrand />
-        <NavbarToggler onClick={this.props.RootStore.UIStore.toggleNavBar} aria-label="menu" />
+        <NavbarToggler
+          onClick={e => {
+            this.props.RootStore.UIStore.toggleNavBar();
+            clicked(e.target.id);
+          }}
+          aria-label="menu"
+          id="menu toggler"
+        />
         <Collapse
           isOpen={this.props.RootStore.UIStore.navBarIsOpen}
           navbar
@@ -29,30 +37,58 @@ class Menu extends Component {
         >
           <Nav className="ml-auto" navbar>
             <IndexLinkContainer to="/">
-              <NavLink onClick={() => this.props.RootStore.UIStore.setCurrentSection('home')}> Home </NavLink>
+              <NavLink
+                id="menu home"
+                onClick={e => clicked(e.target.id) /*this.props.RootStore.UIStore.setCurrentSection('home')*/}
+              >
+                Home
+              </NavLink>
             </IndexLinkContainer>
             {/*<IndexLinkContainer to="/faqs">
               <NavLink onClick={() => this.props.RootStore.UIStore.setCurrentSection('faqs')}> FAQs </NavLink>
     </IndexLinkContainer>*/}
             <IndexLinkContainer key="2" to="/pre-case-tool">
-              <NavLink onClick={() => console.log(1) /*this.props.RootStore.UIStore.setCurrentSection('caseTool')*/}>
+              <NavLink
+                id="menu case"
+                onClick={e => clicked(e.target.id) /*this.props.RootStore.UIStore.setCurrentSection('caseTool')*/}
+              >
                 Case Tool
               </NavLink>
             </IndexLinkContainer>
             <IndexLinkContainer key="3" to="/pre-valuer-tool">
-              <NavLink onClick={() => console.log(1) /*this.props.RootStore.UIStore.setCurrentSection('valuer')*/}>
+              <NavLink
+                id="menu valuer"
+                onClick={e => clicked(e.target.id) /*this.props.RootStore.UIStore.setCurrentSection('valuer')*/}
+              >
                 Valuation Tool
               </NavLink>
             </IndexLinkContainer>
             <IndexLinkContainer key="4" to="/guides">
-              <NavLink onClick={() => console.log(1) /*this.props.RootStore.UIStore.setCurrentSection('valuer')*/}>
+              <NavLink
+                id="menu guides"
+                onClick={e => clicked(e.target.id) /*this.props.RootStore.UIStore.setCurrentSection('valuer')*/}
+              >
                 Guides
               </NavLink>
             </IndexLinkContainer>
             <IndexLinkContainer key="5" to="/contact">
-              <NavLink onClick={() => this.props.RootStore.UIStore.setCurrentSection('contact')}>Get in Touch</NavLink>
+              <NavLink
+                id="menu contact"
+                onClick={e => clicked(e.target.id) /*this.props.RootStore.UIStore.setCurrentSection('contact')*/}
+              >
+                Get in Touch
+              </NavLink>
             </IndexLinkContainer>
-            <Link to="/" className="nav-link" onClick={() => localStorage.clear()}>
+            <Link
+              to="/"
+              id="menu start fresh"
+              className="nav-link"
+              onClick={e => {
+                clicked(e.target.id);
+                localStorage.clear();
+                this.props.RootStore.SessionStore.setUserObj();
+              }}
+            >
               Start Fresh
             </Link>
           </Nav>

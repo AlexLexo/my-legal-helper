@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactGA from 'react-ga';
+import { pageView } from './../../services/ga-helpers';
 import Accordion from './../accordion/accordion';
 
 const guide1 = {
@@ -225,8 +225,9 @@ const guide10 = {
     </div>
   )
 };
+
 const Guides = props => {
-  ReactGA.pageview(window.location.pathname + window.location.search);
+  pageView(window.location.pathname);
   return (
     <div className="guides">
       <h1>Guides</h1>

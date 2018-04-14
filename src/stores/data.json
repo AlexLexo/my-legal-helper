@@ -797,123 +797,128 @@
   },
   "animal": {
     "qId": "animal",
-    "nxtQId": "preletter",
+    "nxtQId": "postCaseTool",
     "type": "advice"
   },
   "dooredPassenger": {
     "qId": "dooredPassenger",
-    "nxtQId": "preletter",
+    "nxtQId": "postCaseTool",
     "type": "advice",
     "element2a":
       "You were injured when a passenger opened their door into your path. This would normally mean that you have a good case as they have a duty to keep a look out to make sure it is safe before opening the door. An exception might be if the door had been open for long enough for you to have safely stopped or manoeuvred around it. Normally the driver's insurer will provide cover in these circumstances."
   },
   "dooredDriver": {
     "qId": "dooredDriver",
-    "nxtQId": "preletter",
+    "nxtQId": "postCaseTool",
     "type": "advice",
     "element2a":
       "You were injured when the driver opened their door into your path. This would normally mean that you have a good case as they have a duty to keep a look out to make sure it is safe before opening the door. An exception might be if the door had been open for long enough for you to have safely stopped or manoeuvred around it."
   },
   "fromBehindObj": {
     "qId": "fromBehindObj",
-    "nxtQId": "preletter",
+    "nxtQId": "postCaseTool",
     "type": "advice",
     "element2a":
       "You were injured when a pedestrian stepped into your path from behind an object whilst you were cycling. You should bear in mind that the courts expect cyclists to keep an eye out for pedestrians. However, if you did not have any warning of the presence of the pedestrian, and there was little you could have done to avoid the incident, you should have a good case."
   },
   "green": {
     "qId": "green",
-    "nxtQId": "preletter",
+    "nxtQId": "postCaseTool",
     "type": "advice",
     "element2a":
       "You were injured when you collided with a pedestrian at a set of traffic lights. Given that the light was green it was your right of way so you should have a good case."
   },
   "roundaboutL": {
     "qId": "roundaboutL",
-    "nxtQId": "preletter",
+    "nxtQId": "postCaseTool",
     "type": "advice",
     "element2a":
       "You were injured when you were hit on a roundabout by a vehicle entering the roundabout. On that basis it sounds like you should have a good case, given that it was your right of way."
   },
   "offPavement": {
     "qId": "offPavement",
-    "nxtQId": "preletter",
+    "nxtQId": "postCaseTool",
     "type": "advice",
     "element2a":
       "You were injured when a pedestrian stepped out from the pavement into your path whilst you were cycling. You should bear in mind that the courts expect cyclists to keep an eye out for pedestrians. However, if you did not have any warning of the presence of the pedestrian, and there was little you could have done to avoid the incident, you should have a good case. Alternatively, if the pedestrian can show that you should have been aware that they were crossing the road and you had the opportunity to stop or slow down to avoid the collision then this may weaken your case."
   },
   "oncomingAcrossPathAdvice": {
     "qId": "oncomingAcrossPathAdvice",
-    "nxtQId": "preletter",
+    "nxtQId": "postCaseTool",
     "type": "advice"
   },
   "oncomingOvertakingAdvice": {
     "qId": "oncomingOvertakingAdvice",
-    "nxtQId": "preletter",
+    "nxtQId": "postCaseTool",
     "type": "advice",
     "element2a":
       "You were injured when the defendant was oncoming and strayed into your path as they were overtaking. They had a duty to check that it was safe to proceed as it was a dangerous manoeuvre. On that basis it sounds like you should have a good case."
   },
   "pedRanInto": {
     "qId": "pedRanInto",
-    "nxtQId": "preletter",
+    "nxtQId": "postCaseTool",
     "type": "advice",
     "element2a":
       "You were injured when a pedestrian ran into the side of you whilst you were cycling. On that basis you should have a good case, unless the incident occurred where cycling was not permitted or where it was the defendant's right of way, such as on a pedestrian crossing."
   },
   "rearEndedBy": {
     "qId": "rearEndedBy",
-    "nxtQId": "preletter",
+    "nxtQId": "postCaseTool",
     "type": "advice",
     "element2a":
       "You were injured when the defendant went into the back of you whilst you were cycling. The strong presumption is that they were at fault as they were too close. On that basis it sounds like you should have a good case."
   },
   "redAmber": {
     "qId": "redAmber",
-    "nxtQId": "preletter",
+    "nxtQId": "postCaseTool",
     "type": "advice",
     "element2a":
       "You were injured when a pedestrian crossed into your path at a set of traffic lights which indicated that it was my right-of-way. Given that the traffic light had only just moved from red a court would expect you to keep an eye out for any pedestrians still crossing. On that basis it might be a challenge to win the case."
   },
   "roadDefect": {
     "qId": "roadDefect",
-    "nxtQId": "preletter",
+    "nxtQId": "postCaseTool",
     "type": "advice",
     "element2a":
       "You were in an accident caused by a defect in the road. It is important to take photographs of the defect as soon as possible to show how it looked at the time of the incident. Go back to the scene to record the size of the defect and to take photographs with a tape measure in shot so you can accurately show how deep and wide it is.<br /><br />Winning these cases can be challenging. Even if you can show that the defect was a dangerous hazard, the highway authority need only show that they had a 'reasonable system of inspection' in place to avoid blame. The frequency of inspections required will often be once every 3 - 6 months, depending on the type of road. If the highway authority can show that they inspected the road within that timescale then you would need to show that they missed the defect or that they should have been aware of the defect in any event, such as if people had complained about the defect since the inspection."
   },
   "vTurned2SideRoadAdvice": {
     "qId": "vTurned2SideRoadAdvice",
-    "nxtQId": "preletter",
+    "nxtQId": "postCaseTool",
     "type": "advice",
     "element2a":
       "You were injured when you were in an incident with another road user as they were entering your road from a side road. The responsibility was on them to check that it was safe to proceed, as it was your right of way, so your case sounds strong on that basis."
   },
   "vTurned2ParkingAdvice": {
     "qId": "vTurned2ParkingAdvice",
-    "nxtQId": "preletter",
+    "nxtQId": "postCaseTool",
     "type": "advice",
     "element2a":
       "You were injured when you were in an incident with another road user as they were leaving a parking spot. The responsibility was on them to check that it was safe to proceed, as it was your right of way, so your case sounds strong on that basis."
   },
   "vTurned1ChangingLanesAdvice": {
     "qId": "vTurned1ChangingLanesAdvice",
-    "nxtQId": "preletter",
+    "nxtQId": "postCaseTool",
     "type": "advice",
     "element2a":
       "You were injured when the defendant turned into you when they changed lanes. It was their duty to check that it is safe to make the manoeuvre and, on that basis, it sounds like you should have a good case."
   },
   "vDirDetsSameQTurnIntoYouLAdvice": {
     "qId": "vDirDetsSameQTurnIntoYouLAdvice",
-    "nxtQId": "preletter",
+    "nxtQId": "postCaseTool",
     "type": "advice",
     "element2a":
       "You were injured when the defendant struck you when they were turning into a side road. It was their duty to check that it is safe to make the manoeuvre and, on that basis, it sounds like you should have a good case."
   },
   "vDirDetsSameQTurnIntoYouRAdvice": {
     "qId": "vDirDetsSameQTurnIntoYouRAdvice",
-    "nxtQId": "preletter",
+    "nxtQId": "postCaseTool",
     "type": "advice"
+  },
+  "postCaseTool": {
+    "qId": "postCaseTool",
+    "nxtQId": "preletter",
+    "type": "postCaseTool"
   },
   "preletter": {
     "qId": "preletter",
@@ -1796,7 +1801,7 @@
       {
         "ansId": "writeWhoDefendant",
         "ansLabel": "Defendant",
-        "nxtQId": "letter"
+        "nxtQId": "postLetter"
       },
       {
         "ansId": "writeWhoInsurer",
@@ -1807,12 +1812,16 @@
   },
   "dPolicyNumber": {
     "qId": "dPolicyNumber",
-    "nxtQId": "letter",
+    "nxtQId": "postLetter",
     "title": "Please enter their policy number:",
     "answered": "",
     "answeredOn": "",
-    "type": "text",
-    "placeholder": "e.g. A1098726/13"
+    "type": "text"
+  },
+  "postLetter": {
+    "qId": "postLetter",
+    "nxtQId": "letter",
+    "type": "postLetter"
   },
   "roadDefectLetter": {
     "qId": "roadDefectLetter",

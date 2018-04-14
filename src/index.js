@@ -6,12 +6,18 @@ import registerServiceWorker from './registerServiceWorker';
 import RootStore from './stores/root-store';
 import Routes from './components/routes/routes';
 
+import 'normalize.css';
+import { ThemeProvider } from 'styled-components';
+import theme from './components/styled-components/theme';
+
 import 'bootstrap/scss/bootstrap.scss';
 import './index.scss';
 
 ReactDOM.render(
   <Provider RootStore={new RootStore()}>
-    <Routes />
+    <ThemeProvider theme={theme}>
+      <Routes />
+    </ThemeProvider>
   </Provider>,
   document.getElementById('root')
 );

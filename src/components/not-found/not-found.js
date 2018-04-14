@@ -1,9 +1,11 @@
-// @flow
 import React from 'react';
-import './not-found.css';
+import { pageView } from './../../services/ga-helpers';
 
-export default () => (
-  <div className="not-found">
-    <h3>Sorry, page not found!</h3>
-  </div>
-);
+export default () => {
+  pageView(window.location.pathname);
+  return (
+    <div className="not-found">
+      <h3>Sorry, page not found!</h3>
+    </div>
+  );
+};
