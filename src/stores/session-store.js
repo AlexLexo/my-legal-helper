@@ -137,7 +137,7 @@ export default class mobxSessionStore {
       letterId: letterId,
       createdOn: Date.now()
     };
-    window.scrollTo(0, 0);
+    //window.scrollTo(0, 0);
   };
 
   @action('setInjuryLocation')

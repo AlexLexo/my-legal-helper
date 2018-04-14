@@ -8,7 +8,7 @@ import Title from './../styled-components/title';
 import Btn from './../styled-components/btn';
 import BtnGroup from './../styled-components/btn-group';
 import Container from './../styled-components/container';
-import { Box, Label } from './../styled-components/checkbox';
+import Checkbox from './../styled-components/checkbox';
 
 @inject('RootStore')
 @observer
@@ -37,14 +37,9 @@ class Quiz extends Component {
             themselves. Litem is not a substitute for instructing a lawyer. You should speak with a lawyer if the
             defendants want to fight the case or if it is high value.<br />
             <br />Please tick here to confirm that you have read this
-            <input
-              type="checkbox"
-              style={{ marginLeft: '15px', transform: 'scale(1.3)' }}
-              onClick={() => this.setState({ show: !this.state.show })}
-            />
+            <Checkbox onClick={() => this.setState({ show: !this.state.show })} />
           </P>
-          <Box id="box" />
-          <Label for="box" />
+
           <div className={this.state.show ? 'show' : 'hide'}>
             <Header dark>Please select one of the following:</Header>
             <br />
