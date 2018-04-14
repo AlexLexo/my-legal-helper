@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 const Title = styled.h1`
-  padding-top: ${props => (props.t ? props.t : '30px')};
-  padding-bottom: ${props => (props.b ? props.b : '10px')};
+  padding-top: ${props => (props.t ? props.t : '0')};
+  padding-bottom: ${props => (props.b ? props.b : '0')};
   padding-left: ${props => (props.l ? props.l : '0')};
   padding-right: ${props => (props.r ? props.r : '0')};
   margin-left: auto;

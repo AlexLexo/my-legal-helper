@@ -1,16 +1,15 @@
 import styled from 'styled-components';
 
 const P = styled.p`
-  color: ${props => (props.dark ? 'white' : props.theme.colors.color3)};
-  padding-top: ${props => props.t};
-  padding-bottom: ${props => props.b};
-  padding-left: ${props => props.l};
-  padding-right: ${props => props.r};
-  line-height: 1;
-  text-align: justify;
+  padding-top: ${props => (props.t ? props.t : '0')};
+  padding-bottom: ${props => (props.b ? props.b : '0')};
+  padding-left: ${props => (props.l ? props.l : '0')};
+  padding-right: ${props => (props.r ? props.r : '0')};
   margin-left: auto;
   margin-right: auto;
-
+  color: ${props => (props.dark ? 'white' : props.theme.colors.color3)};
+  line-height: 1;
+  text-align: justify;
   @media (max-width: 599px) {
     width: 90%;
     font-size: 1.2rem;

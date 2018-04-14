@@ -1,8 +1,9 @@
 {
   "cFullName": {
+    "status": "delete",
     "qId": "cFullName",
     "nxtQId": "cDOB",
-    "title": "What is your full name?",
+    "title": "What's your name?",
     "answered": "",
     "answeredOn": "",
     "type": "text",
@@ -11,7 +12,7 @@
   "cDOB": {
     "qId": "cDOB",
     "nxtQId": "iDate",
-    "title": "What is your date of birth?",
+    "title": "What's your date of birth?",
     "answered": "",
     "answeredOn": "",
     "type": "date",
@@ -20,7 +21,7 @@
   "iDate": {
     "qId": "iDate",
     "nxtQId": "iWhere",
-    "title": "When did the incident take place?",
+    "title": "When did the incident happen?",
     "answered": "",
     "answeredOn": "",
     "type": "date",
@@ -28,7 +29,7 @@
   },
   "iWhere": {
     "qId": "iWhere",
-    "title": "Where did the incident take place?",
+    "title": "Where did it happen?",
     "answered": "",
     "answeredOn": "",
     "type": "button",
@@ -67,7 +68,7 @@
   "dDetsHave": {
     "qId": "dDetsHave",
     "title":
-      "Do you have access to the name, address or insurance details for the person who caused the incident? If they were driving or riding a motorcycle you just need the registration.",
+      "Do you have the defendant's name and address or their insurance details or registration?",
     "answered": "",
     "answeredOn": "",
     "type": "button",
@@ -186,7 +187,7 @@
   },
   "darkLights": {
     "qId": "darkLights",
-    "title": "If it was dark, did you have lights?",
+    "title": "If it was dark, did you have lights on your bike?",
     "answered": "",
     "answeredOn": "",
     "type": "button",
@@ -209,6 +210,7 @@
     ]
   },
   "injuredBy": {
+    "status": "merge with injuredBy2",
     "qId": "injuredBy",
     "title": "Was the incident was caused by:",
     "answered": "",
@@ -248,7 +250,7 @@
       "Was the defendant riding a cycle hire bicycle (e.g. Santander, Mobike)?",
     "answered": "",
     "answeredOn": "",
-    "type": "dropdown",
+    "type": "button",
     "btnvalues": [
       {
         "ansId": "injuredByHireBikeYes",
@@ -317,6 +319,7 @@
     ]
   },
   "manoeuvring": {
+    "status": "delete",
     "qId": "manoeuvring",
     "title":
       "Were you manoeuvring around something or overtaking on your bicycle?",
@@ -449,7 +452,7 @@
     "title": "Which door?",
     "answered": "",
     "answeredOn": "",
-    "type": "dropdown",
+    "type": "button",
     "btnvalues": [
       {
         "ansId": "dooredDetsPassenger",
@@ -472,7 +475,7 @@
     "btnvalues": [
       {
         "ansId": "cyclingLocRoad",
-        "ansLabel": "On a road",
+        "ansLabel": "A road",
         "nxtQId": "cyclingLocMoreDets"
       },
       {
@@ -482,22 +485,22 @@
       },
       {
         "ansId": "cyclingLocCarPark",
-        "ansLabel": "In a car park",
+        "ansLabel": "Car park",
         "nxtQId": "cyclingLocMoreDets"
       },
       {
         "ansId": "cyclingLocPavement",
-        "ansLabel": "On the pavement (cycling not permitted)",
+        "ansLabel": "Pavement (cycling not permitted)",
         "nxtQId": "crossingNotPermitted"
       },
       {
         "ansId": "cyclingLocPath",
-        "ansLabel": "On a cycle path",
+        "ansLabel": "Cycle path",
         "nxtQId": "cyclingLocMoreDets"
       },
       {
         "ansId": "cyclingLocPark",
-        "ansLabel": "In a park",
+        "ansLabel": "A park",
         "nxtQId": "cyclingPermitted"
       },
       {
@@ -512,16 +515,16 @@
     "title": "Just a few more details...",
     "answered": "",
     "answeredOn": "",
-    "type": "dropdown",
+    "type": "button",
     "btnvalues": [
       {
         "ansId": "cyclingLocMoreDetsTrafLights",
-        "ansLabel": "It was at a set of traffic lights",
+        "ansLabel": "At a set of traffic lights",
         "nxtQId": "trafLights"
       },
       {
         "ansId": "cyclingLocMoreDetsPedCrossing",
-        "ansLabel": "It was at a pedestrian crossing",
+        "ansLabel": "At a pedestrian crossing",
         "nxtQId": "pedCrossing"
       },
       {
@@ -533,7 +536,7 @@
   },
   "trafLights": {
     "qId": "trafLights",
-    "title": "What colour were the traffic lights?",
+    "title": "Were the traffic lights?",
     "answered": "",
     "answeredOn": "",
     "type": "dropdown",
@@ -550,12 +553,12 @@
       },
       {
         "ansId": "trafLightsAmberRed",
-        "ansLabel": "Amber going red",
+        "ansLabel": "Amber turning red",
         "nxtQId": "contactMe"
       },
       {
         "ansId": "trafLightsRedAmber",
-        "ansLabel": "Red and amber",
+        "ansLabel": "Red turning amber",
         "nxtQId": "redAmber"
       }
     ]
@@ -565,7 +568,7 @@
     "title": "Did the defendant:",
     "answered": "",
     "answeredOn": "",
-    "type": "dropdown",
+    "type": "button",
     "btnvalues": [
       {
         "ansId": "behindToPathObj",
@@ -632,6 +635,7 @@
     "placeholder": "e.g. dog"
   },
   "iDets1": {
+    "status": "merge with idets2",
     "qId": "iDets1",
     "title": "Which best describes your situation?",
     "answered": "",
@@ -640,12 +644,13 @@
     "btnvalues": [
       {
         "ansId": "iDets1TurnInto",
-        "ansLabel": "The defendant turned into me / went across my path",
+        "status": "split into two Qs",
+        "ansLabel": "They turned into me / went across my path",
         "nxtQId": "vTurned1"
       },
       {
         "ansId": "iDets1Roundabout",
-        "ansLabel": "The incident happened at a roundabout",
+        "ansLabel": "It happened at a roundabout",
         "nxtQId": "roundabout"
       },
       {
@@ -679,11 +684,12 @@
       },
       {
         "ansId": "iDets2RanRedLight",
-        "ansLabel": "I was hit at a junction while jumping a red light",
+        "ansLabel": "I was hit while jumping a red light",
         "nxtQId": "iDets2RanRedLightAdvice"
       },
       {
         "ansId": "iDets2Pave",
+        "status": "delete",
         "ansLabel": "I was cycling on the pavement when it was not permitted",
         "nxtQId": "iDets2PaveAdvice"
       },
@@ -769,24 +775,24 @@
   },
   "roundabout": {
     "qId": "roundabout",
-    "title": "Which best describes your situation?",
+    "title": "Which best describes how it happened?",
     "answered": "",
     "answeredOn": "",
     "type": "dropdown",
     "btnvalues": [
       {
         "ansId": "roundaboutDirL",
-        "ansLabel": "I was hit by a vehicle as it entered the roundabout",
+        "ansLabel": "The defendant was entering the roundabout",
         "nxtQId": "roundaboutL"
       },
       {
         "ansId": "roundaboutDirR",
-        "ansLabel": "I was hit by a vehicle coming from my right",
+        "ansLabel": "The defendant came from my right",
         "nxtQId": "roundaboutR"
       },
       {
         "ansId": "roundaboutchangingLanes",
-        "ansLabel": "I was hit on the roundabout while changing lanes",
+        "ansLabel": "I was changing lanes",
         "nxtQId": "changingLanes"
       },
       {
@@ -928,149 +934,148 @@
   },
   "iDets1HitAsPassedWeak": {
     "qId": "iDets1HitAsPassedWeak",
-    "title": "I think I will need more information.",
+    "title": "We need more information",
     "reason":
-      "You were injured when you were hit by a vehicle as it was passing. If they failed to leave a safe distance while passing then they are likely to be found to blame. Alternatively, if you started overtaking without checking it was safe to do so then you might be held at fault. Proving that they are at fault is likely to be difficult. If you would like further advice please send me a message with more detail.",
+      "You were injured when you were hit by a vehicle as it was passing. If they failed to leave a safe distance while passing then they are likely to be found to blame. Alternatively, if you started overtaking without checking it was safe to do so then you might be held at fault. Proving that they are at fault is likely to be difficult. <br /> If you would like us to suggest a lawyer who specialises in cycling cases to provide further advice, feel free to send us an email at info@litem.co.uk.",
     "type": "weak"
   },
   "crossingOffRoadWeak": {
     "qId": "crossingOffRoadWeak",
-    "title": "I think I will need more information.",
+    "title": "We need more information",
     "reason":
-      "You were injured when a pedestrian crossed your path whilst you were cycling off-road. For your case to succeed you would need to show that the other party is at fault. You are expected to take care to avoid pedestrians who may be using the path, so proving that they are at fault is likely to be difficult. If you would like further advice please send me a message with more detail.",
+      "You were injured when a pedestrian crossed your path whilst you were cycling off-road. For your case to succeed you would need to show that the other party is at fault. You are expected to take care to avoid pedestrians who may be using the path, so proving that they are at fault is likely to be difficult. <br /> If you would like us to suggest a lawyer who specialises in cycling cases to provide further advice, feel free to send us an email at info@litem.co.uk.",
     "type": "weak"
   },
   "crossingNotPermitted": {
     "qId": "crossingNotPermitted",
-    "title": "I think I will need more information.",
+    "title": "We need more information",
     "reason":
-      "You were injured when you cycled into a pedestrian on the pavement where cycling was prohibited. For your case to succeed you would need to show that the other party is at fault. Given that it was the pedestrian's right of way, proving that they are at fault is likely to be difficult. If you would like further advice please send me a message with more detail.",
+      "You were injured when you cycled into a pedestrian on the pavement where cycling was prohibited. For your case to succeed you would need to show that the other party is at fault. Given that it was the pedestrian's right of way, proving that they are at fault is likely to be difficult. <br /> If you would like us to suggest a lawyer who specialises in cycling cases to provide further advice, feel free to send us an email at info@litem.co.uk.",
     "type": "weak"
   },
   "changingLanes": {
     "qId": "changingLanes",
-    "title": "I think I will need more information.",
+    "title": "We need more information",
     "reason":
-      "You were injured when you were hit on a roundabout by a vehicle whilst you changed lanes. It is difficult to say who is to blame without further information. Please send me an email with more detail if you would like any more help.",
+      "You were injured when you were hit on a roundabout by a vehicle whilst you changed lanes. It is difficult to say who is to blame without further information. <br /> If you would like us to suggest a lawyer who specialises in cycling cases to provide further advice, feel free to send us an email at info@litem.co.uk.",
     "type": "weak"
   },
   "contactMe": {
     "qId": "contactMe",
-    "title": "I think I will need more information.",
+    "title": "We need more information",
     "reason":
-      "We have not been able to work out the circumstances of the incident - please get in touch via th button below if you would like more help.",
+      "We have not been able to work out the circumstances of the incident. <br /> If you would like us to suggest a lawyer who specialises in cycling cases to provide further advice, feel free to send us an email at info@litem.co.uk.",
     "type": "weak"
   },
   "amber": {
     "qId": "amber",
-    "title": "I think I will need more information.",
+    "title": "We need more information",
     "reason":
-      "You were injured when you cycled into a pedestrian at a set of traffic lights which were amber. You would need to show that the other party is at fault, which may be challenging in the circumstances as amber is only an indication to proceed and you still need to look out for pedestrians. If you would like further advice please send me a message with more detail.",
+      "You were injured when you cycled into a pedestrian at a set of traffic lights which were amber. You would need to show that the pedestrian is at fault, which may be challenging in the circumstances as amber is only an indication to proceed and you still need to look out for pedestrians. <br /> If you would like us to suggest a lawyer who specialises in cycling cases to provide further advice, feel free to send us an email at info@litem.co.uk.",
     "type": "weak"
   },
   "iDets2RanRedLightAdvice": {
     "qId": "iDets2RanRedLightAdvice",
-    "title": "I think I will need more information.",
+    "title": "We need more information",
     "reason":
-      "You were injured when you were in an incident with another road user when you jumped a red light. You would need to show that the other party is at fault which may be challenging as they can argue that they did not anticipate your actions and it was their right of way. If you would like further advice please send me a message with more detail.",
+      "You were injured when you were in an incident with another road user when you jumped a red light. You would need to show that the other party is at fault which may be challenging as they can argue that they did not anticipate your actions and it was their right of way. <br /> If you would like us to suggest a lawyer who specialises in cycling cases to provide further advice, feel free to send us an email at info@litem.co.uk.",
     "type": "weak"
   },
   "iDets2PaveAdvice": {
     "qId": "iDets2PaveAdvice",
-    "title": "I think I will need more information.",
+    "title": "We need more information",
     "reason":
-      "You were injured when you were in an incident with another road user whilst you were cycling on the pavement where cycling was prohibited. You would need to show that the other party is at fault which would normally be difficult as they can argue that they did not expect to see you there. If you would like further advice please send me a message with more detail.",
+      "You were injured when you were in an incident with another road user whilst you were cycling on the pavement where cycling was prohibited. You would need to show that the other party is at fault which would normally be difficult as they can argue that they did not expect to see you there. <br /> If you would like us to suggest a lawyer who specialises in cycling cases to provide further advice, feel free to send us an email at info@litem.co.uk.",
     "type": "weak"
   },
   "manoeuvringAdvice": {
     "qId": "manoeuvringAdvice",
-    "title": "I think I will need more information.",
+    "title": "We need more information",
     "reason":
-      "You were injured when you were in an incident with another road user when you were manoeuvring around / overtaking another vehicle on your bicycle. You would need to show that the other party is at fault which will depend on the exact circumstances of the incident. If you would like further advice please send me a message with more detail.",
+      "You were injured when you were in an incident with another road user when you were manoeuvring around / overtaking another vehicle on your bicycle. You would need to show that the other party is at fault which will depend on the exact circumstances of the incident. <br /> If you would like us to suggest a lawyer who specialises in cycling cases to provide further advice, feel free to send us an email at info@litem.co.uk.",
     "type": "weak"
   },
   "roundaboutR": {
     "qId": "roundaboutR",
-    "title": "I think I will need more information.",
+    "title": "We need more information",
     "reason":
-      "You were injured when you were hit on a roundabout by a vehicle coming from your right. It sounds like a challenging case as they would have had the right of way. If you would like further advice please send me a message with more detail.",
+      "You were injured when you were hit on a roundabout by a vehicle coming from your right. It sounds like a challenging case as they would have had the right of way. <br /> If you would like us to suggest a lawyer who specialises in cycling cases to provide further advice, feel free to send us an email at info@litem.co.uk.",
     "type": "weak"
   },
   "notPermitted": {
     "qId": "notPermitted",
-    "title": "I think I will need more information.",
+    "title": "We need more information",
     "reason":
-      "You were injured when you cycled into a pedestrian on a path where cycling was prohibited. You would need to show that the other party is at fault so that a case could be brought against them, which may be challenging given that it is their right of way. If you would like further advice please send me a message with more detail using the form at the bottom of the screen.",
+      "You were injured when you cycled into a pedestrian on a path where cycling was prohibited. You would need to show that the other party is at fault so that a case could be brought against them, which may be challenging given that it is their right of way. <br /> If you would like us to suggest a lawyer who specialises in cycling cases to provide further advice, feel free to send us an email at info@litem.co.uk.",
     "type": "weak"
   },
   "pedCrossing": {
     "qId": "pedCrossing",
-    "title": "I think I will need more information.",
+    "title": "We need more information",
     "reason":
-      "You were injured when you cycled into a pedestrian on a pedestrian crossing. For the case to succeed you would need to show that they were at fault which will be challenging given that it is their right of way. If you would like further advice please send me a message with more detail.",
+      "You were injured when you cycled into a pedestrian on a pedestrian crossing. For the case to succeed you would need to show that they were at fault which will be challenging given that it is their right of way. <br /> If you would like us to suggest a lawyer who specialises in cycling cases to provide further advice, feel free to send us an email at info@litem.co.uk.",
     "type": "weak"
   },
   "pedStationary": {
     "qId": "pedStationary",
-    "title": "I think I will need more information.",
+    "title": "We need more information",
     "reason":
-      "You were injured when you cycled into a pedestrian who was stationary. You would need to show that the other party is at fault so that a case could be brought against them, which may be challenging in the circumstances. If you would like further advice please send me a message with more detail.",
+      "You were injured when you cycled into a pedestrian who was stationary. You would need to show that they were at fault if the case is to succeed, which may be challenging in the circumstances. <br /> If you would like us to suggest a lawyer who specialises in cycling cases to provide further advice, feel free to send us an email at info@litem.co.uk.",
     "type": "weak"
   },
   "permittedPath": {
     "qId": "permittedPath",
-    "title": "I think I will need more information.",
+    "title": "We need more information",
     "reason":
-      "You were injured when a pedestrian crossed your path whilst you were cycling. You would need to show that the other party is at fault which may be challenging as you are expected to take care to avoid pedestrians who may be using the path. If you would like further advice please send me a message with more detail.",
+      "You were injured when a pedestrian crossed your path whilst you were cycling. You would need to show that they are at fault which may be challenging as you are expected to take care to avoid pedestrians who may be using the path. <br /> If you would like us to suggest a lawyer who specialises in cycling cases to provide further advice, feel free to send us an email at info@litem.co.uk.",
     "type": "weak"
   },
   "youRearEnded": {
     "qId": "youRearEnded",
-    "title": "I think I will need more information.",
+    "title": "We need more information",
     "reason":
-      "You were injured when you were in an incident with another road user when you rode into the back of them on your bicycle. You would need to show that the other party is at fault which may be challenging in the circumstances. If you would like further advice please send me a message with more detail.",
+      "You were injured when you were in an incident with another road user when you rode into the back of them on your bicycle. You would need to show that the other party is at fault which may be challenging in the circumstances. <br /> If you would like us to suggest a lawyer who specialises in cycling cases to provide further advice, feel free to send us an email at info@litem.co.uk.",
     "type": "weak"
   },
   "red": {
     "qId": "red",
-    "title": "I think I will need more information.",
+    "title": "We need more information",
     "reason":
-      "You were injured when you cycled into a pedestrian at a set of traffic lights which were showing red for you. You would need to show that the other party is at fault, which may be challenging in the circumstances given that it was their right of way. If you would like further advice please send me a message with more detail.",
+      "You were injured when you cycled into a pedestrian at a set of traffic lights which were showing red for you. You would need to show that the pedestrian is at fault, which may be challenging in the circumstances given that it was their right of way. <br /> If you would like us to suggest a lawyer who specialises in cycling cases to provide further advice, feel free to send us an email at info@litem.co.uk.",
     "type": "weak"
   },
   "bikesOnly": {
     "qId": "bikesOnly",
-    "title": "I'm afraid that this tool is only for cases involving cyclists.",
+    "title": "This tool is only for cases involving cyclists",
     "reason":
-      "Feel free to send me a message if you would like me to point you in the direction of a solicitor who may be able to help and I will respond with some suggestions. I will not pass your details on to anyone else.",
+      "If you would like us to suggest a lawyer who specialises in other cases to provide further advice, feel free to send us an email at info@litem.co.uk.",
     "type": "weak"
   },
   "hitAndRun": {
     "qId": "hitAndRun",
-    "title": "You do not have the other party's details.",
+    "title": "You don't have the other party's details",
     "reason":
-      "If this is because you or the police did not record their details (and there is no way to trace the driver) then you will not be able to bring a case. Alternatively, if you were injured by a driver or motorcyclist who did not stop at the scene of the incident, you may still be able to get compensation through the Motor Insurance Bureau (MIB). All motor insurance policies contribute to this fund which compensates the victims of hit and run incidents and also incidents caused by uninsured drivers. The MIB have strict time limits to lodge a case with them. The time limits can be found here, along with details on how to apply for compensation: www.mib.org.uk. Feel free to send me a message if you have any other questions.",
+      "If this is because you or the police did not record their details (and there is no way to trace the driver) then you will not be able to bring a case. Alternatively, if you were injured by a driver or motorcyclist who did not stop at the scene of the incident, you may still be able to get compensation through the Motor Insurance Bureau (MIB). All motor insurance policies contribute to this fund which compensates the victims of hit and run incidents and also incidents caused by uninsured drivers. <br /> The MIB have strict time limits to lodge a case with them. The time limits can be found here, along with details on how to apply for compensation: <br /> www.mib.org.uk <br /> If you would like us to suggest a lawyer who specialises in cycling cases to provide further advice, feel free to send us an email at info@litem.co.uk.",
     "type": "weak"
   },
   "jurisdiction": {
     "qId": "jurisdiction",
-    "title":
-      "I'm afraid that this tool is only for incidents occurring in England or Wales. The law in other countries is different and you will need specialist advice on your case.",
+    "title": "This tool is only for incidents occurring in England or Wales",
     "reason":
-      "Feel free to send me a message if you would like me to point you in the direction of a solicitor who may be able to help and I will respond with some suggestions. I will not pass your details on to anyone else.",
+      "The law in other countries is different and you will need specialist advice. <br /> If you would like us to suggest a lawyer who specialises in cycling cases occurring abroad to provide further advice, feel free to send us an email at info@litem.co.uk.",
     "type": "weak"
   },
   "timeBarred": {
     "qId": "timeBarred",
-    "title": "I'm afraid that you are probably too late to bring a case.",
+    "title": "It sounds like your case is out of time",
     "reason":
-      "As your incident occurred either over 3 years ago (or it is 3 years since your 18th birthday if the incident happened when you were a child) it is probably too late to bring a case. There are certain exceptions, and the courts have the discretion to allow a case to proceed out of time in special circumstances. If you think you may have a good reason for not bringing a case within the limitation period please feel free to send me a message. I will not pass your details on to anyone else.",
+      "The time limit for most injury cases is three years, by which time you need to issue proceedings in the court. <br /> An exception is if the incident happened before your 18th birthday. If so, you have until your 21st birthday to issue proceedings. <br /> There are certain exceptions so if you would like us to suggest a lawyer who specialises in cycling cases to provide further advice, feel free to send us an email at info@litem.co.uk.",
     "type": "weak"
   },
   "dFullName": {
     "qId": "dFullName",
     "nxtQId": "cAddress",
-    "title": "What is the full name of the defendant?",
+    "title": "What's the defendant's name?",
     "answered": "",
     "answeredOn": "",
     "type": "text",
@@ -1079,7 +1084,7 @@
   "cAddress": {
     "qId": "cAddress",
     "nxtQId": "cStreet",
-    "title": "What is your address?",
+    "title": "What's your address?",
     "answered": "",
     "answeredOn": "",
     "type": "text",
@@ -1088,25 +1093,26 @@
   "cStreet": {
     "qId": "cStreet",
     "nxtQId": "landmark",
-    "title": "What is the name of the street where the incident occured?",
+    "title": "Which street did the incident occur on?",
     "answered": "",
     "answeredOn": "",
     "type": "text",
     "placeholder": "e.g. Klemkestrass 43"
   },
   "landmark": {
+    "status": "please leave this placeholder",
     "qId": "landmark",
     "nxtQId": "cDir",
     "title":
-      "Please fill in the blank: When I reached the ____________ the defendant...",
+      "'When I reached  _____ the defendant hit me' - please fill in the blank with the location of the incident e.g. the junction with London Road.",
     "answered": "",
     "answeredOn": "",
     "type": "text",
-    "placeholder": "e.g. intersection"
+    "placeholder": "e.g. junction with London Road; "
   },
   "cDir": {
     "qId": "cDir",
-    "title": "Direction of travel",
+    "title": "Which direction were you heading in",
     "answered": "",
     "answeredOn": "",
     "type": "dropdown",
@@ -1516,7 +1522,7 @@
 
   "lossesFinancial": {
     "qId": "lossesFinancial",
-    "title": "Did you suffer financial loss?",
+    "title": "Did you suffer any financial losses?",
     "answered": "",
     "answeredOn": "",
     "type": "button",
@@ -1543,37 +1549,37 @@
     "inputs": [
       {
         "qId": "finTravel",
-        "title": "travel expenses",
+        "title": "Travel expenses",
         "type": "text",
         "placeholder": "0"
       },
       {
         "qId": "finTreatment",
-        "title": "treatment costs",
+        "title": "Treatment costs",
         "type": "text",
         "placeholder": "0"
       },
       {
         "qId": "finEarnings",
-        "title": "loss of earnings",
+        "title": "Lost earnings",
         "type": "text",
         "placeholder": "0"
       },
       {
         "qId": "finMedication",
-        "title": "prescriptions for medication",
+        "title": "Medication",
         "type": "text",
         "placeholder": "0"
       },
       {
         "qId": "finRepairs",
-        "title": "vehicle repairs and excess",
+        "title": "Bicycle repairs or insurance excess",
         "type": "text",
         "placeholder": "0"
       },
       {
         "qId": "finCare",
-        "title": "care and assistance costs",
+        "title": "Other",
         "type": "text",
         "placeholder": "0"
       }
@@ -1584,7 +1590,7 @@
     "title": "Did you have any unpaid time off work?",
     "answered": "",
     "answeredOn": "",
-    "type": "dropdown",
+    "type": "button",
     "btnvalues": [
       {
         "ansId": "lossOfEarningsYesTimeOff",
@@ -2293,7 +2299,7 @@
     "title": "Where was the injury located?",
     "answered": "",
     "answeredOn": "",
-    "type": "dropdown",
+    "type": "button",
     "btnvalues": [
       {
         "ansId": "fractureNose",
@@ -2312,7 +2318,7 @@
     "title": "Where was the injury located?",
     "answered": "",
     "answeredOn": "",
-    "type": "dropdown",
+    "type": "button",
     "btnvalues": [
       {
         "ansId": "fractureNeck",
@@ -2336,7 +2342,7 @@
     "title": "Where was the injury located?",
     "answered": "",
     "answeredOn": "",
-    "type": "dropdown",
+    "type": "button",
     "btnvalues": [
       {
         "ansId": "fractureArm",
@@ -2423,7 +2429,7 @@
     "title": "Where was the injury located?",
     "answered": "",
     "answeredOn": "",
-    "type": "dropdown",
+    "type": "button",
     "btnvalues": [
       {
         "ansId": "burnFace",
@@ -2442,7 +2448,7 @@
     "title": "Where was the injury located?",
     "answered": "",
     "answeredOn": "",
-    "type": "dropdown",
+    "type": "button",
     "btnvalues": [
       {
         "ansId": "psychTravel",
@@ -2483,7 +2489,7 @@
     "title": "Would you like to add another injury?",
     "answered": "",
     "answeredOn": "",
-    "type": "dropdown",
+    "type": "button",
     "btnvalues": [
       {
         "ansId": "valAddInjuryYes",
@@ -2526,31 +2532,31 @@
     "inputs": [
       {
         "qId": "finTravel",
-        "title": "travel expenses",
+        "title": "Travel expenses",
         "type": "text",
         "placeholder": "0"
       },
       {
         "qId": "finTreatment",
-        "title": "treatment costs",
+        "title": "Treatment costs",
         "type": "text",
         "placeholder": "0"
       },
       {
         "qId": "finEarnings",
-        "title": "loss of earnings",
+        "title": "Lost earnings",
         "type": "text",
         "placeholder": "0"
       },
       {
         "qId": "finMedication",
-        "title": "prescriptions for medication",
+        "title": "Medication",
         "type": "text",
         "placeholder": "0"
       },
       {
         "qId": "finRepairs",
-        "title": "vehicle repairs and excess",
+        "title": "Bicycle repairs or insurance excess",
         "type": "text",
         "placeholder": "0"
       },

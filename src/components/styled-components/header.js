@@ -3,7 +3,10 @@ import styled from 'styled-components';
 const Header = styled.h3`
   color: ${props => (props.dark ? 'white' : props.theme.colors.color3)};
   line-height: 1;
-  padding-top: 20px;
+  padding-top: ${props => (props.t ? props.t : '0')};
+  padding-bottom: ${props => (props.b ? props.b : '0')};
+  padding-left: ${props => (props.l ? props.l : '0')};
+  padding-right: ${props => (props.r ? props.r : '0')};
   margin-left: auto;
   margin-right: auto;
   @media (max-width: 599px) {

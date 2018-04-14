@@ -43,13 +43,23 @@ class Quiz extends Component {
             <Header dark>Please select one of the following:</Header>
             <br />
             <BtnGroup>
-              <Btn onClick={e => handleNavClick(e, this.props.history)} id="tool-hub case" name="pre-case-tool">
+              <Btn
+                b="20px"
+                onClick={e => handleNavClick(e, this.props.history)}
+                id="tool-hub case"
+                name="pre-case-tool"
+              >
                 Do I have a case? / write a letter
               </Btn>
-              <Btn onClick={e => handleNavClick(e, this.props.history)} id="tool-hub valuer" name="pre-valuer-tool">
+              <Btn
+                b="20px"
+                onClick={e => handleNavClick(e, this.props.history)}
+                id="tool-hub valuer"
+                name="pre-valuer-tool"
+              >
                 What is my case worth?
               </Btn>
-              <Btn onClick={e => handleNavClick(e, this.props.history)} id="tool-hub guides" name="guides">
+              <Btn b="20px" onClick={e => handleNavClick(e, this.props.history)} id="tool-hub guides" name="guides">
                 Or have a look through our guides?
               </Btn>
             </BtnGroup>

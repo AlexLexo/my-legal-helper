@@ -3,12 +3,15 @@ import styled from 'styled-components';
 const Btn = styled.button`
   background-color: ${props => props.theme.colors.color2};
   color: ${props => props.theme.colors.color3};
+  margin-top: ${props => (props.t ? props.t : '0')};
+  margin-bottom: ${props => (props.b ? props.b : '0')};
+  margin-left: auto;
+  margin-right: auto;
   border: none;
   cursor: pointer;
   vertical-align: middle;
   white-space: nowrap;
   line-height: 1;
-  margin: 0.25rem 0;
   font: inherit;
   &:hover {
     background: ${props => props.theme.colors.color1};

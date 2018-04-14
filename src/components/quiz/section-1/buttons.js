@@ -1,18 +1,19 @@
 import React from 'react';
+import DOMPurify from 'dompurify';
 import Header from './../../styled-components/header';
 import Btn from './../../styled-components/btn';
 import BtnGroup from './../../styled-components/btn-group';
-//import DOMPurify from 'dompurify';
 
 const Buttons = props => {
+  const title = { __html: DOMPurify.sanitize(props.q.title) };
   return (
     <React.Fragment>
-      <Header>{props.q.title}</Header>
-      <br />
+      <Header t="50px" b="50px" dangerouslySetInnerHTML={title} />
       <BtnGroup>
         {props.q.btnvalues.map((item, i) => {
           return (
             <Btn
+              b="20px"
               key={i}
               type="submit"
               onClick={() => {

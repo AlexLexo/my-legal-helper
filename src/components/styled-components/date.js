@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
 const Date = styled.input.attrs({ type: 'date' })`
+  padding-top: ${props => (props.t ? props.t : '0')};
+  padding-bottom: ${props => (props.b ? props.b : '0')};
+  padding-left: ${props => (props.l ? props.l : '0')};
+  padding-right: ${props => (props.r ? props.r : '0')};
   margin-left: auto;
   margin-right: auto;
   border: 1px solid ${props => props.theme.colors.color4};

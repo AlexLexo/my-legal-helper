@@ -5,5 +5,7 @@ const ImgNumber = styled.img`
   width: 7%;
   max-width: 100px;
   min-width: 75px;
+  margin-left: auto;
+  margin-right: auto;
 `;
 export default ImgNumber;
