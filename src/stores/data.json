@@ -31,7 +31,7 @@
     "title": "Where did the incident take place?",
     "answered": "",
     "answeredOn": "",
-    "type": "dropdown",
+    "type": "button",
     "btnvalues": [
       {
         "ansId": "iWhereEngOrWales",
@@ -357,6 +357,7 @@
     ]
   },
   "pedManoeuvring": {
+    "status": "delete",
     "qId": "pedManoeuvring",
     "title":
       "Were you manoeuvring around something or overtaking on your bicycle?",
