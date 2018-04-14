@@ -2,6 +2,10 @@ import styled from 'styled-components';
 
 const P = styled.p`
   color: ${props => (props.dark ? 'white' : props.theme.colors.color3)};
+  padding-top: ${props => props.t};
+  padding-bottom: ${props => props.b};
+  padding-left: ${props => props.l};
+  padding-right: ${props => props.r};
   line-height: 1;
   text-align: justify;
   margin-left: auto;

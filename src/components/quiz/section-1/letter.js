@@ -291,7 +291,7 @@ class Letter extends Component {
         </div>
         {/*<div className={lossOfEarningsA ? undefined : 'hide'}>*/}
         <div className={finTotal ? undefined : 'hide'}>
-          <ins>Loss of Earnings</ins>
+          <ins>Financial Losses</ins>
           <div>
             <p>I suffered the following financial losses:</p>
             <ul>
@@ -300,7 +300,7 @@ class Letter extends Component {
               {finEarnings && <li>Lost earnings - £{finEarnings}</li>}
               {finMedication && <li>Medical expenses - £{finMedication}</li>}
               {finRepairs && <li>Damage to property - £{finRepairs}</li>}
-              {finCare && <li>Care and assistance - £{finCare}</li>}
+              {finCare && <li>Other - £{finCare}</li>}
             </ul>
           </div>
           {/*<p>

@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
 
-import { pageView, handleNavClick } from './../../services/ga-helpers';
 import BtnGetStarted from './../styled-components/btn-get-started';
 import P from './../styled-components/p';
 import Header from './../styled-components/header';
 import Title from './../styled-components/title';
+import Container from './../styled-components/container';
+import LogoLanding from './../styled-components/logo-landing';
+import ImgNumber from './../styled-components/img-number';
+import ImgSymbol from './../styled-components/img-symbol';
+
+import { pageView, handleNavClick } from './../../services/ga-helpers';
 
 import Contact from './../contact/contact';
-
 import LogoDark from './../../assets/IMAGES/LITEM_LOGO_PORTRAIT_FINAL.svg';
 import imgOne from './../../assets/IMAGES/img-one.svg';
 import imgTwo from './../../assets/IMAGES/img-two.svg';
@@ -32,57 +36,48 @@ class Home extends Component {
   render() {
     return (
       <React.Fragment>
-        <div className="home-landing">
-          <img alt="Litem Logo" className="home-landing-logo" src={LogoDark} />
-          <h3>Free tools and guides for injured cyclists to exercise their rights</h3>
+        <Container>
+          <LogoLanding alt="Litem Logo" src={LogoDark} />
+          <Title t="50px" b="50px">
+            Free tools and guides for injured cyclists to exercise their rights
+          </Title>
           <BtnGetStarted onClick={e => handleNavClick(e, this.props.history)} id="get started home1" name="quiz">
             Start
           </BtnGetStarted>
-        </div>
+        </Container>
 
-        <div className="container-fluid home-why-use-litem">
-          <h1>Why use Litem?</h1>
-          <div className="row">
-            <div className="col-xl-4">
-              <img alt="Selling Point 1" className="home-why-use-litem-imgs" src={imgOne} />
-              <h3>
-                Your private data stays on your device so you can be confident that your details will never be passed
-                on.
-              </h3>
-            </div>
-            <div className="col-xl-4">
-              <img alt="Selling Point 2" className="home-why-use-litem-imgs" src={imgTwo} />
-              <h3>
-                Litem is free. Lawyers take 25%. Try us first to keep your<br />full damages.
-              </h3>
-            </div>
-            <div className="col-xl-4">
-              <img alt="Selling Point 3" className="home-why-use-litem-imgs" src={imgThree} />
-              <h3>Our straight-forward process makes it easy for you to settle your own case.</h3>
-            </div>
-          </div>
-        </div>
-        <div className="container-fluid home-our-process">
-          <h1>Use our process to settle your case:</h1>
+        <Container style={{ backgroundColor: 'white', height: '100%' }}>
+          <Title>Why use Litem?</Title>
+          <ImgNumber alt="Selling Point 1" src={imgOne} />
+          <Header>
+            Your private data stays on your device so you can be confident that your details will never be passed on.
+          </Header>
+          <ImgNumber alt="Selling Point 2" src={imgTwo} />
+          <Header>Litem is free. Lawyers take 25%. Try us first to keep your full damages.</Header>
+          <ImgNumber alt="Selling Point 3" src={imgThree} />
+          <Header>Our straight-forward process makes it easy for you to settle your own case.</Header>
+        </Container>
+        <Container>
+          <Title>Use our process to settle your case:</Title>
           <div className="row">
             <div className="col-12 col-md-6 col-lg-3 home-our-process-imgs-container">
-              <img alt="Our Process 1" className="home-our-process-imgs" src={imgQuestionMark} />
-              <h3>Do I have a good case?</h3>
+              <ImgSymbol alt="Our Process 1" className="home-our-process-imgs" src={imgQuestionMark} />
+              <Header>Do I have a good case?</Header>
             </div>
             <div className="col-12 col-md-6 col-lg-3 home-our-process-imgs-container">
-              <img alt="Our Process 2" className="home-our-process-imgs" src={imgPoundSign} />
-              <h3>What is my case worth?</h3>
+              <ImgSymbol alt="Our Process 2" className="home-our-process-imgs" src={imgPoundSign} />
+              <Header>What is my case worth?</Header>
             </div>
             <div className="col-12 col-md-6 col-lg-3 home-our-process-imgs-container">
-              <img alt="Our Process 3" className="home-our-process-imgs" src={imgLetter} />
-              <h3>Write to the defendant.</h3>
+              <ImgSymbol alt="Our Process 3" className="home-our-process-imgs" src={imgLetter} />
+              <Header>Write to the defendant.</Header>
             </div>
             <div className="col-12 col-md-6 col-lg-3 home-our-process-imgs-container">
-              <img alt="Our Process 4" className="home-our-process-imgs" src={imgTick} />
-              <h3>Use our guides to settle your case.</h3>
+              <ImgSymbol alt="Our Process 4" className="home-our-process-imgs" src={imgTick} />
+              <Header>Use our guides to settle your case.</Header>
             </div>
           </div>
-        </div>
+        </Container>
 
         <div className="">
           <Title> FAQs </Title>
