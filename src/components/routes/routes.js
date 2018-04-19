@@ -3,11 +3,11 @@ import { Route, BrowserRouter, Switch } from 'react-router-dom';
 import { observer, inject } from 'mobx-react';
 import ReactGA from 'react-ga';
 
-import Menu from './../menu/menu';
+import Navbar from './../styled-components/navbar';
 import Home from './../home/home';
 import FAQs from './../faqs/faqs';
 import Contact from './../contact/contact';
-import Quiz from './../quiz/quiz';
+import ToolHub from './../quiz/quiz';
 import Section1 from './../quiz/section-1/section-1';
 import PreCaseTool from './../pre-case-tool/pre-case-tool';
 import PreValuerTool from './../pre-valuer-tool/pre-valuer-tool';
@@ -28,7 +28,7 @@ class Routes extends Component {
     return (
       <BrowserRouter>
         <div className="app">
-          <Route component={Menu} />
+          <Route component={Navbar} />
           <div
             className={`noNavBarContainer ${this.props.RootStore.UIStore.navBarIsOpen ? 'show' : 'hide'}`}
             onClick={this.props.RootStore.UIStore.closeNavBar}
@@ -37,7 +37,7 @@ class Routes extends Component {
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/faqs" component={FAQs} />
-              <Route exact path="/quiz" component={Quiz} />
+              <Route exact path="/tool-hub" component={ToolHub} />
               <Route exact path="/contact" component={Contact} />
               <Route exact path="/case-tool" component={Section1} />
               <Route exact path="/valuer" component={Section1} />

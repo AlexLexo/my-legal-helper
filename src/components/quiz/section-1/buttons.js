@@ -8,7 +8,7 @@ const Buttons = props => {
   const title = { __html: DOMPurify.sanitize(props.q.title) };
   return (
     <React.Fragment>
-      <Header t="50px" b="50px" dangerouslySetInnerHTML={title} />
+      <Header center t="50px" b="50px" dangerouslySetInnerHTML={title} />
       <BtnGroup>
         {props.q.btnvalues.map((item, i) => {
           return (

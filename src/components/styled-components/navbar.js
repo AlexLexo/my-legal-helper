@@ -1,0 +1,145 @@
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { clicked } from './../../services/ga-helpers';
+import styled from 'styled-components';
+
+const MenuButton = styled.button`
+  z-index: 100;
+  font-size: 20px;
+  width: 3em;
+  height: 3em;
+  border: none;
+  border-radius: 100%;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  margin-left: auto;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0);
+  &:focus {
+    outline: none;
+    background-color: rgba(0, 0, 0, 0);
+  }
+  &:hover {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  &:active {
+    outline: none;
+    background-color: rgba(0, 0, 0, 0);
+  }
+
+  &:before,
+  &:after,
+  & span {
+    content: '';
+    display: block;
+    background-color: ${props => props.theme.colors.color1};
+    height: 0.25em;
+    width: 1.5em;
+    transition: transform 0.4s;
+    transform: translateZ(0);
+    position: absolute;
+    left: 0.75em;
+    transform-origin: 50% 50%;
+  }
+
+  &:before {
+    transform: ${props => (props.active ? 'rotate(45deg) scaleX(0.75)' : 'translate3d(0,-0.5em,0)')};
+    transition: transform 0.7s;
+  }
+
+  &:after {
+    transform: ${props => (props.active ? 'rotate(-45deg) scaleX(0.75)' : 'translate3d(0,0.5em,0)')};
+    transition: transform 0.7s;
+  }
+
+  & span {
+    opacity: ${props => (props.active ? 0 : 1)};
+    transform: ${props => (props.active ? 'scaleX(0)' : 'scaleX(1)')};
+    transition: opacity 0.15s, transform 0.15s;
+  }
+`;
+
+const Menu = styled.nav`
+  position: absolute;
+  z-index: 99;
+  left: 0;
+  top: 0;
+  height: 100%;
+  transition: width 0.2s;
+  width: ${props => (props.menuOpen ? '100%' : '0')};
+  overflow: hidden;
+  & a, span {
+    transition: opacity 0.4s;
+    opacity: ${props => (props.menuOpen ? '1' : '0')};
+    width: 100%
+    text-decoration: none;
+    color: white;
+    font-size: 2em;
+    background-color: ${props => props.theme.colors.color3};
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    height: 10%;
+    padding-Left: 10%;
+    }
+  }
+`;
+
+class NavBar extends Component {
+  state = {
+    menuOpen: false
+  };
+
+  onMenuButtonClick = () => {
+    this.setState({ menuOpen: !this.state.menuOpen });
+  };
+
+  render() {
+    return (
+      <React.Fragment>
+        <MenuButton active={this.state.menuOpen} onClick={this.onMenuButtonClick}>
+          <span />
+        </MenuButton>
+        <Menu menuOpen={this.state.menuOpen} onClick={this.onMenuButtonClick}>
+          <span style={{ height: '20%' }} />
+          <Link to="/" id="menu home" style={{ textDecoration: 'none' }} onClick={e => clicked(e.target.id)}>
+            Home
+          </Link>
+          <Link to="/tool-hub" id="menu case" style={{ textDecoration: 'none' }} onClick={e => clicked(e.target.id)}>
+            Case Tool
+          </Link>
+          <Link
+            to="/pre-valuer-tool"
+            id="menu valuer"
+            style={{ textDecoration: 'none' }}
+            onClick={e => clicked(e.target.id)}
+          >
+            Valuation Tool
+          </Link>
+          <Link to="/guides" id="menu guides" style={{ textDecoration: 'none' }} onClick={e => clicked(e.target.id)}>
+            Guides
+          </Link>
+          <Link to="/contact" id="menu contact" style={{ textDecoration: 'none' }} onClick={e => clicked(e.target.id)}>
+            Get in Touch
+          </Link>
+          <Link
+            to="/"
+            id="menu start fresh"
+            style={{ textDecoration: 'none' }}
+            onClick={e => {
+              clicked(e.target.id);
+              localStorage.clear();
+              this.props.RootStore.SessionStore.setUserObj();
+            }}
+          >
+            Start Fresh
+          </Link>
+          <span style={{ height: '30%' }} />
+        </Menu>
+      </React.Fragment>
+    );
+  }
+}
+
+export default NavBar;

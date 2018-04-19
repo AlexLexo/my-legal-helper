@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Lightbox from 'react-image-lightbox';
 import sampleLetter from './../../assets/sample-letter.png';
 import sampleLetterThumb from './../../assets/sample-letter-thumb.png';
-
+import ImgLetterThumb from './../styled-components/img-letter-thumb';
 export default class LightboxExample extends Component {
   state = {
     isOpen: false
@@ -12,13 +12,8 @@ export default class LightboxExample extends Component {
     const { isOpen } = this.state;
 
     return (
-      <div>
-        <img
-          alt="Example Letter"
-          src={sampleLetterThumb}
-          onClick={() => this.setState({ isOpen: true })}
-          className="lightbox-btn"
-        />
+      <React.Fragment>
+        <ImgLetterThumb alt="Example Letter" src={sampleLetterThumb} onClick={() => this.setState({ isOpen: true })} />
         {isOpen && (
           <Lightbox
             mainSrc={sampleLetter}
@@ -26,7 +21,7 @@ export default class LightboxExample extends Component {
             mainSrcThumbnail={sampleLetter}
           />
         )}
-      </div>
+      </React.Fragment>
     );
   }
 }

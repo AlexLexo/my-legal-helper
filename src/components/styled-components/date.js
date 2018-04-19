@@ -8,6 +8,7 @@ const Date = styled.input.attrs({ type: 'date' })`
   margin-left: auto;
   margin-right: auto;
   border: 1px solid ${props => props.theme.colors.color4};
+
   @media (max-width: 599px) {
     width: 200px;
     height: 50px;

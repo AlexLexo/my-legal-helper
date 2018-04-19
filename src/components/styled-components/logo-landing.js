@@ -4,9 +4,9 @@ const LandingLogo = styled.img`
   margin-left: auto;
   margin-right: auto;
 @media (max-width: 599px) {
-  padding-top: 20px;
+  padding-top: 60px;
   padding-bottom: 10px;
-  width: 80%;
+  width: 75%;
 }
 @media (min-width: 600px) {
   padding-top: 30px;

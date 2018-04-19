@@ -1,14 +1,4 @@
 {
-  "cFullName": {
-    "status": "delete",
-    "qId": "cFullName",
-    "nxtQId": "cDOB",
-    "title": "What's your name?",
-    "answered": "",
-    "answeredOn": "",
-    "type": "text",
-    "placeholder": "e.g. Alexander Jeffcott"
-  },
   "cDOB": {
     "qId": "cDOB",
     "nxtQId": "iDate",
@@ -26,6 +16,28 @@
     "answeredOn": "",
     "type": "date",
     "placeholder": "e.g. 25/12/2009"
+  },
+  "cDOBiDate": {
+    "qId": "cDOBiDate",
+    "title": "When were you born and when did it happen?",
+    "nxtQId": "iWhere",
+    "answered": "",
+    "answeredOn": "",
+    "type": "durationInputs",
+    "inputs": [
+      {
+        "qId": "cDOB",
+        "title": "date of birth:",
+        "type": "date",
+        "placeholder": ""
+      },
+      {
+        "qId": "iDate",
+        "title": "accident date:",
+        "type": "date",
+        "placeholder": ""
+      }
+    ]
   },
   "iWhere": {
     "qId": "iWhere",
@@ -87,7 +99,7 @@
   },
   "dInsured": {
     "qId": "dInsured",
-    "title": "Is the defendant insured?",
+    "title": "Is the other road user (i.e. the defendant) insured?",
     "answered": "",
     "answeredOn": "",
     "type": "button",
@@ -210,9 +222,9 @@
     ]
   },
   "injuredBy": {
-    "status": "merge with injuredBy2",
+    "status": "moved and merged with injuredBy2",
     "qId": "injuredBy",
-    "title": "Was the incident was caused by:",
+    "title": "Was the incident caused by:",
     "answered": "",
     "answeredOn": "",
     "type": "dropdown",
@@ -238,9 +250,29 @@
         "nxtQId": "dooredDets"
       },
       {
+        "ansId": "injuredByMotorbikeMoped",
+        "ansLabel": "a motorcycle or moped",
+        "nxtQId": "filtering"
+      },
+      {
+        "ansId": "injuredByCarVan",
+        "ansLabel": "a car or van",
+        "nxtQId": "filtering"
+      },
+      {
+        "ansId": "injuredByBusLorry",
+        "ansLabel": "a bus or lorry",
+        "nxtQId": "filtering"
+      },
+      {
+        "ansId": "injuredByRoadDefect",
+        "ansLabel": "a road defect",
+        "nxtQId": "roadDefect"
+      },
+      {
         "ansId": "injuredByOther",
         "ansLabel": "None of the above",
-        "nxtQId": "injuredBy2"
+        "nxtQId": "contactMe"
       }
     ]
   },
@@ -265,8 +297,9 @@
     ]
   },
   "injuredBy2": {
+    "status": "merged with injuredBy",
     "qId": "injuredBy2",
-    "title": "Was the incident was caused by:",
+    "title": "Was the incident caused by:",
     "answered": "",
     "answeredOn": "",
     "type": "dropdown",
@@ -314,7 +347,7 @@
       {
         "ansId": "filteringNo",
         "ansLabel": "No",
-        "nxtQId": "manoeuvring"
+        "nxtQId": "iDets1"
       }
     ]
   },
@@ -332,11 +365,7 @@
         "ansLabel": "Yes",
         "nxtQId": "manoeuvringAdvice"
       },
-      {
-        "ansId": "manoeuvringNo",
-        "ansLabel": "No",
-        "nxtQId": "iDets1"
-      }
+      { "ansId": "manoeuvringNo", "ansLabel": "No", "nxtQId": "iDets1" }
     ]
   },
   "pedFiltering": {
@@ -646,7 +675,7 @@
         "ansId": "iDets1TurnInto",
         "status": "split into two Qs",
         "ansLabel": "They turned into me / went across my path",
-        "nxtQId": "vTurned1"
+        "nxtQId": "sameDirection"
       },
       {
         "ansId": "iDets1Roundabout",
@@ -700,6 +729,25 @@
       }
     ]
   },
+  "sameDirection": {
+    "qId": "sameDirection",
+    "title": "Were they going in the same direction as you?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "button",
+    "btnvalues": [
+      {
+        "ansId": "sameDirectionYes",
+        "ansLabel": "Yes",
+        "nxtQId": "vTurned1"
+      },
+      {
+        "ansId": "sameDirectionNo",
+        "ansLabel": "No",
+        "nxtQId": "vTurned2"
+      }
+    ]
+  },
   "vTurned1": {
     "qId": "vTurned1",
     "title": "Which best describes your situation?",
@@ -709,32 +757,28 @@
     "btnvalues": [
       {
         "ansId": "vTurned1RChangingLanes",
-        "ansLabel":
-          "They were going in the same direction as me and hit me from the right while changing lanes",
+        "ansLabel": "They hit me from the right while changing lanes",
         "nxtQId": "vTurned1ChangingLanesAdvice"
       },
       {
         "ansId": "vTurned1LChangingLanes",
-        "ansLabel":
-          "They were going in the same direction as me and hit me from the left while changing lanes",
+        "ansLabel": "They hit me from the left while changing lanes",
         "nxtQId": "vTurned1ChangingLanesAdvice"
       },
       {
         "ansId": "vTurned1RTurning",
-        "ansLabel":
-          "They were going in the same direction as me and hit me while turning right",
+        "ansLabel": "They hit me while turning right",
         "nxtQId": "vDirDetsSameQTurnIntoYouRAdvice"
       },
       {
         "ansId": "vTurned1LTurning",
-        "ansLabel":
-          "They were going in the same direction as me and hit me while turning left",
+        "ansLabel": "They hit me while turning left",
         "nxtQId": "vDirDetsSameQTurnIntoYouLAdvice"
       },
       {
         "ansId": "vTurned1None",
         "ansLabel": "None of the above",
-        "nxtQId": "vTurned2"
+        "nxtQId": "contactMe"
       }
     ]
   },
@@ -752,8 +796,7 @@
       },
       {
         "ansId": "vTurned2Turning",
-        "ansLabel":
-          "They were oncoming and hit me when they turned across my path",
+        "ansLabel": "They hit me when they turned across my path",
         "nxtQId": "oncomingAcrossPathAdvice"
       },
       {
@@ -929,159 +972,171 @@
   },
   "preletter": {
     "qId": "preletter",
-    "nxtQId": "dFullName",
+    "nxtQId": "cStreet",
     "type": "preletter"
   },
   "iDets1HitAsPassedWeak": {
     "qId": "iDets1HitAsPassedWeak",
     "title": "We need more information",
     "reason":
-      "You were injured when you were hit by a vehicle as it was passing. If they failed to leave a safe distance while passing then they are likely to be found to blame. Alternatively, if you started overtaking without checking it was safe to do so then you might be held at fault. Proving that they are at fault is likely to be difficult. <br /> If you would like us to suggest a lawyer who specialises in cycling cases to provide further advice, feel free to send us an email at info@litem.co.uk.",
+      "You were injured when you were hit by a vehicle as it was passing. If they failed to leave a safe distance while passing then they are likely to be found to blame. Alternatively, if you started overtaking without checking it was safe to do so then you might be held at fault. Proving that they are at fault is likely to be difficult. <br /> If you would like us to suggest a lawyer who specialises in cycling cases to provide further advice, feel free to send us an email at info@litem.co.uk. I'm sorry that we were not able to help you on this occasion. Here are a few things to bear in mind for the future: <br /> 1. If you are in an incident take the defendant's registration. That way you can trace them if needs be.<br /> 2. Take details of any witnesses.<br /> 3. Contact the council ASAP to check if there is any CCTV footage.<br /> 4. Beware accepting money from the defendant as it may be seen as settling the case.<br /> 5. Keep records of any money you have spent.",
     "type": "weak"
   },
   "crossingOffRoadWeak": {
     "qId": "crossingOffRoadWeak",
     "title": "We need more information",
     "reason":
-      "You were injured when a pedestrian crossed your path whilst you were cycling off-road. For your case to succeed you would need to show that the other party is at fault. You are expected to take care to avoid pedestrians who may be using the path, so proving that they are at fault is likely to be difficult. <br /> If you would like us to suggest a lawyer who specialises in cycling cases to provide further advice, feel free to send us an email at info@litem.co.uk.",
+      "You were injured when a pedestrian crossed your path whilst you were cycling off-road. For your case to succeed you would need to show that the other party is at fault. You are expected to take care to avoid pedestrians who may be using the path, so proving that they are at fault is likely to be difficult. <br /> If you would like us to suggest a lawyer who specialises in cycling cases to provide further advice, feel free to send us an email at info@litem.co.uk. I'm sorry that we were not able to help you on this occasion. Here are a few things to bear in mind for the future: <br /> 1. If you are in an incident take the defendant's registration. That way you can trace them if needs be.<br /> 2. Take details of any witnesses.<br /> 3. Contact the council ASAP to check if there is any CCTV footage.<br /> 4. Beware accepting money from the defendant as it may be seen as settling the case.<br /> 5. Keep records of any money you have spent.",
     "type": "weak"
   },
   "crossingNotPermitted": {
     "qId": "crossingNotPermitted",
     "title": "We need more information",
     "reason":
-      "You were injured when you cycled into a pedestrian on the pavement where cycling was prohibited. For your case to succeed you would need to show that the other party is at fault. Given that it was the pedestrian's right of way, proving that they are at fault is likely to be difficult. <br /> If you would like us to suggest a lawyer who specialises in cycling cases to provide further advice, feel free to send us an email at info@litem.co.uk.",
+      "You were injured when you cycled into a pedestrian on the pavement where cycling was prohibited. For your case to succeed you would need to show that the other party is at fault. Given that it was the pedestrian's right of way, proving that they are at fault is likely to be difficult. <br /> If you would like us to suggest a lawyer who specialises in cycling cases to provide further advice, feel free to send us an email at info@litem.co.uk. <br /> I'm sorry that we were not able to help you on this occasion. Here are a few things to bear in mind for the future: <br /> 1. If you are in an incident take the defendant's registration. That way you can trace them if needs be.<br /> 2. Take details of any witnesses.<br /> 3. Contact the council ASAP to check if there is any CCTV footage.<br /> 4. Beware accepting money from the defendant as it may be seen as settling the case.<br /> 5. Keep records of any money you have spent.",
     "type": "weak"
   },
   "changingLanes": {
     "qId": "changingLanes",
     "title": "We need more information",
     "reason":
-      "You were injured when you were hit on a roundabout by a vehicle whilst you changed lanes. It is difficult to say who is to blame without further information. <br /> If you would like us to suggest a lawyer who specialises in cycling cases to provide further advice, feel free to send us an email at info@litem.co.uk.",
+      "You were injured when you were hit on a roundabout by a vehicle whilst you changed lanes. It is difficult to say who is to blame without further information. <br /> If you would like us to suggest a lawyer who specialises in cycling cases to provide further advice, feel free to send us an email at info@litem.co.uk. <br /> I'm sorry that we were not able to help you on this occasion. Here are a few things to bear in mind for the future: <br /> 1. If you are in an incident take the defendant's registration. That way you can trace them if needs be.<br /> 2. Take details of any witnesses.<br /> 3. Contact the council ASAP to check if there is any CCTV footage.<br /> 4. Beware accepting money from the defendant as it may be seen as settling the case.<br /> 5. Keep records of any money you have spent.",
     "type": "weak"
   },
   "contactMe": {
     "qId": "contactMe",
     "title": "We need more information",
     "reason":
-      "We have not been able to work out the circumstances of the incident. <br /> If you would like us to suggest a lawyer who specialises in cycling cases to provide further advice, feel free to send us an email at info@litem.co.uk.",
+      "We have not been able to work out the circumstances of the incident. <br /> If you would like us to suggest a lawyer who specialises in cycling cases to provide further advice, feel free to send us an email at info@litem.co.uk. <br /> I'm sorry that we were not able to help you on this occasion. Here are a few things to bear in mind for the future: <br /> 1. If you are in an incident take the defendant's registration. That way you can trace them if needs be.<br /> 2. Take details of any witnesses.<br /> 3. Contact the council ASAP to check if there is any CCTV footage.<br /> 4. Beware accepting money from the defendant as it may be seen as settling the case.<br /> 5. Keep records of any money you have spent.",
     "type": "weak"
   },
   "amber": {
     "qId": "amber",
     "title": "We need more information",
     "reason":
-      "You were injured when you cycled into a pedestrian at a set of traffic lights which were amber. You would need to show that the pedestrian is at fault, which may be challenging in the circumstances as amber is only an indication to proceed and you still need to look out for pedestrians. <br /> If you would like us to suggest a lawyer who specialises in cycling cases to provide further advice, feel free to send us an email at info@litem.co.uk.",
+      "You were injured when you cycled into a pedestrian at a set of traffic lights which were amber. You would need to show that the pedestrian is at fault, which may be challenging in the circumstances as amber is only an indication to proceed and you still need to look out for pedestrians. <br /> If you would like us to suggest a lawyer who specialises in cycling cases to provide further advice, feel free to send us an email at info@litem.co.uk. <br /> I'm sorry that we were not able to help you on this occasion. Here are a few things to bear in mind for the future: <br /> 1. If you are in an incident take the defendant's registration. That way you can trace them if needs be.<br /> 2. Take details of any witnesses.<br /> 3. Contact the council ASAP to check if there is any CCTV footage.<br /> 4. Beware accepting money from the defendant as it may be seen as settling the case.<br /> 5. Keep records of any money you have spent.",
     "type": "weak"
   },
   "iDets2RanRedLightAdvice": {
     "qId": "iDets2RanRedLightAdvice",
     "title": "We need more information",
     "reason":
-      "You were injured when you were in an incident with another road user when you jumped a red light. You would need to show that the other party is at fault which may be challenging as they can argue that they did not anticipate your actions and it was their right of way. <br /> If you would like us to suggest a lawyer who specialises in cycling cases to provide further advice, feel free to send us an email at info@litem.co.uk.",
+      "You were injured when you were in an incident with another road user when you jumped a red light. You would need to show that the other party is at fault which may be challenging as they can argue that they did not anticipate your actions and it was their right of way. <br /> If you would like us to suggest a lawyer who specialises in cycling cases to provide further advice, feel free to send us an email at info@litem.co.uk. <br /> I'm sorry that we were not able to help you on this occasion. Here are a few things to bear in mind for the future: <br /> 1. If you are in an incident take the defendant's registration. That way you can trace them if needs be.<br /> 2. Take details of any witnesses.<br /> 3. Contact the council ASAP to check if there is any CCTV footage.<br /> 4. Beware accepting money from the defendant as it may be seen as settling the case.<br /> 5. Keep records of any money you have spent.",
     "type": "weak"
   },
   "iDets2PaveAdvice": {
     "qId": "iDets2PaveAdvice",
     "title": "We need more information",
     "reason":
-      "You were injured when you were in an incident with another road user whilst you were cycling on the pavement where cycling was prohibited. You would need to show that the other party is at fault which would normally be difficult as they can argue that they did not expect to see you there. <br /> If you would like us to suggest a lawyer who specialises in cycling cases to provide further advice, feel free to send us an email at info@litem.co.uk.",
+      "You were injured when you were in an incident with another road user whilst you were cycling on the pavement where cycling was prohibited. You would need to show that the other party is at fault which would normally be difficult as they can argue that they did not expect to see you there. <br /> If you would like us to suggest a lawyer who specialises in cycling cases to provide further advice, feel free to send us an email at info@litem.co.uk. <br /> I'm sorry that we were not able to help you on this occasion. Here are a few things to bear in mind for the future: <br /> 1. If you are in an incident take the defendant's registration. That way you can trace them if needs be.<br /> 2. Take details of any witnesses.<br /> 3. Contact the council ASAP to check if there is any CCTV footage.<br /> 4. Beware accepting money from the defendant as it may be seen as settling the case.<br /> 5. Keep records of any money you have spent.",
     "type": "weak"
   },
   "manoeuvringAdvice": {
     "qId": "manoeuvringAdvice",
     "title": "We need more information",
     "reason":
-      "You were injured when you were in an incident with another road user when you were manoeuvring around / overtaking another vehicle on your bicycle. You would need to show that the other party is at fault which will depend on the exact circumstances of the incident. <br /> If you would like us to suggest a lawyer who specialises in cycling cases to provide further advice, feel free to send us an email at info@litem.co.uk.",
+      "You were injured when you were in an incident with another road user when you were manoeuvring around / overtaking another vehicle on your bicycle. You would need to show that the other party is at fault which will depend on the exact circumstances of the incident. <br /> If you would like us to suggest a lawyer who specialises in cycling cases to provide further advice, feel free to send us an email at info@litem.co.uk. <br /> I'm sorry that we were not able to help you on this occasion. Here are a few things to bear in mind for the future: <br /> 1. If you are in an incident take the defendant's registration. That way you can trace them if needs be.<br /> 2. Take details of any witnesses.<br /> 3. Contact the council ASAP to check if there is any CCTV footage.<br /> 4. Beware accepting money from the defendant as it may be seen as settling the case.<br /> 5. Keep records of any money you have spent.",
     "type": "weak"
   },
   "roundaboutR": {
     "qId": "roundaboutR",
     "title": "We need more information",
     "reason":
-      "You were injured when you were hit on a roundabout by a vehicle coming from your right. It sounds like a challenging case as they would have had the right of way. <br /> If you would like us to suggest a lawyer who specialises in cycling cases to provide further advice, feel free to send us an email at info@litem.co.uk.",
+      "You were injured when you were hit on a roundabout by a vehicle coming from your right. It sounds like a challenging case as they would have had the right of way. <br /> If you would like us to suggest a lawyer who specialises in cycling cases to provide further advice, feel free to send us an email at info@litem.co.uk. <br /> I'm sorry that we were not able to help you on this occasion. Here are a few things to bear in mind for the future: <br /> 1. If you are in an incident take the defendant's registration. That way you can trace them if needs be.<br /> 2. Take details of any witnesses.<br /> 3. Contact the council ASAP to check if there is any CCTV footage.<br /> 4. Beware accepting money from the defendant as it may be seen as settling the case.<br /> 5. Keep records of any money you have spent.",
     "type": "weak"
   },
   "notPermitted": {
     "qId": "notPermitted",
     "title": "We need more information",
     "reason":
-      "You were injured when you cycled into a pedestrian on a path where cycling was prohibited. You would need to show that the other party is at fault so that a case could be brought against them, which may be challenging given that it is their right of way. <br /> If you would like us to suggest a lawyer who specialises in cycling cases to provide further advice, feel free to send us an email at info@litem.co.uk.",
+      "You were injured when you cycled into a pedestrian on a path where cycling was prohibited. You would need to show that the other party is at fault so that a case could be brought against them, which may be challenging given that it is their right of way. <br /> If you would like us to suggest a lawyer who specialises in cycling cases to provide further advice, feel free to send us an email at info@litem.co.uk. <br /> I'm sorry that we were not able to help you on this occasion. Here are a few things to bear in mind for the future: <br /> 1. If you are in an incident take the defendant's registration. That way you can trace them if needs be.<br /> 2. Take details of any witnesses.<br /> 3. Contact the council ASAP to check if there is any CCTV footage.<br /> 4. Beware accepting money from the defendant as it may be seen as settling the case.<br /> 5. Keep records of any money you have spent.",
     "type": "weak"
   },
   "pedCrossing": {
     "qId": "pedCrossing",
     "title": "We need more information",
     "reason":
-      "You were injured when you cycled into a pedestrian on a pedestrian crossing. For the case to succeed you would need to show that they were at fault which will be challenging given that it is their right of way. <br /> If you would like us to suggest a lawyer who specialises in cycling cases to provide further advice, feel free to send us an email at info@litem.co.uk.",
+      "You were injured when you cycled into a pedestrian on a pedestrian crossing. For the case to succeed you would need to show that they were at fault which will be challenging given that it is their right of way. <br /> If you would like us to suggest a lawyer who specialises in cycling cases to provide further advice, feel free to send us an email at info@litem.co.uk. <br /> I'm sorry that we were not able to help you on this occasion. Here are a few things to bear in mind for the future: <br /> 1. If you are in an incident take the defendant's registration. That way you can trace them if needs be.<br /> 2. Take details of any witnesses.<br /> 3. Contact the council ASAP to check if there is any CCTV footage.<br /> 4. Beware accepting money from the defendant as it may be seen as settling the case.<br /> 5. Keep records of any money you have spent.",
     "type": "weak"
   },
   "pedStationary": {
     "qId": "pedStationary",
     "title": "We need more information",
     "reason":
-      "You were injured when you cycled into a pedestrian who was stationary. You would need to show that they were at fault if the case is to succeed, which may be challenging in the circumstances. <br /> If you would like us to suggest a lawyer who specialises in cycling cases to provide further advice, feel free to send us an email at info@litem.co.uk.",
+      "You were injured when you cycled into a pedestrian who was stationary. You would need to show that they were at fault if the case is to succeed, which may be challenging in the circumstances. <br /> If you would like us to suggest a lawyer who specialises in cycling cases to provide further advice, feel free to send us an email at info@litem.co.uk. <br /> I'm sorry that we were not able to help you on this occasion. Here are a few things to bear in mind for the future: <br /> 1. If you are in an incident take the defendant's registration. That way you can trace them if needs be.<br /> 2. Take details of any witnesses.<br /> 3. Contact the council ASAP to check if there is any CCTV footage.<br /> 4. Beware accepting money from the defendant as it may be seen as settling the case.<br /> 5. Keep records of any money you have spent.",
     "type": "weak"
   },
   "permittedPath": {
     "qId": "permittedPath",
     "title": "We need more information",
     "reason":
-      "You were injured when a pedestrian crossed your path whilst you were cycling. You would need to show that they are at fault which may be challenging as you are expected to take care to avoid pedestrians who may be using the path. <br /> If you would like us to suggest a lawyer who specialises in cycling cases to provide further advice, feel free to send us an email at info@litem.co.uk.",
+      "You were injured when a pedestrian crossed your path whilst you were cycling. You would need to show that they are at fault which may be challenging as you are expected to take care to avoid pedestrians who may be using the path. <br /> If you would like us to suggest a lawyer who specialises in cycling cases to provide further advice, feel free to send us an email at info@litem.co.uk. <br /> I'm sorry that we were not able to help you on this occasion. Here are a few things to bear in mind for the future: <br /> 1. If you are in an incident take the defendant's registration. That way you can trace them if needs be.<br /> 2. Take details of any witnesses.<br /> 3. Contact the council ASAP to check if there is any CCTV footage.<br /> 4. Beware accepting money from the defendant as it may be seen as settling the case.<br /> 5. Keep records of any money you have spent.",
     "type": "weak"
   },
   "youRearEnded": {
     "qId": "youRearEnded",
     "title": "We need more information",
     "reason":
-      "You were injured when you were in an incident with another road user when you rode into the back of them on your bicycle. You would need to show that the other party is at fault which may be challenging in the circumstances. <br /> If you would like us to suggest a lawyer who specialises in cycling cases to provide further advice, feel free to send us an email at info@litem.co.uk.",
+      "You were injured when you were in an incident with another road user when you rode into the back of them on your bicycle. You would need to show that the other party is at fault which may be challenging in the circumstances. <br /> If you would like us to suggest a lawyer who specialises in cycling cases to provide further advice, feel free to send us an email at info@litem.co.uk. <br /> I'm sorry that we were not able to help you on this occasion. Here are a few things to bear in mind for the future: <br /> 1. If you are in an incident take the defendant's registration. That way you can trace them if needs be.<br /> 2. Take details of any witnesses.<br /> 3. Contact the council ASAP to check if there is any CCTV footage.<br /> 4. Beware accepting money from the defendant as it may be seen as settling the case.<br /> 5. Keep records of any money you have spent.",
     "type": "weak"
   },
   "red": {
     "qId": "red",
     "title": "We need more information",
     "reason":
-      "You were injured when you cycled into a pedestrian at a set of traffic lights which were showing red for you. You would need to show that the pedestrian is at fault, which may be challenging in the circumstances given that it was their right of way. <br /> If you would like us to suggest a lawyer who specialises in cycling cases to provide further advice, feel free to send us an email at info@litem.co.uk.",
+      "You were injured when you cycled into a pedestrian at a set of traffic lights which were showing red for you. You would need to show that the pedestrian is at fault, which may be challenging in the circumstances given that it was their right of way. <br /> If you would like us to suggest a lawyer who specialises in cycling cases to provide further advice, feel free to send us an email at info@litem.co.uk. <br /> I'm sorry that we were not able to help you on this occasion. Here are a few things to bear in mind for the future: <br /> 1. If you are in an incident take the defendant's registration. That way you can trace them if needs be.<br /> 2. Take details of any witnesses.<br /> 3. Contact the council ASAP to check if there is any CCTV footage.<br /> 4. Beware accepting money from the defendant as it may be seen as settling the case.<br /> 5. Keep records of any money you have spent.",
     "type": "weak"
   },
   "bikesOnly": {
     "qId": "bikesOnly",
     "title": "This tool is only for cases involving cyclists",
     "reason":
-      "If you would like us to suggest a lawyer who specialises in other cases to provide further advice, feel free to send us an email at info@litem.co.uk.",
+      "If you would like us to suggest a lawyer who specialises in other cases to provide further advice, feel free to send us an email at info@litem.co.uk. <br /> I'm sorry that we were not able to help you on this occasion. Here are a few things to bear in mind for the future: <br /> 1. If you are in an incident take the defendant's registration. That way you can trace them if needs be.<br /> 2. Take details of any witnesses.<br /> 3. Contact the council ASAP to check if there is any CCTV footage.<br /> 4. Beware accepting money from the defendant as it may be seen as settling the case.<br /> 5. Keep records of any money you have spent.",
     "type": "weak"
   },
   "hitAndRun": {
     "qId": "hitAndRun",
     "title": "You don't have the other party's details",
     "reason":
-      "If this is because you or the police did not record their details (and there is no way to trace the driver) then you will not be able to bring a case. Alternatively, if you were injured by a driver or motorcyclist who did not stop at the scene of the incident, you may still be able to get compensation through the Motor Insurance Bureau (MIB). All motor insurance policies contribute to this fund which compensates the victims of hit and run incidents and also incidents caused by uninsured drivers. <br /> The MIB have strict time limits to lodge a case with them. The time limits can be found here, along with details on how to apply for compensation: <br /> www.mib.org.uk <br /> If you would like us to suggest a lawyer who specialises in cycling cases to provide further advice, feel free to send us an email at info@litem.co.uk.",
+      "If this is because you or the police did not record their details (and there is no way to trace the driver) then you will not be able to bring a case. Alternatively, if you were injured by a driver or motorcyclist who did not stop at the scene of the incident, you may still be able to get compensation through the Motor Insurance Bureau (MIB). All motor insurance policies contribute to this fund which compensates the victims of hit and run incidents and also incidents caused by uninsured drivers. <br /> The MIB have strict time limits to lodge a case with them. The time limits can be found here, along with details on how to apply for compensation: <br /> www.mib.org.uk <br /> If you would like us to suggest a lawyer who specialises in cycling cases to provide further advice, feel free to send us an email at info@litem.co.uk. <br /> I'm sorry that we were not able to help you on this occasion. Here are a few things to bear in mind for the future: <br /> 1. If you are in an incident take the defendant's registration. That way you can trace them if needs be.<br /> 2. Take details of any witnesses.<br /> 3. Contact the council ASAP to check if there is any CCTV footage.<br /> 4. Beware accepting money from the defendant as it may be seen as settling the case.<br /> 5. Keep records of any money you have spent.",
     "type": "weak"
   },
   "jurisdiction": {
     "qId": "jurisdiction",
     "title": "This tool is only for incidents occurring in England or Wales",
     "reason":
-      "The law in other countries is different and you will need specialist advice. <br /> If you would like us to suggest a lawyer who specialises in cycling cases occurring abroad to provide further advice, feel free to send us an email at info@litem.co.uk.",
+      "The law in other countries is different and you will need specialist advice. <br /> If you would like us to suggest a lawyer who specialises in cycling cases occurring abroad to provide further advice, feel free to send us an email at info@litem.co.uk. <br /> I'm sorry that we were not able to help you on this occasion. Here are a few things to bear in mind for the future: <br /> 1. If you are in an incident take the defendant's registration. That way you can trace them if needs be.<br /> 2. Take details of any witnesses.<br /> 3. Contact the council ASAP to check if there is any CCTV footage.<br /> 4. Beware accepting money from the defendant as it may be seen as settling the case.<br /> 5. Keep records of any money you have spent.",
     "type": "weak"
   },
   "timeBarred": {
     "qId": "timeBarred",
     "title": "It sounds like your case is out of time",
     "reason":
-      "The time limit for most injury cases is three years, by which time you need to issue proceedings in the court. <br /> An exception is if the incident happened before your 18th birthday. If so, you have until your 21st birthday to issue proceedings. <br /> There are certain exceptions so if you would like us to suggest a lawyer who specialises in cycling cases to provide further advice, feel free to send us an email at info@litem.co.uk.",
+      "The time limit for most injury cases is three years, by which time you need to issue proceedings in the court. <br /> An exception is if the incident happened before your 18th birthday. If so, you have until your 21st birthday to issue proceedings. <br /> There are certain exceptions so if you would like us to suggest a lawyer who specialises in cycling cases to provide further advice, feel free to send us an email at info@litem.co.uk. <br /> I'm sorry that we were not able to help you on this occasion. Here are a few things to bear in mind for the future: <br /> 1. If you are in an incident take the defendant's registration. That way you can trace them if needs be.<br /> 2. Take details of any witnesses.<br /> 3. Contact the council ASAP to check if there is any CCTV footage.<br /> 4. Beware accepting money from the defendant as it may be seen as settling the case.<br /> 5. Keep records of any money you have spent.",
     "type": "weak"
   },
   "dFullName": {
+    "status": "removed",
     "qId": "dFullName",
-    "nxtQId": "cAddress",
+    "nxtQId": "cFullName",
     "title": "What's the defendant's name?",
     "answered": "",
     "answeredOn": "",
     "type": "text",
     "placeholder": "e.g. Alexander Jeffcott"
   },
+  "cFullName": {
+    "status": "removed",
+    "qId": "cFullName",
+    "nxtQId": "cAddress",
+    "title": "What's your name?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "text",
+    "placeholder": "e.g. Alexander Jeffcott"
+  },
   "cAddress": {
+    "status": "removed",
     "qId": "cAddress",
     "nxtQId": "cStreet",
     "title": "What's your address?",
@@ -1092,7 +1147,7 @@
   },
   "cStreet": {
     "qId": "cStreet",
-    "nxtQId": "landmark",
+    "nxtQId": "injured",
     "title": "Which street did the incident occur on?",
     "answered": "",
     "answeredOn": "",
@@ -1100,7 +1155,7 @@
     "placeholder": "e.g. Klemkestrass 43"
   },
   "landmark": {
-    "status": "please leave this placeholder",
+    "status": "removed",
     "qId": "landmark",
     "nxtQId": "cDir",
     "title":
@@ -1111,6 +1166,7 @@
     "placeholder": "e.g. junction with London Road; "
   },
   "cDir": {
+    "status": "removed",
     "qId": "cDir",
     "title": "Which direction were you heading in",
     "answered": "",
@@ -1573,7 +1629,7 @@
       },
       {
         "qId": "finRepairs",
-        "title": "Bicycle repairs or insurance excess",
+        "title": "Bicycle repairs",
         "type": "text",
         "placeholder": "0"
       },
@@ -1800,7 +1856,8 @@
   },
   "writeWho": {
     "qId": "writeWho",
-    "title": "Who would you like to write to?",
+    "title":
+      "Who would you like to write to (if you have the insurer's details you should write to them).",
     "answered": "",
     "answeredOn": "",
     "type": "button",
@@ -1808,7 +1865,7 @@
       {
         "ansId": "writeWhoDefendant",
         "ansLabel": "Defendant",
-        "nxtQId": "postLetter"
+        "nxtQId": "letter"
       },
       {
         "ansId": "writeWhoInsurer",
@@ -1819,16 +1876,11 @@
   },
   "dPolicyNumber": {
     "qId": "dPolicyNumber",
-    "nxtQId": "postLetter",
+    "nxtQId": "letter",
     "title": "Please enter their policy number:",
     "answered": "",
     "answeredOn": "",
     "type": "text"
-  },
-  "postLetter": {
-    "qId": "postLetter",
-    "nxtQId": "letter",
-    "type": "postLetter"
   },
   "roadDefectLetter": {
     "qId": "roadDefectLetter",
@@ -2097,6 +2149,11 @@
     "liabilityResult":
       "As a result of the above it is clear in my view that liability attaches to ",
     "type": "letter"
+  },
+  "postLetter": {
+    "status": "moved",
+    "qId": "postLetter",
+    "type": "postLetter"
   },
   "val0": {
     "qId": "val0",
@@ -2468,17 +2525,17 @@
     "nxtQId": "valAddInjury",
     "answered": "",
     "answeredOn": "",
-    "type": "injuryDurationInputs",
+    "type": "durationInputs",
     "inputs": [
       {
         "qId": "injuryStart",
-        "title": "start of injury",
+        "title": "start of injury:",
         "type": "date",
         "placeholder": ""
       },
       {
         "qId": "injuryEnd",
-        "title": "End of injury",
+        "title": "End of injury:",
         "type": "date",
         "placeholder": ""
       }

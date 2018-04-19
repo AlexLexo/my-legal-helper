@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
-
-import './faqs.css';
+//import Container from './../styled-components/container';
+//import Title from './../styled-components/title';
+//import Header from './../styled-components/header';
 
 @inject('RootStore')
 @observer

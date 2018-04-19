@@ -1,6 +1,7 @@
 import React from 'react';
 import DOMPurify from 'dompurify';
 import Header from './../../styled-components/header';
+import Input from './../../styled-components/input';
 
 const Texts = props => {
   console.log(props.value);
@@ -8,7 +9,7 @@ const Texts = props => {
   return (
     <React.Fragment>
       <Header t="50px" b="50px" dangerouslySetInnerHTML={title} />
-      <input
+      <Input.Input
         type="text"
         value={props.value}
         style={{ maxWidth: '200px', marginLeft: 'auto', marginRight: 'auto' }}

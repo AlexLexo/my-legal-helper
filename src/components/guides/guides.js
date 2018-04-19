@@ -1,6 +1,10 @@
 import React from 'react';
 import { pageView } from './../../services/ga-helpers';
 import Accordion from './../accordion/accordion';
+import Header from './../styled-components/header';
+import Title from './../styled-components/title';
+import P from './../styled-components/p';
+import Container from './../styled-components/container';
 
 const guide1 = {
   title: 'what if the defendant denies liability',
@@ -229,23 +233,25 @@ const guide10 = {
 const Guides = props => {
   pageView(window.location.pathname);
   return (
-    <div className="guides">
-      <h1>Guides</h1>
-      <h3>
+    <Container dark>
+      <Title center dark t="50px">
+        Guides
+      </Title>
+      <Header center dark b="20px">
         Here are our guides to help you settle you case. Please let us know if you would like to see a guide which isn't
         shown.
-      </h3>
-      <Accordion id="guide1" content={guide1} />
-      <Accordion id="guide2" content={guide2} />
-      <Accordion id="guide3" content={guide3} />
-      <Accordion id="guide4" content={guide4} />
-      <Accordion id="guide5" content={guide5} />
-      <Accordion id="guide6" content={guide6} />
-      <Accordion id="guide7" content={guide7} />
-      <Accordion id="guide8" content={guide8} />
-      <Accordion id="guide9" content={guide9} />
-      <Accordion id="guide10" content={guide10} />
-    </div>
+      </Header>
+      <Accordion dark id="guide1" content={guide1} />
+      <Accordion dark id="guide2" content={guide2} />
+      <Accordion dark id="guide3" content={guide3} />
+      <Accordion dark id="guide4" content={guide4} />
+      <Accordion dark id="guide5" content={guide5} />
+      <Accordion dark id="guide6" content={guide6} />
+      <Accordion dark id="guide7" content={guide7} />
+      <Accordion dark id="guide8" content={guide8} />
+      <Accordion dark id="guide9" content={guide9} />
+      <Accordion dark id="guide10" content={guide10} />
+    </Container>
   );
 };
 

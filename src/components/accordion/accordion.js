@@ -1,4 +1,44 @@
 import React, { Component } from 'react';
+import ReactGA from 'react-ga';
+import {
+  AccordionGroup,
+  AccordionTitle,
+  AccordionMenu,
+  AccordionItem,
+  Chevron
+} from './../styled-components/accordion';
+import ChevronIcon from './../../assets/IMAGES/chevron_icon.svg';
+
+class Accordion extends Component {
+  state = { accordionOpen: false };
+
+  onAccordionClick = () => {
+    this.setState({ accordionOpen: !this.state.accordionOpen });
+    ReactGA.event({
+      category: 'content interaction',
+      action: `${this.state.collapse ? `opened accordion: ${this.props.id}` : `closed accordion: ${this.props.id}`}`,
+      label: this.props.id
+    });
+  };
+
+  render() {
+    return (
+      <AccordionGroup>
+        <AccordionTitle dark={this.props.dark} onClick={this.onAccordionClick}>
+          {this.props.content.title}{' '}
+          <Chevron accordionOpen={this.state.accordionOpen} src={ChevronIcon} h="15px" w="15px" />
+        </AccordionTitle>
+        <AccordionMenu dark={this.props.dark} accordionOpen={this.state.accordionOpen} onClick={this.onAccordionClick}>
+          <AccordionItem dark={this.props.dark}>{this.props.content.body}</AccordionItem>
+        </AccordionMenu>
+      </AccordionGroup>
+    );
+  }
+}
+
+export default Accordion;
+
+/*import React, { Component } from 'react';
 import { Collapse } from 'reactstrap';
 import ReactGA from 'react-ga';
 
@@ -48,8 +88,6 @@ class Accordion extends Component {
           <div className="col-12">
             <div
               style={{
-                backgroundColor: '#3cc',
-                color: 'white',
                 borderRadius: '15px'
               }}
             >
@@ -87,3 +125,4 @@ class Accordion extends Component {
 }
 
 export default Accordion;
+*/

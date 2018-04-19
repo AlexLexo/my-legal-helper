@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import ReactGA from 'react-ga';
 import { observer, inject } from 'mobx-react';
+import Container from './../styled-components/container';
+import Title from './../styled-components/title';
+import Header from './../styled-components/header';
+import Btn from './../styled-components/btn';
+import ContactForm from './../styled-components/contact-form';
 
 import { pageView } from './../../services/ga-helpers';
-import './contact.css';
 
 @inject('RootStore')
 @observer
@@ -52,50 +56,50 @@ class Contact extends Component {
   };
   render() {
     return (
-      <div className="contact">
+      <Container notFull>
         {!this.state.sent ? (
-          <div>
-            <h1> Get in Touch </h1>
-            <h3>Feel free to drop us an email at info@litem.co.uk. Alternatively, please send us a message below.</h3>
+          <React.Fragment>
+            <Title center> Get in Touch </Title>
+            <Header center>
+              Feel free to drop us an email at info@litem.co.uk.<br />Alternatively, please send us a message below.
+            </Header>
             <form onSubmit={this.handleSubmit}>
-              <input
+              <ContactForm.Input
                 type="email"
                 placeholder="Your email address"
+                t="20px"
                 required
                 autoComplete="email"
-                className="message-title"
                 value={this.state.emailAddress}
                 onChange={e => this.setState({ emailAddress: e.target.value })}
               />
-              <br />
-              <input
+              <ContactForm.Input
                 type="text"
+                t="20px"
                 placeholder="Message Title"
                 required
-                className="message-title"
                 value={this.state.messageTitle}
                 onChange={e => this.setState({ messageTitle: e.target.value })}
               />
-              <br />
-              <textarea
+              <ContactForm.TextArea
+                t="20px"
+                b="20px"
                 placeholder="Your Message"
                 rows="10"
                 cols="100"
                 required
-                className="message-body"
                 value={this.state.messageBody}
                 onChange={e => this.setState({ messageBody: e.target.value })}
               />
-              <br />
-              <input className="contact-btn btn btn-primary" type="submit" value="send" />
+              <Btn b="50px" type="submit">
+                Send
+              </Btn>
             </form>
-          </div>
+          </React.Fragment>
         ) : (
-          <div>
-            <h1>Message Sent!</h1>
-          </div>
+          <Title>Message Sent!</Title>
         )}
-      </div>
+      </Container>
     );
   }
 }

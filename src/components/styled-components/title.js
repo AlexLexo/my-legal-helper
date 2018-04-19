@@ -8,6 +8,7 @@ const Title = styled.h1`
   margin-left: auto;
   margin-right: auto;
   color: ${props => (props.dark ? props.theme.colors.color2 : props.theme.colors.color3)};
+  text-align: ${props => (props.center ? 'center' : 'inherit')};
   line-height: 1;
   font-weight: 600;
   @media (max-width: 599px) {

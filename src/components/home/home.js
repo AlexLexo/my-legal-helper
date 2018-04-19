@@ -10,6 +10,7 @@ import LogoLanding from './../styled-components/logo-landing';
 import ImgNumber from './../styled-components/img-number';
 import ImgSymbol from './../styled-components/img-symbol';
 import Link from './../styled-components/link';
+import Footer from './../styled-components/footer';
 
 import { pageView, handleNavClick } from './../../services/ga-helpers';
 
@@ -39,80 +40,86 @@ class Home extends Component {
       <React.Fragment>
         <Container>
           <LogoLanding alt="Litem Logo" src={LogoDark} />
-          <Title t="50px" b="50px">
+          <Header center t="4.5vh" b="4.5vh">
             Free tools and guides for injured cyclists to exercise their rights
-          </Title>
+          </Header>
           <BtnGetStarted
             t="20px"
-            b="50px"
+            b="30px"
             onClick={e => handleNavClick(e, this.props.history)}
             id="get started home1"
-            name="quiz"
+            name="tool-hub"
           >
             Start
           </BtnGetStarted>
         </Container>
-
         <Container style={{ backgroundColor: 'white' }}>
           <Title t="70px" b="10px">
             Why use Litem?
           </Title>
           <ImgNumber alt="Selling Point 1" src={imgOne} />
-          <Header t="20px">
+          <Header center t="20px">
             Your private data stays on your device so you can be confident that your details will never be passed on.
           </Header>
           <ImgNumber alt="Selling Point 2" src={imgTwo} />
-          <Header t="20px">Litem is free. Lawyers take 25%. Try us first to keep your full damages.</Header>
+          <Header center t="20px">
+            Litem is free. Lawyers take 25%. Try us first to keep your full damages.
+          </Header>
           <ImgNumber alt="Selling Point 3" src={imgThree} />
-          <Header t="20px">Our straight-forward process makes it easy for you to settle your own case.</Header>
+          <Header center t="20px">
+            Our straight-forward process makes it easy for you to settle your own case.
+          </Header>
         </Container>
 
         <Container>
-          <Title t="50px" b="50px">
+          <Title center t="50px" b="50px">
             Use our process to settle your case:
           </Title>
           <ImgSymbol alt="Our Process 1" src={imgQuestionMark} />
-          <Header t="10px" b="40px">
+          <Header center t="10px" b="40px">
             Do I have a good case?
           </Header>
           <ImgSymbol alt="Our Process 2" src={imgPoundSign} />
-          <Header t="10px" b="40px">
+          <Header center t="10px" b="40px">
             What is my case worth?
           </Header>
           <ImgSymbol alt="Our Process 3" src={imgLetter} />
-          <Header t="10px" b="40px">
+          <Header center t="10px" b="40px">
             Write to the defendant.
           </Header>
           <ImgSymbol alt="Our Process 4" src={imgTick} />
-          <Header t="10px" b="50px">
+          <Header center t="10px" b="50px">
             Use our guides to settle your case.
           </Header>
         </Container>
 
         <Container style={{ backgroundColor: 'white' }}>
-          <Title t="50px"> FAQs </Title>
-          <Header t="20px" b="10px">
+          <Title center t="50px">
+            {' '}
+            FAQs{' '}
+          </Title>
+          <Header center t="20px" b="10px">
             IS MY DATA SAFE?
           </Header>
           <P>
             Yes, our website is designed to be 100% secure. None of your personal data leaves your device so you can be
             confident that it cannot be accessed by us or anyone else.
           </P>
-          <Header t="20px" b="10px">
+          <Header center t="20px" b="10px">
             WHO ARE WE?
           </Header>
           <P>
             Litem was built by a team who are passionate about access to justice and putting the law in the hands of
             injured people. All the legal advice has been checked by an expert.
           </P>
-          <Header t="20px" b="10px">
+          <Header center t="20px" b="10px">
             WHY IS LITEM FREE?
           </Header>
           <P>
             Litem was built on the principle that injured people shouldn't have to pay for advice. Our team have given
             their time without charge because they believe in access to justice.
           </P>
-          <Header t="20px" b="10px">
+          <Header center t="20px" b="10px">
             DO I NEED A LAWYER?
           </Header>
           <P>
@@ -120,7 +127,7 @@ class Home extends Component {
             have suffered serious injury. However, most cases can be settled without instructing a solicitor. Our tools
             and guides provide everything you need to settle your injury case directly with the defendant's insurer.
           </P>
-          <Header t="20px" b="10px">
+          <Header center t="20px" b="10px">
             HOW ACCURATE IS LITEM?
           </Header>
           <P b="20px">
@@ -135,22 +142,27 @@ class Home extends Component {
             b="50px"
             onClick={e => handleNavClick(e, this.props.history)}
             id="get started home2"
-            name="quiz"
+            name="tool-hub"
           >
             Start
           </BtnGetStarted>
         </Container>
         <Contact id="home contact form" />
-        <footer>
-          <p>
+        <footer
+          style={{
+            backgroundColor: '#42506b',
+            paddingLeft: '10px',
+            paddingTop: '20px',
+            paddingBottom: '20px'
+          }}
+        >
+          <Footer.P dark>
             Litem is an online service providing legal information.<br />It is not a substitute for a lawyer’s advice
             about your case.
-          </p>
-          <p style={{ color: '#3cc', marginTop: '1rem' }}>Contact</p>
-          <p style={{ color: '#fccf4d' }}>info@litem.co.uk</p>
-          <p style={{ color: '#fccf4d' }}>@litem_law</p>
-          <p style={{ color: '#3cc', marginTop: '1rem' }}>Site Map</p>
-
+          </Footer.P>
+          <p style={{ color: '#3cc', height: '0.3rem' }}>Contact:</p>
+          <p style={{ color: '#fccf4d', height: '0.5rem', paddingLeft: '10px' }}>info@litem.co.uk</p>
+          <p style={{ color: '#fccf4d', paddingLeft: '10px' }}>@litem_law</p>
           <Link dark onClick={() => this.props.history.push(`tsandcs`)}>
             Terms
           </Link>
@@ -158,11 +170,7 @@ class Home extends Component {
           <Link dark onClick={() => this.props.history.push(`tsandcs`)}>
             Privacy Policy
           </Link>
-          <br />
-          <Link dark onClick={() => this.props.history.push(`tsandcs`)}>
-            Blog
-          </Link>
-          <p>(C) 2018 Litem Ltd. All rights reserved</p>
+          <Footer.P dark>(C) 2018 Litem Ltd. All rights reserved</Footer.P>
         </footer>
       </React.Fragment>
     );

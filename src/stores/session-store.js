@@ -64,7 +64,7 @@ export default class mobxSessionStore {
     }
     this.currentQId =
       this.userObj.lastQIds[this.RootStore.UIStore.currentSection].length === 1
-        ? this.RootStore.UIStore.currentSection === 'caseTool' ? 'cFullName' : 'val0'
+        ? this.RootStore.UIStore.currentSection === 'caseTool' ? 'cDOBiDate' : 'val0'
         : this.userObj.lastQIds[this.RootStore.UIStore.currentSection].pop();
   };
 
@@ -105,7 +105,7 @@ export default class mobxSessionStore {
 
   @computed
   get letterTemplate() {
-    if (this.userObj.allQs.injuredBy2.answered === 'injuredByRoadDefect') return 'roadDefectLetter';
+    if (this.userObj.allQs.injuredBy.answered === 'injuredByRoadDefect') return 'roadDefectLetter';
     if (this.userObj.allQs.injuredBy.answered === 'injuredByAnimal') return 'injuredByAnimalLetter';
     if (this.userObj.allQs.injuredBy.answered === 'injuredByPed') return 'injuredByPedestrianLetter';
     if (this.userObj.allQs.iDets1.answered === 'iDets1Rear') return 'rearEndedByLetter';

@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
 import moment from 'moment';
+import Container from './../../styled-components/container';
+import LetterInput from './../../styled-components/letter-input';
+import P from './../../styled-components/p';
+import List from './../../styled-components/list';
 import Textarea from 'react-textarea-autosize';
 
 @inject('RootStore')
@@ -9,10 +13,10 @@ class Letter extends Component {
   state = {
     cFullName: this.props.allQs.cFullName.answered,
     cAddress: this.props.allQs.cAddress.answered,
-    iDate: this.props.allQs.iDate.answered,
+    iDate: moment(this.props.allQs.cDOBiDate.answered[1]).format('DD/MM/YYYY'),
     dFullName: this.props.allQs.dFullName.answered,
     dPolicyNumber: this.props.allQs.dPolicyNumber.answered,
-    intro: `On the above date I suffered ${
+    intro: `On ${moment(this.props.allQs.cDOBiDate.answered[1]).format('dddd Do MMMM YYYY')} I suffered ${
       this.props.allQs.injured.answered === 'injuredYes'
         ? this.props.allQs.lossesFinancial.answered === 'lossesFinancialYes'
           ? 'injuries and financial loss'
@@ -24,14 +28,12 @@ class Letter extends Component {
       (this.props.allQs.writeWho.answered === 'writeWhoDefendant'
         ? ` and your ${this.props.allQs.animalType.answered}`
         : ` and their ${this.props.allQs.animalType.answered}`)}.`,
-    circumstancesofIncident1: `On ${this.props.allQs.iDate.answered} I was a cyclist proceeding ${
-      this.props.allQs.cDir.answered
-    } along ${this.props.allQs.cStreet.answered}. At all material times, ${
+    circumstancesofIncident1: `On the above date I was a cyclist proceeding along ${
+      this.props.allQs.cStreet.answered
+    }. At all material times, ${
       this.props.allQs.writeWho.answered === 'writeWhoDefendant' ? 'you were' : 'your insured was'
     } ${this.props.q.materialTimes}`,
-    circumstancesofIncident2: `As I was cycling along ${this.props.allQs.cStreet.answered} I was heading ${
-      this.props.allQs.cDir.answered
-    }. When I reached the ${this.props.allQs.landmark.answered} ${
+    circumstancesofIncident2: `As I was cycling along ${this.props.allQs.cStreet.answered}, ${
       this.props.q.afterLandmark
         ? this.props.q.afterLandmark
         : this.props.allQs.pedDetsCrossedDir.answered === 'pedDetsCrossedDirR'
@@ -98,12 +100,11 @@ class Letter extends Component {
     const finCare =
       this.props.allQs.financialDets.answered[5] === '0' ? false : this.props.allQs.financialDets.answered[5];
     const finTotal = finTravel + finTreatment + finEarnings + finMedication + finRepairs + finCare;
-    console.log(finTotal);
     return (
-      <div className="letter text-justify">
-        <p>{todaysDate}</p>
-        <p>Dear Sir / Madam</p>
-        <p>
+      <React.Fragment>
+        <P>{todaysDate}</P>
+        <P>Dear Sir / Madam</P>
+        <P>
           {this.props.editedLetter ? (
             <strong>
               Name: {this.props.RootStore.SessionStore.userObj.editedLetter.cFullName}
@@ -123,9 +124,10 @@ class Letter extends Component {
           ) : (
             <strong>
               <label htmlFor="cFullName">Name:</label>
-              <input
+              <LetterInput
                 id="cFullName"
                 type="text"
+                required
                 defaultValue={this.props.allQs.cFullName.answered}
                 onChange={e =>
                   this.props.callback({ cFullName: e.target.value }, () => this.props.callback(this.state))
@@ -133,17 +135,19 @@ class Letter extends Component {
               />
               <br />
               <label htmlFor="cAddress">Address:</label>
-              <input
+              <LetterInput
                 id="cAddress"
                 type="text"
+                required
                 value={this.state.cAddress}
                 onChange={e => this.setState({ cAddress: e.target.value }, () => this.props.callback(this.state))}
               />
               <br />
               <label htmlFor="iDate">Incident date:</label>
-              <input
+              <LetterInput
                 id="iDate"
                 type="text"
+                required
                 value={this.state.iDate}
                 onChange={e => this.setState({ iDate: e.target.value }, () => this.props.callback(this.state))}
               />
@@ -151,17 +155,19 @@ class Letter extends Component {
               {this.state.dPolicyNumber && (
                 <span>
                   <label htmlFor="dFullName">Defendant name:</label>
-                  <input
+                  <LetterInput
                     id="dFullName"
                     type="text"
+                    required
                     value={this.state.dFullName}
                     onChange={e => this.setState({ dFullName: e.target.value }, () => this.props.callback(this.state))}
                   />
                   <br />
                   <label htmlFor="dPolicyNumber">Policy number:</label>
-                  <input
+                  <LetterInput
                     id="dPolicyNumber"
                     type="text"
+                    required
                     value={this.state.dPolicyNumber}
                     onChange={e =>
                       this.setState({ dPolicyNumber: e.target.value }, () => this.props.callback(this.state))
@@ -171,13 +177,13 @@ class Letter extends Component {
               )}
             </strong>
           )}
-        </p>
+        </P>
         {this.props.editedLetter ? (
-          <p>{this.props.RootStore.SessionStore.userObj.editedLetter.intro}</p>
+          <P>{this.props.RootStore.SessionStore.userObj.editedLetter.intro}</P>
         ) : (
           <div>
             <Textarea
-              style={{ width: '90%' }}
+              style={{ marginLeft: '5%', width: '90%', fontSize: '1.2rem' }}
               value={this.state.intro}
               onChange={e => this.setState({ intro: e.target.value }, () => this.props.callback(this.state))}
             />
@@ -186,185 +192,200 @@ class Letter extends Component {
         )}
         {this.props.allQs.writeWho.answered !== 'writeWhoDefendant' && (
           <div>
-            <ins>Insurance</ins>
-            <p>
+            <P>
+              <ins>Insurance</ins>
+            </P>
+            <P>
               Please confirm the identity of your insurers. Please note that the insurers will need to see this letter
               as soon as possible and it may affect your insurance cover and/or the conduct of any subsequent legal
               proceedings if you do not send this letter to them.
-            </p>
+            </P>
           </div>
         )}
-
-        <ins>Circumstances of Incident</ins>
-        {this.props.editedLetter ? (
-          <div>
-            <p>{this.props.RootStore.SessionStore.userObj.editedLetter.circumstancesofIncident1}</p>
-            <p>{this.props.RootStore.SessionStore.userObj.editedLetter.circumstancesofIncident2}</p>
-          </div>
-        ) : (
-          <div>
-            <Textarea
-              style={{ width: '90%' }}
-              value={this.state.circumstancesofIncident1}
-              onChange={e =>
-                this.setState({ circumstancesofIncident1: e.target.value }, () => this.props.callback(this.state))
-              }
-            />
-            <br />
-            <Textarea
-              style={{ width: '90%' }}
-              value={this.state.circumstancesofIncident2}
-              onChange={e =>
-                this.setState({ circumstancesofIncident2: e.target.value }, () => this.props.callback(this.state))
-              }
-            />
-            <br />
-          </div>
-        )}
-        <ins>Liability</ins>
-        <p>
+        <Container notFull style={{ backgroundColor: 'white' }}>
+          <P>
+            <ins>Circumstances of Incident</ins>
+          </P>
+          {this.props.editedLetter ? (
+            <div>
+              <P>{this.props.RootStore.SessionStore.userObj.editedLetter.circumstancesofIncident1}</P>
+              <P>{this.props.RootStore.SessionStore.userObj.editedLetter.circumstancesofIncident2}</P>
+            </div>
+          ) : (
+            <div>
+              <Textarea
+                style={{ marginLeft: '5%', width: '90%', fontSize: '1.2rem' }}
+                value={this.state.circumstancesofIncident1}
+                onChange={e =>
+                  this.setState({ circumstancesofIncident1: e.target.value }, () => this.props.callback(this.state))
+                }
+              />
+              <br />
+              <Textarea
+                style={{ marginLeft: '5%', width: '90%', fontSize: '1.2rem' }}
+                value={this.state.circumstancesofIncident2}
+                onChange={e =>
+                  this.setState({ circumstancesofIncident2: e.target.value }, () => this.props.callback(this.state))
+                }
+              />
+              <br />
+            </div>
+          )}
+        </Container>
+        <P>
+          <ins>Liability</ins>
+        </P>
+        <P>
           I am alleging fault against{' '}
           {this.props.allQs.dooredDets.answered === 'dooredDetsPassenger' &&
             'the passenger of the vehicle belonging to '}
           {this.writingTo} for the following reasons:-
-        </p>
-        <ol>
-          <li className={this.props.q.liability1 || 'hide'}>{this.props.q.liability1}</li>
-          <li className={this.props.q.liability2 || 'hide'}>{this.props.q.liability2}</li>
-          <li className={this.props.q.liability3 || 'hide'}>{this.props.q.liability3}</li>
-          <li className={this.props.q.liability4 || 'hide'}>{this.props.q.liability4}</li>
-          <li className={this.props.q.liability5 || 'hide'}>{this.props.q.liability5}</li>
-          <li className={this.props.q.liability6 || 'hide'}>{this.props.q.liability6}</li>
-          <li className={this.props.q.liability7 || 'hide'}>{this.props.q.liability7}</li>
-          <li className={this.props.q.liability8 || 'hide'}>{this.props.q.liability8}</li>
-          <li className={this.props.q.liability9 || 'hide'}>{this.props.q.liability9}</li>
-          <li className={this.props.q.liability10 || 'hide'}>{this.props.q.liability10}</li>
-          <li className={this.props.q.liability11 || 'hide'}>{this.props.q.liability11}</li>
-        </ol>
-        <p>
+        </P>
+        <List.OrderedList>
+          <List.Item hide={!this.props.q.liability1}>{this.props.q.liability1}</List.Item>
+          <List.Item hide={!this.props.q.liability2}>{this.props.q.liability2}</List.Item>
+          <List.Item hide={!this.props.q.liability3}>{this.props.q.liability3}</List.Item>
+          <List.Item hide={!this.props.q.liability4}>{this.props.q.liability4}</List.Item>
+          <List.Item hide={!this.props.q.liability5}>{this.props.q.liability5}</List.Item>
+          <List.Item hide={!this.props.q.liability6}>{this.props.q.liability6}</List.Item>
+          <List.Item hide={!this.props.q.liability7}>{this.props.q.liability7}</List.Item>
+          <List.Item hide={!this.props.q.liability8}>{this.props.q.liability8}</List.Item>
+          <List.Item hide={!this.props.q.liability9}>{this.props.q.liability9}</List.Item>
+          <List.Item hide={!this.props.q.liability10}>{this.props.q.liability10}</List.Item>
+          <List.Item hide={!this.props.q.liability11}>{this.props.q.liability11}</List.Item>
+        </List.OrderedList>
+        <P>
           {this.props.q.liabilityResult} {this.writingTo}. I trust you will provide a full admission within the 3 month
           time limit in accordance with the Pre-Action Protocol for Personal Injury Claims in the Civil Procedure Rules.
-        </p>
+        </P>
         <div className={this.props.allQs.injuryDets.answered || 'hide'}>
-          <ins>Injuries</ins>
-          <p>
+          <P>
+            <ins>Injuries</ins>
+          </P>
+          <P>
             A description of my injuries{this.props.allQs.suffer.answered === 'sufferYes' &&
               ', which I still suffer from,'}{' '}
             is as follows:
-          </p>
-          <ul>
-            <li className={this.props.allQs.injuryDets.answered || 'hide'}>{this.props.allQs.injuryDets.answered}</li>
-            <li className={this.props.allQs.injuryDets01.answered || 'hide'}>
+          </P>
+          <List.OrderedList>
+            <List.Item hide={!this.props.allQs.injuryDets.answered}>{this.props.allQs.injuryDets.answered}</List.Item>
+            <List.Item hide={!this.props.allQs.injuryDets01.answered}>
               {this.props.allQs.injuryDets01.answered}
-            </li>
-            <li className={this.props.allQs.injuryDets02.answered || 'hide'}>
+            </List.Item>
+            <List.Item hide={!this.props.allQs.injuryDets02.answered}>
               {this.props.allQs.injuryDets02.answered}
-            </li>
-            <li className={this.props.allQs.injuryDets03.answered || 'hide'}>
+            </List.Item>
+            <List.Item hide={!this.props.allQs.injuryDets03.answered}>
               {this.props.allQs.injuryDets03.answered}
-            </li>
-            <li className={this.props.allQs.injuryDets04.answered || 'hide'}>
+            </List.Item>
+            <List.Item hide={!this.props.allQs.injuryDets04.answered}>
               {this.props.allQs.injuryDets04.answered}
-            </li>
-            <li className={this.props.allQs.injuryDets05.answered || 'hide'}>
+            </List.Item>
+            <List.Item hide={!this.props.allQs.injuryDets05.answered}>
               {this.props.allQs.injuryDets05.answered}
-            </li>
-            <li className={this.props.allQs.injuryDets06.answered || 'hide'}>
+            </List.Item>
+            <List.Item hide={!this.props.allQs.injuryDets06.answered}>
               {this.props.allQs.injuryDets06.answered}
-            </li>
-            <li className={this.props.allQs.injuryDets07.answered || 'hide'}>
+            </List.Item>
+            <List.Item hide={!this.props.allQs.injuryDets07.answered}>
               {this.props.allQs.injuryDets07.answered}
-            </li>
-            <li className={this.props.allQs.injuryDets08.answered || 'hide'}>
+            </List.Item>
+            <List.Item hide={!this.props.allQs.injuryDets08.answered}>
               {this.props.allQs.injuryDets08.answered}
-            </li>
-            <li className={this.props.allQs.injuryDets09.answered || 'hide'}>
+            </List.Item>
+            <List.Item hide={!this.props.allQs.injuryDets09.answered}>
               {this.props.allQs.injuryDets09.answered}
-            </li>
-            <li className={this.props.allQs.injuryDets10.answered || 'hide'}>
+            </List.Item>
+            <List.Item hide={!this.props.allQs.injuryDets10.answered}>
               {this.props.allQs.injuryDets10.answered}
-            </li>
-          </ul>
-          <p className={this.props.allQs.hospitalWhich.answered || 'hide'}>
+            </List.Item>
+          </List.OrderedList>
+          <P hide={!this.props.allQs.hospitalWhich.answered}>
             I received treatment for my injuries at {this.props.allQs.hospitalWhich.answered}.
-          </p>
+          </P>
         </div>
         {/*<div className={lossOfEarningsA ? undefined : 'hide'}>*/}
         <div className={finTotal ? undefined : 'hide'}>
-          <ins>Financial Losses</ins>
+          <P>
+            <ins>Financial Losses</ins>
+          </P>
           <div>
-            <p>I suffered the following financial losses:</p>
-            <ul>
-              {finTravel && <li>Travel - £{finTravel}</li>}
-              {finTreatment && <li>Treatment - £{finTreatment}</li>}
-              {finEarnings && <li>Lost earnings - £{finEarnings}</li>}
-              {finMedication && <li>Medical expenses - £{finMedication}</li>}
-              {finRepairs && <li>Damage to property - £{finRepairs}</li>}
-              {finCare && <li>Other - £{finCare}</li>}
-            </ul>
+            <P>I suffered the following financial losses:</P>
+            <List.OrderedList>
+              {finTravel && <List.Item>Travel - £{finTravel}</List.Item>}
+              {finTreatment && <List.Item>Treatment - £{finTreatment}</List.Item>}
+              {finEarnings && <List.Item>Lost earnings - £{finEarnings}</List.Item>}
+              {finMedication && <List.Item>Medical expenses - £{finMedication}</List.Item>}
+              {finRepairs && <List.Item>Damage to property - £{finRepairs}</List.Item>}
+              {finCare && <List.Item>Other - £{finCare}</List.Item>}
+            </List.OrderedList>
           </div>
-          {/*<p>
+          {/*<P>
             I am employed as a {this.props.allQs.lossOfEarningsYesTimeOffDets.answered} and have been off work since{' '}
             {this.props.allQs.lossOfEarningsFrom.answered}.
-          </p>
-          <p>My approximate net weekly income is {this.props.allQs.netWeeklyIncome.answered}.</p>
+          </P>
+          <P>My approximate net weekly income is {this.props.allQs.netWeeklyIncome.answered}.</P>
         </div>
         <div className={lossOfEarningsB ? undefined : 'hide'}>
           <ins>Loss of Earnings</ins>
-          <p>
+          <P>
             I am employed as a {this.props.allQs.lossOfEarningsYesTimeOffDets.answered} and was off work between{' '}
             {this.props.allQs.lossOfEarningsFrom.answered} and {this.props.allQs.lossOfEarningsTo.answered}.
-          </p>
-          <p>My approximate net weekly income is {this.props.allQs.netWeeklyIncome.answered}.</p>
+          </P>
+          <P>My approximate net weekly income is {this.props.allQs.netWeeklyIncome.answered}.</P>
         </div>
         <div className={lossOfEarningsC ? undefined : 'hide'}>
           <ins>Loss of Earnings</ins>
-          <p>
+          <P>
             I was employed as a {this.props.allQs.lossOfEarningsYesTimeOffDets.answered} and have incurred loss of
             earnings since {this.props.allQs.lossOfEarningsFrom.answered}.
-          </p>
-          <p>My approximate net weekly income was {this.props.allQs.netWeeklyIncome.answered}.</p>
+          </P>
+          <P>My approximate net weekly income was {this.props.allQs.netWeeklyIncome.answered}.</P>
         </div>
         <div className={otherFinancialLosses ? undefined : 'hide'}>
           <ins>Other Financial Losses</ins>
-          <p>I also estimate that I have incurred the following financial losses:</p>
-          <ol>
-            <li className={this.props.allQs.lossesMedDets.answered ? undefined : 'hide'}>
+          <P>I also estimate that I have incurred the following financial losses:</P>
+          <List.OrderedList>
+            <List.Item className={this.props.allQs.lossesMedDets.answered ? undefined : 'hide'}>
               Medical expenses: {this.props.allQs.lossesMedDets.answered}
-            </li>
-            <li className={this.props.allQs.lossesTreatmentDets.answered ? undefined : 'hide'}>
+            </List.Item>
+            <List.Item className={this.props.allQs.lossesTreatmentDets.answered ? undefined : 'hide'}>
               Medical treatment: {this.props.allQs.lossesTreatmentDets.answered}
-            </li>
-            <li className={this.props.allQs.lossesPropertyDets.answered ? undefined : 'hide'}>
+            </List.Item>
+            <List.Item className={this.props.allQs.lossesPropertyDets.answered ? undefined : 'hide'}>
               Property damage: {this.props.allQs.lossesPropertyDets.answered}
-            </li>
-            <li className={this.props.allQs.lossesTravelDets.answered ? undefined : 'hide'}>
+            </List.Item>
+            <List.Item className={this.props.allQs.lossesTravelDets.answered ? undefined : 'hide'}>
               Travel costs: {this.props.allQs.lossesTravelDets.answered}
-            </li>
-            <li className={this.props.allQs.lossesFinancialOtherDets.answered ? undefined : 'hide'}>
+            </List.Item>
+            <List.Item className={this.props.allQs.lossesFinancialOtherDets.answered ? undefined : 'hide'}>
               Other expenses: {this.props.allQs.lossesFinancialOtherDets.answered}
-            </li>
-          </ol>*/}
+            </List.Item>
+          </List.OrderedList>*/}
         </div>
         <div className={this.props.allQs.injuredBy2.answered === 'injuredByRoadDefect' ? undefined : 'hide'}>
-          <ins>Disclosure</ins>
-          <p>Please provide me with copies of the following documents:</p>
-          <ol>
-            <li>Records of inspection for 12 months prior to and following the date of the incident.</li>
-            <li>
+          <P>
+            <ins>Disclosure</ins>
+          </P>
+          <P>Please provide me with copies of the following documents:</P>
+          <List.OrderedList>
+            <List.Item>Records of inspection for 12 months prior to and following the date of the incident.</List.Item>
+            <List.Item>
               Details of any other incidents in respect of the stretch of highway in question for 12 months prior to and
               following the date of the incident.
-            </li>
-            <li>
+            </List.Item>
+            <List.Item>
               Details of any other complaints regarding the stretch of highway in question 12 months prior to and
               following the date of the incident.
-            </li>
-          </ol>
+            </List.Item>
+          </List.OrderedList>
         </div>
-        <ins>Finally</ins>
-        <p>Finally, I expect an acknowledgement of this letter within 21 days.</p>
-        <p>Yours faithfully</p>
-      </div>
+        <P>
+          <ins>Finally</ins>
+        </P>
+        <P>Finally, I expect an acknowledgement of this letter within 21 days.</P>
+        <P b="100px">Yours faithfully</P>
+      </React.Fragment>
     );
   }
 }

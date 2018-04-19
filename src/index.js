@@ -9,8 +9,8 @@ import Routes from './components/routes/routes';
 import 'normalize.css';
 import { ThemeProvider } from 'styled-components';
 import theme from './components/styled-components/theme';
-
-import 'bootstrap/scss/bootstrap.scss';
+import 'typeface-quicksand';
+import 'typeface-open-sans';
 import './index.scss';
 
 ReactDOM.render(

@@ -1,16 +1,10 @@
 import React from 'react';
 import BtnGetStarted from './../styled-components/btn-get-started';
-import { pageView, handleNavClick } from './../../services/ga-helpers';
+import P from './../styled-components/p';
+import Title from './../styled-components/title';
+import Container from './../styled-components/container';
 
-const preCase = (
-  <React.Fragment>
-    <h1>Do I have a good case?</h1>
-    <p>
-      We're going to ask you some questions to find out a little more about what happened. We'll then give you our view
-      about whether you've got a good case.
-    </p>
-  </React.Fragment>
-);
+import { pageView, handleNavClick } from './../../services/ga-helpers';
 
 class PreTool extends React.Component {
   componentDidMount() {
@@ -18,12 +12,18 @@ class PreTool extends React.Component {
   }
   render() {
     return (
-      <div className="pre-tool">
-        {preCase}
+      <Container dark>
+        <Title center dark t="50px">
+          Do I have a good case?
+        </Title>
+        <P justify dark b="50px">
+          We're going to ask you some questions to find out a little more about what happened. We'll then give you our
+          view about whether you've got a good case.
+        </P>
         <BtnGetStarted onClick={e => handleNavClick(e, this.props.history)} id="get started pre-case" name="case-tool">
           Start
         </BtnGetStarted>
-      </div>
+      </Container>
     );
   }
 }
