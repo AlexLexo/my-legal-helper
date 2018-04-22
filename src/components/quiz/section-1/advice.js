@@ -337,9 +337,16 @@ const Advice = props => {
           If you have not sustained an injury and the case succeeds, you will still be entitled to damages for your
           financial losses as a result of the incident.
         </P>
-        <strong>Next Steps</strong>
+      </React.Fragment>
+    )
+  };
+
+  const nextSteps = {
+    title: 'Next Steps',
+    body: (
+      <React.Fragment>
         <P>If you would now like to use the letter writing tool please press the 'next' button below.</P>
-        <P>
+        <P b="100px">
           Alternatively, feel free to send us a message if you have any queries regarding the advice. We will not pass
           your details on to anyone else.
         </P>
@@ -348,13 +355,13 @@ const Advice = props => {
   };
   return (
     <Container style={{ backgroundColor: 'white' }}>
-      <Title center t="50px">
+      <Title center t="40px">
         Some feedback about your claim
       </Title>
       <Accordion content={generalPoints} />
       <Accordion content={circumstancesOfIncident} />
       <Accordion content={valueOfCase} />
-      <div style={{ height: '100px' }} />
+      <Accordion content={nextSteps} />
     </Container>
   );
 };

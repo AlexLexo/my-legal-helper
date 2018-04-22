@@ -1,45 +1,67 @@
 import React from 'react';
 import DOMPurify from 'dompurify';
+import 'react-datez/dist/css/react-datez.css';
+import { ReactDatez } from 'react-datez';
 import Container from './../../styled-components/container';
 import Header from './../../styled-components/header';
-import Date from './../../styled-components/date';
 
-const Duration = props => {
-  const title = { __html: DOMPurify.sanitize(props.q.title) };
-  return (
-    <Container>
-      <Header center t="50px" dangerouslySetInnerHTML={title} />
-      <span
-        style={{
-          marginLeft: 'auto',
-          marginRight: 'auto',
-          paddingTop: '30px',
-          fontSize: '1.8em'
-        }}
-      >
-        {props.q.inputs[0].title}
-      </span>
-      <Date
-        id={props.q.inputs[0].qId}
-        value={props.value}
-        onChange={e => props.callback('value1', e.target.value, props.q.nxtQId)}
-      />
-      <span
-        style={{
-          marginLeft: 'auto',
-          marginRight: 'auto',
-          paddingTop: '30px',
-          fontSize: '1.8em'
-        }}
-      >
-        {props.q.inputs[1].title}
-      </span>
-      <Date
-        id={props.q.inputs[1].qId}
-        value={props.value}
-        onChange={e => props.callback('value2', e.target.value, props.q.nxtQId)}
-      />
-    </Container>
-  );
-};
+class Duration extends React.Component {
+  state = {
+    cDOB: '',
+    iDate: ''
+  };
+  handleChangecDOB = value => {
+    this.setState({ cDOB: value }, () => this.props.callback('value1', this.state.cDOB, this.props.q.nxtQId));
+  };
+  handleChangeiDate = value => {
+    this.setState({ iDate: value }, () => this.props.callback('value2', this.state.iDate, this.props.q.nxtQId));
+  };
+
+  render() {
+    const title = { __html: DOMPurify.sanitize(this.props.q.title) };
+    return (
+      <Container>
+        <Header center t="50px" dangerouslySetInnerHTML={title} />
+        <div
+          className="form-group"
+          style={{
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            paddingTop: '30px',
+            fontSize: '1.8em'
+          }}
+        >
+          <label htmlFor="cDOB">{this.props.q.inputs[0].title}</label>
+          <br />
+          <ReactDatez
+            name="cDOB"
+            handleChange={this.handleChangecDOB}
+            value={this.state.cDOB}
+            allowPast
+            allowFuture={false}
+          />
+        </div>
+        <div
+          className="form-group"
+          style={{
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            paddingTop: '30px',
+            fontSize: '1.8em'
+          }}
+        >
+          <label htmlFor="iDate">{this.props.q.inputs[1].title}</label>
+          <br />
+          <ReactDatez
+            name="iDate"
+            handleChange={this.handleChangeiDate}
+            value={this.state.iDate}
+            allowPast
+            allowFuture={false}
+          />
+        </div>
+      </Container>
+    );
+  }
+}
 export default Duration;

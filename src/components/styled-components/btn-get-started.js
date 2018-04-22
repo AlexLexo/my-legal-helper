@@ -12,6 +12,8 @@ const BtnGetStarted = styled.button`
   cursor: pointer;
   white-space: nowrap;
   line-height: 1;
+  font-family: 'Quicksand';
+  user-select: none;
   &:hover {
     background: ${props => props.theme.colors.color1};
     color: white;

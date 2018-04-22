@@ -37,10 +37,9 @@ class ToolHub extends Component {
           Before we get going...
         </Header>
         <P dark>
-          Please bear in mind that we are providing a free legal service for people wanting to settle their case
-          themselves. Litem is not a substitute for instructing a lawyer. You should speak with a lawyer if the
-          defendants want to fight the case or if it is high value.<br />
-          <br />Please tick here to confirm that you have read this
+          Litem is for quick advice on any cycling incident from hit and runs to potholes. We provide a free legal
+          service - it's not a substitute for a lawyer and we accept no liability if it all goes wrong.<br />
+          <br />Please tick once you've read this
           <Checkbox
             onClick={() => {
               this.setState({ show: !this.state.show });

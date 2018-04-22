@@ -9,7 +9,7 @@ const FinancialInputs = props => {
   };
   return (
     <React.Fragment>
-      <Header center t="50px" b="5px">
+      <Header center t="50px">
         Please detail your finacial losses
       </Header>
       {props.q.inputs.map((item, index) => {

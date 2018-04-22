@@ -15,7 +15,8 @@ const Btn = styled.button`
   cursor: pointer;
   white-space: nowrap;
   line-height: 1;
-  font: inherit;
+  font-family: 'Quicksand';
+  user-select: none;
   &:focus {
     border: none;
     outline: none;

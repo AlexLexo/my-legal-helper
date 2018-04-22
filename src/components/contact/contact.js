@@ -56,12 +56,18 @@ class Contact extends Component {
   };
   render() {
     return (
-      <Container notFull>
+      <Container notFull dark>
         {!this.state.sent ? (
           <React.Fragment>
-            <Title center> Get in Touch </Title>
-            <Header center>
-              Feel free to drop us an email at info@litem.co.uk.<br />Alternatively, please send us a message below.
+            <Title center dark>
+              {' '}
+              Get in Touch{' '}
+            </Title>
+            <Header justify dark>
+              Feel free to drop us an email at info@litem.co.uk.
+            </Header>
+            <Header justify dark>
+              Alternatively, please send us a message below.
             </Header>
             <form onSubmit={this.handleSubmit}>
               <ContactForm.Input
@@ -97,7 +103,7 @@ class Contact extends Component {
             </form>
           </React.Fragment>
         ) : (
-          <Title>Message Sent!</Title>
+          <Title dark>Message Sent!</Title>
         )}
       </Container>
     );

@@ -23,7 +23,7 @@ class PreTool extends React.Component {
         </P>
         <Lightbox />
         <br />
-        <P b="60px">
+        <P b="90px">
           If you have the defendant's registration you can find out if they are insured and get the details to notify
           the insurers directly. You need to use the Motor Insurer's Database{' '}
           <a href="http://www.askmid.com/askmidenquiry.aspx" target="_blank" rel="noopener noreferrer">

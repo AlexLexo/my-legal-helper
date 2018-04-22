@@ -13,6 +13,8 @@ const Header = styled.h3`
   padding-left: ${props => (props.l ? props.l : '0')};
   padding-right: ${props => (props.r ? props.r : '0')};
   line-height: 1;
+  font-weight: 400;
+  font-family: 'Quicksand';
   color: ${props => (props.dark ? 'white' : props.theme.colors.color3)};
   @media (max-width: 599px) {
     font-size: 1.4rem;

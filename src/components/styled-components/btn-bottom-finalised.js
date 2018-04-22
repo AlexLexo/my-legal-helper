@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const BtnBottom = styled.button`
+const BtnBottomFinalised = styled.button`
   position: fixed;
   bottom: 0;
   margin-top: ${props => (props.t ? props.t : '0')};
@@ -33,11 +33,14 @@ const BtnBottom = styled.button`
     outline: none;
   }
   @media (max-width: 599px) {
-    width: 43%;
+    width: 20%;
     height: 50px;
     font-size: 1.05rem;
     border-radius: 30px;
-    ${props => (props.right ? 'right: 2px' : 'left: 2px')};
+    ${props => props.right && 'right: 2%'};
+    ${props => props.left && 'left: 2%'};
+    ${props => props.center && 'right: 26%'};
+
     &:hover {
       background-color: ${props => props.theme.colors.color2};
       color: ${props => props.theme.colors.color3};
@@ -53,12 +56,13 @@ const BtnBottom = styled.button`
     }
   }
   @media (min-width: 600px) {
-    width: 45%;
+    width: 20%;
     height: 60px;
     font-size: 1.1rem;
     border-radius: 35px;
     ${props => props.right && 'right: 5%'};
     ${props => props.left && 'left: 5%'};
+    ${props => props.center && 'right: 26%'};
     &:hover {
       background-color: ${props => props.theme.colors.color2};
       color: ${props => props.theme.colors.color3};
@@ -69,36 +73,39 @@ const BtnBottom = styled.button`
     }
   }
   @media (min-width: 900px) {
-    width: 400px;
+    width: 180px;
     height: 60px;
     font-size: 1.2rem;
     border-radius: 40px;
     ${props => props.right && 'right: 5%'};
     ${props => props.left && 'left: 5%'};
+    ${props => props.center && 'right: 26%'};
     &:hover {
       background-color: ${props => props.theme.colors.color1};
       color: white;
     }
   }
   @media (min-width: 1200px) {
-    width: 450px;
+    width: 250px;
     height: 65px;
     font-size: 1.2rem;
     border-radius: 50px;
-    ${props => props.right && 'right: 12%'};
+    ${props => props.right && 'right: 5%'};
     ${props => props.left && 'left: 12%'};
+    ${props => props.center && 'right: 26%'};
     &:hover {
       background-color: ${props => props.theme.colors.color1};
       color: white;
     }
   }
   @media (min-width: 1800px) {
-    width: 600px;
+    width: 350px;
     height: 70px;
     font-size: 1.7rem;
     border-radius: 50px;
     ${props => props.right && 'right: 15%'};
     ${props => props.left && 'left: 15%'};
+    ${props => props.center && 'right: 26%'};
     &:hover {
       background-color: ${props => props.theme.colors.color1};
       color: white;
@@ -109,4 +116,4 @@ const BtnBottom = styled.button`
   }
 `;
 
-export default BtnBottom;
+export default BtnBottomFinalised;

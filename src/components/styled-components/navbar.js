@@ -10,7 +10,7 @@ const MenuButton = styled.button`
   height: 3em;
   border: none;
   border-radius: 100%;
-  position: absolute;
+  position: fixed;
   top: 10px;
   right: 10px;
   margin-left: auto;
@@ -58,9 +58,13 @@ const MenuButton = styled.button`
     transform: ${props => (props.active ? 'scaleX(0)' : 'scaleX(1)')};
     transition: opacity 0.15s, transform 0.15s;
   }
+  @media (max-width: 599px) {
+    top: 2px;
+    right: 2px;
+  }
 `;
 
-const Menu = styled.nav`
+/*const Menu = styled.nav`
   position: absolute;
   z-index: 99;
   left: 0;
@@ -68,8 +72,9 @@ const Menu = styled.nav`
   height: 100%;
   transition: width 0.2s;
   width: ${props => (props.menuOpen ? '100%' : '0')};
+  background-color: ${props => props.theme.colors.color3};
   overflow: hidden;
-  & a, span {
+  & a {
     transition: opacity 0.4s;
     opacity: ${props => (props.menuOpen ? '1' : '0')};
     width: 100%
@@ -84,6 +89,42 @@ const Menu = styled.nav`
     padding-Left: 10%;
     }
   }
+`;*/
+const Menu = styled.nav`
+  position: absolute;
+  z-index: 99;
+  left: 0;
+  top: 0;
+  height: 100%;
+  transition: width 0.2s;
+  width: ${props => (props.menuOpen ? '100%' : '0')};
+  background-color: ${props => props.theme.colors.color3};
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: space-around;
+  & a, span {
+    transition: opacity 0.4s;
+    opacity: ${props => (props.menuOpen ? '1' : '0')};
+    color: white;
+    font-size: 2em;
+    width: 100%
+    text-decoration: none;
+    text-transform: uppercase;
+    @media (max-width: 1199px) {
+      padding-top: 10%;
+      padding-Left: 10%;
+      }
+    @media (min-width: 1200px) {
+    padding-top: 5%;
+    padding-Left: 5%;
+    }
+  }
+  }
+  @media print {
+    display: none;
+  }
 `;
 
 class NavBar extends Component {
@@ -94,7 +135,6 @@ class NavBar extends Component {
   onMenuButtonClick = () => {
     this.setState({ menuOpen: !this.state.menuOpen });
   };
-
   render() {
     return (
       <React.Fragment>
@@ -102,11 +142,11 @@ class NavBar extends Component {
           <span />
         </MenuButton>
         <Menu menuOpen={this.state.menuOpen} onClick={this.onMenuButtonClick}>
-          <span style={{ height: '20%' }} />
-          <Link to="/" id="menu home" style={{ textDecoration: 'none' }} onClick={e => clicked(e.target.id)}>
+          <span />
+          <Link to="/" id="menu home" onClick={e => clicked(e.target.id)}>
             Home
           </Link>
-          <Link to="/tool-hub" id="menu case" style={{ textDecoration: 'none' }} onClick={e => clicked(e.target.id)}>
+          <Link to="/tool-hub" id="menu case" onClick={e => clicked(e.target.id)}>
             Case Tool
           </Link>
           <Link
@@ -117,16 +157,15 @@ class NavBar extends Component {
           >
             Valuation Tool
           </Link>
-          <Link to="/guides" id="menu guides" style={{ textDecoration: 'none' }} onClick={e => clicked(e.target.id)}>
+          <Link to="/guides" id="menu guides" onClick={e => clicked(e.target.id)}>
             Guides
           </Link>
-          <Link to="/contact" id="menu contact" style={{ textDecoration: 'none' }} onClick={e => clicked(e.target.id)}>
+          <Link to="/contact" id="menu contact" onClick={e => clicked(e.target.id)}>
             Get in Touch
           </Link>
           <Link
             to="/"
             id="menu start fresh"
-            style={{ textDecoration: 'none' }}
             onClick={e => {
               clicked(e.target.id);
               localStorage.clear();
@@ -135,7 +174,6 @@ class NavBar extends Component {
           >
             Start Fresh
           </Link>
-          <span style={{ height: '30%' }} />
         </Menu>
       </React.Fragment>
     );

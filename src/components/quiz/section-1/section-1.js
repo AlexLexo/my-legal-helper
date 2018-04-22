@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
+import ClipboardJS from 'clipboard';
+//import jsPDF from 'jspdf';
 //import DOMPurify from 'dompurify';
 import moment from 'moment';
 import * as Scroll from 'react-scroll';
@@ -9,6 +11,8 @@ import Container from './../../styled-components/container';
 import Title from './../../styled-components/title';
 import Header from './../../styled-components/header';
 import BtnBottom from './../../styled-components/btn-bottom';
+import BtnBottomFinalised from './../../styled-components/btn-bottom-finalised';
+//import List from './../../styled-components/list';
 
 import Weak from './weak';
 import Advice from './advice';
@@ -52,6 +56,7 @@ class Section1 extends Component {
   }
   componentDidMount() {
     pageView(window.location.pathname);
+    new ClipboardJS('.print');
   }
 
   handleBack = () => {
@@ -85,6 +90,8 @@ class Section1 extends Component {
       const accidentDate = moment(this.state.value2).format('DD/MM/YYYY');
       const nowMinus3 = moment().subtract(3, 'years');
       const turned21On = moment(dob, 'DD/MM/YYYY').add(21, 'years');
+      console.log('this.state.value1:', this.state.value1, 'this.state.value2:', this.state.value2);
+      console.log('dob:', dob, 'accidentDate:', accidentDate);
       if (moment(accidentDate).isBefore(nowMinus3) && moment(turned21On).isBefore(moment())) {
         console.log('timebarred');
         this.setState({ nxtQId: 'timeBarred' }, () => this.postSubmit());
@@ -104,7 +111,7 @@ class Section1 extends Component {
       } else {
         this.setState({ nxtQId: 'postLetter' }, () => {
           this.postSubmit();
-          console.log(this.qs[this.qId].type);
+          //console.log(this.qs[this.qId].type);
         });
       }
     } else {
@@ -131,7 +138,7 @@ class Section1 extends Component {
     if (this.qs[this.qId].type === 'postCaseTool') value = 'preCaseTool';
     if (!value || !nxtQId) return alert('please enter an answer');
     this.props.RootStore.SessionStore.handleNext(value, nxtQId);
-    console.log(nxtQId);
+    //console.log(nxtQId);
     this.resetState();
   };
 
@@ -307,30 +314,6 @@ class Section1 extends Component {
           </Container>
         ) : (
           <React.Fragment>
-            {/*<div
-              className={
-                this.qs[this.qId].type !== 'letter' &&
-                this.qs[this.qId].type !== 'valuation' &&
-                this.qs[this.qId].type !== 'postCaseTool' &&
-                this.qs[this.qId].type !== 'postLetter' &&
-                this.qs[this.qId].type !== 'preletter' &&
-                this.qs[this.qId].type !== 'text' &&
-                this.qs[this.qId].type !== 'date' &&
-                this.qs[this.qId].type !== 'button' &&
-                this.qs[this.qId].type !== 'weak' &&
-                this.qs[this.qId].type !== 'dropdown' &&
-                this.qs[this.qId].type !== 'advice'
-                  ? 'show'
-                  : 'hide'
-              }
-            >
-              {this.qs[this.qId].qId === 'val0' ? (
-                <p dangerouslySetInnerHTML={title} />
-              ) : (
-                <h3 dangerouslySetInnerHTML={title} />
-              )}
-            </div>*/}
-
             <form onSubmit={this.handleSubmit}>
               {this.input}
               {this.qs[this.qId].qId !== 'val0' ? (
@@ -347,6 +330,7 @@ class Section1 extends Component {
                 </BtnBottom>
               ) : (
                 <BtnBottom
+                  left
                   type="button"
                   onClick={() => {
                     this.props.history.push(`case-tool`);
@@ -363,21 +347,37 @@ class Section1 extends Component {
                   type="submit"
                   className={this.qs[this.qId].type === 'weak' && 'disabled'}
                   onClick={() => clicked(`case-tool next on ${this.qId}`)}
+                  disabled={this.qs[this.qId].type === 'weak'}
                 >
                   {this.qs[this.qId].type === 'letter' ? 'finalise letter' : 'Next'}
                 </BtnBottom>
               ) : this.qs[this.qId].qId !== 'postLetter' ? (
-                <BtnBottom
-                  right
-                  type="print"
-                  onClick={() => {
-                    Scroll.animateScroll.scrollToTop();
-                    window.print();
-                    clicked('case-tool print letter');
-                  }}
-                >
-                  save letter
-                </BtnBottom>
+                <React.Fragment>
+                  <BtnBottomFinalised
+                    center
+                    type="print"
+                    data-clipboard-target="#completedLetter"
+                    className="print"
+                    onClick={() => {
+                      Scroll.animateScroll.scrollToTop();
+                      clicked('case-tool copy letter');
+                    }}
+                  >
+                    copy
+                  </BtnBottomFinalised>
+                  <BtnBottomFinalised
+                    right
+                    type="print"
+                    data-clipboard-target="#completedLetter"
+                    onClick={() => {
+                      Scroll.animateScroll.scrollToTop();
+                      window.print();
+                      clicked('case-tool print letter');
+                    }}
+                  >
+                    print
+                  </BtnBottomFinalised>
+                </React.Fragment>
               ) : (
                 <BtnBottom
                   right

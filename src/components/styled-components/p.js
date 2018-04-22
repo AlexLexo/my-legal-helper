@@ -32,6 +32,10 @@ const P = styled.p`
     width: 550px;
     font-size: 1.6rem;
   }
+  @media print {
+    color: black;
+    background-color: white;
+  }
 `;
 
 export default P;

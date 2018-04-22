@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
 import moment from 'moment';
-import Container from './../../styled-components/container';
+
+//import Container from './../../styled-components/container';
 import LetterInput from './../../styled-components/letter-input';
 import P from './../../styled-components/p';
 import List from './../../styled-components/list';
@@ -64,29 +65,6 @@ class Letter extends Component {
 
   render() {
     const todaysDate = moment().format('Do MMMM YYYY');
-    /*const lossOfEarningsA =
-      this.props.allQs.lossOfEarnings.answered === 'lossOfEarningsYesTimeOff' &&
-      this.props.allQs.lossOfEarningsTo.answered === 'ongoing'
-        ? true
-        : false;
-    const lossOfEarningsB =
-      this.props.allQs.lossOfEarnings.answered === 'lossOfEarningsYesTimeOff' &&
-      this.props.allQs.lossOfEarningsTo.answered !== 'ongoing'
-        ? true
-        : false;
-    const lossOfEarningsC =
-      this.props.allQs.lossOfEarnings.answered === 'lossOfEarningsYesLostJob' &&
-      this.props.allQs.lossOfEarningsTo.answered === 'ongoing'
-        ? true
-        : false;
-    const otherFinancialLosses =
-      this.props.allQs.lossesMed.answered === 'lossesMedYes' ||
-      this.props.allQs.lossesTreatment.answered === 'lossesTreatmentYes' ||
-      this.props.allQs.lossesFinancialOther.answered === 'lossesFinancialOtherYes' ||
-      this.props.allQs.lossesProperty.answered === 'lossesPropertyYes' ||
-      this.props.allQs.lossesTravel.answered === 'lossesTravelYes'
-        ? true
-        : false;*/
     const finTravel =
       this.props.allQs.financialDets.answered[0] === '0' ? false : this.props.allQs.financialDets.answered[0];
     const finTreatment =
@@ -100,8 +78,9 @@ class Letter extends Component {
     const finCare =
       this.props.allQs.financialDets.answered[5] === '0' ? false : this.props.allQs.financialDets.answered[5];
     const finTotal = finTravel + finTreatment + finEarnings + finMedication + finRepairs + finCare;
+    console.log(this.props.RootStore.SessionStore.userObj.editedLetter);
     return (
-      <React.Fragment>
+      <div id="completedLetter">
         <P>{todaysDate}</P>
         <P>Dear Sir / Madam</P>
         <P>
@@ -123,19 +102,17 @@ class Letter extends Component {
             </strong>
           ) : (
             <strong>
-              <label htmlFor="cFullName">Name:</label>
-              <LetterInput
+              <LetterInput.Label htmlFor="cFullName">Name:</LetterInput.Label>
+              <LetterInput.Input
                 id="cFullName"
                 type="text"
                 required
-                defaultValue={this.props.allQs.cFullName.answered}
-                onChange={e =>
-                  this.props.callback({ cFullName: e.target.value }, () => this.props.callback(this.state))
-                }
+                value={this.state.cFullName}
+                onChange={e => this.setState({ cFullName: e.target.value }, () => this.props.callback(this.state))}
               />
               <br />
-              <label htmlFor="cAddress">Address:</label>
-              <LetterInput
+              <LetterInput.Label htmlFor="cAddress">Address:</LetterInput.Label>
+              <LetterInput.Input
                 id="cAddress"
                 type="text"
                 required
@@ -143,8 +120,8 @@ class Letter extends Component {
                 onChange={e => this.setState({ cAddress: e.target.value }, () => this.props.callback(this.state))}
               />
               <br />
-              <label htmlFor="iDate">Incident date:</label>
-              <LetterInput
+              <LetterInput.Label htmlFor="iDate">Incident date:</LetterInput.Label>
+              <LetterInput.Input
                 id="iDate"
                 type="text"
                 required
@@ -154,8 +131,8 @@ class Letter extends Component {
               <br />
               {this.state.dPolicyNumber && (
                 <span>
-                  <label htmlFor="dFullName">Defendant name:</label>
-                  <LetterInput
+                  <LetterInput.Label htmlFor="dFullName">Defendant name:</LetterInput.Label>
+                  <LetterInput.Input
                     id="dFullName"
                     type="text"
                     required
@@ -163,8 +140,8 @@ class Letter extends Component {
                     onChange={e => this.setState({ dFullName: e.target.value }, () => this.props.callback(this.state))}
                   />
                   <br />
-                  <label htmlFor="dPolicyNumber">Policy number:</label>
-                  <LetterInput
+                  <LetterInput.Label htmlFor="dPolicyNumber">Policy number:</LetterInput.Label>
+                  <LetterInput.Input
                     id="dPolicyNumber"
                     type="text"
                     required
@@ -181,17 +158,26 @@ class Letter extends Component {
         {this.props.editedLetter ? (
           <P>{this.props.RootStore.SessionStore.userObj.editedLetter.intro}</P>
         ) : (
-          <div>
+          <React.Fragment>
             <Textarea
-              style={{ marginLeft: '5%', width: '90%', fontSize: '1.2rem' }}
+              style={{
+                width: '90%',
+                fontSize: '1.2rem',
+                maxWidth: '550px',
+                display: 'flex',
+                flexDirection: 'column',
+                marginLeft: 'auto',
+                marginRight: 'auto',
+                padding: '10px'
+              }}
               value={this.state.intro}
               onChange={e => this.setState({ intro: e.target.value }, () => this.props.callback(this.state))}
             />
             <br />
-          </div>
+          </React.Fragment>
         )}
         {this.props.allQs.writeWho.answered !== 'writeWhoDefendant' && (
-          <div>
+          <React.Fragment>
             <P>
               <ins>Insurance</ins>
             </P>
@@ -200,21 +186,30 @@ class Letter extends Component {
               as soon as possible and it may affect your insurance cover and/or the conduct of any subsequent legal
               proceedings if you do not send this letter to them.
             </P>
-          </div>
+          </React.Fragment>
         )}
-        <Container notFull style={{ backgroundColor: 'white' }}>
+        <React.Fragment>
           <P>
             <ins>Circumstances of Incident</ins>
           </P>
           {this.props.editedLetter ? (
-            <div>
+            <React.Fragment>
               <P>{this.props.RootStore.SessionStore.userObj.editedLetter.circumstancesofIncident1}</P>
               <P>{this.props.RootStore.SessionStore.userObj.editedLetter.circumstancesofIncident2}</P>
-            </div>
+            </React.Fragment>
           ) : (
-            <div>
+            <React.Fragment>
               <Textarea
-                style={{ marginLeft: '5%', width: '90%', fontSize: '1.2rem' }}
+                style={{
+                  width: '90%',
+                  fontSize: '1.2rem',
+                  maxWidth: '550px',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  marginLeft: 'auto',
+                  marginRight: 'auto',
+                  padding: '10px'
+                }}
                 value={this.state.circumstancesofIncident1}
                 onChange={e =>
                   this.setState({ circumstancesofIncident1: e.target.value }, () => this.props.callback(this.state))
@@ -222,16 +217,25 @@ class Letter extends Component {
               />
               <br />
               <Textarea
-                style={{ marginLeft: '5%', width: '90%', fontSize: '1.2rem' }}
+                style={{
+                  width: '90%',
+                  fontSize: '1.2rem',
+                  maxWidth: '550px',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  marginLeft: 'auto',
+                  marginRight: 'auto',
+                  padding: '10px'
+                }}
                 value={this.state.circumstancesofIncident2}
                 onChange={e =>
                   this.setState({ circumstancesofIncident2: e.target.value }, () => this.props.callback(this.state))
                 }
               />
               <br />
-            </div>
+            </React.Fragment>
           )}
-        </Container>
+        </React.Fragment>
         <P>
           <ins>Liability</ins>
         </P>
@@ -258,58 +262,59 @@ class Letter extends Component {
           {this.props.q.liabilityResult} {this.writingTo}. I trust you will provide a full admission within the 3 month
           time limit in accordance with the Pre-Action Protocol for Personal Injury Claims in the Civil Procedure Rules.
         </P>
-        <div className={this.props.allQs.injuryDets.answered || 'hide'}>
-          <P>
-            <ins>Injuries</ins>
-          </P>
-          <P>
-            A description of my injuries{this.props.allQs.suffer.answered === 'sufferYes' &&
-              ', which I still suffer from,'}{' '}
-            is as follows:
-          </P>
-          <List.OrderedList>
-            <List.Item hide={!this.props.allQs.injuryDets.answered}>{this.props.allQs.injuryDets.answered}</List.Item>
-            <List.Item hide={!this.props.allQs.injuryDets01.answered}>
-              {this.props.allQs.injuryDets01.answered}
-            </List.Item>
-            <List.Item hide={!this.props.allQs.injuryDets02.answered}>
-              {this.props.allQs.injuryDets02.answered}
-            </List.Item>
-            <List.Item hide={!this.props.allQs.injuryDets03.answered}>
-              {this.props.allQs.injuryDets03.answered}
-            </List.Item>
-            <List.Item hide={!this.props.allQs.injuryDets04.answered}>
-              {this.props.allQs.injuryDets04.answered}
-            </List.Item>
-            <List.Item hide={!this.props.allQs.injuryDets05.answered}>
-              {this.props.allQs.injuryDets05.answered}
-            </List.Item>
-            <List.Item hide={!this.props.allQs.injuryDets06.answered}>
-              {this.props.allQs.injuryDets06.answered}
-            </List.Item>
-            <List.Item hide={!this.props.allQs.injuryDets07.answered}>
-              {this.props.allQs.injuryDets07.answered}
-            </List.Item>
-            <List.Item hide={!this.props.allQs.injuryDets08.answered}>
-              {this.props.allQs.injuryDets08.answered}
-            </List.Item>
-            <List.Item hide={!this.props.allQs.injuryDets09.answered}>
-              {this.props.allQs.injuryDets09.answered}
-            </List.Item>
-            <List.Item hide={!this.props.allQs.injuryDets10.answered}>
-              {this.props.allQs.injuryDets10.answered}
-            </List.Item>
-          </List.OrderedList>
-          <P hide={!this.props.allQs.hospitalWhich.answered}>
-            I received treatment for my injuries at {this.props.allQs.hospitalWhich.answered}.
-          </P>
-        </div>
-        {/*<div className={lossOfEarningsA ? undefined : 'hide'}>*/}
-        <div className={finTotal ? undefined : 'hide'}>
-          <P>
-            <ins>Financial Losses</ins>
-          </P>
-          <div>
+        {this.props.allQs.injuryDets.answered && (
+          <React.Fragment>
+            <P>
+              <ins>Injuries</ins>
+            </P>
+            <P>
+              A description of my injuries{this.props.allQs.suffer.answered === 'sufferYes' &&
+                ', which I still suffer from,'}{' '}
+              is as follows:
+            </P>
+            <List.OrderedList>
+              <List.Item hide={!this.props.allQs.injuryDets.answered}>{this.props.allQs.injuryDets.answered}</List.Item>
+              <List.Item hide={!this.props.allQs.injuryDets01.answered}>
+                {this.props.allQs.injuryDets01.answered}
+              </List.Item>
+              <List.Item hide={!this.props.allQs.injuryDets02.answered}>
+                {this.props.allQs.injuryDets02.answered}
+              </List.Item>
+              <List.Item hide={!this.props.allQs.injuryDets03.answered}>
+                {this.props.allQs.injuryDets03.answered}
+              </List.Item>
+              <List.Item hide={!this.props.allQs.injuryDets04.answered}>
+                {this.props.allQs.injuryDets04.answered}
+              </List.Item>
+              <List.Item hide={!this.props.allQs.injuryDets05.answered}>
+                {this.props.allQs.injuryDets05.answered}
+              </List.Item>
+              <List.Item hide={!this.props.allQs.injuryDets06.answered}>
+                {this.props.allQs.injuryDets06.answered}
+              </List.Item>
+              <List.Item hide={!this.props.allQs.injuryDets07.answered}>
+                {this.props.allQs.injuryDets07.answered}
+              </List.Item>
+              <List.Item hide={!this.props.allQs.injuryDets08.answered}>
+                {this.props.allQs.injuryDets08.answered}
+              </List.Item>
+              <List.Item hide={!this.props.allQs.injuryDets09.answered}>
+                {this.props.allQs.injuryDets09.answered}
+              </List.Item>
+              <List.Item hide={!this.props.allQs.injuryDets10.answered}>
+                {this.props.allQs.injuryDets10.answered}
+              </List.Item>
+            </List.OrderedList>
+            <P hide={!this.props.allQs.hospitalWhich.answered}>
+              I received treatment for my injuries at {this.props.allQs.hospitalWhich.answered}.
+            </P>
+          </React.Fragment>
+        )}
+        {this.props.allQs.lossesFinancial.answered === 'lossesFinancialYes' && (
+          <React.Fragment>
+            <P>
+              <ins>Financial Losses</ins>
+            </P>
             <P>I suffered the following financial losses:</P>
             <List.OrderedList>
               {finTravel && <List.Item>Travel - £{finTravel}</List.Item>}
@@ -319,73 +324,36 @@ class Letter extends Component {
               {finRepairs && <List.Item>Damage to property - £{finRepairs}</List.Item>}
               {finCare && <List.Item>Other - £{finCare}</List.Item>}
             </List.OrderedList>
-          </div>
-          {/*<P>
-            I am employed as a {this.props.allQs.lossOfEarningsYesTimeOffDets.answered} and have been off work since{' '}
-            {this.props.allQs.lossOfEarningsFrom.answered}.
-          </P>
-          <P>My approximate net weekly income is {this.props.allQs.netWeeklyIncome.answered}.</P>
-        </div>
-        <div className={lossOfEarningsB ? undefined : 'hide'}>
-          <ins>Loss of Earnings</ins>
-          <P>
-            I am employed as a {this.props.allQs.lossOfEarningsYesTimeOffDets.answered} and was off work between{' '}
-            {this.props.allQs.lossOfEarningsFrom.answered} and {this.props.allQs.lossOfEarningsTo.answered}.
-          </P>
-          <P>My approximate net weekly income is {this.props.allQs.netWeeklyIncome.answered}.</P>
-        </div>
-        <div className={lossOfEarningsC ? undefined : 'hide'}>
-          <ins>Loss of Earnings</ins>
-          <P>
-            I was employed as a {this.props.allQs.lossOfEarningsYesTimeOffDets.answered} and have incurred loss of
-            earnings since {this.props.allQs.lossOfEarningsFrom.answered}.
-          </P>
-          <P>My approximate net weekly income was {this.props.allQs.netWeeklyIncome.answered}.</P>
-        </div>
-        <div className={otherFinancialLosses ? undefined : 'hide'}>
-          <ins>Other Financial Losses</ins>
-          <P>I also estimate that I have incurred the following financial losses:</P>
-          <List.OrderedList>
-            <List.Item className={this.props.allQs.lossesMedDets.answered ? undefined : 'hide'}>
-              Medical expenses: {this.props.allQs.lossesMedDets.answered}
-            </List.Item>
-            <List.Item className={this.props.allQs.lossesTreatmentDets.answered ? undefined : 'hide'}>
-              Medical treatment: {this.props.allQs.lossesTreatmentDets.answered}
-            </List.Item>
-            <List.Item className={this.props.allQs.lossesPropertyDets.answered ? undefined : 'hide'}>
-              Property damage: {this.props.allQs.lossesPropertyDets.answered}
-            </List.Item>
-            <List.Item className={this.props.allQs.lossesTravelDets.answered ? undefined : 'hide'}>
-              Travel costs: {this.props.allQs.lossesTravelDets.answered}
-            </List.Item>
-            <List.Item className={this.props.allQs.lossesFinancialOtherDets.answered ? undefined : 'hide'}>
-              Other expenses: {this.props.allQs.lossesFinancialOtherDets.answered}
-            </List.Item>
-          </List.OrderedList>*/}
-        </div>
-        <div className={this.props.allQs.injuredBy2.answered === 'injuredByRoadDefect' ? undefined : 'hide'}>
-          <P>
-            <ins>Disclosure</ins>
-          </P>
-          <P>Please provide me with copies of the following documents:</P>
-          <List.OrderedList>
-            <List.Item>Records of inspection for 12 months prior to and following the date of the incident.</List.Item>
-            <List.Item>
-              Details of any other incidents in respect of the stretch of highway in question for 12 months prior to and
-              following the date of the incident.
-            </List.Item>
-            <List.Item>
-              Details of any other complaints regarding the stretch of highway in question 12 months prior to and
-              following the date of the incident.
-            </List.Item>
-          </List.OrderedList>
-        </div>
+          </React.Fragment>
+        )}
+
+        {this.props.allQs.injuredBy.answered === 'injuredByRoadDefect' && (
+          <React.Fragment>
+            <P>
+              <ins>Disclosure</ins>
+            </P>
+            <P>Please provide me with copies of the following documents:</P>
+            <List.OrderedList>
+              <List.Item>
+                Records of inspection for 12 months prior to and following the date of the incident.
+              </List.Item>
+              <List.Item>
+                Details of any other incidents in respect of the stretch of highway in question for 12 months prior to
+                and following the date of the incident.
+              </List.Item>
+              <List.Item>
+                Details of any other complaints regarding the stretch of highway in question 12 months prior to and
+                following the date of the incident.
+              </List.Item>
+            </List.OrderedList>
+          </React.Fragment>
+        )}
         <P>
           <ins>Finally</ins>
         </P>
         <P>Finally, I expect an acknowledgement of this letter within 21 days.</P>
-        <P b="100px">Yours faithfully</P>
-      </React.Fragment>
+        <P b="150px">Yours faithfully</P>
+      </div>
     );
   }
 }

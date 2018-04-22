@@ -1,4 +1,5 @@
 import { observable, action, useStrict } from 'mobx';
+
 useStrict(true);
 export default class MobxUIStore {
   constructor(rootStore) {
@@ -7,6 +8,7 @@ export default class MobxUIStore {
   @observable fadeIn = '';
   @observable navBarIsOpen = false;
   @observable currentSection = 'valuer';
+  @observable printing = false;
 
   @action('toggleNavBar') toggleNavBar = () => (this.navBarIsOpen = !this.navBarIsOpen);
   @action('closeNavBar') closeNavBar = () => (this.navBarIsOpen = false);
@@ -26,5 +28,9 @@ export default class MobxUIStore {
       }),
       1000
     );
+  };
+  @action('print')
+  print = () => {
+    console.log('clicked print');
   };
 }

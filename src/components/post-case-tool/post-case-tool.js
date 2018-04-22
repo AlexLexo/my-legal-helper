@@ -15,7 +15,7 @@ class PostCase extends React.Component {
   render() {
     return (
       <Container dark>
-        <Title t="50px" dark>
+        <Title t="30px" dark>
           Action Plan
         </Title>
         <P dark>Now that we have given you some advice about your case, the next steps are to:</P>
@@ -35,7 +35,7 @@ class PostCase extends React.Component {
           <List.Item>get more evidence if they deny liability.</List.Item>
           <List.Item>consider settling your case if they admit liability.</List.Item>
         </List.OrderedList>
-        <P>
+        <P dark b="70px">
           Alternatively, if you would like to get some further advice from a solicitor or if you have any queries, free
           to drop us an email at info@litem.co.uk.
         </P>

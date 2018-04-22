@@ -10,7 +10,8 @@ const Title = styled.h1`
   color: ${props => (props.dark ? props.theme.colors.color2 : props.theme.colors.color3)};
   text-align: ${props => (props.center ? 'center' : 'inherit')};
   line-height: 1;
-  font-weight: 600;
+  font-weight: 400;
+  font-family: 'Quicksand';
   @media (max-width: 599px) {
     max-width: 90%;
     font-size: 2.5rem;

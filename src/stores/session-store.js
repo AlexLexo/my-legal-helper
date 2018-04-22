@@ -81,7 +81,7 @@ export default class mobxSessionStore {
   @action('handleNext')
   handleNext = (givenAnswer, nxtQId) => {
     //prevent handleNext if no answer has been given
-    console.log(givenAnswer);
+    //console.log(givenAnswer);
     if (!givenAnswer) return;
     //adds the current question to the list of answered questions
     this.userObj.lastQIds[this.RootStore.UIStore.currentSection].push(this.currentQId);
