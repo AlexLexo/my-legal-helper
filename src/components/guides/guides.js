@@ -8,7 +8,7 @@ import P from './../styled-components/p';
 import List from './../styled-components/list';
 
 const guide1 = {
-  title: 'what if the defendant denies liability?',
+  title: 'What if the defendant denies liability?',
   body: (
     <React.Fragment>
       <P dark>
@@ -27,7 +27,7 @@ const guide1 = {
   )
 };
 const guide2 = {
-  title: 'what evidence do I need?',
+  title: 'What evidence do I need?',
   body: (
     <React.Fragment>
       <P dark>The evidence needed will depend on the circumstances but could include the following:-</P>
@@ -61,7 +61,7 @@ const guide2 = {
   )
 };
 const guide3 = {
-  title: 'what are the usual steps in a case?',
+  title: 'What are the usual steps in a case?',
   body: (
     <React.Fragment>
       <P dark>Below is an overview of the usual steps in a straightforward case:</P>
@@ -97,7 +97,7 @@ const guide3 = {
   )
 };
 const guide4 = {
-  title: 'Contributory negligence',
+  title: 'What happens if it was partially my fault?',
   body: (
     <React.Fragment>
       <P dark>
@@ -111,7 +111,7 @@ const guide4 = {
   )
 };
 const guide5 = {
-  title: 'how long do most cases last',
+  title: 'How long do most cases last?',
   body: (
     <React.Fragment>
       <P dark>
@@ -127,7 +127,7 @@ const guide5 = {
   )
 };
 const guide6 = {
-  title: 'what if the case involves a child',
+  title: 'What if the case involves a child?',
   body: (
     <React.Fragment>
       <P dark>If a child is injured their parents or guardians can pursue a claim on their behalf.</P>
@@ -146,7 +146,7 @@ const guide6 = {
   )
 };
 const guide7 = {
-  title: 'obtaining medical evidence',
+  title: 'Obtaining medical evidence',
   body: (
     <React.Fragment>
       <P dark>
@@ -174,7 +174,7 @@ const guide7 = {
   )
 };
 const guide8 = {
-  title: 'how much for my damaged bike',
+  title: 'How much for my damaged bike?',
   body: (
     <React.Fragment>
       <P dark>
@@ -189,7 +189,7 @@ const guide8 = {
   )
 };
 const guide9 = {
-  title: 'settling the case',
+  title: 'Settling the case',
   body: (
     <React.Fragment>
       <P dark>
@@ -215,7 +215,7 @@ const guide9 = {
   )
 };
 const guide10 = {
-  title: 'the importance of being honest',
+  title: 'The importance of being honest',
   body: (
     <React.Fragment>
       <P dark>

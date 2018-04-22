@@ -53,7 +53,7 @@ const BtnBottom = styled.button`
     }
   }
   @media (min-width: 600px) {
-    width: 45%;
+    width: 40%;
     height: 60px;
     font-size: 1.1rem;
     border-radius: 35px;

@@ -322,7 +322,7 @@ const Advice = props => {
         <P>
           If you have sustained an injury and the case succeeds, you will be entitled to damages for this depending on
           the type of injury, its severity and the length of time it lasts. In addition you are entitled to your
-          financial losses as a result of the incident. For more details see this guide –{' '}
+          financial losses as a result of the incident. For more details see our –{' '}
           <Link
             name="valuer"
             onClick={() => {
@@ -330,7 +330,7 @@ const Advice = props => {
               props.setSection('valuer');
             }}
           >
-            go to valuation tool
+            valuation tool
           </Link>.
         </P>
         <P>
@@ -347,8 +347,7 @@ const Advice = props => {
       <React.Fragment>
         <P>If you would now like to use the letter writing tool please press the 'next' button below.</P>
         <P b="100px">
-          Alternatively, feel free to send us a message if you have any queries regarding the advice. We will not pass
-          your details on to anyone else.
+          Alternatively, please send an email to info@litem.co.uk if would have any questions about the advice.
         </P>
       </React.Fragment>
     )

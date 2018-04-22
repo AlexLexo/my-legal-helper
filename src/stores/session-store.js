@@ -100,7 +100,7 @@ export default class mobxSessionStore {
   @action('setCurrentQ')
   setCurrentQ = nxtQId => {
     this.currentQId =
-      nxtQId === 'letter' ? this.letterTemplate : nxtQId === 'injuryLocation' ? 'valInjuryDuration' : nxtQId;
+      nxtQId === 'letter' ? this.letterTemplate : nxtQId === 'injuryLocation' ? 'triageInjuryDuration' : nxtQId;
   };
 
   @computed
@@ -137,7 +137,6 @@ export default class mobxSessionStore {
       letterId: letterId,
       createdOn: Date.now()
     };
-    //window.scrollTo(0, 0);
   };
 
   @action('setInjuryLocation')
@@ -180,14 +179,13 @@ export default class mobxSessionStore {
   addInjury = injuryDuration => {
     this.duration = injuryDuration.duration;
     const newInjury = {
-      injuryType: this.userObj.allQs.valInjuryType.answered,
-      injuryTypeAndLocation: this.injuryLocation,
-      txt: Inj[this.userObj.allQs.valInjuryType.answered][this.injuryLocation].txt,
+      injuryType: this.userObj.allQs.triageInjuryType.answered,
+      injuryLocation: this.injuryLocation,
       injuryDuration: injuryDuration.duration,
       injuryStart: injuryDuration.start,
-      injuryEnd: injuryDuration.end,
-      injuryValue: Inj[this.userObj.allQs.valInjuryType.answered][this.injuryLocation][this.wks]
+      injuryEnd: injuryDuration.end
     };
+    //injuryValue: Inj[this.userObj.allQs.triageInjuryType.answered][this.injuryLocation][this.wks]
     this.userObj.injuries.push(newInjury);
     if (this.userObj.injuries[0].injuryType === 'none') this.userObj.injuries.shift();
   };

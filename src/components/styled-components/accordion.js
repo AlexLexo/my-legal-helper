@@ -36,33 +36,36 @@ export const AccordionTitle = styled.div`
     color: ${props => (props.dark ? 'white' : props.theme.colors.color3)};
   }
   color: ${props => (props.dark ? 'white' : props.theme.colors.color3)};
-  line-height: 1;
+  line-height: 1.5;
   padding-top: ${props => (props.t ? props.t : '0')};
   padding-bottom: ${props => (props.b ? props.b : '0')};
-  padding-left: ${props => (props.l ? props.l : '0')};
+  padding-left: ${props => (props.l ? props.l : '10px')};
   padding-right: ${props => (props.r ? props.r : '0')};
   margin-left: auto;
   margin-right: auto;
-
+  font-family: Quicksand;
+  border: solid;
+  border-color: white;
+  border-radius: 30px;
   @media (max-width: 599px) {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     max-width: 350px;
   }
   @media (min-width: 600px) {
-    font-size: 1.8rem;
+    font-size: 1.7rem;
     max-width: 500px;
   }
   @media (min-width: 900px) {
-    font-size: 2rem;
+    font-size: 1.8rem;
     max-width: 700px;
   }
   @media (min-width: 1200px) {
-    font-size: 2.2rem;
-    max-width: 700px;
+    font-size: 1.8rem;
+    max-width: 750px;
   }
   @media (min-width: 1800px) {
-    font-size: 2.5rem;
-    max-width: 700px;
+    font-size: 1.8rem;
+    max-width: 800px;
   }
 `;
 

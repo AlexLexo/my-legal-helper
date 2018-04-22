@@ -54,16 +54,16 @@ class Home extends Component {
           </BtnGetStarted>
         </Container>
         <Container style={{ backgroundColor: 'white' }}>
-          <Title t="70px" b="10px">
+          <Title center t="70px" b="10px">
             Why use Litem?
           </Title>
           <ImgNumber alt="Selling Point 1" src={imgOne} />
           <Header center t="20px">
-            Your private data stays on your device so you can be confident that your details will never be passed on.
+            Litem is free. Lawyers take 25%. Try us first to save an average of £800 in legal fees.
           </Header>
           <ImgNumber alt="Selling Point 2" src={imgTwo} />
           <Header center t="20px">
-            Litem is free. Lawyers take 25%. Try us first to keep your full damages.
+            Your private data stays on your device so you can be confident that your details will never be passed on.
           </Header>
           <ImgNumber alt="Selling Point 3" src={imgThree} />
           <Header center t="20px">

@@ -68,7 +68,7 @@
       {
         "ansId": "ridingBikeYes",
         "ansLabel": "Yes",
-        "nxtQId": "dDetsHave"
+        "nxtQId": "dInsured"
       },
       {
         "ansId": "ridingBikeNo",
@@ -77,29 +77,10 @@
       }
     ]
   },
-  "dDetsHave": {
-    "qId": "dDetsHave",
-    "title":
-      "Do you have the defendant's name and address or their insurance details or registration?",
-    "answered": "",
-    "answeredOn": "",
-    "type": "button",
-    "btnvalues": [
-      {
-        "ansId": "dDetsHaveYes",
-        "ansLabel": "Yes",
-        "nxtQId": "dInsured"
-      },
-      {
-        "ansId": "dDetsHaveNo",
-        "ansLabel": "No",
-        "nxtQId": "hitAndRun"
-      }
-    ]
-  },
   "dInsured": {
     "qId": "dInsured",
-    "title": "Is the other road user (i.e. the defendant) insured?",
+    "title":
+      "Is the defendant (the other road user) insured? If the incident was cause by a road defect, then this would the local authority who will have insurance.",
     "answered": "",
     "answeredOn": "",
     "type": "button",
@@ -118,6 +99,26 @@
         "ansId": "dInsuredDoNotKnow",
         "ansLabel": "Not sure",
         "nxtQId": "acceptedMoney"
+      }
+    ]
+  },
+  "dDetsHave": {
+    "qId": "dDetsHave",
+    "title":
+      "Do you have the defendant's name and address or their insurance details or registration?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "button",
+    "btnvalues": [
+      {
+        "ansId": "dDetsHaveYes",
+        "ansLabel": "Yes",
+        "nxtQId": "acceptedMoney"
+      },
+      {
+        "ansId": "dDetsHaveNo",
+        "ansLabel": "No",
+        "nxtQId": "hitAndRun"
       }
     ]
   },
@@ -384,7 +385,7 @@
       {
         "ansId": "pedFilteringNo",
         "ansLabel": "No",
-        "nxtQId": "pedManoeuvring"
+        "nxtQId": "pedDets"
       }
     ]
   },
@@ -2154,23 +2155,8 @@
     "qId": "postLetter",
     "type": "postLetter"
   },
-  "val0": {
-    "qId": "val0",
-    "title":
-      "If the person died in the incident or suffered more serious injuries then we advise you to speak with a solicitor. Please note that this is not completely accurate. It could be that your case is worth more or less than the tool suggests – we are just giving you are best guess on the basis of the questions answered. If you want an accurate valuation of your case you should speak with a solicitor. If you were not injured and want to know what your potential financial losses are please click here.",
-    "answered": "",
-    "answeredOn": "",
-    "type": "button",
-    "btnvalues": [
-      {
-        "ansId": "accept",
-        "ansLabel": "I accept",
-        "nxtQId": "valInjuryType"
-      }
-    ]
-  },
-  "valInjuryType": {
-    "qId": "valInjuryType",
+  "triageInjuryType": {
+    "qId": "triageInjuryType",
     "title":
       "What type of injury did you have? You can add more injuries later.",
     "answered": "",
@@ -2178,29 +2164,24 @@
     "type": "dropdown",
     "btnvalues": [
       {
-        "ansId": "soft",
+        "ansId": "soft tissue damage",
         "ansLabel": "Soft tissue / ligaments / bruising",
-        "nxtQId": "valSoftDets1"
+        "nxtQId": "triageSoftDets1"
       },
       {
         "ansId": "fracture",
         "ansLabel": "Fracture",
-        "nxtQId": "valFractureDets1"
+        "nxtQId": "triageFractureDets"
       },
       {
-        "ansId": "burn",
-        "ansLabel": "Burn / laceration / scarring",
-        "nxtQId": "valBurnDets"
-      },
-      {
-        "ansId": "psych",
+        "ansId": "mental health",
         "ansLabel": "Psychiatric",
-        "nxtQId": "valPsychDets"
+        "nxtQId": "injuryLocation"
       },
       {
-        "ansId": "dental",
+        "ansId": "damage to teeth",
         "ansLabel": "Damage to Teeth",
-        "nxtQId": "valAnsDental"
+        "nxtQId": "injuryLocation"
       },
       {
         "ansId": "none",
@@ -2209,8 +2190,8 @@
       }
     ]
   },
-  "valSoftDets1": {
-    "qId": "valSoftDets1",
+  "triageSoftDets1": {
+    "qId": "triageSoftDets1",
     "title": "Where was the injury located?",
     "answered": "",
     "answeredOn": "",
@@ -2219,7 +2200,7 @@
       {
         "ansId": "softBrain",
         "ansLabel": "Brain injury / concussion",
-        "nxtQId": "contactMe"
+        "nxtQId": "injuryLocation"
       },
       {
         "ansId": "neck",
@@ -2242,24 +2223,19 @@
         "nxtQId": "injuryLocation"
       },
       {
-        "ansId": "softArm",
-        "ansLabel": "Arm or hand Area",
-        "nxtQId": "valSoftArm"
+        "ansId": "softLimb",
+        "ansLabel": "Arm or leg area",
+        "nxtQId": "triageSoftLimb"
       },
       {
-        "ansId": "softLeg",
-        "ansLabel": "Leg or foot Area",
-        "nxtQId": "valSoftLeg"
-      },
-      {
-        "ansId": "softOrgans",
+        "ansId": "internal organs",
         "ansLabel": "Internal Organs",
-        "nxtQId": "contactMe"
+        "nxtQId": "injuryLocation"
       }
     ]
   },
-  "valSoftArm": {
-    "qId": "valSoftArm",
+  "triageSoftLimb": {
+    "qId": "triageSoftLimb",
     "title": "Where was the injury located?",
     "answered": "",
     "answeredOn": "",
@@ -2279,16 +2255,7 @@
         "ansId": "elbow",
         "ansLabel": "Elbow",
         "nxtQId": "injuryLocation"
-      }
-    ]
-  },
-  "valSoftLeg": {
-    "qId": "valSoftLeg",
-    "title": "Where was the injury located?",
-    "answered": "",
-    "answeredOn": "",
-    "type": "dropdown",
-    "btnvalues": [
+      },
       {
         "ansId": "leg",
         "ansLabel": "Leg",
@@ -2316,116 +2283,64 @@
       }
     ]
   },
-  "valFractureDets1": {
-    "qId": "valFractureDets1",
+  "triageFractureDets": {
+    "qId": "triageFractureDets",
     "title": "Where was the injury located?",
     "answered": "",
     "answeredOn": "",
     "type": "dropdown",
     "btnvalues": [
       {
-        "ansId": "fractureHead",
-        "ansLabel": "Head",
-        "nxtQId": "valFractureHead"
+        "ansId": "skull",
+        "ansLabel": "Skull",
+        "nxtQId": "injuryLocation"
       },
       {
-        "ansId": "fractureNeckShoulders",
-        "ansLabel": "Neck / Shoulders",
-        "nxtQId": "valFractureNeckShoulders"
+        "ansId": "neck",
+        "ansLabel": "Neck",
+        "nxtQId": "injuryLocation"
       },
       {
-        "ansId": "fractureBack",
-        "ansLabel": "Back",
-        "nxtQId": "contactMe"
-      },
-      {
-        "ansId": "fracturePelvis",
-        "ansLabel": "Pelvis / Hips",
-        "nxtQId": "contactMe"
-      },
-      {
-        "ansId": "none",
-        "ansLabel": "See more Options",
-        "nxtQId": "valFractureDets2"
-      }
-    ]
-  },
-  "valFractureHead": {
-    "qId": "valFractureHead",
-    "title": "Where was the injury located?",
-    "answered": "",
-    "answeredOn": "",
-    "type": "button",
-    "btnvalues": [
-      {
-        "ansId": "fractureNose",
-        "ansLabel": "Nose",
-        "nxtQId": "valAnsFractureNose"
-      },
-      {
-        "ansId": "other",
-        "ansLabel": "Other",
-        "nxtQId": "contactMe"
-      }
-    ]
-  },
-  "valFractureNeckShoulders": {
-    "qId": "valFractureNeckShoulders",
-    "title": "Where was the injury located?",
-    "answered": "",
-    "answeredOn": "",
-    "type": "button",
-    "btnvalues": [
-      {
-        "ansId": "fractureNeck",
-        "ansLabel": "Nose",
-        "nxtQId": "contactMe"
-      },
-      {
-        "ansId": "fractureClavicle",
+        "ansId": "clavicle",
         "ansLabel": "Clavicle",
-        "nxtQId": "valAnsFractureClavicle"
+        "nxtQId": "injuryLocation"
       },
       {
-        "ansId": "fractureHumerus",
+        "ansId": "humerus",
         "ansLabel": "Humerus",
-        "nxtQId": "valAnsFractureHumerus"
+        "nxtQId": "injuryLocation"
+      },
+      {
+        "ansId": "back",
+        "ansLabel": "Back",
+        "nxtQId": "injuryLocation"
+      },
+      {
+        "ansId": "pelvis",
+        "ansLabel": "Pelvis",
+        "nxtQId": "injuryLocation"
+      },
+      {
+        "ansId": "hip",
+        "ansLabel": "Hip",
+        "nxtQId": "injuryLocation"
+      },
+      {
+        "ansId": "fractureLimb",
+        "ansLabel": "Arm or leg area",
+        "nxtQId": "triageFractureLimb"
       }
     ]
   },
-  "valFractureDets2": {
-    "qId": "valFractureDets2",
-    "title": "Where was the injury located?",
-    "answered": "",
-    "answeredOn": "",
-    "type": "button",
-    "btnvalues": [
-      {
-        "ansId": "fractureArm",
-        "ansLabel": "Arm or hand Area",
-        "nxtQId": "valFractureArm"
-      },
-      {
-        "ansId": "fractureLeg",
-        "ansLabel": "Leg or foot Area",
-        "nxtQId": "valFractureLeg"
-      },
-      {
-        "ansId": "none",
-        "ansLabel": "None of the above",
-        "nxtQId": "contactMe"
-      }
-    ]
-  },
-  "valFractureArm": {
-    "qId": "valFractureArm",
+  "triageFractureLimb": {
+    "qId": "triageFractureLimb",
     "title": "Where was the injury located?",
     "answered": "",
     "answeredOn": "",
     "type": "dropdown",
     "btnvalues": [
       {
-        "ansId": "valAnsFractureForearm",
+        "ansId": "arm",
         "ansLabel": "Arm",
         "nxtQId": "injuryLocation"
       },
@@ -2448,16 +2363,7 @@
         "ansId": "thumb",
         "ansLabel": "Thumb",
         "nxtQId": "injuryLocation"
-      }
-    ]
-  },
-  "valFractureLeg": {
-    "qId": "valFractureLeg",
-    "title": "Where was the injury located?",
-    "answered": "",
-    "answeredOn": "",
-    "type": "dropdown",
-    "btnvalues": [
+      },
       {
         "ansId": "thigh",
         "ansLabel": "Leg",
@@ -2480,147 +2386,44 @@
       }
     ]
   },
-  "valBurnDets": {
-    "qId": "valBurnDets",
-    "title": "Where was the injury located?",
-    "answered": "",
-    "answeredOn": "",
-    "type": "button",
-    "btnvalues": [
-      {
-        "ansId": "burnFace",
-        "ansLabel": "face",
-        "nxtQId": "valAnsBurnFace"
-      },
-      {
-        "ansId": "burnOther",
-        "ansLabel": "Other",
-        "nxtQId": "valAnsBurnOther"
-      }
-    ]
-  },
-  "valPsychDets": {
-    "qId": "valPsychDets",
-    "title": "Where was the injury located?",
-    "answered": "",
-    "answeredOn": "",
-    "type": "button",
-    "btnvalues": [
-      {
-        "ansId": "psychTravel",
-        "ansLabel": "Travel Anxiety",
-        "nxtQId": "valAnsPsychTravel"
-      },
-      {
-        "ansId": "psychOther",
-        "ansLabel": "Other",
-        "nxtQId": "valAnsPsychOther"
-      }
-    ]
-  },
-  "valInjuryDuration": {
-    "qId": "valInjuryDuration",
+  "triageInjuryDuration": {
+    "qId": "triageInjuryDuration",
     "title": "How long did this injury last for?",
-    "nxtQId": "valAddInjury",
+    "nxtQId": "triageAddInjury",
     "answered": "",
     "answeredOn": "",
     "type": "durationInputs",
     "inputs": [
       {
         "qId": "injuryStart",
-        "title": "start of injury:",
+        "title": "Start of injury:",
         "type": "date",
         "placeholder": ""
       },
       {
         "qId": "injuryEnd",
-        "title": "End of injury:",
+        "title": "End of Injury: leave blank if ongoing",
         "type": "date",
         "placeholder": ""
       }
     ]
   },
-  "valAddInjury": {
-    "qId": "valAddInjury",
+  "triageAddInjury": {
+    "qId": "triageAddInjury",
     "title": "Would you like to add another injury?",
     "answered": "",
     "answeredOn": "",
     "type": "button",
     "btnvalues": [
       {
-        "ansId": "valAddInjuryYes",
+        "ansId": "triageAddInjuryYes",
         "ansLabel": "Yes",
-        "nxtQId": "valInjuryType"
+        "nxtQId": "triageInjuryType"
       },
       {
-        "ansId": "valAddInjuryNo",
+        "ansId": "triageAddInjuryNo",
         "ansLabel": "No",
-        "nxtQId": "valFinancial"
-      }
-    ]
-  },
-  "valFinancial": {
-    "qId": "valFinancial",
-    "title": "Did you suffer any financial losses?",
-    "answered": "",
-    "answeredOn": "",
-    "type": "dropdown",
-    "btnvalues": [
-      {
-        "ansId": "valFinancialYes",
-        "ansLabel": "Yes",
-        "nxtQId": "valFinancialDets"
-      },
-      {
-        "ansId": "valFinancialNo",
-        "ansLabel": "No",
-        "nxtQId": "valValuation"
-      }
-    ]
-  },
-  "valFinancialDets": {
-    "qId": "valFinancialDets",
-    "title": "Did you suffer any financial losses?",
-    "nxtQId": "valValuation",
-    "answered": "",
-    "answeredOn": "",
-    "type": "financialInputs",
-    "inputs": [
-      {
-        "qId": "finTravel",
-        "title": "Travel expenses",
-        "type": "text",
-        "placeholder": "0"
-      },
-      {
-        "qId": "finTreatment",
-        "title": "Treatment costs",
-        "type": "text",
-        "placeholder": "0"
-      },
-      {
-        "qId": "finEarnings",
-        "title": "Lost earnings",
-        "type": "text",
-        "placeholder": "0"
-      },
-      {
-        "qId": "finMedication",
-        "title": "Medication",
-        "type": "text",
-        "placeholder": "0"
-      },
-      {
-        "qId": "finRepairs",
-        "title": "Bicycle repairs or insurance excess",
-        "type": "text",
-        "placeholder": "0"
-      },
-      {
-        "qId": "finCare",
-        "title": "care and assistance costs",
-        "type": "text",
-        "placeholder": "0"
+        "nxtQId": "lossesFinancial"
       }
     ]
   },

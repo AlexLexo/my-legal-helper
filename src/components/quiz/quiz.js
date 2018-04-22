@@ -51,7 +51,7 @@ class ToolHub extends Component {
           <Header dark>Please select one of the following:</Header>
           <BtnGroup>
             <Btn b="20px" onClick={e => handleNavClick(e, this.props.history)} id="tool-hub case" name="pre-case-tool">
-              Do I have a case? / write a letter
+              Do I have a case?
             </Btn>
             <Btn
               b="20px"

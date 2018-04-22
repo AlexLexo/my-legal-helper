@@ -13,7 +13,7 @@ const Input = styled.input`
 
   @media (max-width: 599px) {
     width: 90%;
-    font-size: 1.7rem;
+    font-size: 1.5rem;
     line-height: 2.5rem;
   }
   @media (min-width: 600px) {
@@ -54,27 +54,27 @@ const TextArea = styled.textarea`
   @media (max-width: 599px) {
     width: 90%;
     height: 7%;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
   }
   @media (min-width: 600px) {
     width: 80%;
     height: 10%;
-    font-size: 1.2rem;
+    font-size: 1.7rem;
   }
   @media (min-width: 900px) {
     width: 50%;
     height: 10%;
-    font-size: 1.5rem;
+    font-size: 1.7rem;
   }
   @media (min-width: 1200px) {
     width: 50%;
     height: 10%;
-    font-size: 1.5rem;
+    font-size: 1.7rem;
   }
   @media (min-width: 1800px) {
     width: 50%;
     height: 10%;
-    font-size: 1.5rem;
+    font-size: 1.7rem;
   }
 `;
 

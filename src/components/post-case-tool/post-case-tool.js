@@ -36,8 +36,8 @@ class PostCase extends React.Component {
           <List.Item>consider settling your case if they admit liability.</List.Item>
         </List.OrderedList>
         <P dark b="70px">
-          Alternatively, if you would like to get some further advice from a solicitor or if you have any queries, free
-          to drop us an email at info@litem.co.uk.
+          Alternatively, if you would like to get some further advice from a solicitor or if you have any questions,
+          feel free to drop us an email at info@litem.co.uk.
         </P>
       </Container>
     );

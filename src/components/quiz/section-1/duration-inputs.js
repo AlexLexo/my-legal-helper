@@ -31,7 +31,9 @@ class Duration extends React.Component {
             fontSize: '1.8em'
           }}
         >
-          <label htmlFor="cDOB">{this.props.q.inputs[0].title}</label>
+          <label style={{ fontSize: '0.8em' }} htmlFor="cDOB">
+            {this.props.q.inputs[0].title}
+          </label>
           <br />
           <ReactDatez
             name="cDOB"
@@ -50,7 +52,9 @@ class Duration extends React.Component {
             fontSize: '1.8em'
           }}
         >
-          <label htmlFor="iDate">{this.props.q.inputs[1].title}</label>
+          <label style={{ fontSize: '0.8em' }} htmlFor="iDate">
+            {this.props.q.inputs[1].title}
+          </label>
           <br />
           <ReactDatez
             name="iDate"

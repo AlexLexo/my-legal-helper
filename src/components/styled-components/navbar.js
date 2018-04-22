@@ -104,6 +104,7 @@ const Menu = styled.nav`
   flex-direction: column;
   justify-content: flex-start;
   align-content: space-around;
+  padding-top: 50px;
   & a, span {
     transition: opacity 0.4s;
     opacity: ${props => (props.menuOpen ? '1' : '0')};
@@ -112,13 +113,18 @@ const Menu = styled.nav`
     width: 100%
     text-decoration: none;
     text-transform: uppercase;
+    font-family: 'Quicksand';
+    @media (max-width: 900px) {
+      padding-top: 5%;
+      padding-Left: 25%;
+      }
     @media (max-width: 1199px) {
-      padding-top: 10%;
-      padding-Left: 10%;
+      padding-top: 5%;
+      padding-Left: 25%;
       }
     @media (min-width: 1200px) {
     padding-top: 5%;
-    padding-Left: 5%;
+    padding-Left: 25%;
     }
   }
   }
@@ -134,6 +140,7 @@ class NavBar extends Component {
 
   onMenuButtonClick = () => {
     this.setState({ menuOpen: !this.state.menuOpen });
+    window.scrollTo(0, 0);
   };
   render() {
     return (
@@ -147,7 +154,7 @@ class NavBar extends Component {
             Home
           </Link>
           <Link to="/tool-hub" id="menu case" onClick={e => clicked(e.target.id)}>
-            Case Tool
+            Do I have a good case?
           </Link>
           <Link
             to="/pre-valuer-tool"
@@ -155,15 +162,16 @@ class NavBar extends Component {
             style={{ textDecoration: 'none' }}
             onClick={e => clicked(e.target.id)}
           >
-            Valuation Tool
+            How much is my case worth?
           </Link>
           <Link to="/guides" id="menu guides" onClick={e => clicked(e.target.id)}>
-            Guides
+            Legal Guides
           </Link>
           <Link to="/contact" id="menu contact" onClick={e => clicked(e.target.id)}>
             Get in Touch
           </Link>
           <Link
+            style={{ color: '#42506b' }}
             to="/"
             id="menu start fresh"
             onClick={e => {

@@ -38,6 +38,7 @@ const Label = styled.label`
   padding-top: 10px;
   margin-left: auto;
   margin-right: auto;
+  font-family: 'Quicksand';
   &:before {
     content: '£';
     transform: translate(-20px, 20px);

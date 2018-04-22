@@ -72,7 +72,7 @@ class Contact extends Component {
             <form onSubmit={this.handleSubmit}>
               <ContactForm.Input
                 type="email"
-                placeholder="Your email address"
+                placeholder="email"
                 t="20px"
                 required
                 autoComplete="email"
@@ -82,7 +82,7 @@ class Contact extends Component {
               <ContactForm.Input
                 type="text"
                 t="20px"
-                placeholder="Message Title"
+                placeholder="name"
                 required
                 value={this.state.messageTitle}
                 onChange={e => this.setState({ messageTitle: e.target.value })}
@@ -90,7 +90,7 @@ class Contact extends Component {
               <ContactForm.TextArea
                 t="20px"
                 b="20px"
-                placeholder="Your Message"
+                placeholder="message"
                 rows="10"
                 cols="100"
                 required

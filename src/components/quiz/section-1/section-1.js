@@ -82,9 +82,16 @@ class Section1 extends Component {
       const injuryDuration = injuryEnd.diff(injuryStart, 'days');
       this.props.RootStore.SessionStore.setInjuryDuration(this.state.value1, this.state.value2, injuryDuration);
       this.postSubmit();
-    } else */ if (
-      this.qId === 'cDOBiDate'
+    }*/ if (
+      this.qId === 'triageInjuryDuration'
     ) {
+      //if the question is 'triageInjuryDuration' then do the calculation
+      const injuryStart = moment(this.state.value1).format('DD/MM/YYYY');
+      const injuryEnd = moment(this.state.value2).format('DD/MM/YYYY');
+      const injuryDuration = moment(injuryEnd, 'DD/MM/YYYY').diff(moment(injuryStart, 'DD/MM/YYYY'), 'days');
+      this.props.RootStore.SessionStore.setInjuryDuration(injuryStart, injuryEnd, injuryDuration);
+      this.postSubmit();
+    } else if (this.qId === 'cDOBiDate') {
       //if the question is 'iDate' then do the calculation
       const dob = moment(this.state.value1).format('DD/MM/YYYY');
       const accidentDate = moment(this.state.value2).format('DD/MM/YYYY');
@@ -218,6 +225,7 @@ class Section1 extends Component {
           <Letter
             q={this.qs[this.qId]}
             allQs={this.props.RootStore.SessionStore.userObj.allQs}
+            injuries={this.props.RootStore.SessionStore.userObj.injuries}
             history={this.props.history}
             editedLetter={this.state.editedLetter}
             callback={v =>
