@@ -64,7 +64,7 @@ export default class mobxSessionStore {
     }
     this.currentQId =
       this.userObj.lastQIds[this.RootStore.UIStore.currentSection].length === 1
-        ? this.RootStore.UIStore.currentSection === 'caseTool' ? 'cDOBiDate' : 'val0'
+        ? this.RootStore.UIStore.currentSection === 'caseTool' ? 'moreThan3Years' : 'val0'
         : this.userObj.lastQIds[this.RootStore.UIStore.currentSection].pop();
   };
 

@@ -13,24 +13,24 @@ const P = styled.p`
   line-height: 1;
   @media (max-width: 599px) {
     width: 90%;
-    font-size: 1.2rem;
+    font-size: 1rem;
     text-align: left;
   }
   @media (min-width: 600px) {
     width: 500px;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
   }
   @media (min-width: 900px) {
     width: 550px;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
   }
   @media (min-width: 1200px) {
     width: 550px;
-    font-size: 1.6rem;
+    font-size: 1.3rem;
   }
   @media (min-width: 1800px) {
     width: 550px;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
   }
   @media print {
     color: black;

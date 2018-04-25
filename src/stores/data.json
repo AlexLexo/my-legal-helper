@@ -39,6 +39,44 @@
       }
     ]
   },
+  "moreThan3Years": {
+    "qId": "moreThan3Years",
+    "title": "Did the incident happen more than 3 years ago?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "button",
+    "btnvalues": [
+      {
+        "ansId": "moreThan3YearsYes",
+        "ansLabel": "Yes",
+        "nxtQId": "over21"
+      },
+      {
+        "ansId": "moreThan3YearsNo",
+        "ansLabel": "No",
+        "nxtQId": "iWhere"
+      }
+    ]
+  },
+  "over21": {
+    "qId": "over21",
+    "title": "Are you over 21 years old?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "button",
+    "btnvalues": [
+      {
+        "ansId": "over21Yes",
+        "ansLabel": "Yes",
+        "nxtQId": "timeBarred"
+      },
+      {
+        "ansId": "over21No",
+        "ansLabel": "No",
+        "nxtQId": "iWhere"
+      }
+    ]
+  },
   "iWhere": {
     "qId": "iWhere",
     "title": "Where did it happen?",

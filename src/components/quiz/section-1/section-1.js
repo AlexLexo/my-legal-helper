@@ -338,7 +338,7 @@ class Section1 extends Component {
                     this.handleBack();
                     clicked(`case-tool back on ${this.qId}`);
                   }}
-                  disabled={this.qs[this.qId].qId === 'cDOBiDate'}
+                  disabled={this.qs[this.qId].qId === 'moreThan3Years'}
                 >
                   Back
                 </BtnBottom>
