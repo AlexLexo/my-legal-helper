@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-
+//  vertical-align: middle;
 const BtnBottom = styled.button`
   position: fixed;
   bottom: 0;
@@ -7,7 +7,6 @@ const BtnBottom = styled.button`
   margin-bottom: ${props => (props.b ? props.b : '10px')};
   margin-left: auto;
   margin-right: auto;
-  vertical-align: middle;
   background-color: ${props => props.theme.colors.color2};
   color: ${props => props.theme.colors.color3};
   border: none;
@@ -33,8 +32,8 @@ const BtnBottom = styled.button`
     outline: none;
   }
   @media (max-width: 599px) {
-    width: 43%;
-    height: 50px;
+    width: 42%;
+    height: 45px;
     font-size: 1.05rem;
     border-radius: 30px;
     ${props => (props.right ? 'right: 2px' : 'left: 2px')};

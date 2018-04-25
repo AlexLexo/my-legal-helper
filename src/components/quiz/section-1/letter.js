@@ -59,7 +59,9 @@ class Letter extends Component {
   };
   be = this.props.allQs.writeWho.answered === 'writeWhoDefendant' ? 'you were' : 'your insured was';
   writingTo = this.props.allQs.writeWho.answered === 'writeWhoDefendant' ? 'you' : 'your insured';
-
+  componentWillMount() {
+    this.props.RootStore.UIStore.handleFadeIn();
+  }
   componentDidMount() {
     this.props.callback(this.state);
   }
@@ -80,10 +82,14 @@ class Letter extends Component {
       this.props.allQs.financialDets.answered[5] === '0' ? false : this.props.allQs.financialDets.answered[5];
     return (
       <React.Fragment>
-        <Header>
-          Here is a letter have have prepared for you. Please add your name and address and make any changes you want to
-          make it fit your case better and click 'next' to get the finished version.
-        </Header>
+        {this.props.editedLetter || (
+          <P t="50px">
+            <strong>
+              Here is a letter we have prepared for you. Please add your name and address where indicated and make any
+              changes needed then click 'next' to get the finished version.
+            </strong>
+          </P>
+        )}
         <div id="completedLetter">
           <P>{todaysDate}</P>
           <P>Dear Sir / Madam</P>
@@ -182,7 +188,7 @@ class Letter extends Component {
               <br />
             </React.Fragment>
           )}
-          {this.props.allQs.writeWho.answered !== 'writeWhoDefendant' && (
+          {this.props.allQs.writeWho.answered === 'writeWhoDefendant' && (
             <React.Fragment>
               <P>
                 <ins>Insurance</ins>

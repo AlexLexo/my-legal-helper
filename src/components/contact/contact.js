@@ -5,6 +5,8 @@ import Container from './../styled-components/container';
 import Title from './../styled-components/title';
 import Header from './../styled-components/header';
 import Btn from './../styled-components/btn';
+import BtnGroup from './../styled-components/btn-group';
+
 import ContactForm from './../styled-components/contact-form';
 
 import { pageView } from './../../services/ga-helpers';
@@ -56,12 +58,11 @@ class Contact extends Component {
   };
   render() {
     return (
-      <Container notFull dark>
+      <Container notFull={this.props.history.location.pathname === '/'} dark>
         {!this.state.sent ? (
           <React.Fragment>
             <Title center dark>
-              {' '}
-              Get in Touch{' '}
+              Get in Touch
             </Title>
             <Header justify dark>
               Feel free to drop us an email at info@litem.co.uk.
@@ -74,7 +75,7 @@ class Contact extends Component {
                 type="email"
                 placeholder="email"
                 t="20px"
-                required
+                required="required"
                 autoComplete="email"
                 value={this.state.emailAddress}
                 onChange={e => this.setState({ emailAddress: e.target.value })}
@@ -97,9 +98,11 @@ class Contact extends Component {
                 value={this.state.messageBody}
                 onChange={e => this.setState({ messageBody: e.target.value })}
               />
-              <Btn b="50px" type="submit">
-                Send
-              </Btn>
+              <BtnGroup>
+                <Btn b="50px" type="submit">
+                  Send
+                </Btn>
+              </BtnGroup>
             </form>
           </React.Fragment>
         ) : (

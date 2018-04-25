@@ -14,6 +14,7 @@ import PreValuerTool from './../pre-valuer-tool/pre-valuer-tool';
 import PreLetterTool from './../pre-letter-tool/pre-letter-tool';
 import Guides from './../guides/guides';
 import TsAndCs from './../tsandcs/tsandcs';
+import PrivacyPolicy from './../privacy-policy/privacy-policy';
 import NotFound from './../not-found/not-found';
 
 @inject('RootStore')
@@ -46,6 +47,7 @@ class Routes extends Component {
               <Route exact path="/pre-letter-tool" component={PreLetterTool} />
               <Route exact path="/guides" component={Guides} />
               <Route exact path="/tsandcs" component={TsAndCs} />
+              <Route exact path="/privacy-policy" component={PrivacyPolicy} />
               <Route component={NotFound} />
             </Switch>
           </div>

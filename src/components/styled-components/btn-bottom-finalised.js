@@ -86,7 +86,7 @@ const BtnBottomFinalised = styled.button`
     }
   }
   @media (min-width: 1200px) {
-    width: 250px;
+    width: 200px;
     height: 65px;
     font-size: 1.2rem;
     border-radius: 50px;
@@ -99,11 +99,11 @@ const BtnBottomFinalised = styled.button`
     }
   }
   @media (min-width: 1800px) {
-    width: 350px;
+    width: 300px;
     height: 70px;
     font-size: 1.7rem;
     border-radius: 50px;
-    ${props => props.right && 'right: 15%'};
+    ${props => props.right && 'right: 5%'};
     ${props => props.left && 'left: 15%'};
     ${props => props.center && 'right: 26%'};
     &:hover {

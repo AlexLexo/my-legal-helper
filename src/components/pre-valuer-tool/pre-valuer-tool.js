@@ -1,14 +1,18 @@
 import React from 'react';
+import { observer, inject } from 'mobx-react';
+
+import { pageView, handleNavClick } from './../../services/ga-helpers';
 import BtnGetStarted from './../styled-components/btn-get-started';
 import P from './../styled-components/p';
 import Title from './../styled-components/title';
 import Container from './../styled-components/container';
 
-import { pageView, handleNavClick } from './../../services/ga-helpers';
-
+@inject('RootStore')
+@observer
 class PreTool extends React.Component {
   componentDidMount() {
     pageView(window.location.pathname);
+    this.props.RootStore.UIStore.setCurrentSection('valuer');
   }
   render() {
     return (

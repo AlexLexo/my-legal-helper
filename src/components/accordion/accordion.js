@@ -4,10 +4,10 @@ import {
   AccordionGroup,
   AccordionTitle,
   AccordionMenu,
-  AccordionItem,
-  Chevron
+  AccordionItem /*,
+  Chevron*/
 } from './../styled-components/accordion';
-import ChevronIcon from './../../assets/IMAGES/chevron_icon.svg';
+//import ChevronIcon from './../../assets/IMAGES/chevron_icon.svg';
 
 class Accordion extends Component {
   state = { accordionOpen: false };
@@ -26,7 +26,7 @@ class Accordion extends Component {
       <AccordionGroup>
         <AccordionTitle dark={this.props.dark} onClick={this.onAccordionClick}>
           {this.props.content.title}{' '}
-          <Chevron accordionOpen={this.state.accordionOpen} src={ChevronIcon} h="15px" w="15px" />
+          {/*<Chevron accordionOpen={this.state.accordionOpen} src={ChevronIcon} h="15px" w="15px" />*/}
         </AccordionTitle>
         <AccordionMenu dark={this.props.dark} accordionOpen={this.state.accordionOpen} onClick={this.onAccordionClick}>
           <AccordionItem dark={this.props.dark}>{this.props.content.body}</AccordionItem>

@@ -20,14 +20,14 @@ export const AccordionGroup = styled.div`
     width: 600px;
   }
 `;
-export const Chevron = styled.img`
+/*export const Chevron = styled.img`
   height: ${props => props.h};
   width: ${props => props.w};
   padding-left: 3px;
   padding-top: 12px
   transition: 0.3s transform cubic-bezier(1, 0.25, 0.25, 0.8);
   transform: ${props => (props.accordionOpen ? 'rotate(90deg)' : 'rotate(0deg)')};
-`;
+`;*/
 
 export const AccordionTitle = styled.div`
   cursor: pointer;
@@ -45,7 +45,8 @@ export const AccordionTitle = styled.div`
   margin-right: auto;
   font-family: Quicksand;
   border: solid;
-  border-color: white;
+  border-width: 1px;
+  border-color: ${props => (props.dark ? 'white' : props.theme.colors.color1)};
   border-radius: 30px;
   @media (max-width: 599px) {
     font-size: 1.2rem;
@@ -90,6 +91,6 @@ export default {
   AccordionGroup,
   AccordionTitle,
   AccordionMenu,
-  AccordionItem,
-  Chevron
+  AccordionItem /*,
+  Chevron*/
 };

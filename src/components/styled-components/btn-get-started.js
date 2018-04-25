@@ -1,13 +1,12 @@
 import styled from 'styled-components';
 
 const BtnGetStarted = styled.button`
-  background-color: ${props => props.theme.colors.color2};
-  color: ${props => props.theme.colors.color3};
   margin-top: ${props => (props.t ? props.t : '0')};
   margin-bottom: ${props => (props.b ? props.b : '0')};
   margin-left: auto;
   margin-right: auto;
-  font: inherit;
+  background-color: ${props => props.theme.colors.color2};
+  color: ${props => props.theme.colors.color3};
   border: none;
   cursor: pointer;
   white-space: nowrap;

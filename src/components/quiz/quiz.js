@@ -38,7 +38,7 @@ class ToolHub extends Component {
         </Header>
         <P dark>
           Litem is for quick advice on any cycling incident from hit and runs to potholes. We provide a free legal
-          service - it's not a substitute for a lawyer and we accept no liability if it all goes wrong.<br />
+          service - it's not a substitute for a lawyer and we accept no liability if it doesn't go according to plan.<br />
           <br />Please tick once you've read this
           <Checkbox
             onClick={() => {

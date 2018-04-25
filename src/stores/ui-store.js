@@ -29,8 +29,4 @@ export default class MobxUIStore {
       1000
     );
   };
-  @action('print')
-  print = () => {
-    console.log('clicked print');
-  };
 }

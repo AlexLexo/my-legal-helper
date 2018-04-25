@@ -62,6 +62,9 @@ const MenuButton = styled.button`
     top: 2px;
     right: 2px;
   }
+  @media print {
+    display: none;
+  }
 `;
 
 /*const Menu = styled.nav`
@@ -109,21 +112,33 @@ const Menu = styled.nav`
     transition: opacity 0.4s;
     opacity: ${props => (props.menuOpen ? '1' : '0')};
     color: white;
-    font-size: 2em;
     width: 100%
     text-decoration: none;
     text-transform: uppercase;
     font-family: 'Quicksand';
-    @media (max-width: 900px) {
-      padding-top: 5%;
-      padding-Left: 25%;
+    @media (max-width: 599px) {
+      font-size: 1.6em;
+      padding-top: 8%;
+      padding-Left: 5%;
       }
-    @media (max-width: 1199px) {
-      padding-top: 5%;
-      padding-Left: 25%;
+    @media (min-width: 600px) {
+      font-size: 2em;
+      padding-top: 8%;
+      padding-Left: 5%;
+      }
+    @media (min-width: 900px) {
+      font-size: 2em;
+      padding-top: 7%;
+      padding-Left: 7%;
+      }
+    @media (min-width: 1199px) {
+      font-size: 2em;
+      padding-top: 4%;
+      padding-Left: 20%;
       }
     @media (min-width: 1200px) {
-    padding-top: 5%;
+      font-size: 2em;
+    padding-top: 4%;
     padding-Left: 25%;
     }
   }

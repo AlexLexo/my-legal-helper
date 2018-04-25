@@ -14,7 +14,7 @@ const Title = styled.h1`
   font-family: 'Quicksand';
   @media (max-width: 599px) {
     max-width: 90%;
-    font-size: 2.5rem;
+    font-size: 2.3rem;
   }
   @media (min-width: 600px) {
     max-width: 500px;

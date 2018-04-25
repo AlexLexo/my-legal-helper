@@ -1,14 +1,12 @@
 import styled from 'styled-components';
 
 const Btn = styled.button`
-  display: flex;
-  flex-direction: column;
-  margin-top: ${props => (props.t ? props.t : '0')};
-  margin-bottom: ${props => (props.b ? props.b : '0')};
+  padding-left: auto;
+  padding-right: auto;
   margin-left: auto;
   margin-right: auto;
-  justify-content: center;
-  align-items: center;
+  margin-top: ${props => (props.t ? props.t : '0')};
+  margin-bottom: ${props => (props.b ? props.b : '0')};
   background-color: ${props => props.theme.colors.color2};
   color: ${props => props.theme.colors.color3};
   border: none;
@@ -22,8 +20,8 @@ const Btn = styled.button`
     outline: none;
   }
   @media (max-width: 599px) {
-    width: 310px;
-    height: 50px;
+    width: 300px;
+    height: 45px;
     font-size: 1.05rem;
     border-radius: 30px;
     &:hover {
@@ -36,8 +34,8 @@ const Btn = styled.button`
     }
   }
   @media (min-width: 600px) {
-    width: 400px;
-    height: 60px;
+    width: 350px;
+    height: 50px;
     font-size: 1.1rem;
     border-radius: 35px;
     &:hover {

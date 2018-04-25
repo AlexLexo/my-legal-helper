@@ -147,7 +147,7 @@ class Home extends Component {
             Start
           </BtnGetStarted>
         </Container>
-        <Contact id="home contact form" />
+        <Contact id="home contact form" history={this.props.history} />
         <footer
           style={{
             backgroundColor: '#42506b',
@@ -163,11 +163,11 @@ class Home extends Component {
           <p style={{ color: '#3cc', height: '0.3rem' }}>Contact:</p>
           <p style={{ color: '#fccf4d', height: '0.5rem', paddingLeft: '10px' }}>info@litem.co.uk</p>
           <p style={{ color: '#fccf4d', paddingLeft: '10px' }}>@litem_law</p>
-          <Link dark onClick={() => this.props.history.push(`tsandcs`)}>
+          <Link dark id="tsandcs" name="tsandcs" onClick={e => handleNavClick(e, this.props.history)}>
             Terms
           </Link>
           <br />
-          <Link dark onClick={() => this.props.history.push(`tsandcs`)}>
+          <Link dark id="privacy-policy" name="privacy-policy" onClick={e => handleNavClick(e, this.props.history)}>
             Privacy Policy
           </Link>
           <Footer.P dark>(C) 2018 Litem Ltd. All rights reserved</Footer.P>

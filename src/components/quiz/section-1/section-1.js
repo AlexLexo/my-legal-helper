@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
 import ClipboardJS from 'clipboard';
-//import jsPDF from 'jspdf';
 //import DOMPurify from 'dompurify';
 import moment from 'moment';
-import * as Scroll from 'react-scroll';
+
 import { pageView, clicked } from './../../../services/ga-helpers';
 
 import Container from './../../styled-components/container';
@@ -56,7 +55,7 @@ class Section1 extends Component {
   }
   componentDidMount() {
     pageView(window.location.pathname);
-    new ClipboardJS('.print');
+    new ClipboardJS('.copy');
   }
 
   handleBack = () => {
@@ -70,6 +69,7 @@ class Section1 extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
+    this.props.RootStore.UIStore.handleFadeIn();
     //if the type is 'weak' then the next button does nothing
     if (this.qs[this.qId].type === 'weak') return;
     //reset the dropdown
@@ -82,23 +82,26 @@ class Section1 extends Component {
       const injuryDuration = injuryEnd.diff(injuryStart, 'days');
       this.props.RootStore.SessionStore.setInjuryDuration(this.state.value1, this.state.value2, injuryDuration);
       this.postSubmit();
-    }*/ if (
-      this.qId === 'triageInjuryDuration'
-    ) {
-      //if the question is 'triageInjuryDuration' then do the calculation
-      const injuryStart = moment(this.state.value1).format('DD/MM/YYYY');
-      const injuryEnd = moment(this.state.value2).format('DD/MM/YYYY');
-      const injuryDuration = moment(injuryEnd, 'DD/MM/YYYY').diff(moment(injuryStart, 'DD/MM/YYYY'), 'days');
-      this.props.RootStore.SessionStore.setInjuryDuration(injuryStart, injuryEnd, injuryDuration);
+    } else */ /*else if (this.state.nxtQId === 'injuryLocation') {
+      //if the next question is 'injuryLocation' then add the value to the injury array and go to postSubmit
+      this.props.RootStore.SessionStore.setInjuryLocation(this.state.value);
       this.postSubmit();
-    } else if (this.qId === 'cDOBiDate') {
+    }*/ if (
+      this.qId === 'cDOBiDate'
+    ) {
       //if the question is 'iDate' then do the calculation
-      const dob = moment(this.state.value1).format('DD/MM/YYYY');
-      const accidentDate = moment(this.state.value2).format('DD/MM/YYYY');
+      const dob = moment(this.state.value1);
+      const accidentDate = moment(this.state.value2);
       const nowMinus3 = moment().subtract(3, 'years');
-      const turned21On = moment(dob, 'DD/MM/YYYY').add(21, 'years');
-      console.log('this.state.value1:', this.state.value1, 'this.state.value2:', this.state.value2);
-      console.log('dob:', dob, 'accidentDate:', accidentDate);
+      const turned21On = moment(dob).add(21, 'years');
+      //console.log('this.state.value1:', this.state.value1, 'this.state.value2:', this.state.value2);
+      //console.log('dob:', dob, 'accidentDate:', accidentDate);
+      console.log(
+        'accident date is before 3 years ago:',
+        moment(accidentDate).isBefore(nowMinus3),
+        '18 plus 3 is before today:',
+        moment(turned21On).isBefore(moment())
+      );
       if (moment(accidentDate).isBefore(nowMinus3) && moment(turned21On).isBefore(moment())) {
         console.log('timebarred');
         this.setState({ nxtQId: 'timeBarred' }, () => this.postSubmit());
@@ -106,10 +109,6 @@ class Section1 extends Component {
         console.log('not timebarred');
         this.postSubmit();
       }
-    } else if (this.state.nxtQId === 'injuryLocation') {
-      //if the next question is 'injuryLocation' then add the value to the injury array and go to postSubmit
-      this.props.RootStore.SessionStore.setInjuryLocation(this.state.value);
-      this.postSubmit();
     } else if (this.qs[this.qId].type === 'letter') {
       //if the question type is 'letter' then show the edited letter and setState accordingly
       if (!this.state.editedLetter) {
@@ -142,7 +141,8 @@ class Section1 extends Component {
     let nxtQId = this.state.nxtQId === '' ? this.qs[this.qId].nxtQId : this.state.nxtQId;
     if (this.qs[this.qId].type === 'advice') value = 'advice';
     if (this.qs[this.qId].type === 'preletter') value = 'preletter';
-    if (this.qs[this.qId].type === 'postCaseTool') value = 'preCaseTool';
+    if (this.qs[this.qId].type === 'postCaseTool') value = 'postCaseTool';
+    if (this.qs[this.qId].type === 'preCaseTool') value = 'preCaseTool';
     if (!value || !nxtQId) return alert('please enter an answer');
     this.props.RootStore.SessionStore.handleNext(value, nxtQId);
     //console.log(nxtQId);
@@ -208,7 +208,13 @@ class Section1 extends Component {
         );
         break;
       case 'weak':
-        this.input = <Weak userObj={this.props.RootStore.SessionStore.userObj} q={this.qs[this.qId]} />;
+        this.input = (
+          <Weak
+            userObj={this.props.RootStore.SessionStore.userObj}
+            q={this.qs[this.qId]}
+            history={this.props.history}
+          />
+        );
         break;
       case 'advice':
         this.input = (
@@ -313,12 +319,12 @@ class Section1 extends Component {
           />
         ) :*/
         this.qs[this.qId].qId === 'val0' ? (
-          <Container>
-            <Title>Valuation Tool</Title>
-            <br />
-            <Header>Building the best personal injury valuation tool on the internet takes time!</Header>
-            <br />
-            <Header>Check back with us in {moment('20180430', 'YYYYMMDD').fromNow()} to get your valuation!</Header>
+          <Container dark>
+            <Title dark>Valuation Tool</Title>
+            <Header dark>Building the best personal injury valuation tool on the internet takes time!</Header>
+            <Header dark>
+              Check back with us in {moment('20180507', 'YYYYMMDD').fromNow()} to get your valuation!
+            </Header>
           </Container>
         ) : (
           <React.Fragment>
@@ -363,11 +369,13 @@ class Section1 extends Component {
                 <React.Fragment>
                   <BtnBottomFinalised
                     center
-                    type="print"
                     data-clipboard-target="#completedLetter"
-                    className="print"
+                    className="copy"
+                    type="button"
                     onClick={() => {
-                      Scroll.animateScroll.scrollToTop();
+                      setTimeout(() => {
+                        this.props.RootStore.SessionStore.handleNext('postCaseTool', 'postLetter');
+                      }, 2000);
                       clicked('case-tool copy letter');
                     }}
                   >
@@ -375,11 +383,12 @@ class Section1 extends Component {
                   </BtnBottomFinalised>
                   <BtnBottomFinalised
                     right
-                    type="print"
-                    data-clipboard-target="#completedLetter"
+                    type="button"
                     onClick={() => {
-                      Scroll.animateScroll.scrollToTop();
                       window.print();
+                      setTimeout(() => {
+                        this.props.RootStore.SessionStore.handleNext('postCaseTool', 'postLetter');
+                      }, 2000);
                       clicked('case-tool print letter');
                     }}
                   >

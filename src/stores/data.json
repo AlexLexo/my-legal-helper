@@ -80,7 +80,7 @@
   "dInsured": {
     "qId": "dInsured",
     "title":
-      "Is the defendant (the other road user) insured? If the incident was cause by a road defect, then this would the local authority who will have insurance.",
+      "Is the defendant (ie the other road user) insured? In road defect cases this is the council who is insured.",
     "answered": "",
     "answeredOn": "",
     "type": "button",
@@ -1857,7 +1857,7 @@
   "writeWho": {
     "qId": "writeWho",
     "title":
-      "Who would you like to write to (if you have the insurer's details you should write to them).",
+      "Who would you like to write to - if you have the insurer's details you should write to them.",
     "answered": "",
     "answeredOn": "",
     "type": "button",
@@ -2424,6 +2424,21 @@
         "ansId": "triageAddInjuryNo",
         "ansLabel": "No",
         "nxtQId": "lossesFinancial"
+      }
+    ]
+  },
+  "val0": {
+    "qId": "val0",
+    "title":
+      "If the person died in the incident or suffered more serious injuries then we advise you to speak with a solicitor. Please note that this is not completely accurate. It could be that your case is worth more or less than the tool suggests – we are just giving you are best guess on the basis of the questions answered. If you want an accurate valuation of your case you should speak with a solicitor. If you were not injured and want to know what your potential financial losses are please click here.",
+    "answered": "",
+    "answeredOn": "",
+    "type": "button",
+    "btnvalues": [
+      {
+        "ansId": "accept",
+        "ansLabel": "I accept",
+        "nxtQId": "valInjuryType"
       }
     ]
   },

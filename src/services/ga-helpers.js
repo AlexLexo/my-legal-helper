@@ -1,4 +1,5 @@
 import ReactGA from 'react-ga';
+import * as Scroll from 'react-scroll';
 
 export const pageView = path => {
   ReactGA.pageview(path);
@@ -6,7 +7,7 @@ export const pageView = path => {
 
 export const handleNavClick = (e, history) => {
   history.push(e.target.name);
-  window.scrollTo(0, 0);
+  Scroll.animateScroll.scrollToTop();
   ReactGA.event({
     category: 'content interaction',
     action: `clicked button: ${e.target.id}`,
@@ -15,7 +16,7 @@ export const handleNavClick = (e, history) => {
 };
 
 export const clicked = id => {
-  window.scrollTo(0, 0);
+  Scroll.animateScroll.scrollToTop();
   ReactGA.event({
     category: 'content interaction',
     action: `clicked: ${id}`,

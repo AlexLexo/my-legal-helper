@@ -1,19 +1,20 @@
 import React from 'react';
+import { observer, inject } from 'mobx-react';
 import DOMPurify from 'dompurify';
 import Header from './../../styled-components/header';
 import Btn from './../../styled-components/btn';
 import BtnGroup from './../../styled-components/btn-group';
 
-const Buttons = props => {
-  const title = { __html: DOMPurify.sanitize(props.q.title) };
-  return (
-    <React.Fragment>
-      <Header center t="50px" b="50px" dangerouslySetInnerHTML={title} />
+const Buttons = inject('RootStore')(
+  observer(props => {
+    const title = { __html: DOMPurify.sanitize(props.q.title) };
+    return (
       <BtnGroup>
+        <Header center t="40px" dangerouslySetInnerHTML={title} />
         {props.q.btnvalues.map((item, i) => {
           return (
             <Btn
-              b="20px"
+              b="15px"
               key={i}
               type="submit"
               onClick={() => {
@@ -25,7 +26,7 @@ const Buttons = props => {
           );
         })}
       </BtnGroup>
-    </React.Fragment>
-  );
-};
+    );
+  })
+);
 export default Buttons;
