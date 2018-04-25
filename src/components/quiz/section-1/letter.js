@@ -12,10 +12,11 @@ import Textarea from 'react-textarea-autosize';
 @inject('RootStore')
 @observer
 class Letter extends Component {
+  /*iDate: moment(this.props.allQs.cDOBiDate.answered[1]).format('DD/MM/YYYY'),*/
   state = {
     cFullName: this.props.allQs.cFullName.answered,
     cAddress: this.props.allQs.cAddress.answered,
-    iDate: moment(this.props.allQs.cDOBiDate.answered[1]).format('DD/MM/YYYY'),
+    iDate: moment(this.props.allQs.iDate.answered).format('DD/MM/YYYY'),
     dFullName: this.props.allQs.dFullName.answered,
     dPolicyNumber: this.props.allQs.dPolicyNumber.answered,
     intro: `On ${moment(this.props.allQs.cDOBiDate.answered[1]).format('dddd Do MMMM YYYY')} I suffered ${

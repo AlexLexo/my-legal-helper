@@ -1,7 +1,7 @@
 import React from 'react';
 import DOMPurify from 'dompurify';
-import 'react-datez/dist/css/react-datez.css';
-import { ReactDatez } from 'react-datez';
+//import 'react-datez/dist/css/react-datez.css';
+//import { ReactDatez } from 'react-datez';
 import Container from './../../styled-components/container';
 import Header from './../../styled-components/header';
 
@@ -22,7 +22,7 @@ class Duration extends React.Component {
     return (
       <Container>
         <Header center t="50px" dangerouslySetInnerHTML={title} />
-        <div
+        {/*<div
           className="form-group"
           style={{
             marginLeft: 'auto',
@@ -63,7 +63,7 @@ class Duration extends React.Component {
             allowPast
             allowFuture={false}
           />
-        </div>
+        </div>*/}
       </Container>
     );
   }

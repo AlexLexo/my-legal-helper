@@ -8,7 +8,7 @@
     "type": "date",
     "placeholder": "eg. 25/12/1982"
   },
-  "iDate": {
+  "zziDate": {
     "qId": "iDate",
     "nxtQId": "iWhere",
     "title": "When did the incident happen?",
@@ -54,7 +54,7 @@
       {
         "ansId": "moreThan3YearsNo",
         "ansLabel": "No",
-        "nxtQId": "iWhere"
+        "nxtQId": "iDate"
       }
     ]
   },
@@ -73,9 +73,18 @@
       {
         "ansId": "over21No",
         "ansLabel": "No",
-        "nxtQId": "iWhere"
+        "nxtQId": "iDate"
       }
     ]
+  },
+  "iDate": {
+    "qId": "iDate",
+    "nxtQId": "iWhere",
+    "title": "When did the incident happen?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "date",
+    "placeholder": "e.g. 25/12/2009"
   },
   "iWhere": {
     "qId": "iWhere",

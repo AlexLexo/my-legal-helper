@@ -11,6 +11,7 @@ import { ThemeProvider } from 'styled-components';
 import theme from './components/styled-components/theme';
 import 'typeface-quicksand';
 import 'typeface-open-sans';
+import 'react-dates/initialize';
 import './index.scss';
 
 ReactDOM.render(
