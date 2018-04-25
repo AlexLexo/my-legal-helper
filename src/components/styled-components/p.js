@@ -10,7 +10,7 @@ const P = styled.p`
   margin-right: auto;
   text-align: ${props => (props.center ? 'center' : props.justify ? 'justify' : 'left')};
   color: ${props => (props.dark ? 'white' : props.theme.colors.color3)};
-  line-height: 1;
+  line-height: 1.3;
   @media (max-width: 599px) {
     width: 90%;
     font-size: 1rem;
@@ -18,7 +18,7 @@ const P = styled.p`
   }
   @media (min-width: 600px) {
     width: 500px;
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
   @media (min-width: 900px) {
     width: 550px;
