@@ -1,7 +1,5 @@
 import React from 'react';
 import DOMPurify from 'dompurify';
-//import 'react-datez/dist/css/react-datez.css';
-//import { ReactDatez } from 'react-datez';
 import Container from './../../styled-components/container';
 import Header from './../../styled-components/header';
 
@@ -22,48 +20,6 @@ class Duration extends React.Component {
     return (
       <Container>
         <Header center t="50px" dangerouslySetInnerHTML={title} />
-        {/*<div
-          className="form-group"
-          style={{
-            marginLeft: 'auto',
-            marginRight: 'auto',
-            paddingTop: '30px',
-            fontSize: '1.8em'
-          }}
-        >
-          <label style={{ fontSize: '0.8em' }} htmlFor="cDOB">
-            {this.props.q.inputs[0].title}
-          </label>
-          <br />
-          <ReactDatez
-            name="cDOB"
-            handleChange={this.handleChangecDOB}
-            value={this.state.cDOB}
-            allowPast
-            allowFuture={false}
-          />
-        </div>
-        <div
-          className="form-group"
-          style={{
-            marginLeft: 'auto',
-            marginRight: 'auto',
-            paddingTop: '30px',
-            fontSize: '1.8em'
-          }}
-        >
-          <label style={{ fontSize: '0.8em' }} htmlFor="iDate">
-            {this.props.q.inputs[1].title}
-          </label>
-          <br />
-          <ReactDatez
-            name="iDate"
-            handleChange={this.handleChangeiDate}
-            value={this.state.iDate}
-            allowPast
-            allowFuture={false}
-          />
-        </div>*/}
       </Container>
     );
   }

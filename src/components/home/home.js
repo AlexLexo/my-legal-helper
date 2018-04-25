@@ -41,7 +41,7 @@ class Home extends Component {
         <Container>
           <LogoLanding alt="Litem Logo" src={LogoDark} />
           <Header center t="4.5vh" b="4.5vh">
-            Free tools and guides for injured cyclists to exercise their rights
+            Helping injured cyclists with free legal tools and guides
           </Header>
           <BtnGetStarted
             t="20px"
