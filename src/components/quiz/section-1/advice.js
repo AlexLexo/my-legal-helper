@@ -52,10 +52,16 @@ const Advice = inject('RootStore')(
                 </P>
                 <P>
                   However, if they were acting in the course of their employment you may be able to bring a case against
-                  the company direct. For more information see this guide –{' '}
-                  <a href="link" target="_blank" rel="noopener noreferrer">
-                    link
-                  </a>.
+                  the company direct. For more information see{' '}
+                  <Link
+                    name="guides"
+                    onClick={() => {
+                      props.history.push('guides');
+                      props.setSection('guides');
+                    }}
+                  >
+                    our legal guide
+                  </Link>.
                 </P>
               </div>
             )}
@@ -82,10 +88,16 @@ const Advice = inject('RootStore')(
                 </P>
                 <P>
                   However, if they were acting in the course of their employment you may be able to bring a case against
-                  the company direct. For more information see this guide –{' '}
-                  <a href="link" target="_blank" rel="noopener noreferrer">
-                    link
-                  </a>.
+                  the company direct. For more information see{' '}
+                  <Link
+                    name="guides"
+                    onClick={() => {
+                      props.history.push('guides');
+                      props.setSection('guides');
+                    }}
+                  >
+                    our legal guide
+                  </Link>.
                 </P>
               </div>
             )}
@@ -111,10 +123,16 @@ const Advice = inject('RootStore')(
                 </P>
                 <P>
                   However, given that they were acting in the course of their employment you should be able to bring a
-                  case against the company direct. For more information see this guide –{' '}
-                  <a href="link" target="_blank" rel="noopener noreferrer">
-                    link
-                  </a>.
+                  case against the company direct. For more information see{' '}
+                  <Link
+                    name="guides"
+                    onClick={() => {
+                      props.history.push('guides');
+                      props.setSection('guides');
+                    }}
+                  >
+                    our legal guide
+                  </Link>.
                 </P>
               </div>
             )}
@@ -134,10 +152,16 @@ const Advice = inject('RootStore')(
                 </P>
                 <P>
                   However, if they were acting in the course of their employment you may be able to bring a case against
-                  the company direct for more information see this guide –{' '}
-                  <a href="link" target="_blank" rel="noopener noreferrer">
-                    link
-                  </a>.
+                  the company direct. For more information see{' '}
+                  <Link
+                    name="guides"
+                    onClick={() => {
+                      props.history.push('guides');
+                      props.setSection('guides');
+                    }}
+                  >
+                    our legal guide
+                  </Link>.
                 </P>
               </div>
             )}
@@ -164,10 +188,16 @@ const Advice = inject('RootStore')(
                 </P>
                 <P>
                   However, if they were acting in the course of their employment you may be able to bring a case against
-                  the company direct. For more information see this guide –{' '}
-                  <a href="link" target="_blank" rel="noopener noreferrer">
-                    link
-                  </a>.
+                  the company direct. For more information see{' '}
+                  <Link
+                    name="guides"
+                    onClick={() => {
+                      props.history.push('guides');
+                      props.setSection('guides');
+                    }}
+                  >
+                    our legal guide
+                  </Link>.
                 </P>
               </div>
             )}
@@ -241,10 +271,16 @@ const Advice = inject('RootStore')(
                 had a duty to check that it was safe to turn before doing so. However, you were filtering to the left of
                 a queue of traffic when approaching a side road on your left. This is seen as a hazardous manoeuvre and,
                 although your case is likely to win, a court will normally reduce your damages by around 50% for
-                'contributory negligence'. For more information see this guide –{' '}
-                <a href="link" target="_blank" rel="noopener noreferrer">
-                  link
-                </a>.
+                'contributory negligence'. For more information see{' '}
+                <Link
+                  name="guides"
+                  onClick={() => {
+                    props.history.push('guides');
+                    props.setSection('guides');
+                  }}
+                >
+                  our legal guide
+                </Link>.
               </P>
             ) : (
               <P>
@@ -263,7 +299,16 @@ const Advice = inject('RootStore')(
                 same direction as you. You were filtering to the right of a queue of traffic when approaching a side
                 road on your right. This is seen as a hazardous manoeuvre and - although your case is likely to win -
                 you will normally have your damages reduced by around 50% for 'contributory negligence'. For more
-                information see this guide – link.
+                information see{' '}
+                <Link
+                  name="guides"
+                  onClick={() => {
+                    props.history.push('guides');
+                    props.setSection('guides');
+                  }}
+                >
+                  our legal guide
+                </Link>.
               </P>
             ) : (
               <P>

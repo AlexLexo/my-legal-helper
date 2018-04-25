@@ -19,7 +19,7 @@ class Letter extends Component {
     iDate: moment(this.props.allQs.iDate.answered).format('DD/MM/YYYY'),
     dFullName: this.props.allQs.dFullName.answered,
     dPolicyNumber: this.props.allQs.dPolicyNumber.answered,
-    intro: `On ${moment(this.props.allQs.cDOBiDate.answered[1]).format('dddd Do MMMM YYYY')} I suffered ${
+    intro: `On ${moment(this.props.allQs.iDate.answered).format('dddd Do MMMM YYYY')} I suffered ${
       this.props.allQs.injured.answered === 'injuredYes'
         ? this.props.allQs.lossesFinancial.answered === 'lossesFinancialYes'
           ? 'injuries and financial loss'

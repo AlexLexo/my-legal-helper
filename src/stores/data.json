@@ -54,7 +54,7 @@
       {
         "ansId": "moreThan3YearsNo",
         "ansLabel": "No",
-        "nxtQId": "iDate"
+        "nxtQId": "iWhere"
       }
     ]
   },
@@ -73,18 +73,9 @@
       {
         "ansId": "over21No",
         "ansLabel": "No",
-        "nxtQId": "iDate"
+        "nxtQId": "iWhere"
       }
     ]
-  },
-  "iDate": {
-    "qId": "iDate",
-    "nxtQId": "iWhere",
-    "title": "When did the incident happen?",
-    "answered": "",
-    "answeredOn": "",
-    "type": "date",
-    "placeholder": "e.g. 25/12/2009"
   },
   "iWhere": {
     "qId": "iWhere",
@@ -1194,12 +1185,21 @@
   },
   "cStreet": {
     "qId": "cStreet",
-    "nxtQId": "injured",
+    "nxtQId": "iDate",
     "title": "Which street did the incident occur on?",
     "answered": "",
     "answeredOn": "",
     "type": "text",
     "placeholder": "e.g. Klemkestrass 43"
+  },
+  "iDate": {
+    "qId": "iDate",
+    "nxtQId": "injured",
+    "title": "When did the incident happen?",
+    "answered": "",
+    "answeredOn": "",
+    "type": "date",
+    "placeholder": "e.g. 25/12/2009"
   },
   "landmark": {
     "status": "removed",
